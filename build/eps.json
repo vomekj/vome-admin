@@ -1,0 +1,5269 @@
+{
+  "admin": {
+    "base": [
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/auth",
+        "info": {
+          "type": {
+            "name": "auth",
+            "description": "auth"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/login",
+            "summary": "登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/auth",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/refresh",
+            "summary": "刷新令牌",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/auth",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/logout",
+            "summary": "退出登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/auth",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/me",
+            "summary": "当前用户信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/auth",
+            "ignoreToken": false,
+            "ignorePerms": true,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/perms",
+            "summary": "权限与菜单",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/auth",
+            "ignoreToken": false,
+            "ignorePerms": true,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/comm",
+        "info": {
+          "type": {
+            "name": "comm",
+            "description": "通用接口"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/upload",
+            "summary": "获取云端上传签名",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/comm",
+            "ignoreToken": false,
+            "ignorePerms": true,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/department",
+        "name": "BaseDepartmentEntity",
+        "info": {
+          "type": {
+            "name": "department",
+            "description": "department"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/tree",
+            "summary": "部门树（扁平）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:list",
+              "base:role:list",
+              "base:department:tree"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/department",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:department:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "parentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.parentId",
+            "comment": "上级"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name"
+          ],
+          "fieldEq": [
+            "a.parentId"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "parentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.parentId",
+            "comment": "上级"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/dict/info",
+        "name": "BaseDictInfoEntity",
+        "info": {
+          "type": {
+            "name": "info",
+            "description": "info"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/types",
+            "summary": "字典类型列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/data",
+            "summary": "获得字典数据（扁平，前端组树）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:data"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/get",
+            "summary": "按类型 key 获得字典树",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:get"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/find",
+            "summary": "按类型 key + value 找树节点",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:find"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/getValues",
+            "summary": "存值反查展示名",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:getValues"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/pathValue",
+            "summary": "按名称路径直取树上 value",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:pathValue"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/childValue",
+            "summary": "按父 value + 子名称直取子 value",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:childValue"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "typeId",
+            "type": "number",
+            "nullable": false,
+            "source": "a.typeId",
+            "comment": "字典类型"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "value",
+            "type": "json",
+            "nullable": true,
+            "source": "a.value",
+            "comment": "值"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "parentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.parentId",
+            "comment": "上级"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.typeId",
+              "none": true
+            },
+            "a.parentId"
+          ],
+          "fieldLike": [
+            "a.remark"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "typeId",
+            "type": "number",
+            "nullable": false,
+            "source": "a.typeId",
+            "comment": "字典类型"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "value",
+            "type": "json",
+            "nullable": true,
+            "source": "a.value",
+            "comment": "值"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "parentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.parentId",
+            "comment": "上级"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/dict/type",
+        "name": "BaseDictTypeEntity",
+        "info": {
+          "type": {
+            "name": "type",
+            "description": "type"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "key",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.key",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.key"
+          ],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "key",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.key",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/log",
+        "name": "BaseLogEntity",
+        "info": {
+          "type": {
+            "name": "log",
+            "description": "log"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/clear",
+            "summary": "清空日志",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:clear"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/setKeep",
+            "summary": "设置保留天数",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:setKeep"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/getKeep",
+            "summary": "获取保留天数",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:getKeep"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/getScope",
+            "summary": "获取写入日志范围",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:getScope"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/setScope",
+            "summary": "设置写入日志范围",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:setScope"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:delete"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:log:page"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "userId",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.userId",
+            "comment": "操作者"
+          },
+          {
+            "propertyName": "side",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.side",
+            "comment": "端"
+          },
+          {
+            "propertyName": "ip",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.ip",
+            "comment": "IP"
+          },
+          {
+            "propertyName": "method",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.method",
+            "comment": "方法"
+          },
+          {
+            "propertyName": "action",
+            "type": "string",
+            "length": "500",
+            "nullable": false,
+            "source": "a.action",
+            "comment": "路径"
+          },
+          {
+            "propertyName": "logType",
+            "type": "string",
+            "length": "32",
+            "nullable": true,
+            "source": "a.logType",
+            "comment": "日志类型"
+          },
+          {
+            "propertyName": "params",
+            "type": "string",
+            "nullable": true,
+            "source": "a.params",
+            "comment": "请求参数"
+          },
+          {
+            "propertyName": "response",
+            "type": "string",
+            "nullable": true,
+            "source": "a.response",
+            "comment": "响应"
+          },
+          {
+            "propertyName": "duration",
+            "type": "number",
+            "nullable": false,
+            "source": "a.duration",
+            "comment": "响应时间"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": true,
+            "source": "a.status",
+            "comment": "状态码"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "请求时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.action",
+            "a.ip",
+            "a.userId"
+          ],
+          "fieldEq": [
+            "a.side",
+            "a.method",
+            "a.status",
+            "a.logType"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            },
+            {
+              "column": "a.duration",
+              "min": "minDuration",
+              "max": "maxDuration",
+              "type": "int"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "userId",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.userId",
+            "comment": "操作者"
+          },
+          {
+            "propertyName": "side",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.side",
+            "comment": "端"
+          },
+          {
+            "propertyName": "ip",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.ip",
+            "comment": "IP"
+          },
+          {
+            "propertyName": "method",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.method",
+            "comment": "方法"
+          },
+          {
+            "propertyName": "action",
+            "type": "string",
+            "length": "500",
+            "nullable": false,
+            "source": "a.action",
+            "comment": "路径"
+          },
+          {
+            "propertyName": "logType",
+            "type": "string",
+            "length": "32",
+            "nullable": true,
+            "source": "a.logType",
+            "comment": "日志类型"
+          },
+          {
+            "propertyName": "params",
+            "type": "string",
+            "nullable": true,
+            "source": "a.params",
+            "comment": "请求参数"
+          },
+          {
+            "propertyName": "response",
+            "type": "string",
+            "nullable": true,
+            "source": "a.response",
+            "comment": "响应"
+          },
+          {
+            "propertyName": "duration",
+            "type": "number",
+            "nullable": false,
+            "source": "a.duration",
+            "comment": "响应时间"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": true,
+            "source": "a.status",
+            "comment": "状态码"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "请求时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/menu",
+        "name": "BaseMenuEntity",
+        "info": {
+          "type": {
+            "name": "menu",
+            "description": "menu"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/tree",
+            "summary": "菜单树",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:tree"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/menu",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:menu:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "parentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.parentId",
+            "comment": "上级"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "router",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.router",
+            "comment": "路由"
+          },
+          {
+            "propertyName": "perms",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.perms",
+            "comment": "权限"
+          },
+          {
+            "propertyName": "type",
+            "type": "number",
+            "nullable": false,
+            "source": "a.type",
+            "comment": "类型"
+          },
+          {
+            "propertyName": "icon",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.icon",
+            "comment": "图标"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序"
+          },
+          {
+            "propertyName": "viewPath",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.viewPath",
+            "comment": "视图"
+          },
+          {
+            "propertyName": "remoteName",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.remoteName",
+            "comment": "远程名"
+          },
+          {
+            "propertyName": "remoteEntry",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remoteEntry",
+            "comment": "远程入口"
+          },
+          {
+            "propertyName": "remoteModule",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.remoteModule",
+            "comment": "远程模块"
+          },
+          {
+            "propertyName": "appKey",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.appKey",
+            "comment": "微应用"
+          },
+          {
+            "propertyName": "keepAlive",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.keepAlive",
+            "comment": "路由缓存"
+          },
+          {
+            "propertyName": "isShow",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.isShow",
+            "comment": "是否显示"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.router",
+            "a.viewPath",
+            "a.icon",
+            "a.perms"
+          ],
+          "fieldEq": [
+            "a.type",
+            "a.parentId",
+            "a.isShow",
+            "a.keepAlive"
+          ],
+          "fieldLike": [
+            "a.appKey",
+            "a.remoteName"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "parentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.parentId",
+            "comment": "上级"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "router",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.router",
+            "comment": "路由"
+          },
+          {
+            "propertyName": "perms",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.perms",
+            "comment": "权限"
+          },
+          {
+            "propertyName": "type",
+            "type": "number",
+            "nullable": false,
+            "source": "a.type",
+            "comment": "类型"
+          },
+          {
+            "propertyName": "icon",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.icon",
+            "comment": "图标"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序"
+          },
+          {
+            "propertyName": "viewPath",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.viewPath",
+            "comment": "视图"
+          },
+          {
+            "propertyName": "remoteName",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.remoteName",
+            "comment": "远程名"
+          },
+          {
+            "propertyName": "remoteEntry",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remoteEntry",
+            "comment": "远程入口"
+          },
+          {
+            "propertyName": "remoteModule",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.remoteModule",
+            "comment": "远程模块"
+          },
+          {
+            "propertyName": "appKey",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.appKey",
+            "comment": "微应用"
+          },
+          {
+            "propertyName": "keepAlive",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.keepAlive",
+            "comment": "路由缓存"
+          },
+          {
+            "propertyName": "isShow",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.isShow",
+            "comment": "是否显示"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/module",
+        "info": {
+          "type": {
+            "name": "module",
+            "description": "module"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/install",
+            "summary": "安装业务模块",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/module",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:module:install"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "已安装业务模块列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/module",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:module:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "卸载业务模块",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/module",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:module:delete"
+            ]
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/open",
+        "info": {
+          "type": {
+            "name": "open",
+            "description": "开放接口"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/eps",
+            "summary": "实体信息与路径",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/open",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/captcha",
+            "summary": "图片验证码",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/open",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/plugin",
+        "name": "BasePluginInfoEntity",
+        "info": {
+          "type": {
+            "name": "plugin",
+            "description": "plugin"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:page"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/plugin",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:plugin:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "description",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.description",
+            "comment": "描述"
+          },
+          {
+            "propertyName": "keyName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.keyName",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "hook",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.hook",
+            "comment": "钩子"
+          },
+          {
+            "propertyName": "readme",
+            "type": "string",
+            "nullable": true,
+            "source": "a.readme",
+            "comment": "说明"
+          },
+          {
+            "propertyName": "version",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.version",
+            "comment": "版本"
+          },
+          {
+            "propertyName": "logo",
+            "type": "string",
+            "nullable": true,
+            "source": "a.logo",
+            "comment": "Logo"
+          },
+          {
+            "propertyName": "author",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.author",
+            "comment": "作者"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "content",
+            "type": "json",
+            "nullable": true,
+            "source": "a.content",
+            "comment": "内容"
+          },
+          {
+            "propertyName": "tsContent",
+            "type": "json",
+            "nullable": true,
+            "source": "a.tsContent",
+            "comment": "TS内容"
+          },
+          {
+            "propertyName": "pluginJson",
+            "type": "json",
+            "nullable": true,
+            "source": "a.pluginJson",
+            "comment": "插件元数据"
+          },
+          {
+            "propertyName": "config",
+            "type": "json",
+            "nullable": true,
+            "source": "a.config",
+            "comment": "配置"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.keyName",
+            "a.author",
+            "a.description"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            "a.hook"
+          ],
+          "fieldLike": [
+            "a.version"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "description",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.description",
+            "comment": "描述"
+          },
+          {
+            "propertyName": "keyName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.keyName",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "hook",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.hook",
+            "comment": "钩子"
+          },
+          {
+            "propertyName": "readme",
+            "type": "string",
+            "nullable": true,
+            "source": "a.readme",
+            "comment": "说明"
+          },
+          {
+            "propertyName": "version",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.version",
+            "comment": "版本"
+          },
+          {
+            "propertyName": "logo",
+            "type": "string",
+            "nullable": true,
+            "source": "a.logo",
+            "comment": "Logo"
+          },
+          {
+            "propertyName": "author",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.author",
+            "comment": "作者"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "content",
+            "type": "json",
+            "nullable": true,
+            "source": "a.content",
+            "comment": "内容"
+          },
+          {
+            "propertyName": "tsContent",
+            "type": "json",
+            "nullable": true,
+            "source": "a.tsContent",
+            "comment": "TS内容"
+          },
+          {
+            "propertyName": "pluginJson",
+            "type": "json",
+            "nullable": true,
+            "source": "a.pluginJson",
+            "comment": "插件元数据"
+          },
+          {
+            "propertyName": "config",
+            "type": "json",
+            "nullable": true,
+            "source": "a.config",
+            "comment": "配置"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/queue",
+        "info": {
+          "type": {
+            "name": "queue",
+            "description": "queue"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/queues",
+            "summary": "队列列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:queues"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/jobs",
+            "summary": "队列内任务分页",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:jobs"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/enqueue",
+            "summary": "投递任务",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:enqueue"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/retry",
+            "summary": "重试失败任务",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:retry"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/remove",
+            "summary": "删除任务",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:remove"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/clean",
+            "summary": "清理已完成/失败任务",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:clean"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/pause",
+            "summary": "暂停队列",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:pause"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/resume",
+            "summary": "恢复队列",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:resume"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/obliterate",
+            "summary": "删除整个队列（含全部任务）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/queue",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:queue:obliterate"
+            ]
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/role",
+        "name": "BaseRoleEntity",
+        "info": {
+          "type": {
+            "name": "role",
+            "description": "role"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/menus",
+            "summary": "角色菜单",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:menus"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/setMenus",
+            "summary": "设置菜单",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:setMenus"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/departments",
+            "summary": "角色数据权限部门",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:departments"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/setDepartments",
+            "summary": "设置数据权限部门",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:setDepartments"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:role:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "label",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.label",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "dataScope",
+            "type": "number",
+            "nullable": false,
+            "source": "a.dataScope",
+            "comment": "数据权限"
+          },
+          {
+            "propertyName": "relevance",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.relevance",
+            "comment": "关联上下级"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.label"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            "a.dataScope",
+            "a.relevance"
+          ],
+          "fieldLike": [
+            "a.remark"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "label",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.label",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "dataScope",
+            "type": "number",
+            "nullable": false,
+            "source": "a.dataScope",
+            "comment": "数据权限"
+          },
+          {
+            "propertyName": "relevance",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.relevance",
+            "comment": "关联上下级"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/task",
+        "name": "BaseTaskEntity",
+        "info": {
+          "type": {
+            "name": "task",
+            "description": "task"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/start",
+            "summary": "启动任务",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:start"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/stop",
+            "summary": "停止任务",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:stop"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/once",
+            "summary": "立即执行",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:once"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/log",
+            "summary": "执行记录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:log"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/task",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:task:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "service",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.service",
+            "comment": "服务类"
+          },
+          {
+            "propertyName": "method",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.method",
+            "comment": "方法"
+          },
+          {
+            "propertyName": "params",
+            "type": "string",
+            "nullable": true,
+            "source": "a.params",
+            "comment": "参数"
+          },
+          {
+            "propertyName": "taskType",
+            "type": "string",
+            "length": "20",
+            "nullable": false,
+            "source": "a.taskType",
+            "comment": "任务类型"
+          },
+          {
+            "propertyName": "cron",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.cron",
+            "comment": "Cron"
+          },
+          {
+            "propertyName": "startDate",
+            "type": "date",
+            "nullable": true,
+            "source": "a.startDate",
+            "comment": "执行时间"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "lastRunTime",
+            "type": "date",
+            "nullable": true,
+            "source": "a.lastRunTime",
+            "comment": "上次执行"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.service",
+            "a.method"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            "a.taskType"
+          ],
+          "fieldLike": [
+            "a.cron",
+            "a.remark"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            },
+            {
+              "column": "a.startDate",
+              "min": "startDateMin",
+              "max": "startDateMax",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "service",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.service",
+            "comment": "服务类"
+          },
+          {
+            "propertyName": "method",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.method",
+            "comment": "方法"
+          },
+          {
+            "propertyName": "params",
+            "type": "string",
+            "nullable": true,
+            "source": "a.params",
+            "comment": "参数"
+          },
+          {
+            "propertyName": "taskType",
+            "type": "string",
+            "length": "20",
+            "nullable": false,
+            "source": "a.taskType",
+            "comment": "任务类型"
+          },
+          {
+            "propertyName": "cron",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.cron",
+            "comment": "Cron"
+          },
+          {
+            "propertyName": "startDate",
+            "type": "date",
+            "nullable": true,
+            "source": "a.startDate",
+            "comment": "执行时间"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "lastRunTime",
+            "type": "date",
+            "nullable": true,
+            "source": "a.lastRunTime",
+            "comment": "上次执行"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/tenant",
+        "name": "BaseTenantEntity",
+        "info": {
+          "type": {
+            "name": "tenant",
+            "description": "tenant"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/tenant",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:tenant:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "code",
+            "type": "string",
+            "length": "64",
+            "nullable": false,
+            "source": "a.code",
+            "comment": "编码"
+          },
+          {
+            "propertyName": "domains",
+            "type": "json",
+            "nullable": false,
+            "source": "a.domains",
+            "comment": "域名"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.code",
+            "a.remark"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            }
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "code",
+            "type": "string",
+            "length": "64",
+            "nullable": false,
+            "source": "a.code",
+            "comment": "编码"
+          },
+          {
+            "propertyName": "domains",
+            "type": "json",
+            "nullable": false,
+            "source": "a.domains",
+            "comment": "域名"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
+        "prefix": "/admin/base/user",
+        "name": "BaseUserEntity",
+        "info": {
+          "type": {
+            "name": "user",
+            "description": "user"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/roles",
+            "summary": "用户角色",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:roles"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/roleMap",
+            "summary": "用户角色名映射",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:roleMap"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/setRoles",
+            "summary": "设置角色",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:setRoles"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/transferSuper",
+            "summary": "转让超管",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:transferSuper"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/moveDepartment",
+            "summary": "批量转移部门",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:update"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/user",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:user:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "departmentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.departmentId",
+            "comment": "部门"
+          },
+          {
+            "propertyName": "userId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.userId",
+            "comment": "关联用户"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.name",
+            "comment": "姓名"
+          },
+          {
+            "propertyName": "username",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.username",
+            "comment": "用户名"
+          },
+          {
+            "propertyName": "password",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.password",
+            "comment": "密码"
+          },
+          {
+            "propertyName": "passwordV",
+            "type": "number",
+            "nullable": false,
+            "source": "a.passwordV",
+            "comment": "密码版本"
+          },
+          {
+            "propertyName": "nickName",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.nickName",
+            "comment": "昵称"
+          },
+          {
+            "propertyName": "headImg",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.headImg",
+            "comment": "头像"
+          },
+          {
+            "propertyName": "phone",
+            "type": "string",
+            "length": "20",
+            "nullable": true,
+            "source": "a.phone",
+            "comment": "手机号"
+          },
+          {
+            "propertyName": "email",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.email",
+            "comment": "邮箱"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "socketId",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.socketId",
+            "comment": "Socket"
+          },
+          {
+            "propertyName": "isSuper",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.isSuper",
+            "comment": "超管"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.username",
+            "a.name",
+            "a.nickName",
+            "a.phone",
+            "a.email"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            "a.departmentId",
+            "a.isSuper"
+          ],
+          "fieldLike": [
+            "a.remark"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "departmentId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.departmentId",
+            "comment": "部门"
+          },
+          {
+            "propertyName": "userId",
+            "type": "number",
+            "nullable": true,
+            "source": "a.userId",
+            "comment": "关联用户"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.name",
+            "comment": "姓名"
+          },
+          {
+            "propertyName": "username",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.username",
+            "comment": "用户名"
+          },
+          {
+            "propertyName": "password",
+            "type": "string",
+            "length": "255",
+            "nullable": false,
+            "source": "a.password",
+            "comment": "密码"
+          },
+          {
+            "propertyName": "passwordV",
+            "type": "number",
+            "nullable": false,
+            "source": "a.passwordV",
+            "comment": "密码版本"
+          },
+          {
+            "propertyName": "nickName",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.nickName",
+            "comment": "昵称"
+          },
+          {
+            "propertyName": "headImg",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.headImg",
+            "comment": "头像"
+          },
+          {
+            "propertyName": "phone",
+            "type": "string",
+            "length": "20",
+            "nullable": true,
+            "source": "a.phone",
+            "comment": "手机号"
+          },
+          {
+            "propertyName": "email",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.email",
+            "comment": "邮箱"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "socketId",
+            "type": "string",
+            "length": "255",
+            "nullable": true,
+            "source": "a.socketId",
+            "comment": "Socket"
+          },
+          {
+            "propertyName": "isSuper",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.isSuper",
+            "comment": "超管"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      }
+    ],
+    "user": [
+      {
+        "module": "user",
+        "side": "admin",
+        "prefix": "/admin/user/info",
+        "name": "UserInfoEntity",
+        "info": {
+          "type": {
+            "name": "info",
+            "description": "info"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/roles",
+            "summary": "用户角色",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:roles"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/roleMap",
+            "summary": "用户角色名映射",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:roleMap"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/setRoles",
+            "summary": "设置角色",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:setRoles"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:info:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "string",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "email",
+            "type": "string",
+            "nullable": false,
+            "source": "a.email",
+            "comment": "邮箱"
+          },
+          {
+            "propertyName": "emailVerified",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.emailVerified",
+            "comment": "邮箱已验证"
+          },
+          {
+            "propertyName": "image",
+            "type": "string",
+            "nullable": true,
+            "source": "a.image",
+            "comment": "头像"
+          },
+          {
+            "propertyName": "phone",
+            "type": "string",
+            "length": "20",
+            "nullable": true,
+            "source": "a.phone",
+            "comment": "手机号"
+          },
+          {
+            "propertyName": "unionid",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.unionid",
+            "comment": "微信unionid"
+          },
+          {
+            "propertyName": "password",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.password",
+            "comment": "密码"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "createdAt",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createdAt",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updatedAt",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updatedAt",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.email",
+            "a.phone"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            "a.emailVerified",
+            "a.tenantId"
+          ],
+          "fieldLike": [
+            "a.unionid"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createdAt",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "string",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "email",
+            "type": "string",
+            "nullable": false,
+            "source": "a.email",
+            "comment": "邮箱"
+          },
+          {
+            "propertyName": "emailVerified",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.emailVerified",
+            "comment": "邮箱已验证"
+          },
+          {
+            "propertyName": "image",
+            "type": "string",
+            "nullable": true,
+            "source": "a.image",
+            "comment": "头像"
+          },
+          {
+            "propertyName": "phone",
+            "type": "string",
+            "length": "20",
+            "nullable": true,
+            "source": "a.phone",
+            "comment": "手机号"
+          },
+          {
+            "propertyName": "unionid",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.unionid",
+            "comment": "微信unionid"
+          },
+          {
+            "propertyName": "password",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.password",
+            "comment": "密码"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "createdAt",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createdAt",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updatedAt",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updatedAt",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "user",
+        "side": "admin",
+        "prefix": "/admin/user/role",
+        "name": "UserRoleEntity",
+        "info": {
+          "type": {
+            "name": "role",
+            "description": "role"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/user/role",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "user:role:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "label",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.label",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "perms",
+            "type": "string",
+            "nullable": false,
+            "source": "a.perms",
+            "comment": "权限"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.label"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            }
+          ],
+          "fieldLike": [
+            "a.remark"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "label",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.label",
+            "comment": "标识"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "perms",
+            "type": "string",
+            "nullable": false,
+            "source": "a.perms",
+            "comment": "权限"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      }
+    ]
+  },
+  "app": {
+    "base": [
+      {
+        "module": "base",
+        "side": "app",
+        "prefix": "/app/base/comm",
+        "info": {
+          "type": {
+            "name": "comm",
+            "description": "通用接口"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/upload",
+            "summary": "获取云端上传签名",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/comm",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "app",
+        "prefix": "/app/base/dict",
+        "info": {
+          "type": {
+            "name": "dict",
+            "description": "dict"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/types",
+            "summary": "字典类型列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/data",
+            "summary": "获得字典数据（扁平，前端组树）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/get",
+            "summary": "按类型 key 获得字典树",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/find",
+            "summary": "按类型 key + value 找树节点",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/getValues",
+            "summary": "存值反查展示名",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/pathValue",
+            "summary": "按名称路径直取树上 value",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/childValue",
+            "summary": "按父 value + 子名称直取子 value",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/dict",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "app",
+        "prefix": "/app/base/open",
+        "info": {
+          "type": {
+            "name": "open",
+            "description": "开放接口"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/eps",
+            "summary": "实体信息与路径",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/open",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      }
+    ],
+    "user": [
+      {
+        "module": "user",
+        "side": "app",
+        "prefix": "/app/user/comm",
+        "info": {
+          "type": {
+            "name": "comm",
+            "description": "App 用户通用"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/wxMpConfig",
+            "summary": "获取微信公众号配置",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/comm",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "user",
+        "side": "app",
+        "prefix": "/app/user/info",
+        "info": {
+          "type": {
+            "name": "info",
+            "description": "App 用户信息"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/person",
+            "summary": "获取用户信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/updatePerson",
+            "summary": "更新用户信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/updatePassword",
+            "summary": "更新用户密码",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/logoff",
+            "summary": "注销",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/logout",
+            "summary": "退出登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/bindPhone",
+            "summary": "绑定手机号",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/miniPhone",
+            "summary": "绑定小程序手机号",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "user",
+        "side": "app",
+        "prefix": "/app/user/login",
+        "info": {
+          "type": {
+            "name": "login",
+            "description": "App 登录"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/socialProviders",
+            "summary": "已启用的社交 SSO",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/captcha",
+            "summary": "图片验证码",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/otpCode",
+            "summary": "发送验证码（手机/邮箱自动分流）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/otp",
+            "summary": "验证码登录（登录即注册，手机/邮箱自动分流）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/smsCode",
+            "summary": "发送短信验证码",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/emailCode",
+            "summary": "发送邮箱验证码",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/phone",
+            "summary": "手机号验证码登录（登录即注册）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/email",
+            "summary": "邮箱验证码登录（登录即注册）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/password",
+            "summary": "密码登录（手机号或邮箱）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/register",
+            "summary": "密码注册（手机号或邮箱）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/mini",
+            "summary": "小程序登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/mp",
+            "summary": "公众号登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/wxApp",
+            "summary": "微信APP授权登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/uniPhone",
+            "summary": "一键手机号登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/miniPhone",
+            "summary": "小程序手机号登录",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/refreshToken",
+            "summary": "刷新token",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "user",
+        "side": "app",
+        "prefix": "/app/user/rbac",
+        "info": {
+          "type": {
+            "name": "rbac",
+            "description": "rbac"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/perms",
+            "summary": "当前权限",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/rbac",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      }
+    ]
+  }
+}

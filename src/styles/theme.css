@@ -1,0 +1,156 @@
+/**
+ * 主题色（可改）：只改颜色 token，勿把布局/控件尺寸写进此文件。
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "remixicon/fonts/remixicon.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --spacing: 4px;
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 32px;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 36px;
+  --text-4xl: 36px;
+  --text-4xl--line-height: 40px;
+  --text-5xl: 48px;
+  --text-5xl--line-height: 1;
+  --text-6xl: 60px;
+  --text-6xl--line-height: 1;
+  --text-7xl: 72px;
+  --text-7xl--line-height: 1;
+  --text-8xl: 96px;
+  --text-8xl--line-height: 1;
+  --text-9xl: 128px;
+  --text-9xl--line-height: 1;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+}
+
+/* 蓝系品牌 #4E5DFF */
+:root {
+  --brand: #4e5dff;
+  --brand-soft: #eef0ff;
+  --brand-deep: #3d4ae6;
+
+  --background: #f4f6fc;
+  --foreground: #50566b;
+  --card: #ffffff;
+  --card-foreground: #3a4058;
+  --popover: #ffffff;
+  --popover-foreground: #3a4058;
+  --primary: #4e5dff;
+  --primary-foreground: #ffffff;
+  --secondary: #eef0ff;
+  --secondary-foreground: #4a5168;
+  --muted: #eef1f8;
+  --muted-foreground: #7a8199;
+  --accent: #eef0ff;
+  --accent-foreground: #4a5168;
+  --destructive: #e5484d;
+  --danger: #c45b5e;
+  --danger-soft: #fceeee;
+  --warning: #c47a3a;
+  --warning-soft: #fff4e8;
+  --success: #3d9a6a;
+  --success-soft: #e8f7ef;
+  --border: #e4e8f2;
+  --input: #e4e8f2;
+  --ring: #4e5dff;
+  --focus-border: #a8b0ff;
+
+  --sidebar: #4e5dff;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #4e5dff;
+  --sidebar-accent: rgba(255, 255, 255, 0.14);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: transparent;
+
+  --scrollbar-thumb: #8b92a8;
+  --scrollbar-thumb-hover: #6b7280;
+}
+
+.dark {
+  --brand: #8b96ff;
+  --brand-soft: #252a45;
+  --brand-deep: #6b78ff;
+
+  --background: #141625;
+  --foreground: #f0f2fa;
+  --card: #1c1f33;
+  --card-foreground: #f0f2fa;
+  --popover: #1c1f33;
+  --popover-foreground: #f0f2fa;
+  --primary: #8b96ff;
+  --primary-foreground: #ffffff;
+  --secondary: #252a45;
+  --secondary-foreground: #e8eaf5;
+  --muted: #252a45;
+  --muted-foreground: #9aa0b8;
+  --accent: #252a45;
+  --accent-foreground: #e8eaf5;
+  --destructive: #f2555a;
+  --danger: #f0a0a3;
+  --danger-soft: #3a2a2e;
+  --warning: #e8b07a;
+  --warning-soft: #3a2e22;
+  --success: #7dd4a8;
+  --success-soft: #24352c;
+  --border: #2c3148;
+  --input: #2c3148;
+  --ring: #8b96ff;
+  --focus-border: #a8b0ff;
+
+  --sidebar: #1e2448;
+  --sidebar-foreground: #e8eaf5;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #1e2448;
+  --sidebar-accent: rgba(255, 255, 255, 0.1);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: transparent;
+
+  --scrollbar-thumb: #6b7280;
+  --scrollbar-thumb-hover: #9ca3af;
+}

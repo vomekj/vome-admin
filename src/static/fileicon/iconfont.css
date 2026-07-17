@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 5208803 */
+  src: url('iconfont.woff2?t=1783788495537') format('woff2'),
+       url('iconfont.woff?t=1783788495537') format('woff'),
+       url('iconfont.ttf?t=1783788495537') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-AAC:before {
+  content: "\e97f";
+}
+
+.icon-AVI:before {
+  content: "\e980";
+}
+
+.icon-BMP:before {
+  content: "\e981";
+}
+
+.icon-a-3GP:before {
+  content: "\e982";
+}
+
+.icon-JPEG:before {
+  content: "\e983";
+}
+
+.icon-CER:before {
+  content: "\e984";
+}
+
+.icon-BR:before {
+  content: "\e985";
+}
+
+.icon-DIF:before {
+  content: "\e986";
+}
+
+.icon-JSON:before {
+  content: "\e987";
+}
+
+.icon-JPG:before {
+  content: "\e988";
+}
+
+.icon-DOCX:before {
+  content: "\e989";
+}
+
+.icon-DOX:before {
+  content: "\e98a";
+}
+
+.icon-PPT:before {
+  content: "\e98b";
+}
+
+.icon-MP3:before {
+  content: "\e98c";
+}
+
+.icon-OGG:before {
+  content: "\e98d";
+}
+
+.icon-PNG:before {
+  content: "\e98e";
+}
+
+.icon-MP4:before {
+  content: "\e98f";
+}
+
+.icon-SVG:before {
+  content: "\e990";
+}
+
+.icon-PPTX:before {
+  content: "\e991";
+}
+
+.icon-RMVB:before {
+  content: "\e992";
+}
+
+.icon-M4A:before {
+  content: "\e993";
+}
+
+.icon-WASM:before {
+  content: "\e994";
+}
+
+.icon-TEXT:before {
+  content: "\e995";
+}
+
+.icon-WAV:before {
+  content: "\e996";
+}
+
+.icon-SILK:before {
+  content: "\e997";
+}
+
+.icon-XLSX:before {
+  content: "\e998";
+}
+
+.icon-ZIP:before {
+  content: "\e999";
+}
+
+.icon-RAR:before {
+  content: "\e99a";
+}
+
+.icon-WXS:before {
+  content: "\e99b";
+}
+
+.icon-XLS:before {
+  content: "\e99c";
+}
+
+.icon-PDF:before {
+  content: "\e99d";
+}
+

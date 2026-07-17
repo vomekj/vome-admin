@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "/@/*": ["node_modules/vome-core/dist/admin/*"],
+      "/@": ["node_modules/vome-core/dist/admin/index.d.ts"],
+      "@config": ["src/config/index.ts"],
+      "@config/*": ["src/config/*"],
+      "@typings/*": ["typings/*"],
+      "#vome-host": ["src/index.ts"],
+      "#vome-host/*": ["src/*"],
+      "vue": ["./node_modules/vue"],
+      "vue-router": ["./node_modules/vue-router"],
+      "pinia": ["./node_modules/pinia"],
+      "vue-sonner": ["./node_modules/vue-sonner"],
+      "@vueuse/core": ["./node_modules/@vueuse/core"],
+      "reka-ui": ["./node_modules/reka-ui"],
+      "clsx": ["./node_modules/clsx"],
+      "tailwind-merge": ["./node_modules/tailwind-merge"]
+    }
+  },
+  "vueCompilerOptions": {
+    "globalTypesPath": "./typings/auto-imports.d.ts"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/config/**/*.ts",
+    "typings/**/*.ts",
+    "typings/**/*.d.ts",
+    "plugins/**/*.ts",
+    "vite.config.ts",
+    "node_modules/vome-core/dist/admin/env.d.ts",
+    "node_modules/vome-core/typings/admin/**/*.ts",
+    "node_modules/vome-core/typings/admin/**/*.d.ts"
+  ]
+}
