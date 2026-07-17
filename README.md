@@ -1,12 +1,10 @@
-
-
 # Vome Admin
 
 [English](./README.en.md) | 简体中文
 
 基于 **Vue 3 + Vite** 的蓝系管理后台脚手架。与 [vome-service](https://gitee.com/vomekj/vome-service) 共用同一后端，走 **Admin 侧** API（`/admin/...`）与 EPS（`service.base.*` 等）；CRUD / 布局 / 路由守卫来自 [`vome-core`](https://www.npmjs.com/package/vome-core)。
 
-> 微茫科技开源项目。需先启动 Vome Service（含 `base` 菜单与超管种子）。
+> 威迈科技开源项目。需先启动 Vome Service（含 `base` 菜单与超管种子）。
 
 ## 特性
 
@@ -215,7 +213,7 @@ Issue / PR 欢迎中英文。
 
 ## 许可证
 
-[MIT](./LICENSE) © VomeShop / 微茫科技
+[MIT](./LICENSE) © VomeShop / 威迈科技
 
 ---
 

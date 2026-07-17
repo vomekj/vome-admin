@@ -4,7 +4,7 @@
 
 A blue-themed admin console built with **Vue 3 + Vite**. It shares the same backend as [vome-service](https://gitee.com/vomekj/vome-service), calling **Admin-side** APIs (`/admin/...`) via EPS (`service.base.*`, etc.). CRUD UI, layout, and route guards come from [`vome-core`](https://www.npmjs.com/package/vome-core).
 
-> Open-sourced by Vome / 微茫科技. Start Vome Service first (with `base` menus and the super-admin seed).
+> Open-sourced by Vome / 威迈科技. Start Vome Service first (with `base` menus and the super-admin seed).
 
 ## Features
 
@@ -213,7 +213,7 @@ Issues and PRs in Chinese or English are welcome.
 
 ## License
 
-[MIT](./LICENSE) © VomeShop / 微茫科技
+[MIT](./LICENSE) © VomeShop / 威迈科技
 
 ---
 
