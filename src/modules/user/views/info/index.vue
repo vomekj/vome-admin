@@ -90,7 +90,7 @@ useUpsert({
           text: '上传头像',
           size: 96,
           limitSize: 5,
-          prefixPath: 'app/user',
+          prefixPath: 'app/public/user',
         },
       },
     },

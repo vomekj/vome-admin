@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { config } from '@/config/index.js'
-import logoLight from '@/static/image/浅色logo.png'
+import logoLight from '@/static/image/logo-light.png'
 
 defineOptions({ name: 'vm-app-sidebar' })
 

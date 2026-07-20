@@ -91,7 +91,7 @@
 import { config } from '@/config'
 import { api, setTokens } from '/@/api/client'
 import { resetMenuRoutesFlag } from '/@/router'
-import logoDark from '@/static/image/深色logo.png'
+import logoDark from '@/static/image/logo-dark.png'
 
 const router = useRouter()
 const route = useRoute()
