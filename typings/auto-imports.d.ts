@@ -7,31 +7,31 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue').EffectScope
-  const Plugins: typeof import('../../../../../../@/crud/plugins').Plugins
+  const Plugins: typeof import('../../../../../../../@/crud/plugins').Plugins
   const RouterLink: typeof import('vue-router').RouterLink
   const RouterView: typeof import('vue-router').RouterView
   const acceptHMRUpdate: typeof import('pinia').acceptHMRUpdate
-  const api: typeof import('../../../../../../@/api/client').api
-  const apiUrl: typeof import('../../../../../../@/api/client').apiUrl
-  const cn: typeof import('../../../../../../@/lib/cn').cn
+  const api: typeof import('../../../../../../../@/api/client').api
+  const apiUrl: typeof import('../../../../../../../@/api/client').apiUrl
+  const cn: typeof import('../../../../../../../@/lib/cn').cn
   const computed: typeof import('vue').computed
   const createApp: typeof import('vue').createApp
   const createPinia: typeof import('pinia').createPinia
   const customRef: typeof import('vue').customRef
-  const deepTree: typeof import('../../../../../../@/lib/tree').deepTree
+  const deepTree: typeof import('../../../../../../../@/lib/tree').deepTree
   const defineAsyncComponent: typeof import('vue').defineAsyncComponent
   const defineComponent: typeof import('vue').defineComponent
   const defineStore: typeof import('pinia').defineStore
   const effectScope: typeof import('vue').effectScope
-  const findEpsEntity: typeof import('../../../../../../@/lib/eps').findEpsEntity
-  const flattenTree: typeof import('../../../../../../@/lib/tree').flattenTree
+  const findEpsEntity: typeof import('../../../../../../../@/lib/eps').findEpsEntity
+  const flattenTree: typeof import('../../../../../../../@/lib/tree').flattenTree
   const getActivePinia: typeof import('pinia').getActivePinia
-  const getCrudConfig: typeof import('../../../../../../@/crud/style').getCrudConfig
-  const getCrudStyle: typeof import('../../../../../../@/crud/style').getCrudStyle
+  const getCrudConfig: typeof import('../../../../../../../@/crud/style').getCrudConfig
+  const getCrudStyle: typeof import('../../../../../../../@/crud/style').getCrudStyle
   const getCurrentInstance: typeof import('vue').getCurrentInstance
   const getCurrentScope: typeof import('vue').getCurrentScope
   const getCurrentWatcher: typeof import('vue').getCurrentWatcher
-  const getEps: typeof import('../../../../../../@/lib/eps').getEps
+  const getEps: typeof import('../../../../../../../@/lib/eps').getEps
   const h: typeof import('vue').h
   const inject: typeof import('vue').inject
   const isProxy: typeof import('vue').isProxy
@@ -39,8 +39,8 @@ declare global {
   const isReadonly: typeof import('vue').isReadonly
   const isRef: typeof import('vue').isRef
   const isShallow: typeof import('vue').isShallow
-  const loadAllEps: typeof import('../../../../../../@/lib/eps').loadAllEps
-  const loadEps: typeof import('../../../../../../@/lib/eps').loadEps
+  const loadAllEps: typeof import('../../../../../../../@/lib/eps').loadAllEps
+  const loadEps: typeof import('../../../../../../../@/lib/eps').loadEps
   const mapActions: typeof import('pinia').mapActions
   const mapGetters: typeof import('pinia').mapGetters
   const mapState: typeof import('pinia').mapState
@@ -68,15 +68,15 @@ declare global {
   const reactive: typeof import('vue').reactive
   const readonly: typeof import('vue').readonly
   const ref: typeof import('vue').ref
-  const registerCrudComponent: typeof import('../../../../../../@/crud/registry').registerCrudComponent
-  const request: typeof import('../../../../../../@/api/client').request
+  const registerCrudComponent: typeof import('../../../../../../../@/crud/registry').registerCrudComponent
+  const request: typeof import('../../../../../../../@/api/client').request
   const resolveComponent: typeof import('vue').resolveComponent
-  const resolveCrudComponent: typeof import('../../../../../../@/crud/registry').resolveCrudComponent
-  const service: typeof import('../../../../../../@/service').service
+  const resolveCrudComponent: typeof import('../../../../../../../@/crud/registry').resolveCrudComponent
+  const service: typeof import('../../../../../../../@/service').service
   const setActivePinia: typeof import('pinia').setActivePinia
-  const setCrudConfig: typeof import('../../../../../../@/crud/style').setCrudConfig
+  const setCrudConfig: typeof import('../../../../../../../@/crud/style').setCrudConfig
   const setMapStoreSuffix: typeof import('pinia').setMapStoreSuffix
-  const setTokens: typeof import('../../../../../../@/api/client').setTokens
+  const setTokens: typeof import('../../../../../../../@/api/client').setTokens
   const shallowReactive: typeof import('vue').shallowReactive
   const shallowReadonly: typeof import('vue').shallowReadonly
   const shallowRef: typeof import('vue').shallowRef
@@ -84,16 +84,16 @@ declare global {
   const toRaw: typeof import('vue').toRaw
   const toRef: typeof import('vue').toRef
   const toRefs: typeof import('vue').toRefs
-  const toTree: typeof import('../../../../../../@/crud/plugins').toTree
+  const toTree: typeof import('../../../../../../../@/crud/plugins').toTree
   const toValue: typeof import('vue').toValue
   const toast: typeof import('vue-sonner').toast
   const triggerRef: typeof import('vue').triggerRef
   const unref: typeof import('vue').unref
   const useAppStore: typeof import('../node_modules/vome-core/dist/admin/stores/app.js').useAppStore
   const useAttrs: typeof import('vue').useAttrs
-  const useBrowser: typeof import('../../../../../../@/hooks/useBrowser').useBrowser
-  const useCore: typeof import('../../../../../../@/crud/useCrud').useCore
-  const useCrud: typeof import('../../../../../../@/crud/useCrud').useCrud
+  const useBrowser: typeof import('../../../../../../../@/hooks/useBrowser').useBrowser
+  const useCore: typeof import('../../../../../../../@/crud/useCrud').useCore
+  const useCrud: typeof import('../../../../../../../@/crud/useCrud').useCrud
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
   const useDict: typeof import('../src/stores/dict').useDict
@@ -103,16 +103,16 @@ declare global {
   const useModel: typeof import('vue').useModel
   const useRoute: typeof import('vue-router').useRoute
   const useRouter: typeof import('vue-router').useRouter
-  const useSearch: typeof import('../../../../../../@/crud/useCrud').useSearch
+  const useSearch: typeof import('../../../../../../../@/crud/useCrud').useSearch
   const useSlots: typeof import('vue').useSlots
-  const useTable: typeof import('../../../../../../@/crud/useCrud').useTable
+  const useTable: typeof import('../../../../../../../@/crud/useCrud').useTable
   const useTagsStore: typeof import('../node_modules/vome-core/dist/admin/stores/tags.js').useTagsStore
   const useTemplateRef: typeof import('vue').useTemplateRef
   const useThemeStore: typeof import('../src/stores/theme').useThemeStore
-  const useUpsert: typeof import('../../../../../../@/crud/useCrud').useUpsert
+  const useUpsert: typeof import('../../../../../../../@/crud/useCrud').useUpsert
   const useUserStore: typeof import('../node_modules/vome-core/dist/admin/stores/user.js').useUserStore
-  const useVome: typeof import('../../../../../../@/hooks/useVome').useVome
-  const vmConfirm: typeof import('../../../../../../@/crud/confirm').vmConfirm
+  const useVome: typeof import('../../../../../../../@/hooks/useVome').useVome
+  const vmConfirm: typeof import('../../../../../../../@/crud/confirm').vmConfirm
   const watch: typeof import('vue').watch
   const watchEffect: typeof import('vue').watchEffect
   const watchPostEffect: typeof import('vue').watchPostEffect
@@ -134,31 +134,31 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
-    readonly Plugins: UnwrapRef<typeof import('../../../../../../@/crud/plugins')['Plugins']>
+    readonly Plugins: UnwrapRef<typeof import('../../../../../../../@/crud/plugins')['Plugins']>
     readonly RouterLink: UnwrapRef<typeof import('vue-router')['RouterLink']>
     readonly RouterView: UnwrapRef<typeof import('vue-router')['RouterView']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
-    readonly api: UnwrapRef<typeof import('../../../../../../@/api/client')['api']>
-    readonly apiUrl: UnwrapRef<typeof import('../../../../../../@/api/client')['apiUrl']>
-    readonly cn: UnwrapRef<typeof import('../../../../../../@/lib/cn')['cn']>
+    readonly api: UnwrapRef<typeof import('../../../../../../../@/api/client')['api']>
+    readonly apiUrl: UnwrapRef<typeof import('../../../../../../../@/api/client')['apiUrl']>
+    readonly cn: UnwrapRef<typeof import('../../../../../../../@/lib/cn')['cn']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
-    readonly deepTree: UnwrapRef<typeof import('../../../../../../@/lib/tree')['deepTree']>
+    readonly deepTree: UnwrapRef<typeof import('../../../../../../../@/lib/tree')['deepTree']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
-    readonly findEpsEntity: UnwrapRef<typeof import('../../../../../../@/lib/eps')['findEpsEntity']>
-    readonly flattenTree: UnwrapRef<typeof import('../../../../../../@/lib/tree')['flattenTree']>
+    readonly findEpsEntity: UnwrapRef<typeof import('../../../../../../../@/lib/eps')['findEpsEntity']>
+    readonly flattenTree: UnwrapRef<typeof import('../../../../../../../@/lib/tree')['flattenTree']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
-    readonly getCrudConfig: UnwrapRef<typeof import('../../../../../../@/crud/style')['getCrudConfig']>
-    readonly getCrudStyle: UnwrapRef<typeof import('../../../../../../@/crud/style')['getCrudStyle']>
+    readonly getCrudConfig: UnwrapRef<typeof import('../../../../../../../@/crud/style')['getCrudConfig']>
+    readonly getCrudStyle: UnwrapRef<typeof import('../../../../../../../@/crud/style')['getCrudStyle']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getCurrentWatcher: UnwrapRef<typeof import('vue')['getCurrentWatcher']>
-    readonly getEps: UnwrapRef<typeof import('../../../../../../@/lib/eps')['getEps']>
+    readonly getEps: UnwrapRef<typeof import('../../../../../../../@/lib/eps')['getEps']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
@@ -166,8 +166,8 @@ declare module 'vue' {
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isShallow: UnwrapRef<typeof import('vue')['isShallow']>
-    readonly loadAllEps: UnwrapRef<typeof import('../../../../../../@/lib/eps')['loadAllEps']>
-    readonly loadEps: UnwrapRef<typeof import('../../../../../../@/lib/eps')['loadEps']>
+    readonly loadAllEps: UnwrapRef<typeof import('../../../../../../../@/lib/eps')['loadAllEps']>
+    readonly loadEps: UnwrapRef<typeof import('../../../../../../../@/lib/eps')['loadEps']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
     readonly mapState: UnwrapRef<typeof import('pinia')['mapState']>
@@ -195,15 +195,15 @@ declare module 'vue' {
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly registerCrudComponent: UnwrapRef<typeof import('../../../../../../@/crud/registry')['registerCrudComponent']>
-    readonly request: UnwrapRef<typeof import('../../../../../../@/api/client')['request']>
+    readonly registerCrudComponent: UnwrapRef<typeof import('../../../../../../../@/crud/registry')['registerCrudComponent']>
+    readonly request: UnwrapRef<typeof import('../../../../../../../@/api/client')['request']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
-    readonly resolveCrudComponent: UnwrapRef<typeof import('../../../../../../@/crud/registry')['resolveCrudComponent']>
-    readonly service: UnwrapRef<typeof import('../../../../../../@/service')['service']>
+    readonly resolveCrudComponent: UnwrapRef<typeof import('../../../../../../../@/crud/registry')['resolveCrudComponent']>
+    readonly service: UnwrapRef<typeof import('../../../../../../../@/service')['service']>
     readonly setActivePinia: UnwrapRef<typeof import('pinia')['setActivePinia']>
-    readonly setCrudConfig: UnwrapRef<typeof import('../../../../../../@/crud/style')['setCrudConfig']>
+    readonly setCrudConfig: UnwrapRef<typeof import('../../../../../../../@/crud/style')['setCrudConfig']>
     readonly setMapStoreSuffix: UnwrapRef<typeof import('pinia')['setMapStoreSuffix']>
-    readonly setTokens: UnwrapRef<typeof import('../../../../../../@/api/client')['setTokens']>
+    readonly setTokens: UnwrapRef<typeof import('../../../../../../../@/api/client')['setTokens']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -211,16 +211,16 @@ declare module 'vue' {
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
-    readonly toTree: UnwrapRef<typeof import('../../../../../../@/crud/plugins')['toTree']>
+    readonly toTree: UnwrapRef<typeof import('../../../../../../../@/crud/plugins')['toTree']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly toast: UnwrapRef<typeof import('vue-sonner')['toast']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAppStore: UnwrapRef<typeof import('../node_modules/vome-core/dist/admin/stores/app.js')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
-    readonly useBrowser: UnwrapRef<typeof import('../../../../../../@/hooks/useBrowser')['useBrowser']>
-    readonly useCore: UnwrapRef<typeof import('../../../../../../@/crud/useCrud')['useCore']>
-    readonly useCrud: UnwrapRef<typeof import('../../../../../../@/crud/useCrud')['useCrud']>
+    readonly useBrowser: UnwrapRef<typeof import('../../../../../../../@/hooks/useBrowser')['useBrowser']>
+    readonly useCore: UnwrapRef<typeof import('../../../../../../../@/crud/useCrud')['useCore']>
+    readonly useCrud: UnwrapRef<typeof import('../../../../../../../@/crud/useCrud')['useCrud']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useDict: UnwrapRef<typeof import('../src/stores/dict')['useDict']>
@@ -230,16 +230,16 @@ declare module 'vue' {
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
-    readonly useSearch: UnwrapRef<typeof import('../../../../../../@/crud/useCrud')['useSearch']>
+    readonly useSearch: UnwrapRef<typeof import('../../../../../../../@/crud/useCrud')['useSearch']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
-    readonly useTable: UnwrapRef<typeof import('../../../../../../@/crud/useCrud')['useTable']>
+    readonly useTable: UnwrapRef<typeof import('../../../../../../../@/crud/useCrud')['useTable']>
     readonly useTagsStore: UnwrapRef<typeof import('../node_modules/vome-core/dist/admin/stores/tags.js')['useTagsStore']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly useThemeStore: UnwrapRef<typeof import('../src/stores/theme')['useThemeStore']>
-    readonly useUpsert: UnwrapRef<typeof import('../../../../../../@/crud/useCrud')['useUpsert']>
+    readonly useUpsert: UnwrapRef<typeof import('../../../../../../../@/crud/useCrud')['useUpsert']>
     readonly useUserStore: UnwrapRef<typeof import('../node_modules/vome-core/dist/admin/stores/user.js')['useUserStore']>
-    readonly useVome: UnwrapRef<typeof import('../../../../../../@/hooks/useVome')['useVome']>
-    readonly vmConfirm: UnwrapRef<typeof import('../../../../../../@/crud/confirm')['vmConfirm']>
+    readonly useVome: UnwrapRef<typeof import('../../../../../../../@/hooks/useVome')['useVome']>
+    readonly vmConfirm: UnwrapRef<typeof import('../../../../../../../@/crud/confirm')['vmConfirm']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>

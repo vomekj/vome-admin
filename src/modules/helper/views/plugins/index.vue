@@ -167,12 +167,25 @@
             <vm-card-title :text="item.title">{{ item.title }}</vm-card-title>
             <vm-clamp-text :lines="3" :text="item.desc" />
             <template #footer>
-              <vm-action-btn
-                size="sm"
-                variant="outline"
-                label="下载脚手架"
-                @click="openExternal(item.downloadUrl, `${item.title}脚手架`)"
-              />
+              <div class="vm-plugin-dev__dl">
+                <vm-action-btn
+                  size="sm"
+                  variant="outline"
+                  label="下载 Gitee"
+                  @click="openExternal(item.downloadUrl, `${item.title}（Gitee）`)"
+                />
+                <vm-action-btn
+                  size="sm"
+                  variant="outline"
+                  label="GitHub"
+                  @click="
+                    openExternal(
+                      item.githubDownloadUrl,
+                      `${item.title}（GitHub）`,
+                    )
+                  "
+                />
+              </div>
             </template>
           </vm-card>
         </vm-card-grid>
@@ -519,7 +532,20 @@ async function onFileChange(ev: Event) {
       headers: { authorization: `Bearer ${getAccessToken() || ''}` },
       body: fd,
     })
-    const json = (await res.json()) as { code?: number; message?: string }
+    const text = await res.text()
+    if (!text?.trim()) {
+      throw new Error('安装失败：服务无响应（请查看 service 日志）')
+    }
+    let json: { code?: number; message?: string }
+    try {
+      json = JSON.parse(text) as { code?: number; message?: string }
+    } catch {
+      throw new Error(
+        res.ok
+          ? '安装失败：服务返回非 JSON'
+          : `安装失败：HTTP ${res.status}`,
+      )
+    }
     if (json.code !== 1000) {
       throw new Error(json.message || '安装失败')
     }
@@ -791,6 +817,13 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.vm-plugin-dev__dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 .vm-plugin-dev :deep(.vm-thumb) {

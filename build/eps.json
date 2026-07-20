@@ -4256,7 +4256,8 @@
             "type": "boolean",
             "nullable": false,
             "source": "a.emailVerified",
-            "comment": "邮箱已验证"
+            "comment": "邮箱已验证",
+            "dict": "yes_no"
           },
           {
             "propertyName": "image",
@@ -4330,7 +4331,10 @@
               "column": "a.status",
               "dict": "status"
             },
-            "a.emailVerified",
+            {
+              "column": "a.emailVerified",
+              "dict": "yes_no"
+            },
             "a.tenantId"
           ],
           "fieldLike": [
@@ -4373,7 +4377,8 @@
             "type": "boolean",
             "nullable": false,
             "source": "a.emailVerified",
-            "comment": "邮箱已验证"
+            "comment": "邮箱已验证",
+            "dict": "yes_no"
           },
           {
             "propertyName": "image",
