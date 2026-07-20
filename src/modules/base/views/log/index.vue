@@ -193,9 +193,6 @@ function formatLogType(v: unknown) {
   if (!key) return '—'
   const hit = scopeOptions.value.find((o) => o.value === key)
   if (hit) return hit.label
-  // 历史数据兼容
-  if (key === 'unauthorized') return '异常'
-  if (key === 'forbidden') return '异常'
   return key
 }
 

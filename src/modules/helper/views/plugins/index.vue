@@ -240,7 +240,7 @@
               <span v-if="readmeTime">更新时间: {{ readmeTime }}</span>
             </div>
             <div class="vm-plugin-doc__frame">
-              <vm-markdown :source="readmeText" />
+              <vm-markdown :model-value="readmeText" />
             </div>
           </div>
         </template>
