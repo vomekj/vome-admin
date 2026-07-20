@@ -201,7 +201,10 @@ const UpsertItems = computed((): CrudFormItem[] => [
     label: '上级节点',
     span: 12,
     placeholder: '顶级',
-    component: { name: 'vm-tree-select' },
+    component: {
+      name: 'vm-tree-select',
+      props: { defaultExpandLevel: 1 },
+    },
     options: [{ label: '顶级', value: '__root__' }],
   },
   { prop: 'name', label: '节点名称', required: true, span: 12 },

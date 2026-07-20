@@ -4275,6 +4275,14 @@
             "comment": "手机号"
           },
           {
+            "propertyName": "phoneVerified",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.phoneVerified",
+            "comment": "手机已验证",
+            "dict": "yes_no"
+          },
+          {
             "propertyName": "unionid",
             "type": "string",
             "length": "100",
@@ -4333,6 +4341,10 @@
             },
             {
               "column": "a.emailVerified",
+              "dict": "yes_no"
+            },
+            {
+              "column": "a.phoneVerified",
               "dict": "yes_no"
             },
             "a.tenantId"
@@ -4394,6 +4406,14 @@
             "nullable": true,
             "source": "a.phone",
             "comment": "手机号"
+          },
+          {
+            "propertyName": "phoneVerified",
+            "type": "boolean",
+            "nullable": false,
+            "source": "a.phoneVerified",
+            "comment": "手机已验证",
+            "dict": "yes_no"
           },
           {
             "propertyName": "unionid",
@@ -5008,7 +5028,18 @@
           {
             "method": "post",
             "path": "/bindPhone",
-            "summary": "绑定手机号",
+            "summary": "绑定/验证手机号（验证码，只验一次）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/bindEmail",
+            "summary": "绑定/验证邮箱（验证码，只验一次）",
             "dts": {},
             "tag": "",
             "prefix": "/app/user/info",

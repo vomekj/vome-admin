@@ -467,6 +467,9 @@ declare namespace Eps {
 		/** 手机号 */
 		phone?: string;
 
+		/** 手机已验证 */
+		phoneVerified?: boolean;
+
 		/** 微信unionid */
 		unionid?: string;
 
