@@ -101,6 +101,12 @@ useUpsert({
       span: 12,
       type: 'switch',
     },
+    {
+      prop: 'phoneVerified',
+      label: '手机已验证',
+      span: 12,
+      type: 'switch',
+    },
   ],
   onOpen() {
     checkedRoleIds.value = []
@@ -136,6 +142,7 @@ useUpsert({
           ? null
           : Number(data.tenantId),
       emailVerified: Boolean(data.emailVerified ?? false),
+      phoneVerified: Boolean(data.phoneVerified ?? false),
     }
     if (String(data.password ?? '').trim()) {
       payload.password = String(data.password)
@@ -181,6 +188,12 @@ useTable({
     {
       prop: 'emailVerified',
       label: '邮箱验证',
+      width: 90,
+      formatter: (_r, v) => (v ? '是' : '否'),
+    },
+    {
+      prop: 'phoneVerified',
+      label: '手机验证',
       width: 90,
       formatter: (_r, v) => (v ? '是' : '否'),
     },
