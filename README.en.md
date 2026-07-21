@@ -124,7 +124,7 @@ vome-admin/
 │   │   ├── layout/           # Shell
 │   │   └── ui/               # shadcn-vue
 │   ├── pages/                # login / layout / home / missing / micro…
-│   ├── config/               # index / dev / prod / proxy (no .env)
+│   ├── config/               # index / dev / prod / proxy
 │   ├── stores/
 │   ├── styles/theme.css      # Colors (#4E5DFF)
 │   ├── themes/

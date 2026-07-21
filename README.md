@@ -124,7 +124,7 @@ vome-admin/
 │   │   ├── layout/           # 壳层
 │   │   └── ui/               # shadcn-vue
 │   ├── pages/                # login / layout / home / missing / micro…
-│   ├── config/               # index / dev / prod / proxy（禁止 .env）
+│   ├── config/               # index / dev / prod / proxy
 │   ├── stores/
 │   ├── styles/theme.css      # 换色（主色 #4E5DFF）
 │   ├── themes/

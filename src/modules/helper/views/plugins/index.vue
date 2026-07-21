@@ -63,13 +63,22 @@
 
           <vm-card-title :text="item.name">{{ item.name }}</vm-card-title>
           <vm-clamp-text :text="item.description || '暂无描述'" />
+          <p v-if="item.seat?.blocked" class="vm-plugin-page__seat-warn">
+            {{
+              item.seat.tip ||
+              '超出授权席位，插件功能已禁用。请释放其它站点或加购席位。'
+            }}
+          </p>
+          <p v-else-if="item.seat" class="vm-plugin-page__seat">
+            席位 {{ item.seat.seatsLabel }} · 已用 {{ item.seat.usedLabel }}
+          </p>
           <vm-card-meta :text="pluginMeta(item)" />
 
           <template #footer>
             <vm-toggle-switch
               :model-value="item.status"
               :loading="statusId === item.id"
-              :disabled="statusId === item.id"
+              :disabled="statusId === item.id || item.seat?.blocked"
               @update:model-value="toggleStatus(item)"
             />
             <vm-action-btn
@@ -325,6 +334,12 @@ type PluginRow = {
   author?: string
   status?: number
   createTime?: string | Date
+  seat?: {
+    seatsLabel: string
+    usedLabel: string
+    blocked: boolean
+    tip?: string
+  }
 }
 
 const { service } = useVome()
@@ -775,6 +790,19 @@ onMounted(() => {
   flex: 1;
   justify-content: flex-start;
   padding-top: 72px;
+}
+
+.vm-plugin-page__seat {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--muted-foreground, #64748b);
+}
+
+.vm-plugin-page__seat-warn {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--danger, #dc2626);
+  line-height: 1.4;
 }
 
 .vm-plugin-page__actions {
