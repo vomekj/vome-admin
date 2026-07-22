@@ -9,6 +9,70 @@ declare namespace Eps {
 
 	type Request = (options?: RequestOptions) => Promise<any>;
 
+	interface AiCallLogEntity {
+		/** ID */
+		id?: number;
+
+		/** 任务号 */
+		recordKey?: string;
+
+		/** 模型编码 */
+		modelCode?: string;
+
+		/** 能力 */
+		capability?: string;
+
+		/** 形态 */
+		mode?: string;
+
+		/** 任务状态 */
+		status?: string;
+
+		/** 成功 */
+		ok?: number;
+
+		/** 耗时ms */
+		latencyMs?: number;
+
+		/** 输入token */
+		inputTokens?: number;
+
+		/** 输出token */
+		outputTokens?: number;
+
+		/** 总token */
+		totalTokens?: number;
+
+		/** 错误码 */
+		errorCode?: string;
+
+		/** 错误信息 */
+		errorMessage?: string;
+
+		/** 来源 */
+		source?: string;
+
+		/** 上游任务ID */
+		upstreamId?: string;
+
+		/** 请求参数 */
+		request?: any;
+
+		/** 响应结果 */
+		result?: any;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
 	interface AiModelEntity {
 		/** ID */
 		id?: number;
@@ -19,11 +83,14 @@ declare namespace Eps {
 		/** 模型编码 */
 		code?: string;
 
-		/** 名称 */
-		name?: string;
+		/** 请求路径 */
+		path?: string;
 
-		/** 上游模型ID */
-		upstreamId?: string;
+		/** 请求方法 */
+		method?: string;
+
+		/** 请求体类型 */
+		contentType?: string;
 
 		/** 能力 */
 		capabilities?: any;
@@ -31,11 +98,20 @@ declare namespace Eps {
 		/** 结果形态 */
 		resultModes?: any;
 
+		/** 异步契约 */
+		asyncSpec?: any;
+
+		/** 参数提示 */
+		inputSchema?: any;
+
+		/** 响应映射 */
+		responseSpec?: any;
+
+		/** 校验input */
+		validateInput?: number;
+
 		/** 默认参数 */
 		defaults?: any;
-
-		/** 路径覆盖 */
-		paths?: any;
 
 		/** 状态 */
 		status?: number;
@@ -58,9 +134,6 @@ declare namespace Eps {
 	interface AiProviderEntity {
 		/** ID */
 		id?: number;
-
-		/** 名称 */
-		name?: string;
 
 		/** 厂商 */
 		vendor?: string;
@@ -608,9 +681,54 @@ declare namespace Eps {
 		[key: string]: any;
 	}
 
+	interface Ai_callLog {
+		/** 刷新异步进度 */
+		refresh(data?: any): Promise<any>;
+
+		/** 失败异步重试 */
+		retry(data?: any): Promise<any>;
+
+		/** 超时关单 */
+		closeStale(data?: any): Promise<any>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: AiCallLogEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<AiCallLogEntity[]>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<AiCallLogEntity>;
+
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { refresh: string; retry: string; closeStale: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
+		_permission: { refresh: boolean; retry: boolean; closeStale: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
+		request: Eps.Request;
+	}
+
 	interface Ai_model {
 		/** 统一调用模型 */
 		call(data?: any): Promise<any>;
+
+		/** schema/厂商预设 */
+		presets(data?: any): Promise<any>;
+
+		/** 启用模型目录（含参数提示） */
+		catalog(data?: any): Promise<any>;
+
+		/** 套用厂商预设字段 */
+		applyPreset(data?: any): Promise<any>;
+
+		/** 连通性探测 */
+		test(data?: any): Promise<any>;
 
 		/** 新增 */
 		add(data?: any): Promise<any>;
@@ -640,8 +758,8 @@ declare namespace Eps {
 		import(data?: any): Promise<any>;
 
 		namespace: string;
-		permission: { call: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
-		_permission: { call: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		permission: { call: string; presets: string; catalog: string; applyPreset: string; test: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { call: boolean; presets: boolean; catalog: boolean; applyPreset: boolean; test: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1331,6 +1449,7 @@ declare namespace Eps {
 	type Service = {
 		request: Request;
 		ai: {
+			callLog: Ai_callLog;
 			model: Ai_model;
 			provider: Ai_provider;
 		};

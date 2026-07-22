@@ -4,6 +4,434 @@
       {
         "module": "ai",
         "side": "admin",
+        "prefix": "/admin/ai/call-log",
+        "name": "AiCallLogEntity",
+        "info": {
+          "type": {
+            "name": "call-log",
+            "description": "call-log"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/refresh",
+            "summary": "刷新异步进度",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/call-log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:call:log:refresh"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/retry",
+            "summary": "失败异步重试",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/call-log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:call:log:retry"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/closeStale",
+            "summary": "超时关单",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/call-log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:call:log:closeStale"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/call-log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:call:log:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/call-log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:call:log:list"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/call-log",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:call:log:info"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "recordKey",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.recordKey",
+            "comment": "任务号"
+          },
+          {
+            "propertyName": "modelCode",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.modelCode",
+            "comment": "模型编码"
+          },
+          {
+            "propertyName": "capability",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.capability",
+            "comment": "能力",
+            "dict": "base_ai_capability"
+          },
+          {
+            "propertyName": "mode",
+            "type": "string",
+            "length": "20",
+            "nullable": false,
+            "source": "a.mode",
+            "comment": "形态",
+            "dict": "base_ai_result_mode"
+          },
+          {
+            "propertyName": "status",
+            "type": "string",
+            "length": "20",
+            "nullable": true,
+            "source": "a.status",
+            "comment": "任务状态",
+            "dict": "base_ai_async_status"
+          },
+          {
+            "propertyName": "ok",
+            "type": "number",
+            "nullable": false,
+            "source": "a.ok",
+            "comment": "成功"
+          },
+          {
+            "propertyName": "latencyMs",
+            "type": "number",
+            "nullable": true,
+            "source": "a.latencyMs",
+            "comment": "耗时ms"
+          },
+          {
+            "propertyName": "inputTokens",
+            "type": "number",
+            "nullable": true,
+            "source": "a.inputTokens",
+            "comment": "输入token"
+          },
+          {
+            "propertyName": "outputTokens",
+            "type": "number",
+            "nullable": true,
+            "source": "a.outputTokens",
+            "comment": "输出token"
+          },
+          {
+            "propertyName": "totalTokens",
+            "type": "number",
+            "nullable": true,
+            "source": "a.totalTokens",
+            "comment": "总token"
+          },
+          {
+            "propertyName": "errorCode",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.errorCode",
+            "comment": "错误码"
+          },
+          {
+            "propertyName": "errorMessage",
+            "type": "string",
+            "nullable": true,
+            "source": "a.errorMessage",
+            "comment": "错误信息"
+          },
+          {
+            "propertyName": "source",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.source",
+            "comment": "来源",
+            "dict": "base_ai_invoke_source"
+          },
+          {
+            "propertyName": "upstreamId",
+            "type": "string",
+            "length": "200",
+            "nullable": true,
+            "source": "a.upstreamId",
+            "comment": "上游任务ID"
+          },
+          {
+            "propertyName": "request",
+            "type": "json",
+            "nullable": true,
+            "source": "a.request",
+            "comment": "请求参数"
+          },
+          {
+            "propertyName": "result",
+            "type": "json",
+            "nullable": true,
+            "source": "a.result",
+            "comment": "响应结果"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.recordKey",
+            "a.modelCode"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.capability",
+              "dict": "base_ai_capability"
+            },
+            {
+              "column": "a.mode",
+              "dict": "base_ai_result_mode"
+            },
+            {
+              "column": "a.status",
+              "dict": "base_ai_async_status"
+            },
+            {
+              "column": "a.source",
+              "dict": "base_ai_invoke_source"
+            },
+            "a.ok"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "recordKey",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.recordKey",
+            "comment": "任务号"
+          },
+          {
+            "propertyName": "modelCode",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.modelCode",
+            "comment": "模型编码"
+          },
+          {
+            "propertyName": "capability",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.capability",
+            "comment": "能力",
+            "dict": "base_ai_capability"
+          },
+          {
+            "propertyName": "mode",
+            "type": "string",
+            "length": "20",
+            "nullable": false,
+            "source": "a.mode",
+            "comment": "形态",
+            "dict": "base_ai_result_mode"
+          },
+          {
+            "propertyName": "status",
+            "type": "string",
+            "length": "20",
+            "nullable": true,
+            "source": "a.status",
+            "comment": "任务状态",
+            "dict": "base_ai_async_status"
+          },
+          {
+            "propertyName": "ok",
+            "type": "number",
+            "nullable": false,
+            "source": "a.ok",
+            "comment": "成功"
+          },
+          {
+            "propertyName": "latencyMs",
+            "type": "number",
+            "nullable": true,
+            "source": "a.latencyMs",
+            "comment": "耗时ms"
+          },
+          {
+            "propertyName": "inputTokens",
+            "type": "number",
+            "nullable": true,
+            "source": "a.inputTokens",
+            "comment": "输入token"
+          },
+          {
+            "propertyName": "outputTokens",
+            "type": "number",
+            "nullable": true,
+            "source": "a.outputTokens",
+            "comment": "输出token"
+          },
+          {
+            "propertyName": "totalTokens",
+            "type": "number",
+            "nullable": true,
+            "source": "a.totalTokens",
+            "comment": "总token"
+          },
+          {
+            "propertyName": "errorCode",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.errorCode",
+            "comment": "错误码"
+          },
+          {
+            "propertyName": "errorMessage",
+            "type": "string",
+            "nullable": true,
+            "source": "a.errorMessage",
+            "comment": "错误信息"
+          },
+          {
+            "propertyName": "source",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.source",
+            "comment": "来源",
+            "dict": "base_ai_invoke_source"
+          },
+          {
+            "propertyName": "upstreamId",
+            "type": "string",
+            "length": "200",
+            "nullable": true,
+            "source": "a.upstreamId",
+            "comment": "上游任务ID"
+          },
+          {
+            "propertyName": "request",
+            "type": "json",
+            "nullable": true,
+            "source": "a.request",
+            "comment": "请求参数"
+          },
+          {
+            "propertyName": "result",
+            "type": "json",
+            "nullable": true,
+            "source": "a.result",
+            "comment": "响应结果"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "ai",
+        "side": "admin",
         "prefix": "/admin/ai/model",
         "name": "AiModelEntity",
         "info": {
@@ -24,6 +452,58 @@
             "ignorePerms": false,
             "perms": [
               "ai:model:call"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/presets",
+            "summary": "schema/厂商预设",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:presets"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/catalog",
+            "summary": "启用模型目录（含参数提示）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:catalog"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/applyPreset",
+            "summary": "套用厂商预设字段",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:applyPreset"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/test",
+            "summary": "连通性探测",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:test"
             ]
           },
           {
@@ -168,20 +648,30 @@
             "comment": "模型编码"
           },
           {
-            "propertyName": "name",
+            "propertyName": "path",
             "type": "string",
-            "length": "100",
+            "length": "500",
             "nullable": false,
-            "source": "a.name",
-            "comment": "名称"
+            "source": "a.path",
+            "comment": "请求路径"
           },
           {
-            "propertyName": "upstreamId",
+            "propertyName": "method",
             "type": "string",
-            "length": "200",
+            "length": "16",
             "nullable": false,
-            "source": "a.upstreamId",
-            "comment": "上游模型ID"
+            "source": "a.method",
+            "comment": "请求方法",
+            "dict": "base_http_method"
+          },
+          {
+            "propertyName": "contentType",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.contentType",
+            "comment": "请求体类型",
+            "dict": "base_ai_content_type"
           },
           {
             "propertyName": "capabilities",
@@ -198,18 +688,39 @@
             "comment": "结果形态"
           },
           {
+            "propertyName": "asyncSpec",
+            "type": "json",
+            "nullable": true,
+            "source": "a.asyncSpec",
+            "comment": "异步契约"
+          },
+          {
+            "propertyName": "inputSchema",
+            "type": "json",
+            "nullable": true,
+            "source": "a.inputSchema",
+            "comment": "参数提示"
+          },
+          {
+            "propertyName": "responseSpec",
+            "type": "json",
+            "nullable": true,
+            "source": "a.responseSpec",
+            "comment": "响应映射"
+          },
+          {
+            "propertyName": "validateInput",
+            "type": "number",
+            "nullable": false,
+            "source": "a.validateInput",
+            "comment": "校验input"
+          },
+          {
             "propertyName": "defaults",
             "type": "json",
             "nullable": true,
             "source": "a.defaults",
             "comment": "默认参数"
-          },
-          {
-            "propertyName": "paths",
-            "type": "json",
-            "nullable": true,
-            "source": "a.paths",
-            "comment": "路径覆盖"
           },
           {
             "propertyName": "status",
@@ -252,14 +763,21 @@
         "pageQueryOp": {
           "keyWordLikeFields": [
             "a.code",
-            "a.name",
-            "a.upstreamId",
+            "a.path",
             "a.remark"
           ],
           "fieldEq": [
             {
               "column": "a.status",
               "dict": "status"
+            },
+            {
+              "column": "a.method",
+              "dict": "base_http_method"
+            },
+            {
+              "column": "a.contentType",
+              "dict": "base_ai_content_type"
             },
             "a.providerId"
           ],
@@ -291,20 +809,30 @@
             "comment": "模型编码"
           },
           {
-            "propertyName": "name",
+            "propertyName": "path",
             "type": "string",
-            "length": "100",
+            "length": "500",
             "nullable": false,
-            "source": "a.name",
-            "comment": "名称"
+            "source": "a.path",
+            "comment": "请求路径"
           },
           {
-            "propertyName": "upstreamId",
+            "propertyName": "method",
             "type": "string",
-            "length": "200",
+            "length": "16",
             "nullable": false,
-            "source": "a.upstreamId",
-            "comment": "上游模型ID"
+            "source": "a.method",
+            "comment": "请求方法",
+            "dict": "base_http_method"
+          },
+          {
+            "propertyName": "contentType",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.contentType",
+            "comment": "请求体类型",
+            "dict": "base_ai_content_type"
           },
           {
             "propertyName": "capabilities",
@@ -321,18 +849,39 @@
             "comment": "结果形态"
           },
           {
+            "propertyName": "asyncSpec",
+            "type": "json",
+            "nullable": true,
+            "source": "a.asyncSpec",
+            "comment": "异步契约"
+          },
+          {
+            "propertyName": "inputSchema",
+            "type": "json",
+            "nullable": true,
+            "source": "a.inputSchema",
+            "comment": "参数提示"
+          },
+          {
+            "propertyName": "responseSpec",
+            "type": "json",
+            "nullable": true,
+            "source": "a.responseSpec",
+            "comment": "响应映射"
+          },
+          {
+            "propertyName": "validateInput",
+            "type": "number",
+            "nullable": false,
+            "source": "a.validateInput",
+            "comment": "校验input"
+          },
+          {
             "propertyName": "defaults",
             "type": "json",
             "nullable": true,
             "source": "a.defaults",
             "comment": "默认参数"
-          },
-          {
-            "propertyName": "paths",
-            "type": "json",
-            "nullable": true,
-            "source": "a.paths",
-            "comment": "路径覆盖"
           },
           {
             "propertyName": "status",
@@ -512,21 +1061,12 @@
             "comment": "ID"
           },
           {
-            "propertyName": "name",
+            "propertyName": "vendor",
             "type": "string",
             "length": "100",
             "nullable": false,
-            "source": "a.name",
-            "comment": "名称"
-          },
-          {
-            "propertyName": "vendor",
-            "type": "string",
-            "length": "50",
-            "nullable": false,
             "source": "a.vendor",
-            "comment": "厂商",
-            "dict": "base_ai_vendor"
+            "comment": "厂商"
           },
           {
             "propertyName": "protocol",
@@ -541,14 +1081,14 @@
             "propertyName": "baseUrl",
             "type": "string",
             "length": "500",
-            "nullable": true,
+            "nullable": false,
             "source": "a.baseUrl",
             "comment": "接口地址"
           },
           {
             "propertyName": "apiKey",
             "type": "string",
-            "nullable": true,
+            "nullable": false,
             "source": "a.apiKey",
             "comment": "API密钥"
           },
@@ -599,7 +1139,7 @@
         ],
         "pageQueryOp": {
           "keyWordLikeFields": [
-            "a.name",
+            "a.vendor",
             "a.baseUrl",
             "a.remark"
           ],
@@ -611,10 +1151,6 @@
             {
               "column": "a.protocol",
               "dict": "base_ai_protocol"
-            },
-            {
-              "column": "a.vendor",
-              "dict": "base_ai_vendor"
             }
           ],
           "fieldLike": [],
@@ -630,21 +1166,12 @@
             "comment": "ID"
           },
           {
-            "propertyName": "name",
+            "propertyName": "vendor",
             "type": "string",
             "length": "100",
             "nullable": false,
-            "source": "a.name",
-            "comment": "名称"
-          },
-          {
-            "propertyName": "vendor",
-            "type": "string",
-            "length": "50",
-            "nullable": false,
             "source": "a.vendor",
-            "comment": "厂商",
-            "dict": "base_ai_vendor"
+            "comment": "厂商"
           },
           {
             "propertyName": "protocol",
@@ -659,14 +1186,14 @@
             "propertyName": "baseUrl",
             "type": "string",
             "length": "500",
-            "nullable": true,
+            "nullable": false,
             "source": "a.baseUrl",
             "comment": "接口地址"
           },
           {
             "propertyName": "apiKey",
             "type": "string",
-            "nullable": true,
+            "nullable": false,
             "source": "a.apiKey",
             "comment": "API密钥"
           },
@@ -5475,6 +6002,85 @@
     ]
   },
   "app": {
+    "ai": [
+      {
+        "module": "ai",
+        "side": "app",
+        "prefix": "/app/v1",
+        "info": {
+          "type": {
+            "name": "v1",
+            "description": "v1"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/models",
+            "summary": "可用模型目录（含参数提示）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/v1",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/chat/completions",
+            "summary": "OpenAI Chat Completions 代理",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/v1",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/images/generations",
+            "summary": "OpenAI Images 代理",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/v1",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/embeddings",
+            "summary": "OpenAI Embeddings 代理",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/v1",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/videos",
+            "summary": "OpenAI Videos 代理",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/v1",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      }
+    ],
     "base": [
       {
         "module": "base",

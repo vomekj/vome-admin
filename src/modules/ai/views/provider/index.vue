@@ -19,53 +19,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-
 defineOptions({ name: 'ai-provider' })
 
 const { service } = useVome()
 const { dict } = useDict()
 
-useSearch({
-  items: [
-    {
-      prop: 'keyWord',
-      label: '关键字',
-      placeholder: '名称 / 地址',
-      type: 'input',
-    },
-    {
-      prop: 'protocol',
-      label: '协议',
-      type: 'select',
-      dict: 'base_ai_protocol',
-    },
-    {
-      prop: 'vendor',
-      label: '厂商',
-      type: 'select',
-      dict: 'base_ai_vendor',
-    },
-    {
-      prop: 'status',
-      label: '状态',
-      type: 'select',
-      dict: 'status',
-    },
-  ],
-})
-
 useUpsert({
   items: [
-    { prop: 'name', label: '名称', required: true, span: 12 },
     {
       prop: 'vendor',
       label: '厂商',
       required: true,
       span: 12,
-      type: 'select',
-      options: computed(() => dict.stringOptions('base_ai_vendor')),
-      value: 'custom',
+      placeholder: '如 OpenAI / Anthropic / 自定义',
     },
     {
       prop: 'protocol',
@@ -73,22 +39,24 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: computed(() => dict.stringOptions('base_ai_protocol')),
+      options: dict.stringOptions('base_ai_protocol'),
       value: 'openai_compatible',
     },
     {
       prop: 'baseUrl',
       label: '接口地址',
+      required: true,
       span: 12,
-      placeholder: '可空，默认 https://api.openai.com',
+      placeholder: '如 https://api.example.com',
     },
     {
       prop: 'apiKey',
       label: 'API 密钥',
+      required: true,
       span: 12,
       type: 'input',
       component: { props: { type: 'password' } },
-      placeholder: '新建必填；编辑留空或 ******** 表示不改',
+      placeholder: '编辑填 ******** 表示不改',
     },
     {
       prop: 'status',
@@ -100,21 +68,15 @@ useUpsert({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'remark', label: '备注', type: 'textarea', span: 24 },
+    { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
 })
 
 useTable({
   columns: [
     { type: 'selection' },
-    { type: 'index', label: '#', width: 56 },
-    { prop: 'name', label: '名称', minWidth: 140 },
-    {
-      prop: 'vendor',
-      label: '厂商',
-      width: 120,
-      dict: dict.options('base_ai_vendor'),
-    },
+    { prop: 'id', label: 'ID', width: 72 },
+    { prop: 'vendor', label: '厂商', minWidth: 140 },
     {
       prop: 'protocol',
       label: '协议',
@@ -137,12 +99,10 @@ useTable({
   ],
 })
 
-useCrud(
+const Crud = useCrud(
   { service: service.ai.provider },
   (app) => {
-    void dict
-      .refresh(['status', 'base_ai_protocol', 'base_ai_vendor'])
-      .then(() => app.refresh())
+    void dict.refresh(['status', 'base_ai_protocol']).then(() => app.refresh())
   },
 )
 </script>
