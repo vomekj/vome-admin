@@ -88,7 +88,10 @@ export function vomePeerDepsPlugin(appRoot: string): Plugin {
  * + #vome-host/* → 宿主 src
  */
 export function vomeResolvePlugin(root: string, hostSrc: string): Plugin {
-  const coreAdmin = path.resolve(root, 'node_modules/vome-core/dist/admin')
+  const localCoreAdmin = path.resolve(root, '../packages/vome-core/dist/admin')
+  const coreAdmin = fs.existsSync(localCoreAdmin)
+    ? localCoreAdmin
+    : path.resolve(root, 'node_modules/vome-core/dist/admin')
   const serviceEntry = path.resolve(coreAdmin, 'service/index.js')
 
   function resolveServiceId(id: string, importer?: string): string | undefined {

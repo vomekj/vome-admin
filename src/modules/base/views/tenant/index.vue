@@ -46,24 +46,6 @@ function domainList(raw: unknown): string[] {
   return []
 }
 
-useSearch({
-  items: [
-    {
-      prop: 'keyWord',
-      label: '关键字',
-      placeholder: '搜索名称、编码',
-      type: 'input',
-    },
-    {
-      prop: 'status',
-      label: '状态',
-      type: 'select',
-      placeholder: '全部状态',
-      dict: 'status',
-    },
-  ],
-})
-
 useUpsert({
   items: [
     { prop: 'name', label: '名称', required: true, span: 12 },

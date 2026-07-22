@@ -225,7 +225,7 @@
       >
         <template #default="{ form }">
           <template v-if="upsertScene === 'config'">
-            <div class="vm-crud-upsert__field" style="grid-column: span 12">
+            <div class="vm-crud-upsert__field" style="grid-column: span 24">
               <Label class="vm-crud-upsert__label">
                 参数 <span class="vm-crud-upsert__req">*</span>
               </Label>
