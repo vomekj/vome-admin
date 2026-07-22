@@ -9,6 +9,92 @@ declare namespace Eps {
 
 	type Request = (options?: RequestOptions) => Promise<any>;
 
+	interface AiModelEntity {
+		/** ID */
+		id?: number;
+
+		/** 连接 */
+		providerId?: number;
+
+		/** 模型编码 */
+		code?: string;
+
+		/** 名称 */
+		name?: string;
+
+		/** 上游模型ID */
+		upstreamId?: string;
+
+		/** 能力 */
+		capabilities?: any;
+
+		/** 结果形态 */
+		resultModes?: any;
+
+		/** 默认参数 */
+		defaults?: any;
+
+		/** 路径覆盖 */
+		paths?: any;
+
+		/** 状态 */
+		status?: number;
+
+		/** 备注 */
+		remark?: string;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
+	interface AiProviderEntity {
+		/** ID */
+		id?: number;
+
+		/** 名称 */
+		name?: string;
+
+		/** 厂商 */
+		vendor?: string;
+
+		/** 协议 */
+		protocol?: string;
+
+		/** 接口地址 */
+		baseUrl?: string;
+
+		/** API密钥 */
+		apiKey?: string;
+
+		/** 扩展配置 */
+		extra?: any;
+
+		/** 状态 */
+		status?: number;
+
+		/** 备注 */
+		remark?: string;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
 	interface Base_authEntity {
 		id?: number;
 
@@ -520,6 +606,77 @@ declare namespace Eps {
 		deletedAt?: string;
 
 		[key: string]: any;
+	}
+
+	interface Ai_model {
+		/** 统一调用模型 */
+		call(data?: any): Promise<any>;
+
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<AiModelEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<AiModelEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: AiModelEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { call: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { call: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
+	}
+
+	interface Ai_provider {
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<AiProviderEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<AiProviderEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: AiProviderEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
 	}
 
 	interface Base_auth {
@@ -1173,6 +1330,10 @@ declare namespace Eps {
 
 	type Service = {
 		request: Request;
+		ai: {
+			model: Ai_model;
+			provider: Ai_provider;
+		};
 		base: {
 			auth: Base_auth;
 			comm: Base_comm;

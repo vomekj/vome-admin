@@ -1,5 +1,722 @@
 {
   "admin": {
+    "ai": [
+      {
+        "module": "ai",
+        "side": "admin",
+        "prefix": "/admin/ai/model",
+        "name": "AiModelEntity",
+        "info": {
+          "type": {
+            "name": "model",
+            "description": "model"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/call",
+            "summary": "统一调用模型",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:call"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:model:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "providerId",
+            "type": "number",
+            "nullable": false,
+            "source": "a.providerId",
+            "comment": "连接"
+          },
+          {
+            "propertyName": "code",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.code",
+            "comment": "模型编码"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "upstreamId",
+            "type": "string",
+            "length": "200",
+            "nullable": false,
+            "source": "a.upstreamId",
+            "comment": "上游模型ID"
+          },
+          {
+            "propertyName": "capabilities",
+            "type": "json",
+            "nullable": false,
+            "source": "a.capabilities",
+            "comment": "能力"
+          },
+          {
+            "propertyName": "resultModes",
+            "type": "json",
+            "nullable": false,
+            "source": "a.resultModes",
+            "comment": "结果形态"
+          },
+          {
+            "propertyName": "defaults",
+            "type": "json",
+            "nullable": true,
+            "source": "a.defaults",
+            "comment": "默认参数"
+          },
+          {
+            "propertyName": "paths",
+            "type": "json",
+            "nullable": true,
+            "source": "a.paths",
+            "comment": "路径覆盖"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.code",
+            "a.name",
+            "a.upstreamId",
+            "a.remark"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            "a.providerId"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "providerId",
+            "type": "number",
+            "nullable": false,
+            "source": "a.providerId",
+            "comment": "连接"
+          },
+          {
+            "propertyName": "code",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.code",
+            "comment": "模型编码"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "upstreamId",
+            "type": "string",
+            "length": "200",
+            "nullable": false,
+            "source": "a.upstreamId",
+            "comment": "上游模型ID"
+          },
+          {
+            "propertyName": "capabilities",
+            "type": "json",
+            "nullable": false,
+            "source": "a.capabilities",
+            "comment": "能力"
+          },
+          {
+            "propertyName": "resultModes",
+            "type": "json",
+            "nullable": false,
+            "source": "a.resultModes",
+            "comment": "结果形态"
+          },
+          {
+            "propertyName": "defaults",
+            "type": "json",
+            "nullable": true,
+            "source": "a.defaults",
+            "comment": "默认参数"
+          },
+          {
+            "propertyName": "paths",
+            "type": "json",
+            "nullable": true,
+            "source": "a.paths",
+            "comment": "路径覆盖"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      },
+      {
+        "module": "ai",
+        "side": "admin",
+        "prefix": "/admin/ai/provider",
+        "name": "AiProviderEntity",
+        "info": {
+          "type": {
+            "name": "provider",
+            "description": "provider"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/ai/provider",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "ai:provider:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "vendor",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.vendor",
+            "comment": "厂商",
+            "dict": "base_ai_vendor"
+          },
+          {
+            "propertyName": "protocol",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.protocol",
+            "comment": "协议",
+            "dict": "base_ai_protocol"
+          },
+          {
+            "propertyName": "baseUrl",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.baseUrl",
+            "comment": "接口地址"
+          },
+          {
+            "propertyName": "apiKey",
+            "type": "string",
+            "nullable": true,
+            "source": "a.apiKey",
+            "comment": "API密钥"
+          },
+          {
+            "propertyName": "extra",
+            "type": "json",
+            "nullable": true,
+            "source": "a.extra",
+            "comment": "扩展配置"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.baseUrl",
+            "a.remark"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            },
+            {
+              "column": "a.protocol",
+              "dict": "base_ai_protocol"
+            },
+            {
+              "column": "a.vendor",
+              "dict": "base_ai_vendor"
+            }
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称"
+          },
+          {
+            "propertyName": "vendor",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.vendor",
+            "comment": "厂商",
+            "dict": "base_ai_vendor"
+          },
+          {
+            "propertyName": "protocol",
+            "type": "string",
+            "length": "50",
+            "nullable": false,
+            "source": "a.protocol",
+            "comment": "协议",
+            "dict": "base_ai_protocol"
+          },
+          {
+            "propertyName": "baseUrl",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.baseUrl",
+            "comment": "接口地址"
+          },
+          {
+            "propertyName": "apiKey",
+            "type": "string",
+            "nullable": true,
+            "source": "a.apiKey",
+            "comment": "API密钥"
+          },
+          {
+            "propertyName": "extra",
+            "type": "json",
+            "nullable": true,
+            "source": "a.extra",
+            "comment": "扩展配置"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "dict": "status"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间"
+          }
+        ]
+      }
+    ],
     "base": [
       {
         "module": "base",
