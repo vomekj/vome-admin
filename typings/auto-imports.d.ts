@@ -100,6 +100,7 @@ declare global {
   const useDictStore: typeof import('../src/stores/dict').useDictStore
   const useId: typeof import('vue').useId
   const useLink: typeof import('vue-router').useLink
+  const useLocaleStore: typeof import('../src/stores/locale').useLocaleStore
   const useModel: typeof import('vue').useModel
   const useRoute: typeof import('vue-router').useRoute
   const useRouter: typeof import('vue-router').useRouter
@@ -126,6 +127,9 @@ declare global {
   // @ts-ignore
   export type { DictNode } from '../src/stores/dict'
   import('../src/stores/dict')
+  // @ts-ignore
+  export type { I18nLangItem } from '../src/stores/locale'
+  import('../src/stores/locale')
 }
 
 // for vue template auto import
@@ -227,6 +231,7 @@ declare module 'vue' {
     readonly useDictStore: UnwrapRef<typeof import('../src/stores/dict')['useDictStore']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
+    readonly useLocaleStore: UnwrapRef<typeof import('../src/stores/locale')['useLocaleStore']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>

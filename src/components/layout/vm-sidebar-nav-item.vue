@@ -8,7 +8,7 @@
         :to="item.router"
         class="vm-nav-item is-collapsed"
         :class="{ 'is-active': shownActive }"
-        :title="item.name"
+        :title="menuLabel"
         @click="onLeafClick"
       >
         <span class="vm-nav-item__icon-slot">
@@ -28,7 +28,7 @@
           type="button"
           class="vm-nav-item is-collapsed is-dir"
           :class="{ 'is-active': activeBranch, 'is-branch': activeBranch }"
-          :title="item.name"
+          :title="menuLabel"
         >
           <span class="vm-nav-item__icon-slot">
             <vm-ri-icon v-if="hasIcon(item)" :name="iconName(item)" class="vm-nav-item__icon" />
@@ -72,7 +72,7 @@
         <span class="vm-nav-item__icon-slot">
           <vm-ri-icon v-if="hasIcon(item)" :name="iconName(item)" class="vm-nav-item__icon" />
         </span>
-        <span class="vm-nav-item__label">{{ item.name }}</span>
+        <span class="vm-nav-item__label">{{ menuLabel }}</span>
       </RouterLink>
 
       <div
@@ -90,7 +90,7 @@
           <span class="vm-nav-item__icon-slot">
             <vm-ri-icon v-if="hasIcon(item)" :name="iconName(item)" class="vm-nav-item__icon" />
           </span>
-          <span class="vm-nav-item__label">{{ item.name }}</span>
+          <span class="vm-nav-item__label">{{ menuLabel }}</span>
           <i
             class="ri-arrow-down-s-line vm-nav-item__arrow"
             :class="{ 'is-open': open }"
@@ -113,6 +113,8 @@
 </template>
 
 <script setup lang="ts">
+import { useLocaleStore } from '@/stores/locale'
+
 defineOptions({ name: 'vm-sidebar-nav-item' })
 
 const props = defineProps<{
@@ -123,6 +125,9 @@ const props = defineProps<{
   /** 移动端抽屉：选中用内嵌白底，不用右侧开口 */
   mobile?: boolean
 }>()
+
+const locale = useLocaleStore()
+const menuLabel = computed(() => locale.tMenu(props.item))
 
 const route = useRoute()
 

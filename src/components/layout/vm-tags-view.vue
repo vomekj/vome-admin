@@ -10,7 +10,7 @@
         @click="router.push(tag.fullPath)"
         @click.middle="close(tag.path, $event)"
       >
-        <span class="vm-tags__title">{{ tag.title }}</span>
+        <span class="vm-tags__title">{{ tagTitle(tag) }}</span>
         <i
           v-if="tag.path !== '/'"
           class="ri-close-line vm-tags__close"
@@ -22,9 +22,13 @@
 </template>
 
 <script setup lang="ts">
+import { useLocaleStore } from '@/stores/locale'
+
 defineOptions({ name: 'vm-tags-view' })
 
 const tags = useTagsStore()
+const user = useUserStore()
+const locale = useLocaleStore()
 const route = useRoute()
 const router = useRouter()
 
@@ -34,6 +38,25 @@ const offset = ref(0)
 
 /** 首页由顶栏按钮进入，tabs 不再塞首页项 */
 const list = computed(() => tags.list.filter((t) => t.path !== '/'))
+
+function findMenuByPath(
+  nodes: MenuTreeNode[],
+  path: string,
+): MenuTreeNode | null {
+  for (const n of nodes) {
+    if (n.router === path) return n
+    if (n.children?.length) {
+      const hit = findMenuByPath(n.children, path)
+      if (hit) return hit
+    }
+  }
+  return null
+}
+
+function tagTitle(tag: { path: string; title: string }) {
+  const node = findMenuByPath(user.menus, tag.path)
+  return node ? locale.tMenu(node) : tag.title
+}
 
 const trackStyle = computed(() =>
   offset.value > 0 ? { transform: `translateX(-${offset.value}px)` } : undefined,

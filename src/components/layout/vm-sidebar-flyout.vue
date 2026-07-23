@@ -24,12 +24,12 @@
         @click="onLeafClick(node)"
       >
         <vm-ri-icon v-if="hasIcon(node)" :name="iconOf(node)" class="vm-flyout__icon" />
-        <span class="vm-flyout__label">{{ node.name }}</span>
+        <span class="vm-flyout__label">{{ menuLabelOf(node) }}</span>
       </RouterLink>
 
       <button v-else type="button" class="vm-flyout__link">
         <vm-ri-icon v-if="hasIcon(node)" :name="iconOf(node)" class="vm-flyout__icon" />
-        <span class="vm-flyout__label">{{ node.name }}</span>
+        <span class="vm-flyout__label">{{ menuLabelOf(node) }}</span>
         <i class="ri-arrow-right-s-line vm-flyout__chevron" />
       </button>
 
@@ -47,6 +47,8 @@
 </template>
 
 <script setup lang="ts">
+import { useLocaleStore } from '@/stores/locale'
+
 defineOptions({ name: 'vm-sidebar-flyout' })
 
 const props = defineProps<{
@@ -62,6 +64,11 @@ const emit = defineEmits<{
   leave: []
   navigate: []
 }>()
+
+const locale = useLocaleStore()
+function menuLabelOf(node: MenuTreeNode) {
+  return locale.tMenu(node)
+}
 
 const route = useRoute()
 

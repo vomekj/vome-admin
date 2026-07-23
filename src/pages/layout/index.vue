@@ -37,12 +37,14 @@
 
 <script setup lang="ts">
 import { createEps, service, setServicePerms } from '/@/service'
+import { useLocaleStore } from '@/stores/locale'
 
 defineOptions({ name: 'vm-layout' })
 
 const app = useAppStore()
 const user = useUserStore()
 const tags = useTagsStore()
+const locale = useLocaleStore()
 const route = useRoute()
 const error = ref('')
 const ready = ref(false)
@@ -58,6 +60,7 @@ onMounted(async () => {
         '[vome-eps] service.base 未挂载（createEps 后仍为空，检查 /admin/base/open/eps）',
       )
     }
+    await locale.initLocale()
     ready.value = true
   } catch (e) {
     error.value = e instanceof Error ? e.message : '加载失败'

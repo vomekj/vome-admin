@@ -101,15 +101,6 @@ declare namespace Eps {
 		/** 异步契约 */
 		asyncSpec?: any;
 
-		/** 参数提示 */
-		inputSchema?: any;
-
-		/** 响应映射 */
-		responseSpec?: any;
-
-		/** 校验input */
-		validateInput?: number;
-
 		/** 默认参数 */
 		defaults?: any;
 
@@ -607,6 +598,74 @@ declare namespace Eps {
 		[key: string]: any;
 	}
 
+	interface I18nLangEntity {
+		/** ID */
+		id?: number;
+
+		/** 语种编码 */
+		code?: string;
+
+		/** 语言名称 */
+		name?: string;
+
+		/** 国旗 */
+		flag?: string;
+
+		/** 状态 */
+		status?: number;
+
+		/** 排序 */
+		orderNum?: number;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
+	interface I18nPackEntity {
+		/** ID */
+		id?: number;
+
+		/** 语种编码 */
+		langCode?: string;
+
+		/** 来源类型 */
+		scopeType?: string;
+
+		/** 标识 */
+		scopeKey?: string;
+
+		/** 语言包JSON */
+		packJson?: any;
+
+		/** 版本 */
+		version?: number;
+
+		/** 源文案哈希 */
+		sourceHash?: string;
+
+		/** 备注 */
+		remark?: string;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
 	interface UserInfoEntity {
 		/** ID */
 		id?: string;
@@ -718,15 +777,6 @@ declare namespace Eps {
 		/** 统一调用模型 */
 		call(data?: any): Promise<any>;
 
-		/** schema/厂商预设 */
-		presets(data?: any): Promise<any>;
-
-		/** 启用模型目录（含参数提示） */
-		catalog(data?: any): Promise<any>;
-
-		/** 套用厂商预设字段 */
-		applyPreset(data?: any): Promise<any>;
-
 		/** 连通性探测 */
 		test(data?: any): Promise<any>;
 
@@ -758,8 +808,8 @@ declare namespace Eps {
 		import(data?: any): Promise<any>;
 
 		namespace: string;
-		permission: { call: string; presets: string; catalog: string; applyPreset: string; test: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
-		_permission: { call: boolean; presets: boolean; catalog: boolean; applyPreset: boolean; test: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		permission: { call: string; test: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { call: boolean; test: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1369,6 +1419,98 @@ declare namespace Eps {
 		request: Eps.Request;
 	}
 
+	interface I18n_lang {
+		/** 启用语种列表 */
+		enabled(data?: any): Promise<any>;
+
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<I18nLangEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<I18nLangEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: I18nLangEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { enabled: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { enabled: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
+	}
+
+	interface I18n_pack {
+		/** 运行时拉取语言包 */
+		active(data?: any): Promise<any>;
+
+		/** 宿主已生成语言包的可切换语种 */
+		hostLocales(data?: any): Promise<any>;
+
+		/** 宿主中文源模板 */
+		hostSource(data?: any): Promise<any>;
+
+		/** 同步语言包（宿主+全部插件原始包） */
+		ensureHostZh(data?: any): Promise<any>;
+
+		/** 读取插件原始语言包 */
+		pluginSource(data?: any): Promise<any>;
+
+		/** 可用于翻译的对话模型 */
+		chatModels(data?: any): Promise<any>;
+
+		/** AI 翻译语言包（SSE 预览，不落库） */
+		translate(data?: any): Promise<any>;
+
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<I18nPackEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<I18nPackEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: I18nPackEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { active: string; hostLocales: string; hostSource: string; ensureHostZh: string; pluginSource: string; chatModels: string; translate: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { active: boolean; hostLocales: boolean; hostSource: boolean; ensureHostZh: boolean; pluginSource: boolean; chatModels: boolean; translate: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
+	}
+
 	interface User_info {
 		/** 用户角色 */
 		roles(data?: any): Promise<any>;
@@ -1471,6 +1613,10 @@ declare namespace Eps {
 			task: Base_task;
 			tenant: Base_tenant;
 			user: Base_user;
+		};
+		i18n: {
+			lang: I18n_lang;
+			pack: I18n_pack;
 		};
 		user: {
 			info: User_info;

@@ -98,7 +98,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "recordKey",
@@ -106,7 +107,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.recordKey",
-            "comment": "任务号"
+            "comment": "任务号",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "modelCode",
@@ -114,7 +116,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.modelCode",
-            "comment": "模型编码"
+            "comment": "模型编码",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "capability",
@@ -123,6 +126,7 @@
             "nullable": false,
             "source": "a.capability",
             "comment": "能力",
+            "table": "ai_call_log",
             "dict": "base_ai_capability"
           },
           {
@@ -132,6 +136,7 @@
             "nullable": false,
             "source": "a.mode",
             "comment": "形态",
+            "table": "ai_call_log",
             "dict": "base_ai_result_mode"
           },
           {
@@ -141,6 +146,7 @@
             "nullable": true,
             "source": "a.status",
             "comment": "任务状态",
+            "table": "ai_call_log",
             "dict": "base_ai_async_status"
           },
           {
@@ -148,35 +154,40 @@
             "type": "number",
             "nullable": false,
             "source": "a.ok",
-            "comment": "成功"
+            "comment": "成功",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "latencyMs",
             "type": "number",
             "nullable": true,
             "source": "a.latencyMs",
-            "comment": "耗时ms"
+            "comment": "耗时ms",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "inputTokens",
             "type": "number",
             "nullable": true,
             "source": "a.inputTokens",
-            "comment": "输入token"
+            "comment": "输入token",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "outputTokens",
             "type": "number",
             "nullable": true,
             "source": "a.outputTokens",
-            "comment": "输出token"
+            "comment": "输出token",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "totalTokens",
             "type": "number",
             "nullable": true,
             "source": "a.totalTokens",
-            "comment": "总token"
+            "comment": "总token",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "errorCode",
@@ -184,14 +195,16 @@
             "length": "64",
             "nullable": true,
             "source": "a.errorCode",
-            "comment": "错误码"
+            "comment": "错误码",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "errorMessage",
             "type": "string",
             "nullable": true,
             "source": "a.errorMessage",
-            "comment": "错误信息"
+            "comment": "错误信息",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "source",
@@ -200,6 +213,7 @@
             "nullable": false,
             "source": "a.source",
             "comment": "来源",
+            "table": "ai_call_log",
             "dict": "base_ai_invoke_source"
           },
           {
@@ -208,42 +222,48 @@
             "length": "200",
             "nullable": true,
             "source": "a.upstreamId",
-            "comment": "上游任务ID"
+            "comment": "上游任务ID",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "request",
             "type": "json",
             "nullable": true,
             "source": "a.request",
-            "comment": "请求参数"
+            "comment": "请求参数",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "result",
             "type": "json",
             "nullable": true,
             "source": "a.result",
-            "comment": "响应结果"
+            "comment": "响应结果",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "ai_call_log"
           }
         ],
         "pageQueryOp": {
@@ -280,7 +300,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "recordKey",
@@ -288,7 +309,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.recordKey",
-            "comment": "任务号"
+            "comment": "任务号",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "modelCode",
@@ -296,7 +318,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.modelCode",
-            "comment": "模型编码"
+            "comment": "模型编码",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "capability",
@@ -305,6 +328,7 @@
             "nullable": false,
             "source": "a.capability",
             "comment": "能力",
+            "table": "ai_call_log",
             "dict": "base_ai_capability"
           },
           {
@@ -314,6 +338,7 @@
             "nullable": false,
             "source": "a.mode",
             "comment": "形态",
+            "table": "ai_call_log",
             "dict": "base_ai_result_mode"
           },
           {
@@ -323,6 +348,7 @@
             "nullable": true,
             "source": "a.status",
             "comment": "任务状态",
+            "table": "ai_call_log",
             "dict": "base_ai_async_status"
           },
           {
@@ -330,35 +356,40 @@
             "type": "number",
             "nullable": false,
             "source": "a.ok",
-            "comment": "成功"
+            "comment": "成功",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "latencyMs",
             "type": "number",
             "nullable": true,
             "source": "a.latencyMs",
-            "comment": "耗时ms"
+            "comment": "耗时ms",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "inputTokens",
             "type": "number",
             "nullable": true,
             "source": "a.inputTokens",
-            "comment": "输入token"
+            "comment": "输入token",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "outputTokens",
             "type": "number",
             "nullable": true,
             "source": "a.outputTokens",
-            "comment": "输出token"
+            "comment": "输出token",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "totalTokens",
             "type": "number",
             "nullable": true,
             "source": "a.totalTokens",
-            "comment": "总token"
+            "comment": "总token",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "errorCode",
@@ -366,14 +397,16 @@
             "length": "64",
             "nullable": true,
             "source": "a.errorCode",
-            "comment": "错误码"
+            "comment": "错误码",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "errorMessage",
             "type": "string",
             "nullable": true,
             "source": "a.errorMessage",
-            "comment": "错误信息"
+            "comment": "错误信息",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "source",
@@ -382,6 +415,7 @@
             "nullable": false,
             "source": "a.source",
             "comment": "来源",
+            "table": "ai_call_log",
             "dict": "base_ai_invoke_source"
           },
           {
@@ -390,42 +424,48 @@
             "length": "200",
             "nullable": true,
             "source": "a.upstreamId",
-            "comment": "上游任务ID"
+            "comment": "上游任务ID",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "request",
             "type": "json",
             "nullable": true,
             "source": "a.request",
-            "comment": "请求参数"
+            "comment": "请求参数",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "result",
             "type": "json",
             "nullable": true,
             "source": "a.result",
-            "comment": "响应结果"
+            "comment": "响应结果",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "ai_call_log"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "ai_call_log"
           }
         ]
       },
@@ -452,45 +492,6 @@
             "ignorePerms": false,
             "perms": [
               "ai:model:call"
-            ]
-          },
-          {
-            "method": "post",
-            "path": "/presets",
-            "summary": "schema/厂商预设",
-            "dts": {},
-            "tag": "",
-            "prefix": "/admin/ai/model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": [
-              "ai:model:presets"
-            ]
-          },
-          {
-            "method": "post",
-            "path": "/catalog",
-            "summary": "启用模型目录（含参数提示）",
-            "dts": {},
-            "tag": "",
-            "prefix": "/admin/ai/model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": [
-              "ai:model:catalog"
-            ]
-          },
-          {
-            "method": "post",
-            "path": "/applyPreset",
-            "summary": "套用厂商预设字段",
-            "dts": {},
-            "tag": "",
-            "prefix": "/admin/ai/model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": [
-              "ai:model:applyPreset"
             ]
           },
           {
@@ -630,14 +631,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "ai_model"
           },
           {
             "propertyName": "providerId",
             "type": "number",
             "nullable": false,
             "source": "a.providerId",
-            "comment": "连接"
+            "comment": "连接",
+            "table": "ai_model"
           },
           {
             "propertyName": "code",
@@ -645,7 +648,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.code",
-            "comment": "模型编码"
+            "comment": "模型编码",
+            "table": "ai_model"
           },
           {
             "propertyName": "path",
@@ -653,7 +657,8 @@
             "length": "500",
             "nullable": false,
             "source": "a.path",
-            "comment": "请求路径"
+            "comment": "请求路径",
+            "table": "ai_model"
           },
           {
             "propertyName": "method",
@@ -662,6 +667,7 @@
             "nullable": false,
             "source": "a.method",
             "comment": "请求方法",
+            "table": "ai_model",
             "dict": "base_http_method"
           },
           {
@@ -671,6 +677,7 @@
             "nullable": false,
             "source": "a.contentType",
             "comment": "请求体类型",
+            "table": "ai_model",
             "dict": "base_ai_content_type"
           },
           {
@@ -678,49 +685,32 @@
             "type": "json",
             "nullable": false,
             "source": "a.capabilities",
-            "comment": "能力"
+            "comment": "能力",
+            "table": "ai_model"
           },
           {
             "propertyName": "resultModes",
             "type": "json",
             "nullable": false,
             "source": "a.resultModes",
-            "comment": "结果形态"
+            "comment": "结果形态",
+            "table": "ai_model"
           },
           {
             "propertyName": "asyncSpec",
             "type": "json",
             "nullable": true,
             "source": "a.asyncSpec",
-            "comment": "异步契约"
-          },
-          {
-            "propertyName": "inputSchema",
-            "type": "json",
-            "nullable": true,
-            "source": "a.inputSchema",
-            "comment": "参数提示"
-          },
-          {
-            "propertyName": "responseSpec",
-            "type": "json",
-            "nullable": true,
-            "source": "a.responseSpec",
-            "comment": "响应映射"
-          },
-          {
-            "propertyName": "validateInput",
-            "type": "number",
-            "nullable": false,
-            "source": "a.validateInput",
-            "comment": "校验input"
+            "comment": "异步契约",
+            "table": "ai_model"
           },
           {
             "propertyName": "defaults",
             "type": "json",
             "nullable": true,
             "source": "a.defaults",
-            "comment": "默认参数"
+            "comment": "默认参数",
+            "table": "ai_model"
           },
           {
             "propertyName": "status",
@@ -728,6 +718,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "ai_model",
             "dict": "status"
           },
           {
@@ -736,28 +727,32 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "ai_model"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "ai_model"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "ai_model"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "ai_model"
           }
         ],
         "pageQueryOp": {
@@ -791,14 +786,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "ai_model"
           },
           {
             "propertyName": "providerId",
             "type": "number",
             "nullable": false,
             "source": "a.providerId",
-            "comment": "连接"
+            "comment": "连接",
+            "table": "ai_model"
           },
           {
             "propertyName": "code",
@@ -806,7 +803,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.code",
-            "comment": "模型编码"
+            "comment": "模型编码",
+            "table": "ai_model"
           },
           {
             "propertyName": "path",
@@ -814,7 +812,8 @@
             "length": "500",
             "nullable": false,
             "source": "a.path",
-            "comment": "请求路径"
+            "comment": "请求路径",
+            "table": "ai_model"
           },
           {
             "propertyName": "method",
@@ -823,6 +822,7 @@
             "nullable": false,
             "source": "a.method",
             "comment": "请求方法",
+            "table": "ai_model",
             "dict": "base_http_method"
           },
           {
@@ -832,6 +832,7 @@
             "nullable": false,
             "source": "a.contentType",
             "comment": "请求体类型",
+            "table": "ai_model",
             "dict": "base_ai_content_type"
           },
           {
@@ -839,49 +840,32 @@
             "type": "json",
             "nullable": false,
             "source": "a.capabilities",
-            "comment": "能力"
+            "comment": "能力",
+            "table": "ai_model"
           },
           {
             "propertyName": "resultModes",
             "type": "json",
             "nullable": false,
             "source": "a.resultModes",
-            "comment": "结果形态"
+            "comment": "结果形态",
+            "table": "ai_model"
           },
           {
             "propertyName": "asyncSpec",
             "type": "json",
             "nullable": true,
             "source": "a.asyncSpec",
-            "comment": "异步契约"
-          },
-          {
-            "propertyName": "inputSchema",
-            "type": "json",
-            "nullable": true,
-            "source": "a.inputSchema",
-            "comment": "参数提示"
-          },
-          {
-            "propertyName": "responseSpec",
-            "type": "json",
-            "nullable": true,
-            "source": "a.responseSpec",
-            "comment": "响应映射"
-          },
-          {
-            "propertyName": "validateInput",
-            "type": "number",
-            "nullable": false,
-            "source": "a.validateInput",
-            "comment": "校验input"
+            "comment": "异步契约",
+            "table": "ai_model"
           },
           {
             "propertyName": "defaults",
             "type": "json",
             "nullable": true,
             "source": "a.defaults",
-            "comment": "默认参数"
+            "comment": "默认参数",
+            "table": "ai_model"
           },
           {
             "propertyName": "status",
@@ -889,6 +873,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "ai_model",
             "dict": "status"
           },
           {
@@ -897,28 +882,32 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "ai_model"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "ai_model"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "ai_model"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "ai_model"
           }
         ]
       },
@@ -1058,7 +1047,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "ai_provider"
           },
           {
             "propertyName": "vendor",
@@ -1066,7 +1056,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.vendor",
-            "comment": "厂商"
+            "comment": "厂商",
+            "table": "ai_provider"
           },
           {
             "propertyName": "protocol",
@@ -1075,6 +1066,7 @@
             "nullable": false,
             "source": "a.protocol",
             "comment": "协议",
+            "table": "ai_provider",
             "dict": "base_ai_protocol"
           },
           {
@@ -1083,21 +1075,24 @@
             "length": "500",
             "nullable": false,
             "source": "a.baseUrl",
-            "comment": "接口地址"
+            "comment": "接口地址",
+            "table": "ai_provider"
           },
           {
             "propertyName": "apiKey",
             "type": "string",
             "nullable": false,
             "source": "a.apiKey",
-            "comment": "API密钥"
+            "comment": "API密钥",
+            "table": "ai_provider"
           },
           {
             "propertyName": "extra",
             "type": "json",
             "nullable": true,
             "source": "a.extra",
-            "comment": "扩展配置"
+            "comment": "扩展配置",
+            "table": "ai_provider"
           },
           {
             "propertyName": "status",
@@ -1105,6 +1100,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "ai_provider",
             "dict": "status"
           },
           {
@@ -1113,28 +1109,32 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "ai_provider"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "ai_provider"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "ai_provider"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "ai_provider"
           }
         ],
         "pageQueryOp": {
@@ -1163,7 +1163,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "ai_provider"
           },
           {
             "propertyName": "vendor",
@@ -1171,7 +1172,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.vendor",
-            "comment": "厂商"
+            "comment": "厂商",
+            "table": "ai_provider"
           },
           {
             "propertyName": "protocol",
@@ -1180,6 +1182,7 @@
             "nullable": false,
             "source": "a.protocol",
             "comment": "协议",
+            "table": "ai_provider",
             "dict": "base_ai_protocol"
           },
           {
@@ -1188,21 +1191,24 @@
             "length": "500",
             "nullable": false,
             "source": "a.baseUrl",
-            "comment": "接口地址"
+            "comment": "接口地址",
+            "table": "ai_provider"
           },
           {
             "propertyName": "apiKey",
             "type": "string",
             "nullable": false,
             "source": "a.apiKey",
-            "comment": "API密钥"
+            "comment": "API密钥",
+            "table": "ai_provider"
           },
           {
             "propertyName": "extra",
             "type": "json",
             "nullable": true,
             "source": "a.extra",
-            "comment": "扩展配置"
+            "comment": "扩展配置",
+            "table": "ai_provider"
           },
           {
             "propertyName": "status",
@@ -1210,6 +1216,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "ai_provider",
             "dict": "status"
           },
           {
@@ -1218,28 +1225,32 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "ai_provider"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "ai_provider"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "ai_provider"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "ai_provider"
           }
         ]
       }
@@ -1506,14 +1517,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_department"
           },
           {
             "propertyName": "parentId",
             "type": "number",
             "nullable": true,
             "source": "a.parentId",
-            "comment": "上级"
+            "comment": "上级",
+            "table": "base_department"
           },
           {
             "propertyName": "name",
@@ -1521,35 +1534,40 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_department"
           },
           {
             "propertyName": "orderNum",
             "type": "number",
             "nullable": false,
             "source": "a.orderNum",
-            "comment": "排序"
+            "comment": "排序",
+            "table": "base_department"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_department"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_department"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_department"
           }
         ],
         "pageQueryOp": {
@@ -1576,14 +1594,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_department"
           },
           {
             "propertyName": "parentId",
             "type": "number",
             "nullable": true,
             "source": "a.parentId",
-            "comment": "上级"
+            "comment": "上级",
+            "table": "base_department"
           },
           {
             "propertyName": "name",
@@ -1591,35 +1611,40 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_department"
           },
           {
             "propertyName": "orderNum",
             "type": "number",
             "nullable": false,
             "source": "a.orderNum",
-            "comment": "排序"
+            "comment": "排序",
+            "table": "base_department"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_department"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_department"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_department"
           }
         ]
       },
@@ -1848,14 +1873,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "typeId",
             "type": "number",
             "nullable": false,
             "source": "a.typeId",
-            "comment": "字典类型"
+            "comment": "字典类型",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "name",
@@ -1863,21 +1890,24 @@
             "length": "255",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "value",
             "type": "json",
             "nullable": true,
             "source": "a.value",
-            "comment": "值"
+            "comment": "值",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "orderNum",
             "type": "number",
             "nullable": false,
             "source": "a.orderNum",
-            "comment": "排序"
+            "comment": "排序",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "remark",
@@ -1885,35 +1915,40 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "parentId",
             "type": "number",
             "nullable": true,
             "source": "a.parentId",
-            "comment": "上级"
+            "comment": "上级",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_dict_info"
           }
         ],
         "pageQueryOp": {
@@ -1946,14 +1981,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "typeId",
             "type": "number",
             "nullable": false,
             "source": "a.typeId",
-            "comment": "字典类型"
+            "comment": "字典类型",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "name",
@@ -1961,21 +1998,24 @@
             "length": "255",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "value",
             "type": "json",
             "nullable": true,
             "source": "a.value",
-            "comment": "值"
+            "comment": "值",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "orderNum",
             "type": "number",
             "nullable": false,
             "source": "a.orderNum",
-            "comment": "排序"
+            "comment": "排序",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "remark",
@@ -1983,35 +2023,40 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "parentId",
             "type": "number",
             "nullable": true,
             "source": "a.parentId",
-            "comment": "上级"
+            "comment": "上级",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_dict_info"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_dict_info"
           }
         ]
       },
@@ -2151,7 +2196,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "name",
@@ -2159,7 +2205,8 @@
             "length": "255",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "key",
@@ -2167,28 +2214,32 @@
             "length": "100",
             "nullable": false,
             "source": "a.key",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_dict_type"
           }
         ],
         "pageQueryOp": {
@@ -2214,7 +2265,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "name",
@@ -2222,7 +2274,8 @@
             "length": "255",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "key",
@@ -2230,28 +2283,32 @@
             "length": "100",
             "nullable": false,
             "source": "a.key",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_dict_type"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_dict_type"
           }
         ]
       },
@@ -2391,7 +2448,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_log"
           },
           {
             "propertyName": "userId",
@@ -2399,7 +2457,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.userId",
-            "comment": "操作者"
+            "comment": "操作者",
+            "table": "base_log"
           },
           {
             "propertyName": "side",
@@ -2407,7 +2466,8 @@
             "length": "16",
             "nullable": false,
             "source": "a.side",
-            "comment": "端"
+            "comment": "端",
+            "table": "base_log"
           },
           {
             "propertyName": "ip",
@@ -2415,7 +2475,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.ip",
-            "comment": "IP"
+            "comment": "IP",
+            "table": "base_log"
           },
           {
             "propertyName": "method",
@@ -2423,7 +2484,8 @@
             "length": "16",
             "nullable": false,
             "source": "a.method",
-            "comment": "方法"
+            "comment": "方法",
+            "table": "base_log"
           },
           {
             "propertyName": "action",
@@ -2431,7 +2493,8 @@
             "length": "500",
             "nullable": false,
             "source": "a.action",
-            "comment": "路径"
+            "comment": "路径",
+            "table": "base_log"
           },
           {
             "propertyName": "logType",
@@ -2439,56 +2502,64 @@
             "length": "32",
             "nullable": true,
             "source": "a.logType",
-            "comment": "日志类型"
+            "comment": "日志类型",
+            "table": "base_log"
           },
           {
             "propertyName": "params",
             "type": "string",
             "nullable": true,
             "source": "a.params",
-            "comment": "请求参数"
+            "comment": "请求参数",
+            "table": "base_log"
           },
           {
             "propertyName": "response",
             "type": "string",
             "nullable": true,
             "source": "a.response",
-            "comment": "响应"
+            "comment": "响应",
+            "table": "base_log"
           },
           {
             "propertyName": "duration",
             "type": "number",
             "nullable": false,
             "source": "a.duration",
-            "comment": "响应时间"
+            "comment": "响应时间",
+            "table": "base_log"
           },
           {
             "propertyName": "status",
             "type": "number",
             "nullable": true,
             "source": "a.status",
-            "comment": "状态码"
+            "comment": "状态码",
+            "table": "base_log"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "请求时间"
+            "comment": "请求时间",
+            "table": "base_log"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_log"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_log"
           }
         ],
         "pageQueryOp": {
@@ -2526,7 +2597,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_log"
           },
           {
             "propertyName": "userId",
@@ -2534,7 +2606,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.userId",
-            "comment": "操作者"
+            "comment": "操作者",
+            "table": "base_log"
           },
           {
             "propertyName": "side",
@@ -2542,7 +2615,8 @@
             "length": "16",
             "nullable": false,
             "source": "a.side",
-            "comment": "端"
+            "comment": "端",
+            "table": "base_log"
           },
           {
             "propertyName": "ip",
@@ -2550,7 +2624,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.ip",
-            "comment": "IP"
+            "comment": "IP",
+            "table": "base_log"
           },
           {
             "propertyName": "method",
@@ -2558,7 +2633,8 @@
             "length": "16",
             "nullable": false,
             "source": "a.method",
-            "comment": "方法"
+            "comment": "方法",
+            "table": "base_log"
           },
           {
             "propertyName": "action",
@@ -2566,7 +2642,8 @@
             "length": "500",
             "nullable": false,
             "source": "a.action",
-            "comment": "路径"
+            "comment": "路径",
+            "table": "base_log"
           },
           {
             "propertyName": "logType",
@@ -2574,56 +2651,64 @@
             "length": "32",
             "nullable": true,
             "source": "a.logType",
-            "comment": "日志类型"
+            "comment": "日志类型",
+            "table": "base_log"
           },
           {
             "propertyName": "params",
             "type": "string",
             "nullable": true,
             "source": "a.params",
-            "comment": "请求参数"
+            "comment": "请求参数",
+            "table": "base_log"
           },
           {
             "propertyName": "response",
             "type": "string",
             "nullable": true,
             "source": "a.response",
-            "comment": "响应"
+            "comment": "响应",
+            "table": "base_log"
           },
           {
             "propertyName": "duration",
             "type": "number",
             "nullable": false,
             "source": "a.duration",
-            "comment": "响应时间"
+            "comment": "响应时间",
+            "table": "base_log"
           },
           {
             "propertyName": "status",
             "type": "number",
             "nullable": true,
             "source": "a.status",
-            "comment": "状态码"
+            "comment": "状态码",
+            "table": "base_log"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "请求时间"
+            "comment": "请求时间",
+            "table": "base_log"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_log"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_log"
           }
         ]
       },
@@ -2776,14 +2861,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_menu"
           },
           {
             "propertyName": "parentId",
             "type": "number",
             "nullable": true,
             "source": "a.parentId",
-            "comment": "上级"
+            "comment": "上级",
+            "table": "base_menu"
           },
           {
             "propertyName": "name",
@@ -2791,7 +2878,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_menu"
           },
           {
             "propertyName": "router",
@@ -2799,7 +2887,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.router",
-            "comment": "路由"
+            "comment": "路由",
+            "table": "base_menu"
           },
           {
             "propertyName": "perms",
@@ -2807,14 +2896,16 @@
             "length": "255",
             "nullable": true,
             "source": "a.perms",
-            "comment": "权限"
+            "comment": "权限",
+            "table": "base_menu"
           },
           {
             "propertyName": "type",
             "type": "number",
             "nullable": false,
             "source": "a.type",
-            "comment": "类型"
+            "comment": "类型",
+            "table": "base_menu"
           },
           {
             "propertyName": "icon",
@@ -2822,14 +2913,16 @@
             "length": "100",
             "nullable": true,
             "source": "a.icon",
-            "comment": "图标"
+            "comment": "图标",
+            "table": "base_menu"
           },
           {
             "propertyName": "orderNum",
             "type": "number",
             "nullable": false,
             "source": "a.orderNum",
-            "comment": "排序"
+            "comment": "排序",
+            "table": "base_menu"
           },
           {
             "propertyName": "viewPath",
@@ -2837,7 +2930,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.viewPath",
-            "comment": "视图"
+            "comment": "视图",
+            "table": "base_menu"
           },
           {
             "propertyName": "remoteName",
@@ -2845,7 +2939,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.remoteName",
-            "comment": "远程名"
+            "comment": "远程名",
+            "table": "base_menu"
           },
           {
             "propertyName": "remoteEntry",
@@ -2853,7 +2948,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.remoteEntry",
-            "comment": "远程入口"
+            "comment": "远程入口",
+            "table": "base_menu"
           },
           {
             "propertyName": "remoteModule",
@@ -2861,7 +2957,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.remoteModule",
-            "comment": "远程模块"
+            "comment": "远程模块",
+            "table": "base_menu"
           },
           {
             "propertyName": "appKey",
@@ -2869,42 +2966,48 @@
             "length": "100",
             "nullable": true,
             "source": "a.appKey",
-            "comment": "微应用"
+            "comment": "微应用",
+            "table": "base_menu"
           },
           {
             "propertyName": "keepAlive",
             "type": "boolean",
             "nullable": false,
             "source": "a.keepAlive",
-            "comment": "路由缓存"
+            "comment": "路由缓存",
+            "table": "base_menu"
           },
           {
             "propertyName": "isShow",
             "type": "boolean",
             "nullable": false,
             "source": "a.isShow",
-            "comment": "是否显示"
+            "comment": "是否显示",
+            "table": "base_menu"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_menu"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_menu"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_menu"
           }
         ],
         "pageQueryOp": {
@@ -2941,14 +3044,16 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_menu"
           },
           {
             "propertyName": "parentId",
             "type": "number",
             "nullable": true,
             "source": "a.parentId",
-            "comment": "上级"
+            "comment": "上级",
+            "table": "base_menu"
           },
           {
             "propertyName": "name",
@@ -2956,7 +3061,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_menu"
           },
           {
             "propertyName": "router",
@@ -2964,7 +3070,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.router",
-            "comment": "路由"
+            "comment": "路由",
+            "table": "base_menu"
           },
           {
             "propertyName": "perms",
@@ -2972,14 +3079,16 @@
             "length": "255",
             "nullable": true,
             "source": "a.perms",
-            "comment": "权限"
+            "comment": "权限",
+            "table": "base_menu"
           },
           {
             "propertyName": "type",
             "type": "number",
             "nullable": false,
             "source": "a.type",
-            "comment": "类型"
+            "comment": "类型",
+            "table": "base_menu"
           },
           {
             "propertyName": "icon",
@@ -2987,14 +3096,16 @@
             "length": "100",
             "nullable": true,
             "source": "a.icon",
-            "comment": "图标"
+            "comment": "图标",
+            "table": "base_menu"
           },
           {
             "propertyName": "orderNum",
             "type": "number",
             "nullable": false,
             "source": "a.orderNum",
-            "comment": "排序"
+            "comment": "排序",
+            "table": "base_menu"
           },
           {
             "propertyName": "viewPath",
@@ -3002,7 +3113,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.viewPath",
-            "comment": "视图"
+            "comment": "视图",
+            "table": "base_menu"
           },
           {
             "propertyName": "remoteName",
@@ -3010,7 +3122,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.remoteName",
-            "comment": "远程名"
+            "comment": "远程名",
+            "table": "base_menu"
           },
           {
             "propertyName": "remoteEntry",
@@ -3018,7 +3131,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.remoteEntry",
-            "comment": "远程入口"
+            "comment": "远程入口",
+            "table": "base_menu"
           },
           {
             "propertyName": "remoteModule",
@@ -3026,7 +3140,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.remoteModule",
-            "comment": "远程模块"
+            "comment": "远程模块",
+            "table": "base_menu"
           },
           {
             "propertyName": "appKey",
@@ -3034,42 +3149,48 @@
             "length": "100",
             "nullable": true,
             "source": "a.appKey",
-            "comment": "微应用"
+            "comment": "微应用",
+            "table": "base_menu"
           },
           {
             "propertyName": "keepAlive",
             "type": "boolean",
             "nullable": false,
             "source": "a.keepAlive",
-            "comment": "路由缓存"
+            "comment": "路由缓存",
+            "table": "base_menu"
           },
           {
             "propertyName": "isShow",
             "type": "boolean",
             "nullable": false,
             "source": "a.isShow",
-            "comment": "是否显示"
+            "comment": "是否显示",
+            "table": "base_menu"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_menu"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_menu"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_menu"
           }
         ]
       },
@@ -3301,7 +3422,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "name",
@@ -3309,7 +3431,8 @@
             "length": "255",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "description",
@@ -3317,7 +3440,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.description",
-            "comment": "描述"
+            "comment": "描述",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "keyName",
@@ -3325,7 +3449,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.keyName",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "hook",
@@ -3333,14 +3458,16 @@
             "length": "100",
             "nullable": true,
             "source": "a.hook",
-            "comment": "钩子"
+            "comment": "钩子",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "readme",
             "type": "string",
             "nullable": true,
             "source": "a.readme",
-            "comment": "说明"
+            "comment": "说明",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "version",
@@ -3348,14 +3475,16 @@
             "length": "50",
             "nullable": false,
             "source": "a.version",
-            "comment": "版本"
+            "comment": "版本",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "logo",
             "type": "string",
             "nullable": true,
             "source": "a.logo",
-            "comment": "Logo"
+            "comment": "Logo",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "author",
@@ -3363,7 +3492,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.author",
-            "comment": "作者"
+            "comment": "作者",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "status",
@@ -3371,6 +3501,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_plugin_info",
             "dict": "status"
           },
           {
@@ -3378,49 +3509,56 @@
             "type": "json",
             "nullable": true,
             "source": "a.content",
-            "comment": "内容"
+            "comment": "内容",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "tsContent",
             "type": "json",
             "nullable": true,
             "source": "a.tsContent",
-            "comment": "TS内容"
+            "comment": "TS内容",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "pluginJson",
             "type": "json",
             "nullable": true,
             "source": "a.pluginJson",
-            "comment": "插件元数据"
+            "comment": "插件元数据",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "config",
             "type": "json",
             "nullable": true,
             "source": "a.config",
-            "comment": "配置"
+            "comment": "配置",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_plugin_info"
           }
         ],
         "pageQueryOp": {
@@ -3456,7 +3594,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "name",
@@ -3464,7 +3603,8 @@
             "length": "255",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "description",
@@ -3472,7 +3612,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.description",
-            "comment": "描述"
+            "comment": "描述",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "keyName",
@@ -3480,7 +3621,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.keyName",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "hook",
@@ -3488,14 +3630,16 @@
             "length": "100",
             "nullable": true,
             "source": "a.hook",
-            "comment": "钩子"
+            "comment": "钩子",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "readme",
             "type": "string",
             "nullable": true,
             "source": "a.readme",
-            "comment": "说明"
+            "comment": "说明",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "version",
@@ -3503,14 +3647,16 @@
             "length": "50",
             "nullable": false,
             "source": "a.version",
-            "comment": "版本"
+            "comment": "版本",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "logo",
             "type": "string",
             "nullable": true,
             "source": "a.logo",
-            "comment": "Logo"
+            "comment": "Logo",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "author",
@@ -3518,7 +3664,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.author",
-            "comment": "作者"
+            "comment": "作者",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "status",
@@ -3526,6 +3673,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_plugin_info",
             "dict": "status"
           },
           {
@@ -3533,49 +3681,56 @@
             "type": "json",
             "nullable": true,
             "source": "a.content",
-            "comment": "内容"
+            "comment": "内容",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "tsContent",
             "type": "json",
             "nullable": true,
             "source": "a.tsContent",
-            "comment": "TS内容"
+            "comment": "TS内容",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "pluginJson",
             "type": "json",
             "nullable": true,
             "source": "a.pluginJson",
-            "comment": "插件元数据"
+            "comment": "插件元数据",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "config",
             "type": "json",
             "nullable": true,
             "source": "a.config",
-            "comment": "配置"
+            "comment": "配置",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_plugin_info"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_plugin_info"
           }
         ]
       },
@@ -3906,7 +4061,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_role"
           },
           {
             "propertyName": "name",
@@ -3914,7 +4070,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_role"
           },
           {
             "propertyName": "label",
@@ -3922,7 +4079,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.label",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "base_role"
           },
           {
             "propertyName": "remark",
@@ -3930,21 +4088,24 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_role"
           },
           {
             "propertyName": "dataScope",
             "type": "number",
             "nullable": false,
             "source": "a.dataScope",
-            "comment": "数据权限"
+            "comment": "数据权限",
+            "table": "base_role"
           },
           {
             "propertyName": "relevance",
             "type": "boolean",
             "nullable": false,
             "source": "a.relevance",
-            "comment": "关联上下级"
+            "comment": "关联上下级",
+            "table": "base_role"
           },
           {
             "propertyName": "status",
@@ -3952,6 +4113,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_role",
             "dict": "status"
           },
           {
@@ -3959,21 +4121,24 @@
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_role"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_role"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_role"
           }
         ],
         "pageQueryOp": {
@@ -4008,7 +4173,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_role"
           },
           {
             "propertyName": "name",
@@ -4016,7 +4182,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_role"
           },
           {
             "propertyName": "label",
@@ -4024,7 +4191,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.label",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "base_role"
           },
           {
             "propertyName": "remark",
@@ -4032,21 +4200,24 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_role"
           },
           {
             "propertyName": "dataScope",
             "type": "number",
             "nullable": false,
             "source": "a.dataScope",
-            "comment": "数据权限"
+            "comment": "数据权限",
+            "table": "base_role"
           },
           {
             "propertyName": "relevance",
             "type": "boolean",
             "nullable": false,
             "source": "a.relevance",
-            "comment": "关联上下级"
+            "comment": "关联上下级",
+            "table": "base_role"
           },
           {
             "propertyName": "status",
@@ -4054,6 +4225,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_role",
             "dict": "status"
           },
           {
@@ -4061,21 +4233,24 @@
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_role"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_role"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_role"
           }
         ]
       },
@@ -4267,7 +4442,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_task"
           },
           {
             "propertyName": "name",
@@ -4275,7 +4451,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_task"
           },
           {
             "propertyName": "service",
@@ -4283,7 +4460,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.service",
-            "comment": "服务类"
+            "comment": "服务类",
+            "table": "base_task"
           },
           {
             "propertyName": "method",
@@ -4291,14 +4469,16 @@
             "length": "100",
             "nullable": false,
             "source": "a.method",
-            "comment": "方法"
+            "comment": "方法",
+            "table": "base_task"
           },
           {
             "propertyName": "params",
             "type": "string",
             "nullable": true,
             "source": "a.params",
-            "comment": "参数"
+            "comment": "参数",
+            "table": "base_task"
           },
           {
             "propertyName": "taskType",
@@ -4306,7 +4486,8 @@
             "length": "20",
             "nullable": false,
             "source": "a.taskType",
-            "comment": "任务类型"
+            "comment": "任务类型",
+            "table": "base_task"
           },
           {
             "propertyName": "cron",
@@ -4314,14 +4495,16 @@
             "length": "100",
             "nullable": true,
             "source": "a.cron",
-            "comment": "Cron"
+            "comment": "Cron",
+            "table": "base_task"
           },
           {
             "propertyName": "startDate",
             "type": "date",
             "nullable": true,
             "source": "a.startDate",
-            "comment": "执行时间"
+            "comment": "执行时间",
+            "table": "base_task"
           },
           {
             "propertyName": "status",
@@ -4329,6 +4512,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_task",
             "dict": "status"
           },
           {
@@ -4337,35 +4521,40 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_task"
           },
           {
             "propertyName": "lastRunTime",
             "type": "date",
             "nullable": true,
             "source": "a.lastRunTime",
-            "comment": "上次执行"
+            "comment": "上次执行",
+            "table": "base_task"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_task"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_task"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_task"
           }
         ],
         "pageQueryOp": {
@@ -4407,7 +4596,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_task"
           },
           {
             "propertyName": "name",
@@ -4415,7 +4605,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_task"
           },
           {
             "propertyName": "service",
@@ -4423,7 +4614,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.service",
-            "comment": "服务类"
+            "comment": "服务类",
+            "table": "base_task"
           },
           {
             "propertyName": "method",
@@ -4431,14 +4623,16 @@
             "length": "100",
             "nullable": false,
             "source": "a.method",
-            "comment": "方法"
+            "comment": "方法",
+            "table": "base_task"
           },
           {
             "propertyName": "params",
             "type": "string",
             "nullable": true,
             "source": "a.params",
-            "comment": "参数"
+            "comment": "参数",
+            "table": "base_task"
           },
           {
             "propertyName": "taskType",
@@ -4446,7 +4640,8 @@
             "length": "20",
             "nullable": false,
             "source": "a.taskType",
-            "comment": "任务类型"
+            "comment": "任务类型",
+            "table": "base_task"
           },
           {
             "propertyName": "cron",
@@ -4454,14 +4649,16 @@
             "length": "100",
             "nullable": true,
             "source": "a.cron",
-            "comment": "Cron"
+            "comment": "Cron",
+            "table": "base_task"
           },
           {
             "propertyName": "startDate",
             "type": "date",
             "nullable": true,
             "source": "a.startDate",
-            "comment": "执行时间"
+            "comment": "执行时间",
+            "table": "base_task"
           },
           {
             "propertyName": "status",
@@ -4469,6 +4666,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_task",
             "dict": "status"
           },
           {
@@ -4477,35 +4675,40 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_task"
           },
           {
             "propertyName": "lastRunTime",
             "type": "date",
             "nullable": true,
             "source": "a.lastRunTime",
-            "comment": "上次执行"
+            "comment": "上次执行",
+            "table": "base_task"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_task"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_task"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_task"
           }
         ]
       },
@@ -4645,7 +4848,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_tenant"
           },
           {
             "propertyName": "name",
@@ -4653,7 +4857,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_tenant"
           },
           {
             "propertyName": "code",
@@ -4661,14 +4866,16 @@
             "length": "64",
             "nullable": false,
             "source": "a.code",
-            "comment": "编码"
+            "comment": "编码",
+            "table": "base_tenant"
           },
           {
             "propertyName": "domains",
             "type": "json",
             "nullable": false,
             "source": "a.domains",
-            "comment": "域名"
+            "comment": "域名",
+            "table": "base_tenant"
           },
           {
             "propertyName": "status",
@@ -4676,6 +4883,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_tenant",
             "dict": "status"
           },
           {
@@ -4684,28 +4892,32 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_tenant"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_tenant"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_tenant"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_tenant"
           }
         ],
         "pageQueryOp": {
@@ -4737,7 +4949,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_tenant"
           },
           {
             "propertyName": "name",
@@ -4745,7 +4958,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "base_tenant"
           },
           {
             "propertyName": "code",
@@ -4753,14 +4967,16 @@
             "length": "64",
             "nullable": false,
             "source": "a.code",
-            "comment": "编码"
+            "comment": "编码",
+            "table": "base_tenant"
           },
           {
             "propertyName": "domains",
             "type": "json",
             "nullable": false,
             "source": "a.domains",
-            "comment": "域名"
+            "comment": "域名",
+            "table": "base_tenant"
           },
           {
             "propertyName": "status",
@@ -4768,6 +4984,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_tenant",
             "dict": "status"
           },
           {
@@ -4776,28 +4993,32 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_tenant"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_tenant"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_tenant"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_tenant"
           }
         ]
       },
@@ -5002,21 +5223,24 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_user"
           },
           {
             "propertyName": "departmentId",
             "type": "number",
             "nullable": true,
             "source": "a.departmentId",
-            "comment": "部门"
+            "comment": "部门",
+            "table": "base_user"
           },
           {
             "propertyName": "userId",
             "type": "number",
             "nullable": true,
             "source": "a.userId",
-            "comment": "关联用户"
+            "comment": "关联用户",
+            "table": "base_user"
           },
           {
             "propertyName": "name",
@@ -5024,7 +5248,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.name",
-            "comment": "姓名"
+            "comment": "姓名",
+            "table": "base_user"
           },
           {
             "propertyName": "username",
@@ -5032,7 +5257,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.username",
-            "comment": "用户名"
+            "comment": "用户名",
+            "table": "base_user"
           },
           {
             "propertyName": "password",
@@ -5040,14 +5266,16 @@
             "length": "255",
             "nullable": false,
             "source": "a.password",
-            "comment": "密码"
+            "comment": "密码",
+            "table": "base_user"
           },
           {
             "propertyName": "passwordV",
             "type": "number",
             "nullable": false,
             "source": "a.passwordV",
-            "comment": "密码版本"
+            "comment": "密码版本",
+            "table": "base_user"
           },
           {
             "propertyName": "nickName",
@@ -5055,7 +5283,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.nickName",
-            "comment": "昵称"
+            "comment": "昵称",
+            "table": "base_user"
           },
           {
             "propertyName": "headImg",
@@ -5063,7 +5292,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.headImg",
-            "comment": "头像"
+            "comment": "头像",
+            "table": "base_user"
           },
           {
             "propertyName": "phone",
@@ -5071,7 +5301,8 @@
             "length": "20",
             "nullable": true,
             "source": "a.phone",
-            "comment": "手机号"
+            "comment": "手机号",
+            "table": "base_user"
           },
           {
             "propertyName": "email",
@@ -5079,7 +5310,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.email",
-            "comment": "邮箱"
+            "comment": "邮箱",
+            "table": "base_user"
           },
           {
             "propertyName": "remark",
@@ -5087,7 +5319,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_user"
           },
           {
             "propertyName": "status",
@@ -5095,6 +5328,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_user",
             "dict": "status"
           },
           {
@@ -5103,35 +5337,40 @@
             "length": "255",
             "nullable": true,
             "source": "a.socketId",
-            "comment": "Socket"
+            "comment": "Socket",
+            "table": "base_user"
           },
           {
             "propertyName": "isSuper",
             "type": "boolean",
             "nullable": false,
             "source": "a.isSuper",
-            "comment": "超管"
+            "comment": "超管",
+            "table": "base_user"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_user"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_user"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_user"
           }
         ],
         "pageQueryOp": {
@@ -5169,21 +5408,24 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "base_user"
           },
           {
             "propertyName": "departmentId",
             "type": "number",
             "nullable": true,
             "source": "a.departmentId",
-            "comment": "部门"
+            "comment": "部门",
+            "table": "base_user"
           },
           {
             "propertyName": "userId",
             "type": "number",
             "nullable": true,
             "source": "a.userId",
-            "comment": "关联用户"
+            "comment": "关联用户",
+            "table": "base_user"
           },
           {
             "propertyName": "name",
@@ -5191,7 +5433,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.name",
-            "comment": "姓名"
+            "comment": "姓名",
+            "table": "base_user"
           },
           {
             "propertyName": "username",
@@ -5199,7 +5442,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.username",
-            "comment": "用户名"
+            "comment": "用户名",
+            "table": "base_user"
           },
           {
             "propertyName": "password",
@@ -5207,14 +5451,16 @@
             "length": "255",
             "nullable": false,
             "source": "a.password",
-            "comment": "密码"
+            "comment": "密码",
+            "table": "base_user"
           },
           {
             "propertyName": "passwordV",
             "type": "number",
             "nullable": false,
             "source": "a.passwordV",
-            "comment": "密码版本"
+            "comment": "密码版本",
+            "table": "base_user"
           },
           {
             "propertyName": "nickName",
@@ -5222,7 +5468,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.nickName",
-            "comment": "昵称"
+            "comment": "昵称",
+            "table": "base_user"
           },
           {
             "propertyName": "headImg",
@@ -5230,7 +5477,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.headImg",
-            "comment": "头像"
+            "comment": "头像",
+            "table": "base_user"
           },
           {
             "propertyName": "phone",
@@ -5238,7 +5486,8 @@
             "length": "20",
             "nullable": true,
             "source": "a.phone",
-            "comment": "手机号"
+            "comment": "手机号",
+            "table": "base_user"
           },
           {
             "propertyName": "email",
@@ -5246,7 +5495,8 @@
             "length": "255",
             "nullable": true,
             "source": "a.email",
-            "comment": "邮箱"
+            "comment": "邮箱",
+            "table": "base_user"
           },
           {
             "propertyName": "remark",
@@ -5254,7 +5504,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "base_user"
           },
           {
             "propertyName": "status",
@@ -5262,6 +5513,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "base_user",
             "dict": "status"
           },
           {
@@ -5270,35 +5522,783 @@
             "length": "255",
             "nullable": true,
             "source": "a.socketId",
-            "comment": "Socket"
+            "comment": "Socket",
+            "table": "base_user"
           },
           {
             "propertyName": "isSuper",
             "type": "boolean",
             "nullable": false,
             "source": "a.isSuper",
-            "comment": "超管"
+            "comment": "超管",
+            "table": "base_user"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "base_user"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "base_user"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "base_user"
+          }
+        ]
+      }
+    ],
+    "i18n": [
+      {
+        "module": "i18n",
+        "side": "admin",
+        "prefix": "/admin/i18n/lang",
+        "name": "I18nLangEntity",
+        "info": {
+          "type": {
+            "name": "lang",
+            "description": "lang"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/enabled",
+            "summary": "启用语种列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:enabled"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "code",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.code",
+            "comment": "语种编码",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "语言名称",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "flag",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.flag",
+            "comment": "国旗",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "table": "i18n_lang",
+            "dict": "status"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_lang"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.code",
+            "a.name"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.status",
+              "dict": "status"
+            }
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "code",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.code",
+            "comment": "语种编码",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "语言名称",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "flag",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.flag",
+            "comment": "国旗",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "table": "i18n_lang",
+            "dict": "status"
+          },
+          {
+            "propertyName": "orderNum",
+            "type": "number",
+            "nullable": false,
+            "source": "a.orderNum",
+            "comment": "排序",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_lang"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_lang"
+          }
+        ]
+      },
+      {
+        "module": "i18n",
+        "side": "admin",
+        "prefix": "/admin/i18n/pack",
+        "name": "I18nPackEntity",
+        "info": {
+          "type": {
+            "name": "pack",
+            "description": "pack"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/active",
+            "summary": "运行时拉取语言包",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:active"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/hostLocales",
+            "summary": "宿主已生成语言包的可切换语种",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:hostLocales"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/hostSource",
+            "summary": "宿主中文源模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:hostSource"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/ensureHostZh",
+            "summary": "同步语言包（宿主+全部插件原始包）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:ensureHostZh"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/pluginSource",
+            "summary": "读取插件原始语言包",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:pluginSource"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/chatModels",
+            "summary": "可用于翻译的对话模型",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:chatModels"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/translate",
+            "summary": "AI 翻译语言包（SSE 预览，不落库）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:translate"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:pack:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "langCode",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.langCode",
+            "comment": "语种编码",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "scopeType",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.scopeType",
+            "comment": "来源类型",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "scopeKey",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.scopeKey",
+            "comment": "标识",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "packJson",
+            "type": "json",
+            "nullable": false,
+            "source": "a.packJson",
+            "comment": "语言包JSON",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "version",
+            "type": "number",
+            "nullable": false,
+            "source": "a.version",
+            "comment": "版本",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "sourceHash",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.sourceHash",
+            "comment": "源文案哈希",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_pack"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.langCode",
+            "a.scopeKey",
+            "a.remark"
+          ],
+          "fieldEq": [
+            "a.langCode",
+            "a.scopeKey"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "langCode",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.langCode",
+            "comment": "语种编码",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "scopeType",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.scopeType",
+            "comment": "来源类型",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "scopeKey",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.scopeKey",
+            "comment": "标识",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "packJson",
+            "type": "json",
+            "nullable": false,
+            "source": "a.packJson",
+            "comment": "语言包JSON",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "version",
+            "type": "number",
+            "nullable": false,
+            "source": "a.version",
+            "comment": "版本",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "sourceHash",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.sourceHash",
+            "comment": "源文案哈希",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_pack"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_pack"
           }
         ]
       }
@@ -5479,21 +6479,24 @@
             "type": "string",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "user_info"
           },
           {
             "propertyName": "name",
             "type": "string",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "user_info"
           },
           {
             "propertyName": "email",
             "type": "string",
             "nullable": false,
             "source": "a.email",
-            "comment": "邮箱"
+            "comment": "邮箱",
+            "table": "user_info"
           },
           {
             "propertyName": "emailVerified",
@@ -5501,6 +6504,7 @@
             "nullable": false,
             "source": "a.emailVerified",
             "comment": "邮箱已验证",
+            "table": "user_info",
             "dict": "yes_no"
           },
           {
@@ -5508,7 +6512,8 @@
             "type": "string",
             "nullable": true,
             "source": "a.image",
-            "comment": "头像"
+            "comment": "头像",
+            "table": "user_info"
           },
           {
             "propertyName": "phone",
@@ -5516,7 +6521,8 @@
             "length": "20",
             "nullable": true,
             "source": "a.phone",
-            "comment": "手机号"
+            "comment": "手机号",
+            "table": "user_info"
           },
           {
             "propertyName": "phoneVerified",
@@ -5524,6 +6530,7 @@
             "nullable": false,
             "source": "a.phoneVerified",
             "comment": "手机已验证",
+            "table": "user_info",
             "dict": "yes_no"
           },
           {
@@ -5532,7 +6539,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.unionid",
-            "comment": "微信unionid"
+            "comment": "微信unionid",
+            "table": "user_info"
           },
           {
             "propertyName": "password",
@@ -5540,7 +6548,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.password",
-            "comment": "密码"
+            "comment": "密码",
+            "table": "user_info"
           },
           {
             "propertyName": "status",
@@ -5548,6 +6557,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "user_info",
             "dict": "status"
           },
           {
@@ -5555,21 +6565,24 @@
             "type": "date",
             "nullable": false,
             "source": "a.createdAt",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "user_info"
           },
           {
             "propertyName": "updatedAt",
             "type": "date",
             "nullable": false,
             "source": "a.updatedAt",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "user_info"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "user_info"
           }
         ],
         "pageQueryOp": {
@@ -5612,21 +6625,24 @@
             "type": "string",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "user_info"
           },
           {
             "propertyName": "name",
             "type": "string",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "user_info"
           },
           {
             "propertyName": "email",
             "type": "string",
             "nullable": false,
             "source": "a.email",
-            "comment": "邮箱"
+            "comment": "邮箱",
+            "table": "user_info"
           },
           {
             "propertyName": "emailVerified",
@@ -5634,6 +6650,7 @@
             "nullable": false,
             "source": "a.emailVerified",
             "comment": "邮箱已验证",
+            "table": "user_info",
             "dict": "yes_no"
           },
           {
@@ -5641,7 +6658,8 @@
             "type": "string",
             "nullable": true,
             "source": "a.image",
-            "comment": "头像"
+            "comment": "头像",
+            "table": "user_info"
           },
           {
             "propertyName": "phone",
@@ -5649,7 +6667,8 @@
             "length": "20",
             "nullable": true,
             "source": "a.phone",
-            "comment": "手机号"
+            "comment": "手机号",
+            "table": "user_info"
           },
           {
             "propertyName": "phoneVerified",
@@ -5657,6 +6676,7 @@
             "nullable": false,
             "source": "a.phoneVerified",
             "comment": "手机已验证",
+            "table": "user_info",
             "dict": "yes_no"
           },
           {
@@ -5665,7 +6685,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.unionid",
-            "comment": "微信unionid"
+            "comment": "微信unionid",
+            "table": "user_info"
           },
           {
             "propertyName": "password",
@@ -5673,7 +6694,8 @@
             "length": "64",
             "nullable": true,
             "source": "a.password",
-            "comment": "密码"
+            "comment": "密码",
+            "table": "user_info"
           },
           {
             "propertyName": "status",
@@ -5681,6 +6703,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "user_info",
             "dict": "status"
           },
           {
@@ -5688,21 +6711,24 @@
             "type": "date",
             "nullable": false,
             "source": "a.createdAt",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "user_info"
           },
           {
             "propertyName": "updatedAt",
             "type": "date",
             "nullable": false,
             "source": "a.updatedAt",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "user_info"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "user_info"
           }
         ]
       },
@@ -5842,7 +6868,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "user_role"
           },
           {
             "propertyName": "name",
@@ -5850,7 +6877,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "user_role"
           },
           {
             "propertyName": "label",
@@ -5858,7 +6886,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.label",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "user_role"
           },
           {
             "propertyName": "remark",
@@ -5866,7 +6895,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "user_role"
           },
           {
             "propertyName": "status",
@@ -5874,6 +6904,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "user_role",
             "dict": "status"
           },
           {
@@ -5881,28 +6912,32 @@
             "type": "string",
             "nullable": false,
             "source": "a.perms",
-            "comment": "权限"
+            "comment": "权限",
+            "table": "user_role"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "user_role"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "user_role"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "user_role"
           }
         ],
         "pageQueryOp": {
@@ -5935,7 +6970,8 @@
             "type": "number",
             "nullable": false,
             "source": "a.id",
-            "comment": "ID"
+            "comment": "ID",
+            "table": "user_role"
           },
           {
             "propertyName": "name",
@@ -5943,7 +6979,8 @@
             "length": "100",
             "nullable": false,
             "source": "a.name",
-            "comment": "名称"
+            "comment": "名称",
+            "table": "user_role"
           },
           {
             "propertyName": "label",
@@ -5951,7 +6988,8 @@
             "length": "100",
             "nullable": true,
             "source": "a.label",
-            "comment": "标识"
+            "comment": "标识",
+            "table": "user_role"
           },
           {
             "propertyName": "remark",
@@ -5959,7 +6997,8 @@
             "length": "500",
             "nullable": true,
             "source": "a.remark",
-            "comment": "备注"
+            "comment": "备注",
+            "table": "user_role"
           },
           {
             "propertyName": "status",
@@ -5967,6 +7006,7 @@
             "nullable": false,
             "source": "a.status",
             "comment": "状态",
+            "table": "user_role",
             "dict": "status"
           },
           {
@@ -5974,113 +7014,38 @@
             "type": "string",
             "nullable": false,
             "source": "a.perms",
-            "comment": "权限"
+            "comment": "权限",
+            "table": "user_role"
           },
           {
             "propertyName": "createTime",
             "type": "date",
             "nullable": false,
             "source": "a.createTime",
-            "comment": "创建时间"
+            "comment": "创建时间",
+            "table": "user_role"
           },
           {
             "propertyName": "updateTime",
             "type": "date",
             "nullable": false,
             "source": "a.updateTime",
-            "comment": "更新时间"
+            "comment": "更新时间",
+            "table": "user_role"
           },
           {
             "propertyName": "deletedAt",
             "type": "date",
             "nullable": true,
             "source": "a.deletedAt",
-            "comment": "删除时间"
+            "comment": "删除时间",
+            "table": "user_role"
           }
         ]
       }
     ]
   },
   "app": {
-    "ai": [
-      {
-        "module": "ai",
-        "side": "app",
-        "prefix": "/app/v1",
-        "info": {
-          "type": {
-            "name": "v1",
-            "description": "v1"
-          }
-        },
-        "api": [
-          {
-            "method": "get",
-            "path": "/models",
-            "summary": "可用模型目录（含参数提示）",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/v1",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/chat/completions",
-            "summary": "OpenAI Chat Completions 代理",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/v1",
-            "ignoreToken": true,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/images/generations",
-            "summary": "OpenAI Images 代理",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/v1",
-            "ignoreToken": true,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/embeddings",
-            "summary": "OpenAI Embeddings 代理",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/v1",
-            "ignoreToken": true,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/videos",
-            "summary": "OpenAI Videos 代理",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/v1",
-            "ignoreToken": true,
-            "ignorePerms": false,
-            "perms": []
-          }
-        ],
-        "columns": [],
-        "pageQueryOp": {
-          "keyWordLikeFields": [],
-          "fieldEq": [],
-          "fieldLike": [],
-          "fieldArray": [],
-          "fieldRange": []
-        },
-        "pageColumns": []
-      }
-    ],
     "base": [
       {
         "module": "base",
@@ -6232,6 +7197,52 @@
             "dts": {},
             "tag": "",
             "prefix": "/app/base/open",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      }
+    ],
+    "i18n": [
+      {
+        "module": "i18n",
+        "side": "app",
+        "prefix": "/app/i18n/pack",
+        "info": {
+          "type": {
+            "name": "pack",
+            "description": "App 语言包"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/locales",
+            "summary": "已生成语言包的可切换语种",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/i18n/pack",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/active",
+            "summary": "运行时拉取语言包",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/i18n/pack",
             "ignoreToken": true,
             "ignorePerms": false,
             "perms": []

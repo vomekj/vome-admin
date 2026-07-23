@@ -1,79 +1,57 @@
 <template>
-  <vm-crud ref="Crud">
-    <vm-row>
-      <vm-search />
-    </vm-row>
-    <vm-row>
-      <vm-refresh-btn />
-      <vm-toolbar />
-    </vm-row>
-    <vm-row>
-      <vm-table>
-        <template #cell-capabilities="{ row }">
-          <vm-tag-list
-            v-if="asList(row.capabilities).length"
-            :model-value="capLabels(row.capabilities)"
-          />
-          <span v-else class="vm-ai-model__empty">—</span>
-        </template>
-        <template #cell-resultModes="{ row }">
-          <vm-tag-list
-            v-if="asList(row.resultModes).length"
-            :model-value="modeLabels(row.resultModes)"
-          />
-          <span v-else class="vm-ai-model__empty">—</span>
-        </template>
-      </vm-table>
-    </vm-row>
-    <vm-row>
-      <vm-flex />
-    </vm-row>
-    <vm-row>
-      <vm-pagination />
-    </vm-row>
-    <vm-upsert ref="Upsert">
-      <template #footer-prepend="{ form }">
-        <div class="vm-ai-model__preset-bar">
-          <vm-action-btn
-            label="chat 模板"
-            :loading="schemaApplying === 'chat'"
-            @click="applyTemplate(form, 'chat')"
-          />
-          <vm-action-btn
-            label="image 模板"
-            :loading="schemaApplying === 'image'"
-            @click="applyTemplate(form, 'image')"
-          />
-          <vm-action-btn
-            label="video 模板"
-            :loading="schemaApplying === 'video'"
-            @click="applyTemplate(form, 'video')"
-          />
-          <vm-action-btn
-            label="audio 模板"
-            :loading="schemaApplying === 'audio'"
-            @click="applyTemplate(form, 'audio')"
-          />
+  <div class="vm-ai-model">
+    <vm-crud ref="Crud">
+      <vm-row>
+        <vm-search />
+      </vm-row>
+      <vm-row>
+        <vm-refresh-btn />
+        <vm-toolbar />
+      </vm-row>
+      <vm-row>
+        <vm-table>
+          <template #cell-capabilities="{ row }">
+            <vm-tag-list
+              v-if="asList(row.capabilities).length"
+              :model-value="capLabels(row.capabilities)"
+            />
+            <span v-else class="vm-ai-model__empty">—</span>
+          </template>
+          <template #cell-resultModes="{ row }">
+            <vm-tag-list
+              v-if="asList(row.resultModes).length"
+              :model-value="modeLabels(row.resultModes)"
+            />
+            <span v-else class="vm-ai-model__empty">—</span>
+          </template>
+        </vm-table>
+      </vm-row>
+      <vm-row>
+        <vm-flex />
+      </vm-row>
+      <vm-row>
+        <vm-pagination />
+      </vm-row>
+      <vm-upsert ref="Upsert" />
+    </vm-crud>
+
+    <Dialog :open="testing">
+      <DialogContent
+        :show-close-button="false"
+        class="vm-ai-model__test-dialog"
+        @pointer-down-outside.prevent
+        @focus-outside.prevent
+        @interact-outside.prevent
+        @escape-key-down.prevent
+      >
+        <DialogTitle class="sr-only">正在测试中</DialogTitle>
+        <div class="vm-ai-model__test-body" role="status" aria-live="polite">
+          <i class="ri-loader-4-line is-spin" aria-hidden="true" />
+          <p>正在测试中</p>
         </div>
-        <div
-          v-if="schemaHints(form).length"
-          class="vm-ai-model__schema-hints"
-        >
-          <div class="vm-ai-model__schema-hints-title">参数提示预览</div>
-          <ul>
-            <li v-for="f in schemaHints(form)" :key="f.key">
-              <code>{{ f.key }}</code>
-              <span class="vm-ai-model__schema-type">{{ f.type }}</span>
-              <span v-if="f.required" class="vm-ai-model__schema-req">必填</span>
-              <span v-if="f.description" class="vm-ai-model__schema-desc">{{
-                f.description
-              }}</span>
-            </li>
-          </ul>
-        </div>
-      </template>
-    </vm-upsert>
-  </vm-crud>
+      </DialogContent>
+    </Dialog>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -81,26 +59,11 @@ import { computed, ref } from 'vue'
 
 defineOptions({ name: 'ai-model' })
 
-type AiInputFieldHint = {
-  key: string
-  type: string
-  required?: boolean
-  description?: string
-}
-
-type AiModelCatalogItem = {
-  code: string
-  inputSchema?: { fields?: AiInputFieldHint[] } | null
-  responseSpec?: Record<string, unknown> | null
-}
-
 const { service } = useVome()
 const { dict } = useDict()
 
 const providerOptions = ref<Array<{ label: string; value: number }>>([])
-const schemaApplying = ref<string | null>(null)
-const testingCode = ref<string | null>(null)
-const modelCatalog = ref<AiModelCatalogItem[]>([])
+const testing = ref(false)
 
 async function invokeModelTest(payload: { code: string; capability?: string }) {
   const m = service.ai.model
@@ -115,71 +78,16 @@ async function invokeModelTest(payload: { code: string; capability?: string }) {
   })
 }
 
-async function loadModelCatalog() {
-  const m = service.ai.model
-  if (typeof m.catalog === 'function') {
-    modelCatalog.value = (await m.catalog()) as AiModelCatalogItem[]
-    return
-  }
-  modelCatalog.value = (await m.list({ status: 1 })) as AiModelCatalogItem[]
-}
-
-function findInCatalog(code: string) {
-  return modelCatalog.value.find((item) => item.code === code)
-}
-
-function schemaHints(form: Record<string, unknown>) {
-  const raw = form.inputSchema as { fields?: AiInputFieldHint[] } | undefined
-  return Array.isArray(raw?.fields) ? raw.fields : []
-}
-
-async function applyTemplate(form: Record<string, unknown>, key: string) {
-  if (schemaApplying.value) return
-  schemaApplying.value = key
-  try {
-    const res = (await service.ai.model.request({
-      url: '/presets',
-      method: 'POST',
-      data: {},
-    })) as {
-      inputSchema?: Record<string, { fields?: Array<{ required?: boolean }> }>
-      responseSpec?: Record<string, unknown>
-    }
-    const schema = res?.inputSchema?.[key]
-    const spec = res?.responseSpec?.[key]
-    if (schema) form.inputSchema = schema
-    if (spec) form.responseSpec = spec
-    if (!schema && !spec) {
-      toast.error(`未找到 ${key} 模板`)
-      return
-    }
-    toast.success(`已写入 ${key} 模板`)
-  } catch (e) {
-    if (!(e as { toasted?: boolean }).toasted) {
-      toast.error(e instanceof Error ? e.message : '写入失败')
-    }
-  } finally {
-    schemaApplying.value = null
-  }
-}
-
-async function testModel(row: {
-  code?: string
-  capabilities?: unknown
-  inputSchema?: { fields?: Array<{ key: string; description?: string }> }
-  responseSpec?: { textPath?: string }
-}) {
+async function testModel(row: { code?: string; capabilities?: unknown }) {
   const code = String(row.code ?? '').trim()
   if (!code) {
     toast.error('模型编码为空')
     return
   }
-  if (testingCode.value) return
+  if (testing.value) return
   const caps = asList(row.capabilities)
   const capability = caps[0]
-  const catalogItem = findInCatalog(code)
-  const inputSchema = catalogItem?.inputSchema ?? row.inputSchema
-  testingCode.value = code
+  testing.value = true
   try {
     const res = (await invokeModelTest({
       code,
@@ -194,13 +102,10 @@ async function testModel(row: {
     }
     if (res.reachable) {
       const text = res.result?.data?.text?.trim()
-      const hint = inputSchema?.fields?.length
-        ? ` · ${inputSchema.fields.length} 项参数提示`
-        : ''
       toast.success(
         text
-          ? `${code} 连通 (${res.latencyMs ?? '—'}ms)${hint}：${text.slice(0, 80)}`
-          : `${code} 已接通 (${res.latencyMs ?? '—'}ms)${hint} · ${res.message ?? '上游已返回'}`,
+          ? `${code} 连通 (${res.latencyMs ?? '—'}ms)：${text.slice(0, 80)}`
+          : `${code} 已接通 (${res.latencyMs ?? '—'}ms) · ${res.message ?? '上游已返回'}`,
       )
     } else {
       toast.error(res.error ?? res.message ?? `${code} 探测失败`)
@@ -210,7 +115,7 @@ async function testModel(row: {
       toast.error(e instanceof Error ? e.message : '探测失败')
     }
   } finally {
-    testingCode.value = null
+    testing.value = false
   }
 }
 
@@ -252,7 +157,6 @@ const Crud = useCrud(
   (app) => {
     void Promise.all([
       loadProviders(),
-      loadModelCatalog(),
       dict.refresh([
         'status',
         'base_http_method',
@@ -339,28 +243,11 @@ useUpsert({
     {
       prop: 'asyncSpec',
       label: '异步契约',
-      span: 24,
-      component: { name: 'vm-json-editor', props: { rows: 8 } },
+      span: 12,
+      component: { name: 'vm-json-editor', props: { rows: 10 } },
       placeholder:
         '{"pollPath":"/agnesapi?video_id={id}","idFields":["video_id","task_id","id"],"resultUrlPath":"metadata.url"}',
       hidden: (form) => !hasAsyncMode(form),
-    },
-    {
-      prop: 'inputSchema',
-      label: '参数提示',
-      span: 12,
-      component: { name: 'vm-json-editor', props: { rows: 12 } },
-      placeholder:
-        '{"fields":[{"key":"messages","type":"array","required":true},{"key":"temperature","type":"number"}]}',
-      value: { fields: [] },
-    },
-    {
-      prop: 'responseSpec',
-      label: '响应映射',
-      span: 12,
-      component: { name: 'vm-json-editor', props: { rows: 12 } },
-      placeholder:
-        '{"textPath":"choices.0.message.content","assetsPath":"data","resultUrlPath":"metadata.url"}',
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
@@ -409,20 +296,15 @@ useTable({
     {
       type: 'op',
       width: 200,
-      buttons: (row) => {
-        const code = String((row as { code?: string }).code ?? '')
-        const busy = testingCode.value === code
-        return [
-          {
-            label: busy ? '测试中…' : '测试',
-            hidden: service.ai.model._permission?.test === false,
-            disabled: busy,
-            onClick: () => testModel(row as Parameters<typeof testModel>[0]),
-          },
-          'edit',
-          'delete',
-        ]
-      },
+      buttons: (row) => [
+        {
+          label: '测试',
+          hidden: service.ai.model._permission?.test === false,
+          onClick: () => testModel(row as Parameters<typeof testModel>[0]),
+        },
+        'edit',
+        'delete',
+      ],
     },
   ],
 })
@@ -432,60 +314,42 @@ useTable({
 .vm-ai-model__empty {
   color: var(--muted-foreground);
 }
+</style>
 
-.vm-ai-model__preset-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-right: auto;
+<!-- Dialog 经 Portal 挂到 body，需非 scoped 才能命中 -->
+<style lang="scss">
+.vm-ai-model__test-dialog[data-slot='dialog-content'] {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  padding: 24px 32px !important;
 }
 
-.vm-ai-model__schema-hints {
-  flex: 1 1 100%;
-  margin-top: 8px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
-  background: color-mix(in srgb, var(--muted) 40%, transparent);
-  font-size: 12px;
-}
-
-.vm-ai-model__schema-hints-title {
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: var(--foreground);
-}
-
-.vm-ai-model__schema-hints ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.vm-ai-model__test-body {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 12px;
+  color: var(--foreground);
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  i {
+    font-size: 28px;
+    color: var(--primary);
+  }
+
+  i.is-spin {
+    animation: vm-ai-model-spin 0.8s linear infinite;
+  }
 }
 
-.vm-ai-model__schema-hints li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.vm-ai-model__schema-type {
-  color: var(--muted-foreground);
-}
-
-.vm-ai-model__schema-req {
-  color: var(--destructive);
-}
-
-.vm-ai-model__schema-desc {
-  color: var(--muted-foreground);
-}
-
-:deep(.vm-crud-upsert__field .vm-crud-upsert__json-field .vm-json-editor__input) {
-  min-height: 260px;
+@keyframes vm-ai-model-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

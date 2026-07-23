@@ -53,11 +53,41 @@
         <button
           type="button"
           class="vm-header__icon-btn"
-          :title="theme.themeId === 'dark' ? '浅色' : '深色'"
+          :title="theme.themeId === 'dark' ? locale.t('header.themeLight', '浅色') : locale.t('header.themeDark', '深色')"
           @click="toggleTheme"
         >
           <i :class="theme.themeId === 'dark' ? 'ri-sun-line' : 'ri-moon-line'" />
         </button>
+
+        <DropdownMenu :modal="false">
+          <DropdownMenuTrigger as-child>
+            <button
+              type="button"
+              class="vm-header__icon-btn vm-header__locale-btn"
+              :title="locale.currentLang?.name || locale.locale"
+              :disabled="localeSwitching"
+            >
+              <span class="vm-header__flag" aria-hidden="true">
+                {{ locale.currentLang?.flag || '🏳️' }}
+              </span>
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" class="vm-header__locale-menu">
+            <DropdownMenuItem
+              v-for="lang in locale.langs"
+              :key="lang.code"
+              class="vm-header__locale-item"
+              :class="{ 'is-active': locale.locale === lang.code }"
+              :disabled="localeSwitching"
+              @click="switchLocale(lang.code)"
+            >
+              <span class="vm-header__flag" aria-hidden="true">
+                {{ lang.flag || '🏳️' }}
+              </span>
+              <span class="vm-header__locale-label">{{ lang.name }}</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
@@ -80,7 +110,11 @@
               @click="logout"
             >
               <i class="ri-logout-box-r-line" />
-              {{ loggingOut ? '退出中…' : '退出登录' }}
+              {{
+                loggingOut
+                  ? '退出中…'
+                  : locale.t('header.logout', '退出登录')
+              }}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -93,17 +127,30 @@
 import { api } from '/@/api/client'
 import { resetMenuRoutesFlag } from '/@/router'
 import { useThemeStore } from '@/stores/theme'
+import { useLocaleStore } from '@/stores/locale'
 
 defineOptions({ name: 'vm-app-header' })
 
 const app = useAppStore()
 const theme = useThemeStore()
+const locale = useLocaleStore()
 const user = useUserStore()
 const tags = useTagsStore()
 const router = useRouter()
 const { browser } = useBrowser()
 
 const loggingOut = ref(false)
+const localeSwitching = ref(false)
+
+async function switchLocale(code: string) {
+  if (localeSwitching.value) return
+  localeSwitching.value = true
+  try {
+    await locale.setLocale(code)
+  } finally {
+    localeSwitching.value = false
+  }
+}
 
 async function logout() {
   if (loggingOut.value) return
@@ -196,6 +243,50 @@ function goHome() {
   &:active {
     background: color-mix(in srgb, var(--muted) 45%, var(--foreground) 18%);
   }
+}
+
+.vm-header__locale-btn {
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.vm-header__locale-menu {
+  min-width: 0 !important;
+  width: max-content;
+  max-width: 160px;
+}
+
+.vm-header__flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.vm-header__locale-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+
+  &.is-active {
+    background: color-mix(in srgb, var(--brand) 14%, transparent);
+    color: var(--brand);
+  }
+
+  &.is-active:focus,
+  &.is-active:hover {
+    background: color-mix(in srgb, var(--brand) 20%, transparent);
+    color: var(--brand);
+  }
+}
+
+.vm-header__locale-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .vm-header__user {
