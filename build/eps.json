@@ -6483,6 +6483,14 @@
             "table": "user_info"
           },
           {
+            "propertyName": "userId",
+            "type": "number",
+            "nullable": false,
+            "source": "a.userId",
+            "comment": "用户ID",
+            "table": "user_info"
+          },
+          {
             "propertyName": "name",
             "type": "string",
             "nullable": false,
@@ -6549,6 +6557,15 @@
             "nullable": true,
             "source": "a.password",
             "comment": "密码",
+            "table": "user_info"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
             "table": "user_info"
           },
           {
@@ -6589,7 +6606,8 @@
           "keyWordLikeFields": [
             "a.name",
             "a.email",
-            "a.phone"
+            "a.phone",
+            "a.remark"
           ],
           "fieldEq": [
             {
@@ -6626,6 +6644,14 @@
             "nullable": false,
             "source": "a.id",
             "comment": "ID",
+            "table": "user_info"
+          },
+          {
+            "propertyName": "userId",
+            "type": "number",
+            "nullable": false,
+            "source": "a.userId",
+            "comment": "用户ID",
             "table": "user_info"
           },
           {
@@ -6695,6 +6721,15 @@
             "nullable": true,
             "source": "a.password",
             "comment": "密码",
+            "table": "user_info"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
             "table": "user_info"
           },
           {

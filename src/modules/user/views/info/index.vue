@@ -96,6 +96,12 @@ useUpsert({
     },
     { prop: 'tenantId', label: '租户', span: 12 },
     {
+      prop: 'remark',
+      label: '备注',
+      span: 12,
+      type: 'textarea',
+    },
+    {
       prop: 'emailVerified',
       label: '邮箱已验证',
       span: 12,
@@ -141,6 +147,7 @@ useUpsert({
         data.tenantId === '' || data.tenantId == null
           ? null
           : Number(data.tenantId),
+      remark: data.remark != null ? String(data.remark).trim() || null : null,
       emailVerified: Boolean(data.emailVerified ?? false),
       phoneVerified: Boolean(data.phoneVerified ?? false),
     }
@@ -180,6 +187,7 @@ useUpsert({
 useTable({
   columns: [
     { type: 'selection' },
+    { prop: 'userId', label: '用户ID', width: 90 },
     { prop: 'id', label: 'ID', width: 160 },
     { prop: 'image', label: '头像', width: 120 },
     { prop: 'name', label: '名称', width: 160 },
@@ -198,6 +206,7 @@ useTable({
       formatter: (_r, v) => (v ? '是' : '否'),
     },
     { prop: 'tenantId', label: '租户', width: 80 },
+    { prop: 'remark', label: '备注', minWidth: 120 },
     { prop: 'createdAt', label: '创建时间', minWidth: 160 },
     { type: 'op', buttons: ['edit', 'delete'] },
   ],

@@ -670,6 +670,9 @@ declare namespace Eps {
 		/** ID */
 		id?: string;
 
+		/** 用户ID */
+		userId?: number;
+
 		/** 名称 */
 		name?: string;
 
@@ -693,6 +696,9 @@ declare namespace Eps {
 
 		/** 密码 */
 		password?: string;
+
+		/** 备注 */
+		remark?: string;
 
 		/** 状态 */
 		status?: number;

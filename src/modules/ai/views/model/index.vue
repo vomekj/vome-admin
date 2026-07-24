@@ -1,57 +1,53 @@
 <template>
-  <div class="vm-ai-model">
-    <vm-crud ref="Crud">
-      <vm-row>
-        <vm-search />
-      </vm-row>
-      <vm-row>
-        <vm-refresh-btn />
-        <vm-toolbar />
-      </vm-row>
-      <vm-row>
-        <vm-table>
-          <template #cell-capabilities="{ row }">
-            <vm-tag-list
-              v-if="asList(row.capabilities).length"
-              :model-value="capLabels(row.capabilities)"
-            />
-            <span v-else class="vm-ai-model__empty">—</span>
-          </template>
-          <template #cell-resultModes="{ row }">
-            <vm-tag-list
-              v-if="asList(row.resultModes).length"
-              :model-value="modeLabels(row.resultModes)"
-            />
-            <span v-else class="vm-ai-model__empty">—</span>
-          </template>
-        </vm-table>
-      </vm-row>
-      <vm-row>
-        <vm-flex />
-      </vm-row>
-      <vm-row>
-        <vm-pagination />
-      </vm-row>
-      <vm-upsert ref="Upsert" />
-    </vm-crud>
+  <vm-crud ref="Crud">
+    <vm-row>
+      <vm-search />
+    </vm-row>
+    <vm-row>
+      <vm-refresh-btn />
+      <vm-toolbar />
+    </vm-row>
+    <vm-row>
+      <vm-table>
+        <template #cell-capabilities="{ row }">
+          <vm-tag-list
+            v-if="asList(row.capabilities).length"
+            :model-value="capLabels(row.capabilities)"
+          />
+          <span v-else class="vm-ai-model__empty">—</span>
+        </template>
+        <template #cell-resultModes="{ row }">
+          <vm-tag-list
+            v-if="asList(row.resultModes).length"
+            :model-value="modeLabels(row.resultModes)"
+          />
+          <span v-else class="vm-ai-model__empty">—</span>
+        </template>
+      </vm-table>
+    </vm-row>
+    <vm-row>
+      <vm-flex />
+      <vm-pagination />
+    </vm-row>
+    <vm-upsert ref="Upsert" />
+  </vm-crud>
 
-    <Dialog :open="testing">
-      <DialogContent
-        :show-close-button="false"
-        class="vm-ai-model__test-dialog"
-        @pointer-down-outside.prevent
-        @focus-outside.prevent
-        @interact-outside.prevent
-        @escape-key-down.prevent
-      >
-        <DialogTitle class="sr-only">正在测试中</DialogTitle>
-        <div class="vm-ai-model__test-body" role="status" aria-live="polite">
-          <i class="ri-loader-4-line is-spin" aria-hidden="true" />
-          <p>正在测试中</p>
-        </div>
-      </DialogContent>
-    </Dialog>
-  </div>
+  <Dialog :open="testing">
+    <DialogContent
+      :show-close-button="false"
+      class="vm-ai-model__test-dialog"
+      @pointer-down-outside.prevent
+      @focus-outside.prevent
+      @interact-outside.prevent
+      @escape-key-down.prevent
+    >
+      <DialogTitle class="sr-only">正在测试中</DialogTitle>
+      <div class="vm-ai-model__test-body" role="status" aria-live="polite">
+        <i class="ri-loader-4-line is-spin" aria-hidden="true" />
+        <p>正在测试中</p>
+      </div>
+    </DialogContent>
+  </Dialog>
 </template>
 
 <script setup lang="ts">
