@@ -167,16 +167,52 @@ ${renderTree(tree)}
 `
 }
 
-async function fetchEps(apiUrl: string): Promise<Record<string, EpsEntity[]> | null> {
+async function fetchEps(apiUrl: string): Promise<{
+  eps?: boolean
+  modules: Record<string, EpsEntity[]>
+  dict: Record<string, unknown>
+} | null> {
   try {
     const res = await fetch(apiUrl, { signal: AbortSignal.timeout(5000) })
     const json = (await res.json()) as {
       code?: number
-      data?: Record<string, EpsEntity[]>
+      data?:
+        | Record<string, EpsEntity[]>
+        | {
+            eps?: boolean
+            modules?: Record<string, EpsEntity[]>
+            dict?: unknown
+          }
     }
-    if (json?.code === 1000 && json.data && Object.keys(json.data).length) {
-      return json.data
+    if (json?.code !== 1000 || !json.data || typeof json.data !== 'object') {
+      return null
     }
+    const data = json.data
+    const rawModules =
+      !Array.isArray(data) &&
+      'modules' in data &&
+      data.modules &&
+      typeof data.modules === 'object' &&
+      !Array.isArray(data.modules)
+        ? data.modules
+        : !Array.isArray(data)
+          ? (data as Record<string, EpsEntity[]>)
+          : null
+    const modules = rawModules as Record<string, EpsEntity[]> | null
+    if (!modules || !Object.keys(modules).length) return null
+    const dict =
+      !Array.isArray(data) &&
+      'dict' in data &&
+      data.dict &&
+      typeof data.dict === 'object' &&
+      !Array.isArray(data.dict)
+        ? (data.dict as Record<string, unknown>)
+        : {}
+    const eps =
+      !Array.isArray(data) && 'eps' in data && typeof data.eps === 'boolean'
+        ? data.eps
+        : true
+    return { eps, modules, dict }
   } catch {
     // backend not ready
   }
@@ -184,8 +220,11 @@ async function fetchEps(apiUrl: string): Promise<Record<string, EpsEntity[]> | n
 }
 
 type EpsBundle = {
+  /** 构建时服务端 vome.eps；生产仅 true 时前端可再请求 */
+  eps: boolean
   admin: Record<string, EpsEntity[]>
   app: Record<string, EpsEntity[]>
+  dict: Record<string, unknown>
 }
 
 function resolveEpsBase(api?: string) {
@@ -205,11 +244,21 @@ function readBundleFromJson(raw: unknown): EpsBundle | null {
   const obj = raw as Record<string, unknown>
   if (obj.admin && typeof obj.admin === 'object') {
     return {
+      eps: typeof obj.eps === 'boolean' ? obj.eps : false,
       admin: (obj.admin as Record<string, EpsEntity[]>) || {},
       app: (obj.app as Record<string, EpsEntity[]>) || {},
+      dict:
+        obj.dict && typeof obj.dict === 'object'
+          ? (obj.dict as Record<string, unknown>)
+          : {},
     }
   }
-  return { admin: obj as Record<string, EpsEntity[]>, app: {} }
+  return {
+    eps: false,
+    admin: obj as Record<string, EpsEntity[]>,
+    app: {},
+    dict: {},
+  }
 }
 
 function bundleHasData(bundle: EpsBundle) {
@@ -242,6 +291,7 @@ function shouldSkipHotFile(file: string) {
 export function epsPlugin(options: EpsPluginOptions): Plugin {
   const base = resolveEpsBase(options.api)
   let root = ''
+  let outDir = ''
   /** 启动/重试是否已成功写过（失败仍可重试；热更新走 refresh） */
   let bootOk = false
   let bootTried = false
@@ -259,14 +309,25 @@ export function epsPlugin(options: EpsPluginOptions): Plugin {
     const dtsPath = path.resolve(root, 'typings/eps.d.ts')
     const jsonPath = path.join(distDir, 'eps.json')
 
-    const [adminMap, appMap] = await Promise.all([
+    const [adminHit, appHit] = await Promise.all([
       fetchEps(`${base}/admin/base/open/eps`),
       fetchEps(`${base}/app/base/open/eps`),
     ])
 
     let bundle: EpsBundle | null = null
-    if (adminMap || appMap) {
-      bundle = { admin: adminMap || {}, app: appMap || {} }
+    if (adminHit || appHit) {
+      const epsFlag =
+        typeof adminHit?.eps === 'boolean'
+          ? adminHit.eps
+          : typeof appHit?.eps === 'boolean'
+            ? appHit.eps
+            : true
+      bundle = {
+        eps: epsFlag,
+        admin: adminHit?.modules || {},
+        app: appHit?.modules || {},
+        dict: adminHit?.dict || appHit?.dict || {},
+      }
     } else if (reason !== 'hot') {
       // 热更新时后端短暂不可用则跳过，勿用旧 json 覆盖「已变」的误判
       try {
@@ -331,6 +392,7 @@ export function epsPlugin(options: EpsPluginOptions): Plugin {
     name: 'vome-eps',
     configResolved(cfg) {
       root = cfg.root
+      outDir = path.resolve(cfg.root, cfg.build.outDir || 'dist')
     },
     async buildStart() {
       await generate('start')
@@ -339,8 +401,20 @@ export function epsPlugin(options: EpsPluginOptions): Plugin {
       if (!bootOk) {
         setTimeout(() => void generate('retry'), 3000)
       }
-      // 页面刷新时顺带再拉一次（后端可能刚重启）
-      server.middlewares.use((req, _res, next) => {
+      const distDir = path.resolve(root, options.dist || 'build')
+      const jsonPath = path.join(distDir, 'eps.json')
+      // 开发态提供 /eps.json（与生产产物路径一致，供 loadStaticEps）
+      server.middlewares.use((req, res, next) => {
+        const url = req.url?.split('?')[0] ?? ''
+        if (url === '/eps.json' || url.endsWith('/eps.json')) {
+          try {
+            res.setHeader('Content-Type', 'application/json; charset=utf-8')
+            res.end(fs.readFileSync(jsonPath))
+            return
+          } catch {
+            /* fallthrough */
+          }
+        }
         if (req.url === '/@vite/client') {
           scheduleHot((payload) => {
             ;(server.hot || server.ws).send(payload)
@@ -348,6 +422,18 @@ export function epsPlugin(options: EpsPluginOptions): Plugin {
         }
         next()
       })
+    },
+    closeBundle() {
+      const distDir = path.resolve(root, options.dist || 'build')
+      const src = path.join(distDir, 'eps.json')
+      if (!outDir || !fs.existsSync(src)) return
+      try {
+        fs.mkdirSync(outDir, { recursive: true })
+        fs.copyFileSync(src, path.join(outDir, 'eps.json'))
+        console.log('[vome-eps] copied eps.json →', path.join(outDir, 'eps.json'))
+      } catch (e) {
+        console.warn('[vome-eps] copy eps.json to dist failed', e)
+      }
     },
     handleHotUpdate({ file, server }) {
       if (shouldSkipHotFile(file)) return
