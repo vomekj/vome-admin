@@ -31,7 +31,7 @@ const { dict } = useDict()
 const Crud = useCrud(
   { service: service.i18n.lang },
   (app) => {
-    void dict.refresh(['status']).then(() => app.refresh())
+    app.refresh()
   },
 )
 
@@ -72,7 +72,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
   ],
@@ -93,7 +93,7 @@ useTable({
       width: 88,
       component: {
         name: 'vm-switch',
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     { type: 'op', width: 140, buttons: ['edit', 'delete'] },

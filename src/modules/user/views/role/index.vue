@@ -80,10 +80,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: {
-          activeValue: 1,
-          inactiveValue: 0,
-        },
+        props: dict.options('status'),
       },
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
@@ -138,7 +135,7 @@ useTable({
       width: 88,
       component: {
         name: 'vm-switch',
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     { type: 'op', buttons: ['edit', 'delete'] },
@@ -149,7 +146,7 @@ const Crud = useCrud(
   { service: service.user.role },
   (app) => {
     void loadAllEps()
-    void dict.refresh(['status']).then(() => app.refresh())
+    app.refresh()
   },
 )
 </script>

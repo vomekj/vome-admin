@@ -165,6 +165,7 @@ type TaskLogRow = {
 }
 
 const { service } = useVome()
+const { dict } = useDict()
 const taskApi = service.base.task
 
 const list = ref<TaskRow[]>([])

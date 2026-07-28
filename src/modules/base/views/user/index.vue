@@ -292,13 +292,9 @@ useUpsert({
       label: '状态',
       span: 12,
       type: 'switch',
-      hidden: hideUnlessUserUpsert,
       value: 1,
       component: {
-        props: {
-          activeValue: 1,
-          inactiveValue: 0,
-        },
+        props: dict.options('status'),
       },
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12, hidden: hideUnlessUserUpsert },
@@ -423,7 +419,7 @@ useTable({
       width: 88,
       component: {
         name: 'vm-switch',
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     { type: 'op', buttons: ['edit', 'delete'] },
@@ -449,7 +445,7 @@ const Crud = useCrud(
   (app) => {
     void loadRoleNameMap()
     void syncDeptOptions()
-    void dict.refresh(['status']).then(() => app.refresh())
+    app.refresh()
   },
 )
 

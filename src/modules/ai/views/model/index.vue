@@ -153,14 +153,7 @@ const Crud = useCrud(
   (app) => {
     void Promise.all([
       loadProviders(),
-      dict.refresh([
-        'status',
-        'base_http_method',
-        'base_ai_content_type',
-        'base_ai_capability',
-        'base_ai_result_mode',
-      ]),
-    ]).then(() => app.refresh())
+      ]).then(() => app.refresh())
   },
 )
 
@@ -194,7 +187,7 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: dict.stringOptions('base_http_method'),
+      options: dict.options('base_http_method'),
       value: 'POST',
     },
     {
@@ -203,7 +196,7 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: dict.stringOptions('base_ai_content_type'),
+      options: dict.options('base_ai_content_type'),
       value: 'json',
     },
     {
@@ -213,7 +206,7 @@ useUpsert({
       span: 12,
       type: 'select',
       multiple: true,
-      options: dict.stringOptions('base_ai_capability'),
+      options: dict.options('base_ai_capability'),
       value: ['chat'],
     },
     {
@@ -223,7 +216,7 @@ useUpsert({
       span: 12,
       type: 'select',
       multiple: true,
-      options: dict.stringOptions('base_ai_result_mode'),
+      options: dict.options('base_ai_result_mode'),
       value: ['stream'],
     },
     {
@@ -233,7 +226,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     {
@@ -286,7 +279,7 @@ useTable({
       width: 88,
       component: {
         name: 'vm-switch',
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     {

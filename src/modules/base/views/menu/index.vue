@@ -178,23 +178,23 @@ const UpsertItems = computed((): CrudFormItem[] => [
     type: 'radio',
     span: 12,
     value: 0,
-    options: dict.stringOptions('base_menu_type'),
+    options: dict.options('base_menu_type'),
   },
   {
     prop: 'isShow',
     label: '是否显示',
-    type: 'switch',
     span: 12,
+    type: 'select',
+    options: dict.options('yes_no'),
     value: true,
-    hidden: (f) => Number(f.type) === 2,
   },
   {
     prop: 'keepAlive',
     label: '路由缓存',
-    type: 'switch',
     span: 12,
+    type: 'select',
+    options: dict.options('yes_no'),
     value: true,
-    hidden: (f) => Number(f.type) !== 1,
   },
   {
     prop: 'parentId',
@@ -436,7 +436,7 @@ const Crud = useCrud(
     },
   },
   (app) => {
-    void dict.refresh(['base_menu_type']).then(() => app.refresh())
+    app.refresh()
   },
 )
 

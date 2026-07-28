@@ -34,8 +34,7 @@ function normalizeVomeAdminId(id: string): string {
 }
 
 /**
- * 直链 / link vome-core 时，Vite 会把 optional peer 解析为虚拟模块且无 default export。
- * 将 __vite-optional-peer-dep:* 指回宿主 node_modules 中的真实包。
+ * Vite 把 vome-core 的 optional peer 解析成虚拟模块时，指回宿主 node_modules 真实包。
  */
 export function vomePeerDepsPlugin(appRoot: string): Plugin {
   const require = createRequire(path.join(appRoot, 'package.json'))
@@ -61,7 +60,7 @@ export function vomePeerDepsPlugin(appRoot: string): Plugin {
   function isCoreImporter(importer?: string) {
     if (!importer) return false
     const norm = importer.replace(/\\/g, '/')
-    return norm.includes('/packages/vome-core/') || norm.includes('/vome-core/dist/')
+    return norm.includes('/node_modules/vome-core/') || norm.includes('/vome-core/dist/')
   }
 
   return {
@@ -85,13 +84,9 @@ export function vomePeerDepsPlugin(appRoot: string): Plugin {
 
 /**
  * 解析 vome-core/admin/*（及别名 /@/*）→ dist/admin/*
- * + #vome-host/* → 宿主 src
  */
 export function vomeResolvePlugin(root: string, hostSrc: string): Plugin {
-  const localCoreAdmin = path.resolve(root, '../packages/vome-core/dist/admin')
-  const coreAdmin = fs.existsSync(localCoreAdmin)
-    ? localCoreAdmin
-    : path.resolve(root, 'node_modules/vome-core/dist/admin')
+  const coreAdmin = path.resolve(root, 'node_modules/vome-core/dist/admin')
   const serviceEntry = path.resolve(coreAdmin, 'service/index.js')
 
   function resolveServiceId(id: string, importer?: string): string | undefined {

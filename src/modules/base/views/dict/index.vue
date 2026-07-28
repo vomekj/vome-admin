@@ -399,7 +399,7 @@ useUpsert({
         toast.success('已保存')
         close()
         await loadTypes()
-        if (selectedTypeKey.value) void dictStore.refresh([selectedTypeKey.value])
+        if (selectedTypeKey.value) void dictStore.refresh([selectedTypeKey.value], true)
       } catch (e) {
         console.error(e)
         const err = e as Error & { toasted?: boolean }
@@ -416,7 +416,7 @@ useUpsert({
     if (row.orderNum == null || row.orderNum === '') row.orderNum = 0
     else row.orderNum = Number(row.orderNum)
     await next(row)
-    if (selectedTypeKey.value) void dictStore.refresh([selectedTypeKey.value])
+    if (selectedTypeKey.value) void dictStore.refresh([selectedTypeKey.value], true)
   },
 })
 

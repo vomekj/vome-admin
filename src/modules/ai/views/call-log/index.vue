@@ -9,34 +9,6 @@
     </vm-row>
     <vm-row>
       <vm-table>
-        <template #cell-capability="{ row }">
-          <vm-tag-list
-            v-if="row.capability"
-            :model-value="[labelOf('base_ai_capability', String(row.capability))]"
-          />
-        </template>
-        <template #cell-mode="{ row }">
-          <vm-tag-list
-            v-if="row.mode"
-            :model-value="[labelOf('base_ai_result_mode', String(row.mode))]"
-          />
-        </template>
-        <template #cell-status="{ row }">
-          <vm-tag-list
-            v-if="row.status"
-            :model-value="[labelOf('base_ai_async_status', String(row.status))]"
-          />
-          <span v-else class="vm-ai-call-log__empty">—</span>
-        </template>
-        <template #cell-source="{ row }">
-          <vm-tag-list
-            v-if="row.source"
-            :model-value="[labelOf('base_ai_invoke_source', String(row.source))]"
-          />
-        </template>
-        <template #cell-ok="{ row }">
-          {{ row.ok === 1 ? '是' : '否' }}
-        </template>
         <template #cell-request="{ value }">
           <div v-if="hasJsonContent(value)" class="vm-ai-call-log__json-cell">
             <vm-text-link label="查看" @click="openJson('请求参数', value)" />
@@ -121,21 +93,9 @@ const jsonText = computed(() => prettyJson(jsonBody.value))
 const Crud = useCrud(
   { service: service.ai.callLog },
   (app) => {
-    void dict
-      .refresh([
-        'base_ai_capability',
-        'base_ai_result_mode',
-        'base_ai_async_status',
-        'base_ai_invoke_source',
-      ])
-      .then(() => app.refresh())
+    app.refresh()
   },
 )
-
-function labelOf(dictKey: string, value: string) {
-  const opts = dict.options(dictKey).value
-  return opts.find((o) => String(o.value) === value)?.label ?? value
-}
 
 function openJson(title: string, value: unknown) {
   jsonTitle.value = title
@@ -152,28 +112,33 @@ useTable({
       prop: 'capability',
       label: '能力',
       width: 96,
-      slot: 'cell-capability',
+      dict: dict.options('base_ai_capability'),
     },
     {
       prop: 'mode',
       label: '形态',
       width: 88,
-      slot: 'cell-mode',
+      dict: dict.options('base_ai_result_mode'),
     },
     {
       prop: 'status',
       label: '任务状态',
       width: 104,
-      slot: 'cell-status',
+      dict: dict.options('base_ai_async_status'),
     },
-    { prop: 'ok', label: '成功', width: 72, slot: 'cell-ok' },
+    {
+      prop: 'ok',
+      label: '成功',
+      width: 72,
+      dict: dict.options('status'),
+    },
     { prop: 'latencyMs', label: '耗时ms', width: 88 },
     { prop: 'totalTokens', label: 'Token', width: 88 },
     {
       prop: 'source',
       label: '来源',
       width: 96,
-      slot: 'cell-source',
+      dict: dict.options('base_ai_invoke_source'),
     },
     {
       prop: 'request',
@@ -189,8 +154,7 @@ useTable({
     },
     { prop: 'createTime', label: '时间', width: 170 },
   ],
-})
-</script>
+})</script>
 
 <style lang="scss" scoped>
 .vm-ai-call-log__empty {

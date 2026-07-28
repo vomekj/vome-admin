@@ -135,6 +135,7 @@ import {
 defineOptions({ name: 'base-log' })
 
 const { service } = useVome()
+const { dict } = useDict()
 
 type ScopeOpt = { value: string; label: string }
 

@@ -165,7 +165,6 @@ const Crud = useCrud(
   { service: service.i18n.pack },
   (app) => {
     void Promise.all([
-      dict.refresh(['status']),
       loadLangOptions(),
       loadChatModels(),
     ]).then(() => app.refresh())
@@ -271,13 +270,13 @@ async function loadLangOptions() {
 
   let opts: Array<{ label: string; value: string; id: number }> = []
   try {
-    opts = toOpts(await service.i18n.lang.list({}))
+    opts = toOpts(await service.i18n.lang.enabled())
   } catch {
     /* ignore */
   }
   if (!opts.length) {
     try {
-      opts = toOpts(await service.i18n.lang.enabled())
+      opts = toOpts(await service.i18n.lang.list({ status: 1 }))
     } catch {
       /* ignore */
     }
@@ -285,7 +284,7 @@ async function loadLangOptions() {
   if (!opts.length) {
     try {
       opts = toOpts(
-        await service.i18n.lang.page({ page: 1, size: 200 }),
+        await service.i18n.lang.page({ page: 1, size: 200, status: 1 }),
       )
     } catch {
       /* ignore */

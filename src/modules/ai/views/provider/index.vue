@@ -39,7 +39,7 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: dict.stringOptions('base_ai_protocol'),
+      options: dict.options('base_ai_protocol'),
       value: 'openai_compatible',
     },
     {
@@ -65,7 +65,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
@@ -92,7 +92,7 @@ useTable({
       width: 88,
       component: {
         name: 'vm-switch',
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     { type: 'op', buttons: ['edit', 'delete'] },
@@ -102,7 +102,7 @@ useTable({
 const Crud = useCrud(
   { service: service.ai.provider },
   (app) => {
-    void dict.refresh(['status', 'base_ai_protocol']).then(() => app.refresh())
+    app.refresh()
   },
 )
 </script>

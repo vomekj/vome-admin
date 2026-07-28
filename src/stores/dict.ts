@@ -1,15 +1,11 @@
-export type DictNode = {
-  id: number
-  name: string
-  label: string
-  typeId: number
-  parentId: number | null
-  orderNum: number
-  value: unknown
-  children?: DictNode[]
-}
+import {
+  getDict,
+  getDictOptions,
+  hydrateDictFromEps,
+  type EpsDictNode,
+} from 'vome-core/client'
 
-type DictData = Record<string, DictNode[]>
+export type DictNode = EpsDictNode
 
 function isEmpty(val: unknown) {
   return val === '' || val === null || val === undefined
@@ -31,37 +27,37 @@ function deepFind(
     if (sameValue(e.value, value)) {
       return {
         ...e,
-        label: parents.length ? [...parents, e.label || e.name].join(' / ') : e.label || e.name,
+        label: parents.length
+          ? [...parents, e.label || e.name].join(' / ')
+          : e.label || e.name,
       }
     }
     if (e.children?.length) {
-      const hit = deepFind(value, e.children, [...parents, e.label || e.name])
+      const hit = deepFind(value, e.children, [
+        ...parents,
+        e.label || e.name,
+      ])
       if (hit) return hit
     }
   }
   return undefined
 }
 
-function walkByNames(list: DictNode[], names: string[]): DictNode | undefined {
-  if (!names.length) return undefined
-  const [head, ...rest] = names
-  const node = list.find((e) => e.name === head)
-  if (!node) return undefined
-  if (!rest.length) return node
-  return walkByNames(node.children ?? [], rest)
+function snapshot(keys?: string[]) {
+  const out: Record<string, DictNode[]> = {}
+  for (const k of keys || []) out[k] = getDict(k)
+  return out
 }
 
 /**
- * 字典 store
- * - get(类型key) → 树
- * - find(类型key, value) → 节点
- * - pathValue / childValue → 直取子项 value
+ * 字典 store：读 EPS 灌入的本地缓存（createEps / loadEps）
+ * - get：整棵树
+ * - options：根项摊平 + color → 下拉 / 彩色标签 / vm-switch 取值
+ * - 业务页勿 refresh；字典管理页改完后 refresh(key, true)
  */
 export const useDictStore = defineStore('dict', () => {
-  const data = reactive<DictData>({})
-
   function get(name: string) {
-    return computed(() => data[name] || [])
+    return computed(() => getDict(name))
   }
 
   function find(name: string, value: unknown | unknown[]) {
@@ -71,76 +67,39 @@ export const useDictStore = defineStore('dict', () => {
       .map((v) => deepFind(v, get(name).value))
   }
 
-  /** 名称路径直取 value：pathValue('state', ['正常', 'tagColor']) */
-  function pathValue(typeKey: string, path: string[]) {
-    const names = (path ?? []).map((n) => String(n ?? '').trim()).filter(Boolean)
-    return walkByNames(get(typeKey).value, names)?.value
-  }
-
-  /** 父 value + 子名称：childValue('state', 0, 'tagColor') */
-  function childValue(typeKey: string, parentValue: unknown, childName: string) {
-    const parent = deepFind(parentValue, get(typeKey).value)
-    const name = String(childName ?? '').trim()
-    return parent?.children?.find((c) => c.name === name)?.value
-  }
-
-  /** 根项 → 下拉/标签 options（子项 name=color 作为标签色） */
   function options(typeKey: string) {
-    return computed(() =>
-      (get(typeKey).value || []).map((n) => {
-        const colorChild = n.children?.find((c) => c.name === 'color')
-        return {
-          label: n.label || n.name,
-          value: n.value as string | number,
-          color:
-            colorChild?.value != null && colorChild.value !== ''
-              ? String(colorChild.value)
-              : undefined,
-        }
-      }),
-    )
+    return computed(() => getDictOptions(typeKey))
   }
 
-  /** 单选/radio 用字符串 value（upsert radio 惯例） */
-  function stringOptions(typeKey: string) {
-    return computed(() =>
-      options(typeKey).value.map((o) => ({
-        ...o,
-        value: String(o.value),
-      })),
-    )
-  }
-
-  async function refresh(types?: string[] | string) {
+  /**
+   * 默认只读 EPS 本地缓存，不打网络。
+   * 仅 force=true（字典管理改完后）才请求 /data。
+   */
+  async function refresh(
+    types?: string[] | string,
+    forceOrOpts: boolean | { force?: boolean } = false,
+  ) {
+    const force =
+      typeof forceOrOpts === 'boolean'
+        ? forceOrOpts
+        : Boolean(forceOrOpts?.force)
     const list = typeof types === 'string' ? [types] : types
-    const res = (await service.base.dict.info.data({
-      types: list?.filter((e) => !isEmpty(e)) as string[] | undefined,
-    })) as Record<string, DictNode[]>
+    const keys = list?.filter((e) => !isEmpty(e)) as string[] | undefined
 
-    const next: DictData = {}
-    for (const [key, arr] of Object.entries(res || {})) {
-      const rows: DictNode[] = (arr || []).map((e) => {
-        const value = isEmpty(e.value) ? e.id : e.value
-        return {
-          ...e,
-          label: e.name,
-          value,
-        }
-      })
-      next[key] = deepTree(rows, 'asc')
-    }
-    Object.assign(data, next)
-    return data
+    if (!force) return snapshot(keys)
+
+    const res = (await service.base.dict.info.data({
+      types: keys,
+    })) as Record<string, unknown>
+    hydrateDictFromEps(res as never)
+    const outKeys = keys?.length ? keys : Object.keys(res || {})
+    return snapshot(outKeys)
   }
 
   return {
-    data,
     get,
     find,
-    pathValue,
-    childValue,
     options,
-    stringOptions,
     refresh,
   }
 })

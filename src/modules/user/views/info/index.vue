@@ -39,6 +39,7 @@
 defineOptions({ name: 'user-info' })
 
 const { service } = useVome()
+const { dict } = useDict()
 
 const checkedRoleIds = ref<number[]>([])
 const roleNameMap = ref<Record<string, string>>({})
@@ -105,13 +106,17 @@ useUpsert({
       prop: 'emailVerified',
       label: '邮箱已验证',
       span: 12,
-      type: 'switch',
+      type: 'select',
+      options: dict.options('yes_no'),
+      value: false,
     },
     {
       prop: 'phoneVerified',
       label: '手机已验证',
       span: 12,
-      type: 'switch',
+      type: 'select',
+      options: dict.options('yes_no'),
+      value: false,
     },
   ],
   onOpen() {
@@ -197,13 +202,13 @@ useTable({
       prop: 'emailVerified',
       label: '邮箱验证',
       width: 90,
-      formatter: (_r, v) => (v ? '是' : '否'),
+      dict: dict.options('yes_no'),
     },
     {
       prop: 'phoneVerified',
       label: '手机验证',
       width: 90,
-      formatter: (_r, v) => (v ? '是' : '否'),
+      dict: dict.options('yes_no'),
     },
     { prop: 'tenantId', label: '租户', width: 80 },
     { prop: 'remark', label: '备注', minWidth: 120 },

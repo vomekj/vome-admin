@@ -172,10 +172,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: {
-          activeValue: 1,
-          inactiveValue: 0,
-        },
+        props: dict.options('status'),
       },
     },
     {
@@ -184,7 +181,7 @@ useUpsert({
       type: 'radio',
       span: 12,
       value: '0',
-      options: dict.stringOptions('base_data_scope'),
+      options: dict.options('base_data_scope'),
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
@@ -260,7 +257,7 @@ useTable({
       width: 88,
       component: {
         name: 'vm-switch',
-        props: { activeValue: 1, inactiveValue: 0 },
+        props: dict.options('status'),
       },
     },
     { type: 'op', buttons: ['edit', 'delete'] },
@@ -271,7 +268,7 @@ const Crud = useCrud(
   { service: service.base.role },
   (app) => {
     void loadTrees()
-    void dict.refresh(['status', 'base_data_scope']).then(() => app.refresh())
+    app.refresh()
   },
 )
 </script>
