@@ -251,7 +251,7 @@ async function toggleScope(value: string) {
 
 useTable({
   columns: [
-    { type: 'index', label: '#', width: 60 },
+    { prop: 'id', label: 'ID', width: 70 },
     { prop: 'userId', label: '用户ID', width: 100 },
     {
       prop: 'logType',

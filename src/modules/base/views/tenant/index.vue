@@ -83,7 +83,7 @@ useUpsert({
 useTable({
   columns: [
     { type: 'selection' },
-    { type: 'index', label: '#', width: 56 },
+    { prop: 'id', label: 'ID', width: 70 },
     { prop: 'name', label: '名称', minWidth: 140 },
     { prop: 'code', label: '编码', minWidth: 120 },
     {
