@@ -279,6 +279,7 @@ useTable({
       minWidth: 140,
       slot: 'cell-resultModes',
     },
+    { prop: 'createTime', label: '创建时间', width: 170 },
     {
       prop: 'status',
       label: '状态',
@@ -288,7 +289,6 @@ useTable({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'createTime', label: '创建时间', width: 170 },
     {
       type: 'op',
       width: 200,

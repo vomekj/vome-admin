@@ -252,6 +252,8 @@ useTable({
       width: 100,
       dict: dict.options('base_data_scope'),
     },
+    { prop: 'remark', label: '备注', minWidth: 160 },
+    { prop: 'createTime', label: '创建时间', minWidth: 160 },
     {
       prop: 'status',
       label: '状态',
@@ -261,8 +263,6 @@ useTable({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'remark', label: '备注', minWidth: 160 },
-    { prop: 'createTime', label: '创建时间', minWidth: 160 },
     { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })

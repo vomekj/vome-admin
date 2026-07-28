@@ -415,6 +415,8 @@ useTable({
     { prop: 'nickName', label: '昵称', minWidth: 100 },
     { prop: 'departmentName', label: '部门名称', minWidth: 120 },
     { prop: 'roleNames', label: '角色', minWidth: 140 },
+    { prop: 'phone', label: '手机号码', minWidth: 120 },
+    { prop: 'createTime', label: '创建时间', minWidth: 160 },
     {
       prop: 'status',
       label: '状态',
@@ -424,8 +426,6 @@ useTable({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'phone', label: '手机号码', minWidth: 120 },
-    { prop: 'createTime', label: '创建时间', minWidth: 160 },
     { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })

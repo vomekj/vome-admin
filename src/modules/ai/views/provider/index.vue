@@ -84,6 +84,8 @@ useTable({
       dict: dict.options('base_ai_protocol'),
     },
     { prop: 'baseUrl', label: '接口地址', minWidth: 180 },
+    { prop: 'remark', label: '备注', minWidth: 120 },
+    { prop: 'createTime', label: '创建时间', width: 170 },
     {
       prop: 'status',
       label: '状态',
@@ -93,8 +95,6 @@ useTable({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'remark', label: '备注', minWidth: 120 },
-    { prop: 'createTime', label: '创建时间', width: 170 },
     { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })

@@ -92,6 +92,8 @@ useTable({
       minWidth: 220,
       slot: 'cell-domains',
     },
+    { prop: 'remark', label: '备注', minWidth: 140 },
+    { prop: 'createTime', label: '创建时间', width: 170 },
     {
       prop: 'status',
       label: '状态',
@@ -101,8 +103,6 @@ useTable({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'remark', label: '备注', minWidth: 140 },
-    { prop: 'createTime', label: '创建时间', width: 170 },
     { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })

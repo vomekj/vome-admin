@@ -34,7 +34,7 @@
     "op": "操作",
     "add": "新增",
     "delete": "删除",
-    "multiDelete": "批量删除",
+    "multiDelete": "删除",
     "export": "导出",
     "import": "导入",
     "update": "编辑",

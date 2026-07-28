@@ -86,6 +86,7 @@ useTable({
     { prop: 'code', label: '编码', width: 120 },
     { prop: 'name', label: '语言名称', width: 140 },
     { prop: 'orderNum', label: '排序', width: 88 },
+    { prop: 'createTime', label: '创建时间', width: 170 },
     {
       prop: 'status',
       label: '状态',
@@ -95,7 +96,6 @@ useTable({
         props: { activeValue: 1, inactiveValue: 0 },
       },
     },
-    { prop: 'createTime', label: '创建时间', width: 170 },
     { type: 'op', width: 140, buttons: ['edit', 'delete'] },
   ],
 })
