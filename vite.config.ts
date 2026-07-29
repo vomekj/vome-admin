@@ -53,12 +53,10 @@ export default defineConfig({
     cors: true,
     proxy,
     watch: {
-      // 同步/覆盖 node_modules/vome-core 后需热更新；默认忽略整个 node_modules
       ignored: [
         '**/typings/eps.d.ts',
         '**/build/eps.json',
         '**/node_modules/**',
-        '!**/node_modules/vome-core/**',
       ],
     },
   },

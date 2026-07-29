@@ -1,5 +1,6 @@
 import {
   getDict,
+  getDictMap,
   getDictOptions,
   hydrateDictFromEps,
   type EpsDictNode,
@@ -17,7 +18,7 @@ function sameValue(a: unknown, b: unknown) {
   return String(a) === String(b)
 }
 
-/** 树上按 value 找节点 */
+/** 树上按 value 找节点（走完整树，含子集） */
 function deepFind(
   value: unknown,
   list: DictNode[],
@@ -44,15 +45,16 @@ function deepFind(
 }
 
 function snapshot(keys?: string[]) {
+  const map = getDictMap()
   const out: Record<string, DictNode[]> = {}
-  for (const k of keys || []) out[k] = getDict(k)
+  for (const k of keys || []) out[k] = map[k] || []
   return out
 }
 
 /**
  * 字典 store：读 EPS 灌入的本地缓存（createEps / loadEps）
- * - get：整棵树
- * - options：根项摊平 + color → 下拉 / 彩色标签 / vm-switch 取值
+ * - get：字典树（下拉 / switch）
+ * - options：平铺 + color → 彩色 tag / 菜单类型等
  * - 业务页勿 refresh；字典管理页改完后 refresh(key, true)
  */
 export const useDictStore = defineStore('dict', () => {
@@ -61,10 +63,11 @@ export const useDictStore = defineStore('dict', () => {
   }
 
   function find(name: string, value: unknown | unknown[]) {
+    const tree = getDictMap()[name] || []
     const arr = Array.isArray(value) ? value : [value]
     return arr
       .filter((e) => e !== undefined)
-      .map((v) => deepFind(v, get(name).value))
+      .map((v) => deepFind(v, tree))
   }
 
   function options(typeKey: string) {

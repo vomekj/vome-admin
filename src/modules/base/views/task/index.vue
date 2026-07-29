@@ -312,8 +312,14 @@ const LogsTable = useTable({
   columns: [
     { type: 'index', label: '#', width: 56 },
     { prop: 'detail', label: '描述', minWidth: 200, showOverflowTooltip: true },
-    { prop: 'status', label: '执行状态', minWidth: 120, dict: logsStatusDict },
     { prop: 'createTime', label: '执行时间', minWidth: 170 },
+    {
+      prop: 'status',
+      label: '执行状态',
+      minWidth: 120,
+      fixed: 'right',
+      dict: logsStatusDict,
+    },
   ],
 })
 

@@ -276,6 +276,7 @@ useTable({
     },
     {
       prop: 'status',
+      fixed: 'right',
       label: '响应状态',
       width: 96,
       align: 'center',

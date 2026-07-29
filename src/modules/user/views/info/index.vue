@@ -107,7 +107,7 @@ useUpsert({
       label: '邮箱已验证',
       span: 12,
       type: 'select',
-      options: dict.options('yes_no'),
+      options: dict.get('yes_no'),
       value: false,
     },
     {
@@ -115,8 +115,16 @@ useUpsert({
       label: '手机已验证',
       span: 12,
       type: 'select',
-      options: dict.options('yes_no'),
+      options: dict.get('yes_no'),
       value: false,
+    },
+    {
+      prop: 'status',
+      label: '状态',
+      span: 12,
+      type: 'select',
+      options: dict.get('user_status'),
+      value: 1,
     },
   ],
   onOpen() {
@@ -155,6 +163,7 @@ useUpsert({
       remark: data.remark != null ? String(data.remark).trim() || null : null,
       emailVerified: Boolean(data.emailVerified ?? false),
       phoneVerified: Boolean(data.phoneVerified ?? false),
+      status: Number(data.status ?? 1),
     }
     if (String(data.password ?? '').trim()) {
       payload.password = String(data.password)
@@ -192,10 +201,11 @@ useUpsert({
 useTable({
   columns: [
     { type: 'selection' },
-    { prop: 'userId', label: '用户ID', width: 90 },
     { prop: 'id', label: 'ID', width: 160 },
+    { prop: 'userId', label: '用户ID', width: 90 },
+    { prop: 'phone', label: '手机号', width: 120 },
+    { prop: 'name', label: '昵称', width: 160 },
     { prop: 'image', label: '头像', width: 120 },
-    { prop: 'name', label: '名称', width: 160 },
     { prop: 'email', label: '邮箱', width: 120 },
     { prop: 'roleNames', label: '角色', width: 100 },
     {
@@ -213,6 +223,13 @@ useTable({
     { prop: 'tenantId', label: '租户', width: 80 },
     { prop: 'remark', label: '备注', minWidth: 120 },
     { prop: 'createdAt', label: '创建时间', minWidth: 160 },
+    {
+      prop: 'status',
+      label: '状态',
+      width: 100,
+      fixed: 'right',
+      dict: dict.options('user_status'),
+    },
     { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })

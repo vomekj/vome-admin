@@ -185,7 +185,7 @@ const UpsertItems = computed((): CrudFormItem[] => [
     label: '是否显示',
     span: 12,
     type: 'select',
-    options: dict.options('yes_no'),
+    options: dict.get('yes_no'),
     value: true,
   },
   {
@@ -193,7 +193,7 @@ const UpsertItems = computed((): CrudFormItem[] => [
     label: '路由缓存',
     span: 12,
     type: 'select',
-    options: dict.options('yes_no'),
+    options: dict.get('yes_no'),
     value: true,
   },
   {

@@ -63,15 +63,6 @@
 
           <vm-card-title :text="item.name">{{ item.name }}</vm-card-title>
           <vm-clamp-text :text="item.description || '暂无描述'" />
-          <p v-if="item.seat?.blocked" class="vm-plugin-page__seat-warn">
-            {{
-              item.seat.tip ||
-              '超出授权席位，插件功能已禁用。请释放其它站点或加购席位。'
-            }}
-          </p>
-          <p v-else-if="item.seat" class="vm-plugin-page__seat">
-            席位 {{ item.seat.seatsLabel }} · 已用 {{ item.seat.usedLabel }}
-          </p>
           <vm-card-meta :text="pluginMeta(item)" />
 
           <template #footer>
@@ -164,17 +155,16 @@
           </div>
         </vm-card>
 
-        <vm-card-grid min-width="280px" gap="12px">
+        <vm-card-grid class="vm-plugin-dev__scaffolds" gap="16px">
           <vm-card
             v-for="item in scaffoldList"
             :key="item.key"
             bordered
-            compact
             footer-end
           >
-            <vm-thumb :size="40" :icon="scaffoldIcon(item.key)" />
+            <vm-thumb :size="48" :icon="scaffoldIcon(item.key)" />
             <vm-card-title :text="item.title">{{ item.title }}</vm-card-title>
-            <vm-clamp-text :lines="3" :text="item.desc" />
+            <vm-clamp-text :lines="4" :text="item.desc" />
             <template #footer>
               <div class="vm-plugin-dev__dl">
                 <vm-action-btn
@@ -329,6 +319,8 @@ type PluginRow = {
   readme?: string
   /** 列表轻量标记：是否有文档 */
   hasReadme?: boolean
+  hasWeb?: boolean
+  hasServer?: boolean
   version?: string
   logo?: string
   author?: string
@@ -446,7 +438,12 @@ function filterByKeyword(rows: PluginRow[]) {
 const filteredMarketList = computed(() => filterByKeyword(marketList.value))
 
 function typeLabel(item: PluginRow) {
-  return item.hook ? '后端' : '模块'
+  const backend = Boolean(item.hook || item.hasServer)
+  const front = Boolean(item.hasWeb)
+  if (backend && front) return '前端+后端'
+  if (backend) return '后端'
+  if (front) return '前端'
+  return '模块'
 }
 
 function pluginTags(item: PluginRow) {
@@ -792,19 +789,6 @@ onMounted(() => {
   padding-top: 72px;
 }
 
-.vm-plugin-page__seat {
-  margin: 4px 0 0;
-  font-size: 12px;
-  color: var(--muted-foreground, #64748b);
-}
-
-.vm-plugin-page__seat-warn {
-  margin: 4px 0 0;
-  font-size: 12px;
-  color: var(--danger, #dc2626);
-  line-height: 1.4;
-}
-
 .vm-plugin-page__actions {
   display: flex;
   gap: 8px;
@@ -847,6 +831,55 @@ onMounted(() => {
   gap: 8px;
 }
 
+/* 3 个脚手架占满一行；等高拉伸，底栏分割线 + 按钮底对齐 */
+:deep(.vm-plugin-dev__scaffolds) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+
+  .vm-card {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .vm-card__inner {
+    flex: 1 1 auto;
+    padding: 18px 20px;
+  }
+
+  .vm-card__foot {
+    margin-top: auto;
+    padding: 10px 20px 14px;
+    border-top: 1px solid color-mix(in srgb, var(--foreground) 6%, transparent);
+  }
+
+  .vm-card-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .vm-clamp-text {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 1100px) {
+  :deep(.vm-plugin-dev__scaffolds) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  :deep(.vm-plugin-dev__scaffolds) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .vm-plugin-dev__dl {
   display: flex;
   flex-wrap: wrap;
@@ -854,8 +887,8 @@ onMounted(() => {
   justify-content: flex-end;
 }
 
-.vm-plugin-dev :deep(.vm-thumb) {
-  margin-bottom: 12px;
+.vm-plugin-dev__scaffolds :deep(.vm-thumb) {
+  margin-bottom: 10px;
 }
 
 .vm-plugin-upsert-host {

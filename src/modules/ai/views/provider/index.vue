@@ -39,7 +39,7 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: dict.options('base_ai_protocol'),
+      options: dict.get('base_ai_protocol'),
       value: 'openai_compatible',
     },
     {
@@ -65,7 +65,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: dict.options('status'),
+        props: dict.get('status'),
       },
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
@@ -88,11 +88,12 @@ useTable({
     { prop: 'createTime', label: '创建时间', width: 170 },
     {
       prop: 'status',
+      fixed: 'right',
       label: '状态',
       width: 88,
       component: {
         name: 'vm-switch',
-        props: dict.options('status'),
+        props: dict.get('status'),
       },
     },
     { type: 'op', buttons: ['edit', 'delete'] },

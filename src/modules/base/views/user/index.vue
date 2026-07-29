@@ -294,7 +294,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: dict.options('status'),
+        props: dict.get('status'),
       },
     },
     { prop: 'remark', label: '备注', type: 'textarea', span: 12, hidden: hideUnlessUserUpsert },
@@ -415,11 +415,12 @@ useTable({
     { prop: 'createTime', label: '创建时间', minWidth: 160 },
     {
       prop: 'status',
+      fixed: 'right',
       label: '状态',
       width: 88,
       component: {
         name: 'vm-switch',
-        props: dict.options('status'),
+        props: dict.get('status'),
       },
     },
     { type: 'op', buttons: ['edit', 'delete'] },

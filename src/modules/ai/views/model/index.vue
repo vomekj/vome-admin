@@ -132,7 +132,7 @@ function asList(raw: unknown): string[] {
 }
 
 function labelOf(dictKey: string, value: string) {
-  const opts = dict.options(dictKey).value
+  const opts = dict.get(dictKey).value
   return opts.find((o) => String(o.value) === value)?.label ?? value
 }
 
@@ -187,7 +187,7 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: dict.options('base_http_method'),
+      options: dict.get('base_http_method'),
       value: 'POST',
     },
     {
@@ -196,7 +196,7 @@ useUpsert({
       required: true,
       span: 12,
       type: 'select',
-      options: dict.options('base_ai_content_type'),
+      options: dict.get('base_ai_content_type'),
       value: 'json',
     },
     {
@@ -206,7 +206,7 @@ useUpsert({
       span: 12,
       type: 'select',
       multiple: true,
-      options: dict.options('base_ai_capability'),
+      options: dict.get('base_ai_capability'),
       value: ['chat'],
     },
     {
@@ -216,7 +216,7 @@ useUpsert({
       span: 12,
       type: 'select',
       multiple: true,
-      options: dict.options('base_ai_result_mode'),
+      options: dict.get('base_ai_result_mode'),
       value: ['stream'],
     },
     {
@@ -226,7 +226,7 @@ useUpsert({
       type: 'switch',
       value: 1,
       component: {
-        props: dict.options('status'),
+        props: dict.get('status'),
       },
     },
     {
@@ -275,11 +275,12 @@ useTable({
     { prop: 'createTime', label: '创建时间', width: 170 },
     {
       prop: 'status',
+      fixed: 'right',
       label: '状态',
       width: 88,
       component: {
         name: 'vm-switch',
-        props: dict.options('status'),
+        props: dict.get('status'),
       },
     },
     {

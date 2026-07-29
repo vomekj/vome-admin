@@ -9,33 +9,15 @@
     </div>
 
     <div v-else class="vm-micro__shell">
-      <header class="vm-micro__bar">
-        <div class="vm-micro__bar-left">
-          <span class="vm-micro__badge">Micro App</span>
-          <strong class="vm-micro__name">{{ title }}</strong>
-          <code class="vm-micro__key">{{ appKey }}</code>
-        </div>
-        <a
-          class="vm-micro__link"
-          :href="entryUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          打开入口
-          <i class="ri-external-link-line" />
-        </a>
-      </header>
-
-      <div class="vm-micro__frame">
-        <WujieVue
-          width="100%"
-          height="100%"
-          :name="appKey"
-          :url="entryUrl"
-          :alive="true"
-          :sync="false"
-        />
-      </div>
+      <WujieVue
+        width="100%"
+        height="100%"
+        :name="appKey"
+        :url="entryUrl"
+        :alive="true"
+        :sync="false"
+        :props="microProps"
+      />
     </div>
   </div>
 </template>
@@ -43,16 +25,25 @@
 <script setup lang="ts">
 import WujieVue from 'wujie-vue3'
 import { apiUrl } from '/@/api/client'
+import { snapshotHostTheme } from '@/lib/micro-theme'
+import { useThemeStore } from '@/stores/theme'
 
 defineOptions({ name: 'MicroAppView' })
 
 const route = useRoute()
+const themeStore = useThemeStore()
 
 const appKey = computed(() => String(route.meta.appKey || ''))
-const title = computed(() => String(route.meta.title || appKey.value || '微应用'))
+/** 仅供 wujie 静默加载；用户只通过 Admin 侧栏菜单进入，不暴露独立入口 */
 const entryUrl = computed(() =>
   appKey.value ? apiUrl(`/vome/apps/${appKey.value}/`) : '',
 )
+
+/** 初始主题快照；切换后由 theme store → wujie bus 广播 */
+const microProps = computed(() => {
+  void themeStore.themeId
+  return { theme: snapshotHostTheme() }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +61,7 @@ const entryUrl = computed(() =>
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
-  border-radius: 24px;
+  border-radius: var(--radius, 16px);
   background: var(--card);
   box-shadow: var(--shadow-soft);
   text-align: center;
@@ -107,83 +98,26 @@ const entryUrl = computed(() =>
   color: var(--muted-foreground);
 }
 
+/* 宿主内容容器（--card）；子应用必须透明，勿再盖白底 */
 .vm-micro__shell {
   display: flex;
   flex: 1;
   min-height: 0;
   flex-direction: column;
-  overflow: hidden;
-  border-radius: 24px;
+  /* iframe 固定 100% 时由子文档滚动；auto 避免再被壳裁切 */
+  overflow: auto;
+  border-radius: var(--radius, 16px);
   background: var(--card);
   box-shadow: var(--shadow-soft);
-}
 
-.vm-micro__bar {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 16px;
-  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 6%, transparent);
-}
-
-.vm-micro__bar-left {
-  display: flex;
-  min-width: 0;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.vm-micro__badge {
-  display: inline-flex;
-  height: 22px;
-  align-items: center;
-  padding: 0 8px;
-  border-radius: 999px;
-  background: #eef0ff;
-  color: var(--brand);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.vm-micro__name {
-  font-size: 14px;
-  font-weight: 650;
-  color: var(--foreground);
-}
-
-.vm-micro__key {
-  padding: 2px 8px;
-  border-radius: 8px;
-  background: var(--background);
-  color: var(--muted-foreground);
-  font-size: 12px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-.vm-micro__link {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--brand);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
+  :deep(wj-app),
+  :deep(iframe) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent !important;
+    color-scheme: inherit;
   }
-}
-
-.vm-micro__frame {
-  flex: 1;
-  min-height: 420px;
-  overflow: hidden;
-  background: var(--background);
 }
 </style>

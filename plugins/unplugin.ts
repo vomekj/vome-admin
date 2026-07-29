@@ -36,7 +36,6 @@ export function autoImportPlugins(root: string) {
         'pinia',
         {
           'vue-sonner': ['toast'],
-          'vue-router': ['RouterLink', 'RouterView'],
           '/@/lib/cn': ['cn'],
           '/@/service': ['service'],
           '/@/api/client': [
@@ -94,7 +93,6 @@ export function autoImportPlugins(root: string) {
       ],
       dts: r('typings/auto-imports.d.ts'),
       vueTemplate: true,
-      eslintrc: { enabled: false },
     }),
     Components({
       exclude,
@@ -106,10 +104,7 @@ export function autoImportPlugins(root: string) {
         `${coreAdmin}/crud/vm-*.vue`,
         `${coreAdmin}/crud/components/vm-*.vue`,
       ],
-      extensions: ['vue'],
       dts: r('typings/components.d.ts'),
-      directoryAsNamespace: false,
-      collapseSamePrefixes: true,
       importPathTransform: toCoreAlias,
     }),
   ]

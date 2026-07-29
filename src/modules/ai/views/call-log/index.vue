@@ -122,6 +122,7 @@ useTable({
     },
     {
       prop: 'status',
+      fixed: 'right',
       label: '任务状态',
       width: 104,
       dict: dict.options('base_ai_async_status'),
