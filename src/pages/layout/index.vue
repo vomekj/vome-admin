@@ -37,6 +37,11 @@
 
 <script setup lang="ts">
 import { createEps, service, setServicePerms } from '/@/service'
+import { bus } from 'wujie'
+import {
+  hasMicroLocaleListeners,
+  MICRO_LOCALE_EVENT,
+} from '@/lib/micro-locale'
 import { useLocaleStore } from '@/stores/locale'
 
 defineOptions({ name: 'vm-layout' })
@@ -48,6 +53,15 @@ const locale = useLocaleStore()
 const route = useRoute()
 const error = ref('')
 const ready = ref(false)
+
+function broadcastHostLocale(code: string) {
+  try {
+    if (!hasMicroLocaleListeners()) return
+    bus.$emit(MICRO_LOCALE_EVENT, { locale: code })
+  } catch {
+    /* ignore */
+  }
+}
 
 onMounted(async () => {
   try {
@@ -72,6 +86,12 @@ watch(
   () => route.fullPath,
   () => tags.add(route),
   { immediate: true },
+)
+
+/** Admin 切语种 → 无界插件跟换语言包（无插件内切语言 UI） */
+watch(
+  () => locale.locale,
+  (code) => broadcastHostLocale(String(code || 'zh-CN')),
 )
 </script>
 

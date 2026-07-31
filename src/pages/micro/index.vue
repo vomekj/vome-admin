@@ -25,13 +25,16 @@
 <script setup lang="ts">
 import WujieVue from 'wujie-vue3'
 import { apiUrl } from '/@/api/client'
+import { readHostLocale } from '@/lib/micro-locale'
 import { snapshotHostTheme } from '@/lib/micro-theme'
+import { useLocaleStore } from '@/stores/locale'
 import { useThemeStore } from '@/stores/theme'
 
 defineOptions({ name: 'MicroAppView' })
 
 const route = useRoute()
 const themeStore = useThemeStore()
+const localeStore = useLocaleStore()
 
 const appKey = computed(() => String(route.meta.appKey || ''))
 /** 仅供 wujie 静默加载；用户只通过 Admin 侧栏菜单进入，不暴露独立入口 */
@@ -39,10 +42,14 @@ const entryUrl = computed(() =>
   appKey.value ? apiUrl(`/vome/apps/${appKey.value}/`) : '',
 )
 
-/** 初始主题快照；切换后由 theme store → wujie bus 广播 */
+/** 初始主题/语种；切换后由 layout/theme → wujie bus 广播 */
 const microProps = computed(() => {
   void themeStore.themeId
-  return { theme: snapshotHostTheme() }
+  void localeStore.locale
+  return {
+    theme: snapshotHostTheme(),
+    locale: String(localeStore.locale || readHostLocale()),
+  }
 })
 </script>
 

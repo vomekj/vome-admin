@@ -12,6 +12,8 @@ import { cn } from '/@/lib/cn'
 /** 必须引入，否则定位/色底样式全丢 */
 import 'vue-sonner/style.css'
 
+defineOptions({ name: 'Toaster' })
+
 const props = withDefaults(defineProps<ToasterProps>(), {
   theme: 'system',
   richColors: true,
@@ -72,6 +74,11 @@ const props = withDefaults(defineProps<ToasterProps>(), {
   --toast-svg-margin-end: 0px;
   width: max-content !important;
   max-width: min(400px, 100vw - 32px) !important;
+
+  /* 中上方：略低于贴顶默认值 */
+  &[data-y-position='top'] {
+    top: min(120px, 18vh) !important;
+  }
 
   [data-sonner-toast] {
     width: max-content !important;
