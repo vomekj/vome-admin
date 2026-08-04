@@ -1,6 +1,8 @@
-/** 宿主 → 无界子应用主题同步 */
+/** 宿主 ↔ 无界子应用主题同步 */
 
 export const MICRO_THEME_EVENT = 'vome-host-theme'
+/** 子应用 → 宿主：请求切换亮暗 */
+export const MICRO_SET_THEME_EVENT = 'vome-set-host-theme'
 
 /** 与 wujie EventBus 内部一致；无订阅时 $emit 会打 warn */
 const WUJIE_ALL_EVENT = '_wujie_all_event'

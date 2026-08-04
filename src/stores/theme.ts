@@ -3,6 +3,7 @@ import { bus } from 'wujie'
 import { applyTheme, listThemes } from '@/themes'
 import {
   hasMicroThemeListeners,
+  MICRO_SET_THEME_EVENT,
   MICRO_THEME_EVENT,
   snapshotHostTheme,
 } from '@/lib/micro-theme'
@@ -62,6 +63,25 @@ function runThemeUpdate(apply: () => void, animate: boolean) {
   })
 }
 
+let guestThemeBound = false
+
+function bindGuestThemeRequests(store: {
+  themeId: string
+  setTheme: (id: string, options?: { animate?: boolean }) => void
+}) {
+  if (guestThemeBound) return
+  guestThemeBound = true
+  try {
+    bus.$on(MICRO_SET_THEME_EVENT, (payload: { themeId?: string }) => {
+      const id = payload?.themeId === 'dark' ? 'dark' : 'light'
+      if (id === store.themeId) return
+      store.setTheme(id)
+    })
+  } catch {
+    /* ignore */
+  }
+}
+
 export const useThemeStore = defineStore('theme', {
   state: () => ({
     themeId: localStorage.getItem(THEME_KEY) || 'light',
@@ -73,6 +93,7 @@ export const useThemeStore = defineStore('theme', {
     initTheme() {
       applyTheme(this.themeId)
       broadcastHostTheme()
+      bindGuestThemeRequests(this)
     },
     setTheme(id: string, options?: { animate?: boolean }) {
       const visualChange = id !== this.themeId

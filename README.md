@@ -100,7 +100,6 @@ bun run dev
 | --- | --- |
 | `bun run dev` | 开发（端口 **9000**） |
 | `bun run build` | 生产构建 → `dist/` |
-| `bun run preview` | 预览构建产物 |
 
 ## 端口对照
 

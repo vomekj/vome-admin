@@ -100,7 +100,6 @@ If the sidebar is empty, ensure Service imported `base/menu.json`.
 | --- | --- |
 | `bun run dev` | Dev server on port **9000** |
 | `bun run build` | Production build → `dist/` |
-| `bun run preview` | Preview the production build |
 
 ## Port map
 
