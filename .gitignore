@@ -7,3 +7,6 @@ dist/
 # Editor / OS
 .DS_Store
 *.local
+
+# 禁止旁路声明：vome-core build-admin 曾误吐到 src/config（已修；兜底忽略）
+src/config/*.d.ts

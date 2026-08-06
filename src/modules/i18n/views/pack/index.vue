@@ -110,7 +110,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { toast } from 'vue-sonner'
-import { isAiStreamResult } from '/@/api/client'
+import { isAiStreamResult } from '@core/admin/api/client'
 import { useLocaleStore } from '@/stores/locale'
 
 defineOptions({ name: 'i18n-pack' })

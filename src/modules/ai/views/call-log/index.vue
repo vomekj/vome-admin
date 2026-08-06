@@ -79,7 +79,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { hasJsonContent, prettyJson } from '/@/lib/json'
+import { hasJsonContent, prettyJson } from '@core/admin/lib/json'
 
 defineOptions({ name: 'ai-call-log' })
 

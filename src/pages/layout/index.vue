@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { createEps, service, setServicePerms } from '/@/service'
+import { createEps, service, setServicePerms } from '@core/admin/service'
 import { bus } from 'wujie'
 import {
   hasMicroLocaleListeners,

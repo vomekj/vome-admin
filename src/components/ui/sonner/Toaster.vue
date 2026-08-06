@@ -8,7 +8,7 @@ import {
   OctagonXIcon,
   TriangleAlertIcon,
 } from '@lucide/vue'
-import { cn } from '/@/lib/cn'
+import { cn } from '@core/admin/lib/cn'
 /** 必须引入，否则定位/色底样式全丢 */
 import 'vue-sonner/style.css'
 

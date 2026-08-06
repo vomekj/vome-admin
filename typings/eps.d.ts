@@ -1143,7 +1143,7 @@ declare namespace Eps {
 	}
 
 	interface Base_open {
-		/** 实体信息与路径 */
+		/** 实体信息与路径（含完整字典） */
 		eps(data?: any): Promise<any>;
 
 		/** 图片验证码 */

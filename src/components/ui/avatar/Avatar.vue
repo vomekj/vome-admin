@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import { AvatarRoot } from "reka-ui"
-import { cn } from "/@/lib/cn"
+import { cn } from "@core/admin/lib/cn"
 
 const props = defineProps<{
   class?: HTMLAttributes["class"]

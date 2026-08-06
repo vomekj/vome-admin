@@ -55,7 +55,7 @@ bun install
 }
 ```
 
-Change `target` if Service is not on port `3000`. Micro-app assets use `/vome/` → the same Service.
+Change `target` if Service is not on port `3000`. Micro-app `/vome/` is auto-proxied by Vite `ensureMicroAppProxy` to the same Service — do not hand-write it in `proxy.ts`.
 
 ### 2. Run
 

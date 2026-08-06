@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { cn } from "/@/lib/cn"
+import { cn } from "@core/admin/lib/cn"
 import TableCell from "./TableCell.vue"
 import TableRow from "./TableRow.vue"
 

@@ -124,8 +124,8 @@
 </template>
 
 <script setup lang="ts">
-import { api } from '/@/api/client'
-import { resetMenuRoutesFlag } from '/@/router'
+import { api } from '@core/admin/api/client'
+import { resetMenuRoutesFlag } from '@core/admin/router'
 import { useThemeStore } from '@/stores/theme'
 import { useLocaleStore } from '@/stores/locale'
 

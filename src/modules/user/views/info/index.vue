@@ -73,7 +73,8 @@ async function loadUserRoles(userId: string) {
 useUpsert({
   items: [
     { prop: 'name', label: '名称', required: true, span: 12 },
-    { prop: 'email', label: '邮箱', required: true, span: 12 },
+    { prop: 'email', label: '邮箱', span: 12 },
+    { prop: 'phone', label: '手机号', span: 12 },
     {
       prop: 'password',
       label: '密码',
@@ -137,12 +138,9 @@ useUpsert({
   async onSubmit(data, { close }) {
     const name = String(data.name ?? '').trim()
     const email = String(data.email ?? '').trim()
+    const phone = String(data.phone ?? '').trim()
     if (!name) {
       toast.error('名称不能为空')
-      return
-    }
-    if (!email) {
-      toast.error('邮箱不能为空')
       return
     }
 
@@ -154,15 +152,16 @@ useUpsert({
 
     const payload: Record<string, unknown> = {
       name,
-      email,
+      email: email || null,
+      phone: phone || null,
       image: data.image ? String(data.image) : null,
       tenantId:
         data.tenantId === '' || data.tenantId == null
           ? null
           : Number(data.tenantId),
       remark: data.remark != null ? String(data.remark).trim() || null : null,
-      emailVerified: Boolean(data.emailVerified ?? false),
-      phoneVerified: Boolean(data.phoneVerified ?? false),
+      emailVerified: email ? Boolean(data.emailVerified ?? false) : false,
+      phoneVerified: phone ? Boolean(data.phoneVerified ?? false) : false,
       status: Number(data.status ?? 1),
     }
     if (String(data.password ?? '').trim()) {

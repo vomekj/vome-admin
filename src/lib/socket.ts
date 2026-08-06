@@ -1,10 +1,11 @@
 import { io, type Socket } from 'socket.io-client'
 import { config } from '@/config'
-import { getAccessToken } from '/@/api/client'
+import { getAccessToken } from '@core/admin/api/client'
 
 /** 后台 Socket.IO 客户端（auth.token + data 事件） */
 export const socket: Socket = io(config.host, {
   autoConnect: false,
+  path: '/socket/',
   transports: ['websocket', 'polling'],
   auth: {
     token: getAccessToken() || '',

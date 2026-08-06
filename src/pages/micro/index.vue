@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import WujieVue from 'wujie-vue3'
-import { apiUrl } from '/@/api/client'
+import { apiUrl } from '@core/admin/api/client'
 import { readHostLocale } from '@/lib/micro-locale'
 import { snapshotHostTheme } from '@/lib/micro-theme'
 import { useLocaleStore } from '@/stores/locale'

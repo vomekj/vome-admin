@@ -1,5 +1,5 @@
-import { setCrudTranslator } from '/@/crud'
-import { service } from '/@/service'
+import { setCrudTranslator } from '@core/admin/crud'
+import { service } from '@core/admin/service'
 import { createLocaleStore } from 'vome-core/client'
 
 export type { I18nLangItem } from 'vome-core/client'

@@ -33,7 +33,7 @@ declare global {
   type EpsColumn = import('vome-core/typings/comm/eps').EpsColumn
   type EpsEntity = import('vome-core/typings/comm/eps').EpsEntity
   type EpsModuleMap = import('vome-core/typings/comm/eps').EpsModuleMap
-  type EpsSide = import('/@/lib/eps').EpsSide
+  type EpsSide = import('@core/admin/lib/eps').EpsSide
   type GroupCascaderNode = import('vome-core/typings/comm/cascader').GroupCascaderNode
   type CheckTreeNode = import('vome-core/typings/comm/check-tree').CheckTreeNode
   type AutoPermRow = import('vome-core/typings/comm/eps').AutoPermRow

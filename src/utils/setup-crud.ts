@@ -1,4 +1,4 @@
-import { Plugins, setCrudConfig } from '/@/crud'
+import { Plugins, setCrudConfig } from '@core/admin/crud'
 
 /** 全局 Form / Search / Table 默认插件与样式 */
 export function setupCrudDefaults() {

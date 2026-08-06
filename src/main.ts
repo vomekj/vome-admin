@@ -1,15 +1,15 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
-import { router } from '/@/router'
-import { vPerm } from '/@/directives/perm'
+import { router } from '@core/admin/router'
+import { vPerm } from '@core/admin/directives/perm'
 import logoDark from '@/static/image/logo-dark.png'
 import { useThemeStore } from '@/stores/theme'
 import { setSquareFavicon } from '@/utils/favicon'
 import { bindDocumentTitle } from '@/utils/document-title'
 import { setupCrudDefaults } from '@/utils/setup-crud'
 import '@/styles/theme.css'
-import '/@/styles/base.css'
+import '@core/admin/styles/base.css'
 import './views-registry'
 
 setSquareFavicon(logoDark)

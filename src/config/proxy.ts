@@ -1,4 +1,4 @@
-/** 环境代理（dev / prod 前缀经 Vite 或网关转发到 target） */
+/** 环境代理：开发 `/dev`；生产网关 `/api`。`/vome/` 由 ensureMicroAppProxy 补齐。 */
 export const proxy = {
   '/dev/': {
     target: 'http://127.0.0.1:3000',
@@ -6,16 +6,10 @@ export const proxy = {
     xfwd: true,
     rewrite: (path: string) => path.replace(/^\/dev/, ''),
   },
-  '/prod/': {
+  '/api/': {
     target: 'http://127.0.0.1:3000',
     changeOrigin: true,
     xfwd: true,
-    rewrite: (path: string) => path.replace(/^\/prod/, ''),
-  },
-  /** 微应用静态资源（子应用内绝对路径 /vome/apps/...） */
-  '/vome/': {
-    target: 'http://127.0.0.1:3000',
-    changeOrigin: true,
-    xfwd: true,
+    rewrite: (path: string) => path.replace(/^\/api/, ''),
   },
 } as const

@@ -124,7 +124,7 @@
 
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
-import { hasJsonContent, prettyJson } from '/@/lib/json'
+import { hasJsonContent, prettyJson } from '@core/admin/lib/json'
 import {
   DropdownMenu,
   DropdownMenuContent,

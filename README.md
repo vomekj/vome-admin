@@ -55,7 +55,7 @@ bun install
 }
 ```
 
-Service 端口不是 `3000` 时改 `target`。微应用静态资源走 `/vome/` → 同一 Service。
+Service 端口不是 `3000` 时改 `target`。微应用 `/vome/` 由 Vite `ensureMicroAppProxy` 自动代理到同一 Service，无需在 `proxy.ts` 手写。
 
 ### 2. 启动
 

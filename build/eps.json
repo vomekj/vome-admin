@@ -1,4 +1,5 @@
 {
+  "eps": true,
   "admin": {
     "ai": [
       {
@@ -3269,7 +3270,7 @@
           {
             "method": "get",
             "path": "/eps",
-            "summary": "实体信息与路径",
+            "summary": "实体信息与路径（含完整字典）",
             "dts": {},
             "tag": "",
             "prefix": "/admin/base/open",
@@ -6501,7 +6502,7 @@
           {
             "propertyName": "email",
             "type": "string",
-            "nullable": false,
+            "nullable": true,
             "source": "a.email",
             "comment": "邮箱",
             "table": "user_info"
@@ -6575,7 +6576,7 @@
             "source": "a.status",
             "comment": "状态",
             "table": "user_info",
-            "dict": "status"
+            "dict": "user_status"
           },
           {
             "propertyName": "createdAt",
@@ -6612,7 +6613,7 @@
           "fieldEq": [
             {
               "column": "a.status",
-              "dict": "status"
+              "dict": "user_status"
             },
             {
               "column": "a.emailVerified",
@@ -6665,7 +6666,7 @@
           {
             "propertyName": "email",
             "type": "string",
-            "nullable": false,
+            "nullable": true,
             "source": "a.email",
             "comment": "邮箱",
             "table": "user_info"
@@ -6739,7 +6740,7 @@
             "source": "a.status",
             "comment": "状态",
             "table": "user_info",
-            "dict": "status"
+            "dict": "user_status"
           },
           {
             "propertyName": "createdAt",
@@ -7228,7 +7229,7 @@
           {
             "method": "get",
             "path": "/eps",
-            "summary": "实体信息与路径",
+            "summary": "实体信息与路径（含完整字典）",
             "dts": {},
             "tag": "",
             "prefix": "/app/base/open",
@@ -7279,6 +7280,338 @@
             "tag": "",
             "prefix": "/app/i18n/pack",
             "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      }
+    ],
+    "project": [
+      {
+        "module": "project",
+        "side": "app",
+        "prefix": "/app/project/ai-chat",
+        "info": {
+          "type": {
+            "name": "ai-chat",
+            "description": "App 项目 AI 会话（用户侧）"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/session/list",
+            "summary": "会话列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-chat",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/session/info",
+            "summary": "会话详情",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-chat",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/session/upsert",
+            "summary": "创建/更新会话",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-chat",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/session/delete",
+            "summary": "删除会话",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-chat",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/history/retrieve",
+            "summary": "历史向量检索",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-chat",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "project",
+        "side": "app",
+        "prefix": "/app/project/ai-model",
+        "info": {
+          "type": {
+            "name": "ai-model",
+            "description": "App 自接 AI 模型（用户侧，仅开发模式）"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "自接模型列表（不含密钥）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/create",
+            "summary": "添加自接模型",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "更新自接模型",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除自接模型",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/resolve",
+            "summary": "解析自接模型（含密钥，仅本机 agent / 开发模式）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/ai-model",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "project",
+        "side": "app",
+        "prefix": "/app/project/infra",
+        "info": {
+          "type": {
+            "name": "infra",
+            "description": "App 项目基础设施探测"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/health",
+            "summary": "DB / Redis / OSS / pgvector 探测",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/infra",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "project",
+        "side": "app",
+        "prefix": "/app/project/kb",
+        "info": {
+          "type": {
+            "name": "kb",
+            "description": "App 项目知识库（用户侧）"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/upsert",
+            "summary": "写入知识文档",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/kb",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/search",
+            "summary": "向量检索知识块",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/kb",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/adoptionWriteback",
+            "summary": "采纳写回",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/kb",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
+      },
+      {
+        "module": "project",
+        "side": "app",
+        "prefix": "/app/project/skill",
+        "info": {
+          "type": {
+            "name": "skill",
+            "description": "App 项目 Skills（用户侧）"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "Skills 列表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/skill",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/create",
+            "summary": "新建 Skill",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/skill",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "更新 Skill",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/skill",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除 Skill",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/skill",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/retrieve",
+            "summary": "向量 Top-K Skills",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/skill",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/seedIfEmpty",
+            "summary": "空库播种",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/project/skill",
+            "ignoreToken": false,
             "ignorePerms": false,
             "perms": []
           }
@@ -7551,7 +7884,7 @@
           {
             "method": "post",
             "path": "/register",
-            "summary": "密码注册（手机号或邮箱）",
+            "summary": "密码注册（须短信/邮箱验证码；手机/邮箱自动分流）",
             "dts": {},
             "tag": "",
             "prefix": "/app/user/login",
@@ -7624,6 +7957,17 @@
             "ignoreToken": true,
             "ignorePerms": false,
             "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/exchange",
+            "summary": "桥接票换可吊销会话（Docs SSO）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/user/login",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
           }
         ],
         "columns": [],
@@ -7668,6 +8012,754 @@
           "fieldRange": []
         },
         "pageColumns": []
+      }
+    ]
+  },
+  "dict": {
+    "base_http_method": [
+      {
+        "id": 1,
+        "name": "GET",
+        "label": "GET",
+        "typeId": 1,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "GET"
+      },
+      {
+        "id": 63,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 1,
+        "orderNum": 0,
+        "value": "#16A34A"
+      },
+      {
+        "id": 64,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 2,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 65,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 3,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 66,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 4,
+        "orderNum": 0,
+        "value": "#7C3AED"
+      },
+      {
+        "id": 67,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 5,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 2,
+        "name": "POST",
+        "label": "POST",
+        "typeId": 1,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "POST"
+      },
+      {
+        "id": 3,
+        "name": "PUT",
+        "label": "PUT",
+        "typeId": 1,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "PUT"
+      },
+      {
+        "id": 4,
+        "name": "PATCH",
+        "label": "PATCH",
+        "typeId": 1,
+        "parentId": null,
+        "orderNum": 3,
+        "value": "PATCH"
+      },
+      {
+        "id": 5,
+        "name": "DELETE",
+        "label": "DELETE",
+        "typeId": 1,
+        "parentId": null,
+        "orderNum": 4,
+        "value": "DELETE"
+      }
+    ],
+    "base_ai_protocol": [
+      {
+        "id": 6,
+        "name": "OpenAI 兼容",
+        "label": "OpenAI 兼容",
+        "typeId": 2,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "openai_compatible"
+      },
+      {
+        "id": 55,
+        "name": "color",
+        "label": "color",
+        "typeId": 2,
+        "parentId": 6,
+        "orderNum": 0,
+        "value": "#16A34A"
+      },
+      {
+        "id": 56,
+        "name": "color",
+        "label": "color",
+        "typeId": 2,
+        "parentId": 7,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 57,
+        "name": "color",
+        "label": "color",
+        "typeId": 2,
+        "parentId": 8,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 7,
+        "name": "Anthropic",
+        "label": "Anthropic",
+        "typeId": 2,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "anthropic"
+      },
+      {
+        "id": 8,
+        "name": "Google Gemini",
+        "label": "Google Gemini",
+        "typeId": 2,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "gemini"
+      }
+    ],
+    "base_ai_capability": [
+      {
+        "id": 9,
+        "name": "对话",
+        "label": "对话",
+        "typeId": 3,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "chat"
+      },
+      {
+        "id": 42,
+        "name": "color",
+        "label": "color",
+        "typeId": 3,
+        "parentId": 9,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 43,
+        "name": "color",
+        "label": "color",
+        "typeId": 3,
+        "parentId": 10,
+        "orderNum": 0,
+        "value": "#DB2777"
+      },
+      {
+        "id": 44,
+        "name": "color",
+        "label": "color",
+        "typeId": 3,
+        "parentId": 11,
+        "orderNum": 0,
+        "value": "#7C3AED"
+      },
+      {
+        "id": 45,
+        "name": "color",
+        "label": "color",
+        "typeId": 3,
+        "parentId": 12,
+        "orderNum": 0,
+        "value": "#0891B2"
+      },
+      {
+        "id": 46,
+        "name": "color",
+        "label": "color",
+        "typeId": 3,
+        "parentId": 13,
+        "orderNum": 0,
+        "value": "#CA8A04"
+      },
+      {
+        "id": 47,
+        "name": "color",
+        "label": "color",
+        "typeId": 3,
+        "parentId": 14,
+        "orderNum": 0,
+        "value": "#A16207"
+      },
+      {
+        "id": 10,
+        "name": "生图",
+        "label": "生图",
+        "typeId": 3,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "image"
+      },
+      {
+        "id": 11,
+        "name": "生视频",
+        "label": "生视频",
+        "typeId": 3,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "video"
+      },
+      {
+        "id": 12,
+        "name": "语音合成",
+        "label": "语音合成",
+        "typeId": 3,
+        "parentId": null,
+        "orderNum": 3,
+        "value": "audio_tts"
+      },
+      {
+        "id": 13,
+        "name": "语音识别",
+        "label": "语音识别",
+        "typeId": 3,
+        "parentId": null,
+        "orderNum": 4,
+        "value": "audio_stt"
+      },
+      {
+        "id": 14,
+        "name": "向量嵌入",
+        "label": "向量嵌入",
+        "typeId": 3,
+        "parentId": null,
+        "orderNum": 5,
+        "value": "embed"
+      }
+    ],
+    "base_ai_result_mode": [
+      {
+        "id": 15,
+        "name": "同步",
+        "label": "同步",
+        "typeId": 4,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "sync"
+      },
+      {
+        "id": 58,
+        "name": "color",
+        "label": "color",
+        "typeId": 4,
+        "parentId": 15,
+        "orderNum": 0,
+        "value": "#16A34A"
+      },
+      {
+        "id": 59,
+        "name": "color",
+        "label": "color",
+        "typeId": 4,
+        "parentId": 16,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 60,
+        "name": "color",
+        "label": "color",
+        "typeId": 4,
+        "parentId": 17,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 16,
+        "name": "流式",
+        "label": "流式",
+        "typeId": 4,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "stream"
+      },
+      {
+        "id": 17,
+        "name": "异步",
+        "label": "异步",
+        "typeId": 4,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "async"
+      }
+    ],
+    "base_ai_content_type": [
+      {
+        "id": 18,
+        "name": "JSON",
+        "label": "JSON",
+        "typeId": 5,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "json"
+      },
+      {
+        "id": 48,
+        "name": "color",
+        "label": "color",
+        "typeId": 5,
+        "parentId": 18,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 49,
+        "name": "color",
+        "label": "color",
+        "typeId": 5,
+        "parentId": 19,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 19,
+        "name": "Multipart",
+        "label": "Multipart",
+        "typeId": 5,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "multipart"
+      }
+    ],
+    "base_ai_media_format": [
+      {
+        "id": 20,
+        "name": "URL",
+        "label": "URL",
+        "typeId": 6,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "url"
+      },
+      {
+        "id": 52,
+        "name": "color",
+        "label": "color",
+        "typeId": 6,
+        "parentId": 20,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 53,
+        "name": "color",
+        "label": "color",
+        "typeId": 6,
+        "parentId": 21,
+        "orderNum": 0,
+        "value": "#7C3AED"
+      },
+      {
+        "id": 54,
+        "name": "color",
+        "label": "color",
+        "typeId": 6,
+        "parentId": 22,
+        "orderNum": 0,
+        "value": "#475569"
+      },
+      {
+        "id": 21,
+        "name": "Base64",
+        "label": "Base64",
+        "typeId": 6,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "b64"
+      },
+      {
+        "id": 22,
+        "name": "二进制",
+        "label": "二进制",
+        "typeId": 6,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "binary"
+      }
+    ],
+    "base_ai_async_status": [
+      {
+        "id": 23,
+        "name": "等待中",
+        "label": "等待中",
+        "typeId": 7,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "pending"
+      },
+      {
+        "id": 38,
+        "name": "color",
+        "label": "color",
+        "typeId": 7,
+        "parentId": 23,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 39,
+        "name": "color",
+        "label": "color",
+        "typeId": 7,
+        "parentId": 24,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 40,
+        "name": "color",
+        "label": "color",
+        "typeId": 7,
+        "parentId": 25,
+        "orderNum": 0,
+        "value": "#16A34A"
+      },
+      {
+        "id": 41,
+        "name": "color",
+        "label": "color",
+        "typeId": 7,
+        "parentId": 26,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 24,
+        "name": "执行中",
+        "label": "执行中",
+        "typeId": 7,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "running"
+      },
+      {
+        "id": 25,
+        "name": "已成功",
+        "label": "已成功",
+        "typeId": 7,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "succeeded"
+      },
+      {
+        "id": 26,
+        "name": "已失败",
+        "label": "已失败",
+        "typeId": 7,
+        "parentId": null,
+        "orderNum": 3,
+        "value": "failed"
+      }
+    ],
+    "base_ai_invoke_source": [
+      {
+        "id": 27,
+        "name": "网关",
+        "label": "网关",
+        "typeId": 8,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "gateway"
+      },
+      {
+        "id": 50,
+        "name": "color",
+        "label": "color",
+        "typeId": 8,
+        "parentId": 27,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 51,
+        "name": "color",
+        "label": "color",
+        "typeId": 8,
+        "parentId": 28,
+        "orderNum": 0,
+        "value": "#0891B2"
+      },
+      {
+        "id": 28,
+        "name": "连通探测",
+        "label": "连通探测",
+        "typeId": 8,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "test"
+      }
+    ],
+    "base_menu_type": [
+      {
+        "id": 29,
+        "name": "菜单",
+        "label": "菜单",
+        "typeId": 9,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 0
+      },
+      {
+        "id": 68,
+        "name": "color",
+        "label": "color",
+        "typeId": 9,
+        "parentId": 29,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 69,
+        "name": "color",
+        "label": "color",
+        "typeId": 9,
+        "parentId": 30,
+        "orderNum": 0,
+        "value": "#16A34A"
+      },
+      {
+        "id": 70,
+        "name": "color",
+        "label": "color",
+        "typeId": 9,
+        "parentId": 31,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 30,
+        "name": "页面",
+        "label": "页面",
+        "typeId": 9,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 1
+      },
+      {
+        "id": 31,
+        "name": "权限",
+        "label": "权限",
+        "typeId": 9,
+        "parentId": null,
+        "orderNum": 2,
+        "value": 2
+      }
+    ],
+    "status": [
+      {
+        "id": 32,
+        "name": "禁用",
+        "label": "禁用",
+        "typeId": 10,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 0
+      },
+      {
+        "id": 71,
+        "name": "color",
+        "label": "color",
+        "typeId": 10,
+        "parentId": 32,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 72,
+        "name": "color",
+        "label": "color",
+        "typeId": 10,
+        "parentId": 33,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 33,
+        "name": "启用",
+        "label": "启用",
+        "typeId": 10,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 1
+      }
+    ],
+    "base_data_scope": [
+      {
+        "id": 34,
+        "name": "全部数据",
+        "label": "全部数据",
+        "typeId": 11,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 0
+      },
+      {
+        "id": 61,
+        "name": "color",
+        "label": "color",
+        "typeId": 11,
+        "parentId": 34,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 62,
+        "name": "color",
+        "label": "color",
+        "typeId": 11,
+        "parentId": 35,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 35,
+        "name": "自定义部门",
+        "label": "自定义部门",
+        "typeId": 11,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 1
+      }
+    ],
+    "yes_no": [
+      {
+        "id": 36,
+        "name": "否",
+        "label": "否",
+        "typeId": 12,
+        "parentId": null,
+        "orderNum": 0,
+        "value": false
+      },
+      {
+        "id": 73,
+        "name": "color",
+        "label": "color",
+        "typeId": 12,
+        "parentId": 36,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 74,
+        "name": "color",
+        "label": "color",
+        "typeId": 12,
+        "parentId": 37,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 37,
+        "name": "是",
+        "label": "是",
+        "typeId": 12,
+        "parentId": null,
+        "orderNum": 1,
+        "value": true
+      }
+    ],
+    "user_status": [
+      {
+        "id": 75,
+        "name": "正常",
+        "label": "正常",
+        "typeId": 13,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 1
+      },
+      {
+        "id": 76,
+        "name": "color",
+        "label": "color",
+        "typeId": 13,
+        "parentId": 75,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 78,
+        "name": "color",
+        "label": "color",
+        "typeId": 13,
+        "parentId": 77,
+        "orderNum": 0,
+        "value": "#6B7280"
+      },
+      {
+        "id": 80,
+        "name": "color",
+        "label": "color",
+        "typeId": 13,
+        "parentId": 79,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 77,
+        "name": "已注销",
+        "label": "已注销",
+        "typeId": 13,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 2
+      },
+      {
+        "id": 79,
+        "name": "禁用",
+        "label": "禁用",
+        "typeId": 13,
+        "parentId": null,
+        "orderNum": 2,
+        "value": 3
       }
     ]
   }

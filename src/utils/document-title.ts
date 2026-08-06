@@ -3,7 +3,7 @@ import type { Pinia } from 'pinia'
 import type { RouteLocationNormalizedLoaded, Router } from 'vue-router'
 import { config } from '@/config/index.js'
 import { useLocaleStore } from '@/stores/locale'
-import { useUserStore } from '/@/stores/user'
+import { useUserStore } from '@core/admin/stores/user'
 
 function findMenuByPath(
   nodes: MenuTreeNode[],

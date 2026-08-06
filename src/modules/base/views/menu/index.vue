@@ -77,7 +77,7 @@
 <script setup lang="ts">
 import { config } from '@/config/index.js'
 
-import { syncMenuRoutes } from '/@/router/menu-routes'
+import { syncMenuRoutes } from '@core/admin/router/menu-routes'
 
 defineOptions({ name: 'base-menu' })
 

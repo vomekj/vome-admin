@@ -1,4 +1,4 @@
-import { registerViews } from '/@'
+import { registerViews } from '@core/admin'
 
 const viewModules = import.meta.glob<{ default: import('vue').Component }>(
   './modules/*/views/**/*.vue',
