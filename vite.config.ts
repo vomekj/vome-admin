@@ -8,6 +8,7 @@ import { epsPlugin } from './plugins/eps'
 import {
   adminDedupe,
   adminDevProxy,
+  adminWatchIgnored,
   createAdminAutoImportPlugins,
   createAdminOptimizeDepsPlugins,
   createAdminResolvePlugins,
@@ -46,11 +47,7 @@ export default defineConfig({
     cors: true,
     proxy: adminDevProxy(proxy),
     watch: {
-      ignored: [
-        '**/typings/eps.d.ts',
-        '**/build/eps.json',
-        '**/node_modules/**',
-      ],
+      ignored: adminWatchIgnored,
     },
   },
   build: {

@@ -368,6 +368,43 @@ declare namespace Eps {
 		[key: string]: any;
 	}
 
+	interface BaseParamEntity {
+		/** ID */
+		id?: number;
+
+		/** 名称 */
+		name?: string;
+
+		/** keyName */
+		keyName?: string;
+
+		/** 类型 */
+		type?: number;
+
+		/** 数据 */
+		data?: string;
+
+		/** 对App开放 */
+		openToApp?: number;
+
+		/** JSON开放路径 */
+		appOpenPaths?: string;
+
+		/** 备注 */
+		remark?: string;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
 	interface BasePluginInfoEntity {
 		/** ID */
 		id?: number;
@@ -1169,6 +1206,40 @@ declare namespace Eps {
 		request: Eps.Request;
 	}
 
+	interface Base_param {
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<BaseParamEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<BaseParamEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: BaseParamEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
+	}
+
 	interface Base_plugin {
 		/** 新增 */
 		add(data?: any): Promise<any>;
@@ -1613,6 +1684,7 @@ declare namespace Eps {
 			menu: Base_menu;
 			module: Base_module;
 			open: Base_open;
+			param: Base_param;
 			plugin: Base_plugin;
 			queue: Base_queue;
 			role: Base_role;

@@ -3303,6 +3303,355 @@
       {
         "module": "base",
         "side": "admin",
+        "prefix": "/admin/base/param",
+        "name": "BaseParamEntity",
+        "info": {
+          "type": {
+            "name": "param",
+            "description": "param"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "keyName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.keyName",
+            "comment": "keyName",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "type",
+            "type": "number",
+            "nullable": false,
+            "source": "a.type",
+            "comment": "类型",
+            "table": "base_param",
+            "dict": "base_param_type"
+          },
+          {
+            "propertyName": "data",
+            "type": "string",
+            "nullable": true,
+            "source": "a.data",
+            "comment": "数据",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "openToApp",
+            "type": "number",
+            "nullable": false,
+            "source": "a.openToApp",
+            "comment": "对App开放",
+            "table": "base_param",
+            "dict": "base_yes_no"
+          },
+          {
+            "propertyName": "appOpenPaths",
+            "type": "string",
+            "nullable": true,
+            "source": "a.appOpenPaths",
+            "comment": "JSON开放路径",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "base_param"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.name",
+            "a.keyName"
+          ],
+          "fieldEq": [
+            {
+              "column": "a.type",
+              "dict": "base_param_type"
+            },
+            {
+              "column": "a.openToApp",
+              "dict": "base_yes_no"
+            }
+          ],
+          "fieldLike": [
+            "a.remark"
+          ],
+          "fieldArray": [],
+          "fieldRange": [
+            {
+              "column": "a.createTime",
+              "min": "startTime",
+              "max": "endTime",
+              "type": "day"
+            }
+          ]
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "name",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.name",
+            "comment": "名称",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "keyName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.keyName",
+            "comment": "keyName",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "type",
+            "type": "number",
+            "nullable": false,
+            "source": "a.type",
+            "comment": "类型",
+            "table": "base_param",
+            "dict": "base_param_type"
+          },
+          {
+            "propertyName": "data",
+            "type": "string",
+            "nullable": true,
+            "source": "a.data",
+            "comment": "数据",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "openToApp",
+            "type": "number",
+            "nullable": false,
+            "source": "a.openToApp",
+            "comment": "对App开放",
+            "table": "base_param",
+            "dict": "base_yes_no"
+          },
+          {
+            "propertyName": "appOpenPaths",
+            "type": "string",
+            "nullable": true,
+            "source": "a.appOpenPaths",
+            "comment": "JSON开放路径",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "base_param"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "base_param"
+          }
+        ]
+      },
+      {
+        "module": "base",
+        "side": "admin",
         "prefix": "/admin/base/plugin",
         "name": "BasePluginInfoEntity",
         "info": {
@@ -7247,6 +7596,50 @@
           "fieldRange": []
         },
         "pageColumns": []
+      },
+      {
+        "module": "base",
+        "side": "app",
+        "prefix": "/app/base/param",
+        "info": {
+          "type": {
+            "name": "param",
+            "description": "App 系统参数"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/get",
+            "summary": "按 keyName 取值（可带 JSON path）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/param",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "post",
+            "path": "/getByPath",
+            "summary": "点路径取值，如 user.info.name",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/base/param",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          }
+        ],
+        "columns": [],
+        "pageQueryOp": {
+          "keyWordLikeFields": [],
+          "fieldEq": [],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": []
       }
     ],
     "i18n": [
@@ -8027,7 +8420,7 @@
         "value": "GET"
       },
       {
-        "id": 63,
+        "id": 2,
         "name": "color",
         "label": "color",
         "typeId": 1,
@@ -8036,43 +8429,43 @@
         "value": "#16A34A"
       },
       {
-        "id": 64,
-        "name": "color",
-        "label": "color",
-        "typeId": 1,
-        "parentId": 2,
-        "orderNum": 0,
-        "value": "#4E5DFF"
-      },
-      {
-        "id": 65,
+        "id": 4,
         "name": "color",
         "label": "color",
         "typeId": 1,
         "parentId": 3,
         "orderNum": 0,
-        "value": "#EA580C"
+        "value": "#4E5DFF"
       },
       {
-        "id": 66,
-        "name": "color",
-        "label": "color",
-        "typeId": 1,
-        "parentId": 4,
-        "orderNum": 0,
-        "value": "#7C3AED"
-      },
-      {
-        "id": 67,
+        "id": 6,
         "name": "color",
         "label": "color",
         "typeId": 1,
         "parentId": 5,
         "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 8,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 7,
+        "orderNum": 0,
+        "value": "#7C3AED"
+      },
+      {
+        "id": 10,
+        "name": "color",
+        "label": "color",
+        "typeId": 1,
+        "parentId": 9,
+        "orderNum": 0,
         "value": "#DC2626"
       },
       {
-        "id": 2,
+        "id": 3,
         "name": "POST",
         "label": "POST",
         "typeId": 1,
@@ -8081,7 +8474,7 @@
         "value": "POST"
       },
       {
-        "id": 3,
+        "id": 5,
         "name": "PUT",
         "label": "PUT",
         "typeId": 1,
@@ -8090,7 +8483,7 @@
         "value": "PUT"
       },
       {
-        "id": 4,
+        "id": 7,
         "name": "PATCH",
         "label": "PATCH",
         "typeId": 1,
@@ -8099,7 +8492,7 @@
         "value": "PATCH"
       },
       {
-        "id": 5,
+        "id": 9,
         "name": "DELETE",
         "label": "DELETE",
         "typeId": 1,
@@ -8110,7 +8503,7 @@
     ],
     "base_ai_protocol": [
       {
-        "id": 6,
+        "id": 11,
         "name": "OpenAI 兼容",
         "label": "OpenAI 兼容",
         "typeId": 2,
@@ -8119,34 +8512,34 @@
         "value": "openai_compatible"
       },
       {
-        "id": 55,
+        "id": 12,
         "name": "color",
         "label": "color",
         "typeId": 2,
-        "parentId": 6,
+        "parentId": 11,
         "orderNum": 0,
         "value": "#16A34A"
       },
       {
-        "id": 56,
+        "id": 14,
         "name": "color",
         "label": "color",
         "typeId": 2,
-        "parentId": 7,
+        "parentId": 13,
         "orderNum": 0,
         "value": "#EA580C"
       },
       {
-        "id": 57,
+        "id": 16,
         "name": "color",
         "label": "color",
         "typeId": 2,
-        "parentId": 8,
+        "parentId": 15,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 7,
+        "id": 13,
         "name": "Anthropic",
         "label": "Anthropic",
         "typeId": 2,
@@ -8155,7 +8548,7 @@
         "value": "anthropic"
       },
       {
-        "id": 8,
+        "id": 15,
         "name": "Google Gemini",
         "label": "Google Gemini",
         "typeId": 2,
@@ -8166,7 +8559,7 @@
     ],
     "base_ai_capability": [
       {
-        "id": 9,
+        "id": 17,
         "name": "对话",
         "label": "对话",
         "typeId": 3,
@@ -8175,61 +8568,61 @@
         "value": "chat"
       },
       {
-        "id": 42,
+        "id": 18,
         "name": "color",
         "label": "color",
         "typeId": 3,
-        "parentId": 9,
+        "parentId": 17,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 43,
+        "id": 20,
         "name": "color",
         "label": "color",
         "typeId": 3,
-        "parentId": 10,
+        "parentId": 19,
         "orderNum": 0,
         "value": "#DB2777"
       },
       {
-        "id": 44,
+        "id": 22,
         "name": "color",
         "label": "color",
         "typeId": 3,
-        "parentId": 11,
+        "parentId": 21,
         "orderNum": 0,
         "value": "#7C3AED"
       },
       {
-        "id": 45,
+        "id": 24,
         "name": "color",
         "label": "color",
         "typeId": 3,
-        "parentId": 12,
+        "parentId": 23,
         "orderNum": 0,
         "value": "#0891B2"
       },
       {
-        "id": 46,
+        "id": 26,
         "name": "color",
         "label": "color",
         "typeId": 3,
-        "parentId": 13,
+        "parentId": 25,
         "orderNum": 0,
         "value": "#CA8A04"
       },
       {
-        "id": 47,
+        "id": 28,
         "name": "color",
         "label": "color",
         "typeId": 3,
-        "parentId": 14,
+        "parentId": 27,
         "orderNum": 0,
         "value": "#A16207"
       },
       {
-        "id": 10,
+        "id": 19,
         "name": "生图",
         "label": "生图",
         "typeId": 3,
@@ -8238,7 +8631,7 @@
         "value": "image"
       },
       {
-        "id": 11,
+        "id": 21,
         "name": "生视频",
         "label": "生视频",
         "typeId": 3,
@@ -8247,7 +8640,7 @@
         "value": "video"
       },
       {
-        "id": 12,
+        "id": 23,
         "name": "语音合成",
         "label": "语音合成",
         "typeId": 3,
@@ -8256,7 +8649,7 @@
         "value": "audio_tts"
       },
       {
-        "id": 13,
+        "id": 25,
         "name": "语音识别",
         "label": "语音识别",
         "typeId": 3,
@@ -8265,7 +8658,7 @@
         "value": "audio_stt"
       },
       {
-        "id": 14,
+        "id": 27,
         "name": "向量嵌入",
         "label": "向量嵌入",
         "typeId": 3,
@@ -8276,7 +8669,7 @@
     ],
     "base_ai_result_mode": [
       {
-        "id": 15,
+        "id": 29,
         "name": "同步",
         "label": "同步",
         "typeId": 4,
@@ -8285,34 +8678,34 @@
         "value": "sync"
       },
       {
-        "id": 58,
+        "id": 30,
         "name": "color",
         "label": "color",
         "typeId": 4,
-        "parentId": 15,
+        "parentId": 29,
         "orderNum": 0,
         "value": "#16A34A"
       },
       {
-        "id": 59,
+        "id": 32,
         "name": "color",
         "label": "color",
         "typeId": 4,
-        "parentId": 16,
+        "parentId": 31,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 60,
+        "id": 34,
         "name": "color",
         "label": "color",
         "typeId": 4,
-        "parentId": 17,
+        "parentId": 33,
         "orderNum": 0,
         "value": "#EA580C"
       },
       {
-        "id": 16,
+        "id": 31,
         "name": "流式",
         "label": "流式",
         "typeId": 4,
@@ -8321,7 +8714,7 @@
         "value": "stream"
       },
       {
-        "id": 17,
+        "id": 33,
         "name": "异步",
         "label": "异步",
         "typeId": 4,
@@ -8332,7 +8725,7 @@
     ],
     "base_ai_content_type": [
       {
-        "id": 18,
+        "id": 35,
         "name": "JSON",
         "label": "JSON",
         "typeId": 5,
@@ -8341,25 +8734,25 @@
         "value": "json"
       },
       {
-        "id": 48,
+        "id": 36,
         "name": "color",
         "label": "color",
         "typeId": 5,
-        "parentId": 18,
+        "parentId": 35,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 49,
+        "id": 38,
         "name": "color",
         "label": "color",
         "typeId": 5,
-        "parentId": 19,
+        "parentId": 37,
         "orderNum": 0,
         "value": "#EA580C"
       },
       {
-        "id": 19,
+        "id": 37,
         "name": "Multipart",
         "label": "Multipart",
         "typeId": 5,
@@ -8370,7 +8763,7 @@
     ],
     "base_ai_media_format": [
       {
-        "id": 20,
+        "id": 39,
         "name": "URL",
         "label": "URL",
         "typeId": 6,
@@ -8379,34 +8772,34 @@
         "value": "url"
       },
       {
-        "id": 52,
+        "id": 40,
         "name": "color",
         "label": "color",
         "typeId": 6,
-        "parentId": 20,
+        "parentId": 39,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 53,
+        "id": 42,
         "name": "color",
         "label": "color",
         "typeId": 6,
-        "parentId": 21,
+        "parentId": 41,
         "orderNum": 0,
         "value": "#7C3AED"
       },
       {
-        "id": 54,
+        "id": 44,
         "name": "color",
         "label": "color",
         "typeId": 6,
-        "parentId": 22,
+        "parentId": 43,
         "orderNum": 0,
         "value": "#475569"
       },
       {
-        "id": 21,
+        "id": 41,
         "name": "Base64",
         "label": "Base64",
         "typeId": 6,
@@ -8415,7 +8808,7 @@
         "value": "b64"
       },
       {
-        "id": 22,
+        "id": 43,
         "name": "二进制",
         "label": "二进制",
         "typeId": 6,
@@ -8426,7 +8819,7 @@
     ],
     "base_ai_async_status": [
       {
-        "id": 23,
+        "id": 45,
         "name": "等待中",
         "label": "等待中",
         "typeId": 7,
@@ -8435,43 +8828,43 @@
         "value": "pending"
       },
       {
-        "id": 38,
+        "id": 46,
         "name": "color",
         "label": "color",
         "typeId": 7,
-        "parentId": 23,
+        "parentId": 45,
         "orderNum": 0,
         "value": "#EA580C"
       },
       {
-        "id": 39,
+        "id": 48,
         "name": "color",
         "label": "color",
         "typeId": 7,
-        "parentId": 24,
+        "parentId": 47,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 40,
+        "id": 50,
         "name": "color",
         "label": "color",
         "typeId": 7,
-        "parentId": 25,
+        "parentId": 49,
         "orderNum": 0,
         "value": "#16A34A"
       },
       {
-        "id": 41,
+        "id": 52,
         "name": "color",
         "label": "color",
         "typeId": 7,
-        "parentId": 26,
+        "parentId": 51,
         "orderNum": 0,
         "value": "#DC2626"
       },
       {
-        "id": 24,
+        "id": 47,
         "name": "执行中",
         "label": "执行中",
         "typeId": 7,
@@ -8480,7 +8873,7 @@
         "value": "running"
       },
       {
-        "id": 25,
+        "id": 49,
         "name": "已成功",
         "label": "已成功",
         "typeId": 7,
@@ -8489,7 +8882,7 @@
         "value": "succeeded"
       },
       {
-        "id": 26,
+        "id": 51,
         "name": "已失败",
         "label": "已失败",
         "typeId": 7,
@@ -8500,7 +8893,7 @@
     ],
     "base_ai_invoke_source": [
       {
-        "id": 27,
+        "id": 53,
         "name": "网关",
         "label": "网关",
         "typeId": 8,
@@ -8509,25 +8902,25 @@
         "value": "gateway"
       },
       {
-        "id": 50,
+        "id": 54,
         "name": "color",
         "label": "color",
         "typeId": 8,
-        "parentId": 27,
+        "parentId": 53,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 51,
+        "id": 56,
         "name": "color",
         "label": "color",
         "typeId": 8,
-        "parentId": 28,
+        "parentId": 55,
         "orderNum": 0,
         "value": "#0891B2"
       },
       {
-        "id": 28,
+        "id": 55,
         "name": "连通探测",
         "label": "连通探测",
         "typeId": 8,
@@ -8538,7 +8931,7 @@
     ],
     "base_menu_type": [
       {
-        "id": 29,
+        "id": 57,
         "name": "菜单",
         "label": "菜单",
         "typeId": 9,
@@ -8547,34 +8940,34 @@
         "value": 0
       },
       {
-        "id": 68,
+        "id": 58,
         "name": "color",
         "label": "color",
         "typeId": 9,
-        "parentId": 29,
+        "parentId": 57,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 69,
+        "id": 60,
         "name": "color",
         "label": "color",
         "typeId": 9,
-        "parentId": 30,
+        "parentId": 59,
         "orderNum": 0,
         "value": "#16A34A"
       },
       {
-        "id": 70,
+        "id": 62,
         "name": "color",
         "label": "color",
         "typeId": 9,
-        "parentId": 31,
+        "parentId": 61,
         "orderNum": 0,
         "value": "#EA580C"
       },
       {
-        "id": 30,
+        "id": 59,
         "name": "页面",
         "label": "页面",
         "typeId": 9,
@@ -8583,7 +8976,7 @@
         "value": 1
       },
       {
-        "id": 31,
+        "id": 61,
         "name": "权限",
         "label": "权限",
         "typeId": 9,
@@ -8594,7 +8987,7 @@
     ],
     "status": [
       {
-        "id": 32,
+        "id": 63,
         "name": "禁用",
         "label": "禁用",
         "typeId": 10,
@@ -8603,25 +8996,25 @@
         "value": 0
       },
       {
-        "id": 71,
+        "id": 64,
         "name": "color",
         "label": "color",
         "typeId": 10,
-        "parentId": 32,
+        "parentId": 63,
         "orderNum": 0,
         "value": "#DC2626"
       },
       {
-        "id": 72,
+        "id": 66,
         "name": "color",
         "label": "color",
         "typeId": 10,
-        "parentId": 33,
+        "parentId": 65,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 33,
+        "id": 65,
         "name": "启用",
         "label": "启用",
         "typeId": 10,
@@ -8632,7 +9025,7 @@
     ],
     "base_data_scope": [
       {
-        "id": 34,
+        "id": 67,
         "name": "全部数据",
         "label": "全部数据",
         "typeId": 11,
@@ -8641,25 +9034,25 @@
         "value": 0
       },
       {
-        "id": 61,
+        "id": 68,
         "name": "color",
         "label": "color",
         "typeId": 11,
-        "parentId": 34,
+        "parentId": 67,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 62,
+        "id": 70,
         "name": "color",
         "label": "color",
         "typeId": 11,
-        "parentId": 35,
+        "parentId": 69,
         "orderNum": 0,
         "value": "#EA580C"
       },
       {
-        "id": 35,
+        "id": 69,
         "name": "自定义部门",
         "label": "自定义部门",
         "typeId": 11,
@@ -8670,7 +9063,7 @@
     ],
     "yes_no": [
       {
-        "id": 36,
+        "id": 71,
         "name": "否",
         "label": "否",
         "typeId": 12,
@@ -8679,11 +9072,11 @@
         "value": false
       },
       {
-        "id": 73,
+        "id": 72,
         "name": "color",
         "label": "color",
         "typeId": 12,
-        "parentId": 36,
+        "parentId": 71,
         "orderNum": 0,
         "value": "#DC2626"
       },
@@ -8692,12 +9085,12 @@
         "name": "color",
         "label": "color",
         "typeId": 12,
-        "parentId": 37,
+        "parentId": 73,
         "orderNum": 0,
         "value": "#4E5DFF"
       },
       {
-        "id": 37,
+        "id": 73,
         "name": "是",
         "label": "是",
         "typeId": 12,
@@ -8706,15 +9099,15 @@
         "value": true
       }
     ],
-    "user_status": [
+    "base_yes_no": [
       {
         "id": 75,
-        "name": "正常",
-        "label": "正常",
+        "name": "否",
+        "label": "否",
         "typeId": 13,
         "parentId": null,
         "orderNum": 0,
-        "value": 1
+        "value": 0
       },
       {
         "id": 76,
@@ -8723,7 +9116,7 @@
         "typeId": 13,
         "parentId": 75,
         "orderNum": 0,
-        "value": "#4E5DFF"
+        "value": "#DC2626"
       },
       {
         "id": 78,
@@ -8732,31 +9125,181 @@
         "typeId": 13,
         "parentId": 77,
         "orderNum": 0,
-        "value": "#6B7280"
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 77,
+        "name": "是",
+        "label": "是",
+        "typeId": 13,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 1
+      }
+    ],
+    "base_param_type": [
+      {
+        "id": 79,
+        "name": "字符串",
+        "label": "字符串",
+        "typeId": 14,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 0
       },
       {
         "id": 80,
         "name": "color",
         "label": "color",
-        "typeId": 13,
+        "typeId": 14,
         "parentId": 79,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 82,
+        "name": "color",
+        "label": "color",
+        "typeId": 14,
+        "parentId": 81,
+        "orderNum": 0,
+        "value": "#7C3AED"
+      },
+      {
+        "id": 84,
+        "name": "color",
+        "label": "color",
+        "typeId": 14,
+        "parentId": 83,
+        "orderNum": 0,
+        "value": "#16A34A"
+      },
+      {
+        "id": 86,
+        "name": "color",
+        "label": "color",
+        "typeId": 14,
+        "parentId": 85,
+        "orderNum": 0,
+        "value": "#EA580C"
+      },
+      {
+        "id": 81,
+        "name": "富文本",
+        "label": "富文本",
+        "typeId": 14,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 1
+      },
+      {
+        "id": 83,
+        "name": "文件",
+        "label": "文件",
+        "typeId": 14,
+        "parentId": null,
+        "orderNum": 2,
+        "value": 2
+      },
+      {
+        "id": 85,
+        "name": "JSON",
+        "label": "JSON",
+        "typeId": 14,
+        "parentId": null,
+        "orderNum": 3,
+        "value": 3
+      }
+    ],
+    "base_json_value_kind": [
+      {
+        "id": 87,
+        "name": "文本",
+        "label": "文本",
+        "typeId": 15,
+        "parentId": null,
+        "orderNum": 0,
+        "value": "string"
+      },
+      {
+        "id": 88,
+        "name": "数字",
+        "label": "数字",
+        "typeId": 15,
+        "parentId": null,
+        "orderNum": 1,
+        "value": "number"
+      },
+      {
+        "id": 89,
+        "name": "布尔",
+        "label": "布尔",
+        "typeId": 15,
+        "parentId": null,
+        "orderNum": 2,
+        "value": "boolean"
+      },
+      {
+        "id": 90,
+        "name": "对象",
+        "label": "对象",
+        "typeId": 15,
+        "parentId": null,
+        "orderNum": 3,
+        "value": "object"
+      }
+    ],
+    "user_status": [
+      {
+        "id": 91,
+        "name": "正常",
+        "label": "正常",
+        "typeId": 16,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 1
+      },
+      {
+        "id": 92,
+        "name": "color",
+        "label": "color",
+        "typeId": 16,
+        "parentId": 91,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 94,
+        "name": "color",
+        "label": "color",
+        "typeId": 16,
+        "parentId": 93,
+        "orderNum": 0,
+        "value": "#6B7280"
+      },
+      {
+        "id": 96,
+        "name": "color",
+        "label": "color",
+        "typeId": 16,
+        "parentId": 95,
         "orderNum": 0,
         "value": "#DC2626"
       },
       {
-        "id": 77,
+        "id": 93,
         "name": "已注销",
         "label": "已注销",
-        "typeId": 13,
+        "typeId": 16,
         "parentId": null,
         "orderNum": 1,
         "value": 2
       },
       {
-        "id": 79,
+        "id": 95,
         "name": "禁用",
         "label": "禁用",
-        "typeId": 13,
+        "typeId": 16,
         "parentId": null,
         "orderNum": 2,
         "value": 3

@@ -127,6 +127,7 @@ declare module 'vue' {
     VmInlineSearch: typeof import('@core/admin/components/vm-inline-search.vue')['default']
     VmJsonCode: typeof import('@core/admin/crud/components/vm-json-code.vue')['default']
     VmJsonEditor: typeof import('@core/admin/crud/components/vm-json-editor.vue')['default']
+    VmJsonKvEditor: typeof import('@core/admin/crud/components/vm-json-kv-editor.vue')['default']
     VmKvRow: typeof import('@core/admin/crud/components/vm-kv-row.vue')['default']
     VmMarkdown: typeof import('@core/admin/components/vm-markdown.vue')['default']
     VmMarquee: typeof import('@core/admin/components/vm-marquee.vue')['default']
