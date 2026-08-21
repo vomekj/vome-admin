@@ -67,15 +67,10 @@
         </vm-row>
         <vm-row>
           <vm-refresh-btn />
-          <vm-action-btn
-            v-if="Crud?.getPermission('add') && !typeTrashMode"
-            variant="primary"
-            icon="ri-add-line"
-            label="新增"
-            :disabled="selectedTypeId == null"
-            @click="openAdd"
+          <vm-toolbar
+            :add-data="dictAddData"
+            :add-text="'新增'"
           />
-          <vm-toolbar :show-add="false" />
         </vm-row>
         <vm-row>
           <vm-table ref="Table" />
@@ -322,17 +317,17 @@ async function afterTypeGone(id: number) {
   await loadTypes()
 }
 
-function openAdd() {
+function dictAddData(): Record<string, unknown> | null {
   if (selectedTypeId.value == null) {
     toast.warning('请先选择左侧字典类型')
-    return
+    return null
   }
   upsertScene.value = 'info'
-  Crud.value?.rowAdd({
+  return {
     typeId: selectedTypeId.value,
     parentId: null,
     orderNum: 0,
-  })
+  }
 }
 
 function formatValue(v: unknown) {

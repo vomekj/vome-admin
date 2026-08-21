@@ -802,17 +802,9 @@ declare namespace Eps {
 		/** 单个信息 */
 		info(data?: { id: number | string }): Promise<AiCallLogEntity>;
 
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		delete(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { refresh: string; retry: string; closeStale: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
-		_permission: { refresh: boolean; retry: boolean; closeStale: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
+		permission: { refresh: string; retry: string; closeStale: string; page: string; list: string; info: string };
+		_permission: { refresh: boolean; retry: boolean; closeStale: boolean; page: boolean; list: boolean; info: boolean };
 		request: Eps.Request;
 	}
 
@@ -906,23 +898,9 @@ declare namespace Eps {
 		/** 权限与菜单 */
 		perms(data?: any): Promise<any>;
 
-		page(data?: any): Promise<{ list: Base_authEntity[]; pagination: { page: number; size: number; total: number } }>;
-
-		list(data?: any): Promise<Base_authEntity[]>;
-
-		info(data?: { id: number | string }): Promise<Base_authEntity>;
-
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		delete(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { login: string; refresh: string; logout: string; me: string; perms: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
-		_permission: { login: boolean; refresh: boolean; logout: boolean; me: boolean; perms: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
+		permission: { login: string; refresh: string; logout: string; me: string; perms: string };
+		_permission: { login: boolean; refresh: boolean; logout: boolean; me: boolean; perms: boolean };
 		request: Eps.Request;
 	}
 
@@ -930,23 +908,9 @@ declare namespace Eps {
 		/** 获取云端上传签名 */
 		upload(data?: any): Promise<any>;
 
-		page(data?: any): Promise<{ list: Base_commEntity[]; pagination: { page: number; size: number; total: number } }>;
-
-		list(data?: any): Promise<Base_commEntity[]>;
-
-		info(data?: { id: number | string }): Promise<Base_commEntity>;
-
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		delete(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { upload: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
-		_permission: { upload: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
+		permission: { upload: string };
+		_permission: { upload: boolean };
 		request: Eps.Request;
 	}
 
@@ -1092,9 +1056,6 @@ declare namespace Eps {
 		/** 设置写入日志范围 */
 		setScope(data?: any): Promise<any>;
 
-		/** 删除 */
-		delete(data?: any): Promise<any>;
-
 		/** 单个信息 */
 		info(data?: { id: number | string }): Promise<BaseLogEntity>;
 
@@ -1104,15 +1065,9 @@ declare namespace Eps {
 		/** 分页查询 */
 		page(data?: any): Promise<{ list: BaseLogEntity[]; pagination: { page: number; size: number; total: number } }>;
 
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { clear: string; setKeep: string; getKeep: string; getScope: string; setScope: string; delete: string; info: string; list: string; page: string; add: string; update: string; restore: string };
-		_permission: { clear: boolean; setKeep: boolean; getKeep: boolean; getScope: boolean; setScope: boolean; delete: boolean; info: boolean; list: boolean; page: boolean; add: boolean; update: boolean; restore: boolean };
+		permission: { clear: string; setKeep: string; getKeep: string; getScope: string; setScope: string; info: string; list: string; page: string };
+		_permission: { clear: boolean; setKeep: boolean; getKeep: boolean; getScope: boolean; setScope: boolean; info: boolean; list: boolean; page: boolean };
 		request: Eps.Request;
 	}
 
@@ -1163,19 +1118,9 @@ declare namespace Eps {
 		/** 卸载业务模块 */
 		delete(data?: any): Promise<any>;
 
-		page(data?: any): Promise<{ list: Base_moduleEntity[]; pagination: { page: number; size: number; total: number } }>;
-
-		info(data?: { id: number | string }): Promise<Base_moduleEntity>;
-
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { install: string; list: string; delete: string; page: string; info: string; add: string; update: string; restore: string };
-		_permission: { install: boolean; list: boolean; delete: boolean; page: boolean; info: boolean; add: boolean; update: boolean; restore: boolean };
+		permission: { install: string; list: string; delete: string };
+		_permission: { install: boolean; list: boolean; delete: boolean };
 		request: Eps.Request;
 	}
 
@@ -1186,23 +1131,9 @@ declare namespace Eps {
 		/** 图片验证码 */
 		captcha(data?: any): Promise<any>;
 
-		page(data?: any): Promise<{ list: Base_openEntity[]; pagination: { page: number; size: number; total: number } }>;
-
-		list(data?: any): Promise<Base_openEntity[]>;
-
-		info(data?: { id: number | string }): Promise<Base_openEntity>;
-
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		delete(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { eps: string; captcha: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
-		_permission: { eps: boolean; captcha: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
+		permission: { eps: string; captcha: string };
+		_permission: { eps: boolean; captcha: boolean };
 		request: Eps.Request;
 	}
 
@@ -1265,11 +1196,9 @@ declare namespace Eps {
 		/** 导入 */
 		import(data?: any): Promise<any>;
 
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; importTemplate: string; import: string; restore: string };
-		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; importTemplate: boolean; import: boolean; restore: boolean };
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; importTemplate: string; import: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1301,23 +1230,9 @@ declare namespace Eps {
 		/** 删除整个队列（含全部任务） */
 		obliterate(data?: any): Promise<any>;
 
-		page(data?: any): Promise<{ list: Base_queueEntity[]; pagination: { page: number; size: number; total: number } }>;
-
-		list(data?: any): Promise<Base_queueEntity[]>;
-
-		info(data?: { id: number | string }): Promise<Base_queueEntity>;
-
-		add(data?: any): Promise<any>;
-
-		update(data?: any): Promise<any>;
-
-		delete(data?: any): Promise<any>;
-
-		restore(data?: any): Promise<any>;
-
 		namespace: string;
-		permission: { queues: string; jobs: string; enqueue: string; retry: string; remove: string; clean: string; pause: string; resume: string; obliterate: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
-		_permission: { queues: boolean; jobs: boolean; enqueue: boolean; retry: boolean; remove: boolean; clean: boolean; pause: boolean; resume: boolean; obliterate: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
+		permission: { queues: string; jobs: string; enqueue: string; retry: string; remove: string; clean: string; pause: string; resume: string; obliterate: string };
+		_permission: { queues: boolean; jobs: boolean; enqueue: boolean; retry: boolean; remove: boolean; clean: boolean; pause: boolean; resume: boolean; obliterate: boolean };
 		request: Eps.Request;
 	}
 

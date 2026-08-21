@@ -5,13 +5,7 @@
     </vm-row>
     <vm-row>
       <vm-refresh-btn />
-      <vm-action-btn
-        variant="primary"
-        icon="ri-add-line"
-        :label="localeStore.t('crud.add', '新增')"
-        @click="openEditor()"
-      />
-      <vm-toolbar :show-add="false">
+      <vm-toolbar :add-data="packAddData">
         <vm-action-btn
           icon="ri-refresh-line"
           :label="
@@ -388,21 +382,24 @@ function onLangChange(v: string | number | boolean) {
   void loadPackByLang(langCode)
 }
 
-async function openEditor() {
+async function packAddData(): Promise<Record<string, unknown> | null> {
   await Promise.all([loadChatModels(), loadLangOptions()])
   const langCode =
     langOptions.value.find((o) => o.value !== 'zh-CN')?.value ||
     langOptions.value[0]?.value ||
     'en-US'
-  Crud.value?.openUpsert(
-    {
-      langCode,
-      scopeKey: 'admin',
-      version: 0,
-      packJson: {},
-    },
-    'add',
-  )
+  return {
+    langCode,
+    scopeKey: 'admin',
+    version: 0,
+    packJson: {},
+  }
+}
+
+async function openEditor() {
+  const data = await packAddData()
+  if (!data) return
+  Crud.value?.openUpsert(data, 'add')
 }
 
 async function reloadEditor() {

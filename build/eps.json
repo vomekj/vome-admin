@@ -2391,19 +2391,6 @@
             ]
           },
           {
-            "method": "post",
-            "path": "/delete",
-            "summary": "删除",
-            "dts": {},
-            "tag": "",
-            "prefix": "/admin/base/log",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": [
-              "base:log:delete"
-            ]
-          },
-          {
             "method": "get",
             "path": "/info",
             "summary": "单个信息",
@@ -7657,7 +7644,7 @@
           {
             "method": "get",
             "path": "/locales",
-            "summary": "已生成语言包的可切换语种",
+            "summary": "已生成语言包的可切换语种（宿主）",
             "dts": {},
             "tag": "",
             "prefix": "/app/i18n/pack",
@@ -7668,11 +7655,33 @@
           {
             "method": "get",
             "path": "/active",
-            "summary": "运行时拉取语言包",
+            "summary": "运行时拉取语言包（宿主）",
             "dts": {},
             "tag": "",
             "prefix": "/app/i18n/pack",
             "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/plugin/locales",
+            "summary": "插件语言包可切换语种",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/i18n/pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
+            "path": "/plugin/active",
+            "summary": "插件运行时语言包",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/i18n/pack",
+            "ignoreToken": false,
             "ignorePerms": false,
             "perms": []
           }

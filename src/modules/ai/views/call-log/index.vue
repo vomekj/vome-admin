@@ -5,7 +5,7 @@
     </vm-row>
     <vm-row>
       <vm-refresh-btn />
-      <vm-toolbar :show-add="false" :show-delete="false" />
+      <vm-toolbar />
     </vm-row>
     <vm-row>
       <vm-table>

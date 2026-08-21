@@ -5,7 +5,7 @@
     </vm-row>
     <vm-row>
       <vm-refresh-btn />
-      <vm-toolbar :trash="false" :show-add="false" :show-delete="false">
+      <vm-toolbar>
         <vm-action-btn
           variant="danger"
           icon="ri-delete-bin-5-line"
@@ -64,21 +64,17 @@
     </vm-row>
     <vm-row>
       <vm-table ref="Table">
-        <template #cell-params="{ value }">
+        <template #cell-params="{ row }">
           <vm-text-link
-            v-if="hasJsonContent(value)"
             label="查看"
-            @click="openJson('请求参数', value)"
+            @click="openJson('请求参数', row, 'params')"
           />
-          <span v-else class="vm-log-page__empty">—</span>
         </template>
-        <template #cell-response="{ value }">
+        <template #cell-response="{ row }">
           <vm-text-link
-            v-if="hasJsonContent(value)"
             label="查看"
-            @click="openJson('响应数据', value)"
+            @click="openJson('响应数据', row, 'response')"
           />
-          <span v-else class="vm-log-page__empty">—</span>
         </template>
       </vm-table>
     </vm-row>
@@ -124,7 +120,7 @@
 
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
-import { hasJsonContent, prettyJson } from '@core/admin/lib/json'
+import { prettyJson } from '@core/admin/lib/json'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -197,10 +193,27 @@ function formatLogType(v: unknown) {
   return key
 }
 
-function openJson(title: string, value: unknown) {
+async function openJson(
+  title: string,
+  row: { id?: unknown },
+  field: 'params' | 'response',
+) {
   jsonTitle.value = title
-  jsonBody.value = value
+  jsonBody.value = null
   Crud.value?.openUpsert({}, 'info')
+  const id = row?.id
+  if (id == null || id === '') {
+    jsonBody.value = null
+    return
+  }
+  try {
+    const info = await service.base.log.info({ id })
+    jsonBody.value = info?.[field] ?? null
+  } catch (e) {
+    console.error(e)
+    const err = e as Error & { toasted?: boolean }
+    if (!err.toasted) toast.error(e instanceof Error ? e.message : '加载失败')
+  }
 }
 
 async function loadScope() {
@@ -343,24 +356,11 @@ async function clearLogs() {
   }
 }
 
-const Crud = useCrud(
-  {
-    service: service.base.log,
-    permission: {
-      add: false,
-      update: false,
-      delete: true,
-      info: true,
-      page: true,
-      list: true,
-    },
-  },
-  (app) => {
-    void loadKeepDays()
-    void loadScope()
-    app.refresh()
-  },
-)
+const Crud = useCrud({ service: service.base.log }, (app) => {
+  void loadKeepDays()
+  void loadScope()
+  app.refresh()
+})
 </script>
 
 <style lang="scss" scoped>

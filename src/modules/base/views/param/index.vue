@@ -66,8 +66,8 @@
             class="base-param-richtext"
             :model-value="String(form.data ?? '')"
             placeholder="请输入富文本"
-            :height="200"
-            :upload-image="uploadImage"
+            :height="300"
+            upload-prefix-path="app/public/param"
             @update:model-value="(v) => Crud?.patchUpsertForm({ data: v })"
           />
           <vm-upload
@@ -95,14 +95,12 @@
 </template>
 
 <script setup lang="ts">
-import { useUpload } from 'vome-core/admin/hooks/useUpload'
 import type { JsonKvNode } from 'vome-core/admin/crud'
 
 defineOptions({ name: 'base-param' })
 
 const { service } = useVome()
 const { dict } = useDict()
-const { toUpload } = useUpload()
 
 const jsonNodes = ref<JsonKvNode[]>([createEmptyNode()])
 /** 平铺选项；短列表关索引搜索（组件内 filterable=false） */
@@ -110,13 +108,6 @@ const kindOptions = dict.options('base_json_value_kind')
 const paramTypeOptions = dict.options('base_param_type')
 const yesNoOptions = dict.get('base_yes_no')
 const paramTypeTags = dict.options('base_param_type')
-
-async function uploadImage(file: File) {
-  const res = await toUpload(file, {
-    prefixPath: 'app/public/param',
-  })
-  return res.url
-}
 
 function newUid() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`
@@ -353,7 +344,7 @@ useUpsert({
       type: 'textarea',
       span: 24,
       placeholder: '请输入备注',
-      component: { props: { height: 120 } },
+      component: { props: { rows: 2, height: 52 } },
     },
   ],
   onOpened(form: Record<string, unknown>) {
