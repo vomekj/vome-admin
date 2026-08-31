@@ -635,6 +635,89 @@ declare namespace Eps {
 		[key: string]: any;
 	}
 
+	interface I18nDataFieldEntity {
+		/** ID */
+		id?: number;
+
+		/** 业务表 */
+		tableName?: string;
+
+		/** 字段名 */
+		fieldName?: string;
+
+		/** 主键列 */
+		pkField?: string;
+
+		/** 映射模式 */
+		mode?: string;
+
+		/** 源表 */
+		sourceTable?: string;
+
+		/** 源表主键 */
+		sourcePkField?: string;
+
+		/** 源表字段 */
+		sourceField?: string;
+
+		/** 关联列 */
+		joinField?: string;
+
+		/** 源表关联列 */
+		sourceJoinField?: string;
+
+		/** 状态 */
+		status?: number;
+
+		/** 备注 */
+		remark?: string;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
+	interface I18nDataPackEntity {
+		/** ID */
+		id?: number;
+
+		/** 业务表 */
+		tableName?: string;
+
+		/** 语种 */
+		langCode?: string;
+
+		/** 翻译包 */
+		packJson?: any;
+
+		/** 版本 */
+		version?: number;
+
+		/** 源文案哈希 */
+		sourceHash?: string;
+
+		/** 备注 */
+		remark?: string;
+
+		/** 创建时间 */
+		createTime?: string;
+
+		/** 更新时间 */
+		updateTime?: string;
+
+		/** 删除时间 */
+		deletedAt?: string;
+
+		[key: string]: any;
+	}
+
 	interface I18nLangEntity {
 		/** ID */
 		id?: number;
@@ -802,9 +885,17 @@ declare namespace Eps {
 		/** 单个信息 */
 		info(data?: { id: number | string }): Promise<AiCallLogEntity>;
 
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { refresh: string; retry: string; closeStale: string; page: string; list: string; info: string };
-		_permission: { refresh: boolean; retry: boolean; closeStale: boolean; page: boolean; list: boolean; info: boolean };
+		permission: { refresh: string; retry: string; closeStale: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
+		_permission: { refresh: boolean; retry: boolean; closeStale: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -898,9 +989,23 @@ declare namespace Eps {
 		/** 权限与菜单 */
 		perms(data?: any): Promise<any>;
 
+		page(data?: any): Promise<{ list: Base_authEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		list(data?: any): Promise<Base_authEntity[]>;
+
+		info(data?: { id: number | string }): Promise<Base_authEntity>;
+
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { login: string; refresh: string; logout: string; me: string; perms: string };
-		_permission: { login: boolean; refresh: boolean; logout: boolean; me: boolean; perms: boolean };
+		permission: { login: string; refresh: string; logout: string; me: string; perms: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
+		_permission: { login: boolean; refresh: boolean; logout: boolean; me: boolean; perms: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -908,9 +1013,23 @@ declare namespace Eps {
 		/** 获取云端上传签名 */
 		upload(data?: any): Promise<any>;
 
+		page(data?: any): Promise<{ list: Base_commEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		list(data?: any): Promise<Base_commEntity[]>;
+
+		info(data?: { id: number | string }): Promise<Base_commEntity>;
+
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { upload: string };
-		_permission: { upload: boolean };
+		permission: { upload: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
+		_permission: { upload: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -1065,9 +1184,17 @@ declare namespace Eps {
 		/** 分页查询 */
 		page(data?: any): Promise<{ list: BaseLogEntity[]; pagination: { page: number; size: number; total: number } }>;
 
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { clear: string; setKeep: string; getKeep: string; getScope: string; setScope: string; info: string; list: string; page: string };
-		_permission: { clear: boolean; setKeep: boolean; getKeep: boolean; getScope: boolean; setScope: boolean; info: boolean; list: boolean; page: boolean };
+		permission: { clear: string; setKeep: string; getKeep: string; getScope: string; setScope: string; info: string; list: string; page: string; add: string; update: string; delete: string; restore: string };
+		_permission: { clear: boolean; setKeep: boolean; getKeep: boolean; getScope: boolean; setScope: boolean; info: boolean; list: boolean; page: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -1118,9 +1245,19 @@ declare namespace Eps {
 		/** 卸载业务模块 */
 		delete(data?: any): Promise<any>;
 
+		page(data?: any): Promise<{ list: Base_moduleEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		info(data?: { id: number | string }): Promise<Base_moduleEntity>;
+
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { install: string; list: string; delete: string };
-		_permission: { install: boolean; list: boolean; delete: boolean };
+		permission: { install: string; list: string; delete: string; page: string; info: string; add: string; update: string; restore: string };
+		_permission: { install: boolean; list: boolean; delete: boolean; page: boolean; info: boolean; add: boolean; update: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -1131,9 +1268,23 @@ declare namespace Eps {
 		/** 图片验证码 */
 		captcha(data?: any): Promise<any>;
 
+		page(data?: any): Promise<{ list: Base_openEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		list(data?: any): Promise<Base_openEntity[]>;
+
+		info(data?: { id: number | string }): Promise<Base_openEntity>;
+
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { eps: string; captcha: string };
-		_permission: { eps: boolean; captcha: boolean };
+		permission: { eps: string; captcha: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
+		_permission: { eps: boolean; captcha: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -1196,9 +1347,11 @@ declare namespace Eps {
 		/** 导入 */
 		import(data?: any): Promise<any>;
 
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; importTemplate: string; import: string };
-		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; importTemplate: boolean; import: boolean };
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; importTemplate: string; import: string; restore: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; importTemplate: boolean; import: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -1230,9 +1383,23 @@ declare namespace Eps {
 		/** 删除整个队列（含全部任务） */
 		obliterate(data?: any): Promise<any>;
 
+		page(data?: any): Promise<{ list: Base_queueEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		list(data?: any): Promise<Base_queueEntity[]>;
+
+		info(data?: { id: number | string }): Promise<Base_queueEntity>;
+
+		add(data?: any): Promise<any>;
+
+		update(data?: any): Promise<any>;
+
+		delete(data?: any): Promise<any>;
+
+		restore(data?: any): Promise<any>;
+
 		namespace: string;
-		permission: { queues: string; jobs: string; enqueue: string; retry: string; remove: string; clean: string; pause: string; resume: string; obliterate: string };
-		_permission: { queues: boolean; jobs: boolean; enqueue: boolean; retry: boolean; remove: boolean; clean: boolean; pause: boolean; resume: boolean; obliterate: boolean };
+		permission: { queues: string; jobs: string; enqueue: string; retry: string; remove: string; clean: string; pause: string; resume: string; obliterate: string; page: string; list: string; info: string; add: string; update: string; delete: string; restore: string };
+		_permission: { queues: boolean; jobs: boolean; enqueue: boolean; retry: boolean; remove: boolean; clean: boolean; pause: boolean; resume: boolean; obliterate: boolean; page: boolean; list: boolean; info: boolean; add: boolean; update: boolean; delete: boolean; restore: boolean };
 		request: Eps.Request;
 	}
 
@@ -1408,6 +1575,80 @@ declare namespace Eps {
 		namespace: string;
 		permission: { roles: string; roleMap: string; setRoles: string; transferSuper: string; moveDepartment: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
 		_permission: { roles: boolean; roleMap: boolean; setRoles: boolean; transferSuper: boolean; moveDepartment: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
+	}
+
+	interface I18n_dataField {
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<I18nDataFieldEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<I18nDataFieldEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: I18nDataFieldEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		request: Eps.Request;
+	}
+
+	interface I18n_dataPack {
+		/** 已配置翻译的业务表 */
+		tables(data?: any): Promise<any>;
+
+		/** AI 翻译业务表 */
+		translateTable(data?: any): Promise<any>;
+
+		/** 新增 */
+		add(data?: any): Promise<any>;
+
+		/** 删除 */
+		delete(data?: any): Promise<any>;
+
+		/** 修改 */
+		update(data?: any): Promise<any>;
+
+		/** 单个信息 */
+		info(data?: { id: number | string }): Promise<I18nDataPackEntity>;
+
+		/** 列表查询 */
+		list(data?: any): Promise<I18nDataPackEntity[]>;
+
+		/** 分页查询 */
+		page(data?: any): Promise<{ list: I18nDataPackEntity[]; pagination: { page: number; size: number; total: number } }>;
+
+		/** 恢复 */
+		restore(data?: any): Promise<any>;
+
+		/** 下载导入模板 */
+		importTemplate(data?: any): Promise<any>;
+
+		/** 导入 */
+		import(data?: any): Promise<any>;
+
+		namespace: string;
+		permission: { tables: string; translateTable: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { tables: boolean; translateTable: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1608,6 +1849,8 @@ declare namespace Eps {
 			user: Base_user;
 		};
 		i18n: {
+			dataField: I18n_dataField;
+			dataPack: I18n_dataPack;
 			lang: I18n_lang;
 			pack: I18n_pack;
 		};

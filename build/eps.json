@@ -468,7 +468,9 @@
             "comment": "删除时间",
             "table": "ai_call_log"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "ai",
@@ -910,7 +912,9 @@
             "comment": "删除时间",
             "table": "ai_model"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "ai",
@@ -1253,7 +1257,9 @@
             "comment": "删除时间",
             "table": "ai_provider"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ],
     "base": [
@@ -1332,7 +1338,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -1365,7 +1373,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -1647,7 +1657,9 @@
             "comment": "删除时间",
             "table": "base_department"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -2059,7 +2071,9 @@
             "comment": "删除时间",
             "table": "base_dict_info"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -2311,7 +2325,9 @@
             "comment": "删除时间",
             "table": "base_dict_type"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -2698,7 +2714,9 @@
             "comment": "删除时间",
             "table": "base_log"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -3180,7 +3198,9 @@
             "comment": "删除时间",
             "table": "base_menu"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -3241,7 +3261,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -3285,7 +3307,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -3634,7 +3658,9 @@
             "comment": "删除时间",
             "table": "base_param"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -4069,7 +4095,9 @@
             "comment": "删除时间",
             "table": "base_plugin_info"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -4208,7 +4236,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -4589,7 +4619,9 @@
             "comment": "删除时间",
             "table": "base_role"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -5047,7 +5079,9 @@
             "comment": "删除时间",
             "table": "base_task"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -5357,7 +5391,9 @@
             "comment": "删除时间",
             "table": "base_tenant"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -5894,10 +5930,770 @@
             "comment": "删除时间",
             "table": "base_user"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ],
     "i18n": [
+      {
+        "module": "i18n",
+        "side": "admin",
+        "prefix": "/admin/i18n/data-field",
+        "name": "I18nDataFieldEntity",
+        "info": {
+          "type": {
+            "name": "data-field",
+            "description": "data-field"
+          }
+        },
+        "api": [
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-field",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:field:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "tableName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.tableName",
+            "comment": "业务表",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "fieldName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.fieldName",
+            "comment": "字段名",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "pkField",
+            "type": "string",
+            "length": "64",
+            "nullable": false,
+            "source": "a.pkField",
+            "comment": "主键列",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "mode",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.mode",
+            "comment": "映射模式",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourceTable",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.sourceTable",
+            "comment": "源表",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourcePkField",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.sourcePkField",
+            "comment": "源表主键",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourceField",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.sourceField",
+            "comment": "源表字段",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "joinField",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.joinField",
+            "comment": "关联列",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourceJoinField",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.sourceJoinField",
+            "comment": "源表关联列",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_data_field"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.tableName",
+            "a.fieldName",
+            "a.sourceTable",
+            "a.remark"
+          ],
+          "fieldEq": [
+            "a.tableName",
+            "a.mode",
+            "a.status"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "tableName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.tableName",
+            "comment": "业务表",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "fieldName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.fieldName",
+            "comment": "字段名",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "pkField",
+            "type": "string",
+            "length": "64",
+            "nullable": false,
+            "source": "a.pkField",
+            "comment": "主键列",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "mode",
+            "type": "string",
+            "length": "16",
+            "nullable": false,
+            "source": "a.mode",
+            "comment": "映射模式",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourceTable",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.sourceTable",
+            "comment": "源表",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourcePkField",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.sourcePkField",
+            "comment": "源表主键",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourceField",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.sourceField",
+            "comment": "源表字段",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "joinField",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.joinField",
+            "comment": "关联列",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "sourceJoinField",
+            "type": "string",
+            "length": "100",
+            "nullable": true,
+            "source": "a.sourceJoinField",
+            "comment": "源表关联列",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "status",
+            "type": "number",
+            "nullable": false,
+            "source": "a.status",
+            "comment": "状态",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_data_field"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_data_field"
+          }
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
+      },
+      {
+        "module": "i18n",
+        "side": "admin",
+        "prefix": "/admin/i18n/data-pack",
+        "name": "I18nDataPackEntity",
+        "info": {
+          "type": {
+            "name": "data-pack",
+            "description": "data-pack"
+          }
+        },
+        "api": [
+          {
+            "method": "get",
+            "path": "/tables",
+            "summary": "已配置翻译的业务表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:tables"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/translateTable",
+            "summary": "AI 翻译业务表",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:translateTable"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/add",
+            "summary": "新增",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/delete",
+            "summary": "删除",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:delete"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/update",
+            "summary": "修改",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:update"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/info",
+            "summary": "单个信息",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:info"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/list",
+            "summary": "列表查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:list"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/page",
+            "summary": "分页查询",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:page"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/restore",
+            "summary": "恢复",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:restore"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/importTemplate",
+            "summary": "下载导入模板",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:add"
+            ]
+          },
+          {
+            "method": "post",
+            "path": "/import",
+            "summary": "导入",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/data-pack",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:data:pack:add"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "tableName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.tableName",
+            "comment": "业务表",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "langCode",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.langCode",
+            "comment": "语种",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "packJson",
+            "type": "json",
+            "nullable": false,
+            "source": "a.packJson",
+            "comment": "翻译包",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "version",
+            "type": "number",
+            "nullable": false,
+            "source": "a.version",
+            "comment": "版本",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "sourceHash",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.sourceHash",
+            "comment": "源文案哈希",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_data_pack"
+          }
+        ],
+        "pageQueryOp": {
+          "keyWordLikeFields": [
+            "a.tableName",
+            "a.langCode",
+            "a.remark"
+          ],
+          "fieldEq": [
+            "a.tableName",
+            "a.langCode"
+          ],
+          "fieldLike": [],
+          "fieldArray": [],
+          "fieldRange": []
+        },
+        "pageColumns": [
+          {
+            "propertyName": "id",
+            "type": "number",
+            "nullable": false,
+            "source": "a.id",
+            "comment": "ID",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "tableName",
+            "type": "string",
+            "length": "100",
+            "nullable": false,
+            "source": "a.tableName",
+            "comment": "业务表",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "langCode",
+            "type": "string",
+            "length": "32",
+            "nullable": false,
+            "source": "a.langCode",
+            "comment": "语种",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "packJson",
+            "type": "json",
+            "nullable": false,
+            "source": "a.packJson",
+            "comment": "翻译包",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "version",
+            "type": "number",
+            "nullable": false,
+            "source": "a.version",
+            "comment": "版本",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "sourceHash",
+            "type": "string",
+            "length": "64",
+            "nullable": true,
+            "source": "a.sourceHash",
+            "comment": "源文案哈希",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "remark",
+            "type": "string",
+            "length": "500",
+            "nullable": true,
+            "source": "a.remark",
+            "comment": "备注",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "createTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.createTime",
+            "comment": "创建时间",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "updateTime",
+            "type": "date",
+            "nullable": false,
+            "source": "a.updateTime",
+            "comment": "更新时间",
+            "table": "i18n_data_pack"
+          },
+          {
+            "propertyName": "deletedAt",
+            "type": "date",
+            "nullable": true,
+            "source": "a.deletedAt",
+            "comment": "删除时间",
+            "table": "i18n_data_pack"
+          }
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
+      },
       {
         "module": "i18n",
         "side": "admin",
@@ -6211,7 +7007,9 @@
             "comment": "删除时间",
             "table": "i18n_lang"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "i18n",
@@ -6637,7 +7435,9 @@
             "comment": "删除时间",
             "table": "i18n_pack"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ],
     "user": [
@@ -7102,7 +7902,9 @@
             "comment": "删除时间",
             "table": "user_info"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "user",
@@ -7413,7 +8215,9 @@
             "comment": "删除时间",
             "table": "user_role"
           }
-        ]
+        ],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ]
   },
@@ -7450,7 +8254,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -7549,7 +8355,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -7582,7 +8390,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "base",
@@ -7626,7 +8436,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ],
     "i18n": [
@@ -7694,7 +8506,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ],
     "project": [
@@ -7773,7 +8587,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "project",
@@ -7850,7 +8666,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "project",
@@ -7883,7 +8701,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "project",
@@ -7938,7 +8758,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "project",
@@ -8026,7 +8848,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ],
     "user": [
@@ -8061,7 +8885,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "user",
@@ -8171,7 +8997,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "user",
@@ -8380,7 +9208,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       },
       {
         "module": "user",
@@ -8413,7 +9243,9 @@
           "fieldArray": [],
           "fieldRange": []
         },
-        "pageColumns": []
+        "pageColumns": [],
+        "dataI18n": false,
+        "dataI18nTables": []
       }
     ]
   },

@@ -66,6 +66,15 @@
                 placeholder="请选择模型"
               />
             </label>
+            <label class="vm-i18n-pack__field">
+              <span>模式</span>
+              <vm-select
+                v-model="editorForm.mode"
+                :options="modeOptions"
+                :refresh-on-change="false"
+                width="180px"
+              />
+            </label>
             <vm-action-btn
               variant="primary"
               icon="ri-magic-line"
@@ -122,6 +131,7 @@ const loadingLang = ref(false)
 const chatModels = ref<Array<{ code: string }>>([])
 const langOptions = ref<Array<{ label: string; value: string }>>([])
 const langNameMap = ref<Record<string, string>>({})
+const editorSourceHash = ref('')
 const JsonEditor = ref<{
   setText: (v: unknown) => void
   beginStream: () => void
@@ -136,8 +146,14 @@ const editorForm = reactive({
   langCode: 'en-US',
   scopeKey: 'admin',
   model: '',
+  mode: 'incremental' as 'full' | 'incremental',
   version: 0,
 })
+
+const modeOptions = [
+  { label: '增量翻译', value: 'incremental' },
+  { label: '全量覆盖', value: 'full' },
+]
 
 function inferScopeType(scopeKey: string): 'host' | 'plugin' {
   const key = String(scopeKey || '').trim()
@@ -180,6 +196,8 @@ useUpsert({
     editorForm.scopeKey = String(data.scopeKey || 'admin')
     editorForm.version = Number(data.version || 0)
     editorForm.model = chatModels.value[0]?.code || ''
+    editorForm.mode = 'incremental'
+    editorSourceHash.value = ''
     if (data.packJson && typeof data.packJson === 'object') {
       editorJson.value = data.packJson as Record<string, unknown>
     } else {
@@ -212,6 +230,7 @@ useUpsert({
       scopeType: inferScopeType(scopeKey),
       scopeKey,
       packJson,
+      ...(editorSourceHash.value ? { sourceHash: editorSourceHash.value } : {}),
     }
     if (editorId.value) {
       await service.i18n.pack.update({ id: editorId.value, ...payload })
@@ -454,10 +473,21 @@ async function runTranslate() {
       scopeType: inferScopeType(scopeKey),
       scopeKey,
       model: editorForm.model,
+      mode: editorForm.mode,
     })
     if (!isAiStreamResult(out)) {
-      const row = out as { packJson?: Record<string, unknown> }
+      const row = out as {
+        packJson?: Record<string, unknown>
+        skipped?: boolean
+        message?: string
+        sourceHash?: string
+      }
       editorJson.value = (row?.packJson as Record<string, unknown>) ?? {}
+      editorSourceHash.value = String(row?.sourceHash || '')
+      if (row?.skipped) {
+        toast.info(row.message || '源文案未变化，跳过增量翻译')
+        return
+      }
       toast.success(
         editorId.value
           ? 'AI 翻译完成，确认后将更新语言包'
@@ -467,6 +497,8 @@ async function runTranslate() {
     }
     let fullText = ''
     let gotPack = false
+    let skipped = false
+    let skippedMessage = ''
     for await (const chunk of out.stream) {
       if (chunk.type === 'error') {
         throw new Error(chunk.error?.message || 'AI 翻译失败')
@@ -480,6 +512,9 @@ async function runTranslate() {
         JsonEditor.value?.setText(fullText)
       }
       if (chunk.type === 'done') {
+        skipped = Boolean(chunk.data?.skipped)
+        skippedMessage = String(chunk.data?.message || '')
+        editorSourceHash.value = String(chunk.data?.sourceHash || '')
         const packJson = chunk.data?.packJson as
           | Record<string, unknown>
           | undefined
@@ -502,6 +537,10 @@ async function runTranslate() {
       } catch {
         /* 保留流式原文，确定前可再编辑 */
       }
+    }
+    if (skipped) {
+      toast.info(skippedMessage || '源文案未变化，跳过增量翻译')
+      return
     }
     toast.success(
       editorId.value
