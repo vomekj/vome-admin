@@ -114,8 +114,6 @@
 import { computed, reactive, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import { isAiStreamResult } from '@core/admin/api/client'
-import { useLocaleStore } from '@/stores/locale'
-
 defineOptions({ name: 'i18n-pack' })
 
 const { service } = useVome()

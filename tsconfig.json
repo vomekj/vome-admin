@@ -24,8 +24,6 @@
       "@config": ["src/config/index.ts"],
       "@config/*": ["src/config/*"],
       "@typings/*": ["typings/*"],
-      "#vome-host": ["src/index.ts"],
-      "#vome-host/*": ["src/*"],
       "vue": ["./node_modules/vue"],
       "vue-router": ["./node_modules/vue-router"],
       "pinia": ["./node_modules/pinia"],
@@ -48,7 +46,6 @@
     "plugins/**/*.ts",
     "vite.config.ts",
     "node_modules/vome-core/dist/admin/env.d.ts",
-    "node_modules/vome-core/typings/admin/**/*.ts",
-    "node_modules/vome-core/typings/admin/**/*.d.ts"
+    "node_modules/vome-core/typings/admin/**/*.ts"
   ]
 }

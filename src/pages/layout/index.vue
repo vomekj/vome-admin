@@ -11,21 +11,20 @@
             v-else-if="ready && app.viewAlive"
             v-slot="{ Component, route: r }"
           >
-            <div class="vm-page">
+            <div class="vm-page vm-scroll">
               <!-- 按组件 name（defineOptions）缓存；include 来自 tags.caches -->
+              <!-- class 挂在壳上，勿传给业务页（多根节点会 Extraneous non-props attributes） -->
               <KeepAlive :include="tags.caches">
                 <component
                   :is="Component"
                   v-if="Component && r.meta.keepAlive !== false"
                   :key="String(r.meta.componentName || r.name || r.path)"
-                  class="vm-scroll"
                 />
               </KeepAlive>
               <component
                 :is="Component"
                 v-if="Component && r.meta.keepAlive === false"
                 :key="String(r.name || r.path)"
-                class="vm-scroll"
               />
             </div>
           </RouterView>

@@ -60,6 +60,6 @@ declare global {
   type TagItem = import('vome-core/typings/vome/tags').TagItem
   type ViewLoader = import('vome-core/typings/vome/module').ViewLoader
   type ViewsTreeNode = import('vome-core/typings/vome/module').ViewsTreeNode
-  type ThemeTokens = import('@typings/theme').ThemeTokens
-  type ThemeDefinition = import('@typings/theme').ThemeDefinition
+  type ThemeTokens = import('vome-core/typings/theme').ThemeTokens
+  type ThemeDefinition = import('vome-core/typings/theme').ThemeDefinition
 }

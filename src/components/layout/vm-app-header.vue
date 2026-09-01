@@ -125,7 +125,7 @@
 
 <script setup lang="ts">
 import { api } from '@core/admin/api/client'
-import { resetMenuRoutesFlag } from '@core/admin/router'
+import { resetMenuRoutesFlag } from '@/router'
 import { useThemeStore } from '@/stores/theme'
 import { useLocaleStore } from '@/stores/locale'
 

@@ -70,6 +70,7 @@
 
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
+import { isAiStreamResult } from '@core/admin/api/client'
 
 defineOptions({ name: 'i18n-data-pack' })
 
@@ -187,15 +188,43 @@ async function runTranslate() {
   }
   translating.value = true
   try {
-    const res = (await service.i18n.dataPack.translateTable({
+    const langName =
+      langOptions.value.find((o) => o.value === translateForm.langCode)
+        ?.label || translateForm.langCode
+    const out = await service.i18n.dataPack.translateTable({
       tableName: translateForm.tableName,
       langCode: translateForm.langCode,
+      langName,
       mode: translateForm.mode as 'full' | 'incremental',
-    })) as { skipped?: boolean; message?: string; rowCount?: number }
-    if (res?.skipped) {
-      toast.message(res.message || '已跳过')
+    })
+    let skipped = false
+    let message = ''
+    let rowCount = 0
+    if (isAiStreamResult(out)) {
+      for await (const chunk of out.stream) {
+        if (chunk.type === 'error') {
+          throw new Error(chunk.error?.message || 'AI 翻译失败')
+        }
+        if (chunk.type === 'done') {
+          skipped = Boolean(chunk.data?.skipped)
+          message = String(chunk.data?.message || '')
+          rowCount = Number(chunk.data?.rowCount ?? 0)
+        }
+      }
     } else {
-      toast.success(`翻译完成，共 ${res?.rowCount ?? 0} 条`)
+      const res = out as {
+        skipped?: boolean
+        message?: string
+        rowCount?: number
+      }
+      skipped = Boolean(res?.skipped)
+      message = String(res?.message || '')
+      rowCount = Number(res?.rowCount ?? 0)
+    }
+    if (skipped) {
+      toast.message(message || '已跳过')
+    } else {
+      toast.success(`翻译完成，共 ${rowCount} 条`)
     }
     translateOpen.value = false
     Crud.value?.refresh()

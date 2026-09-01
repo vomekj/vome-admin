@@ -287,8 +287,7 @@
 <script setup lang="ts">
 
 import { getAccessToken } from 'vome-core/admin/api/client'
-import { pluginDev } from '@core/admin'
-import type { PluginScaffoldKey } from '@core/admin'
+import { pluginDev, type PluginScaffoldKey } from '@/lib/plugin-dev'
 
 defineOptions({ name: 'helper-plugins' })
 

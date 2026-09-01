@@ -78,6 +78,7 @@
 import { config } from '@/config/index.js'
 
 import { syncMenuRoutes } from '@core/admin/router/menu-routes'
+import { menuRouteShell } from '@/router'
 
 defineOptions({ name: 'base-menu' })
 
@@ -90,7 +91,7 @@ const { dict } = useDict()
 async function syncNav() {
   try {
     await user.reloadMenus()
-    await syncMenuRoutes(router, user.menus)
+    await syncMenuRoutes(router, user.menus, menuRouteShell)
   } catch (e) {
     console.error('[menu] syncNav failed', e)
   }
@@ -219,7 +220,7 @@ const UpsertItems = computed((): CrudFormItem[] => [
     prop: 'viewPath',
     label: '文件路径',
     span: 12,
-    component: { name: 'vm-view-path' },
+    component: { name: 'vm-view-path-picker' },
     hidden: (f) => Number(f.type) !== 1,
   },
   {

@@ -121,12 +121,6 @@
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
 import { prettyJson } from '@core/admin/lib/json'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 
 defineOptions({ name: 'base-log' })
 

@@ -30,12 +30,19 @@ export default defineConfig({
       { find: '@', replacement: path.resolve(root, './src') },
       { find: '@config', replacement: path.resolve(root, './src/config') },
       { find: '@typings', replacement: path.resolve(root, './typings') },
-      { find: '#vome-host', replacement: hostSrc },
     ],
     dedupe: [...adminDedupe],
   },
   optimizeDeps: {
-    include: ['dompurify', 'marked', 'vue-sonner'],
+    include: [
+      'dompurify',
+      'marked',
+      'vue-sonner',
+      'pinia',
+      'wujie',
+      '@lucide/vue',
+      'reka-ui',
+    ],
     exclude: ['vome-core'],
     esbuildOptions: {
       plugins: createAdminOptimizeDepsPlugins({ root, hostSrc }),

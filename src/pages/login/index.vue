@@ -90,7 +90,7 @@
 <script setup lang="ts">
 import { config } from '@/config'
 import { api, setTokens } from '@core/admin/api/client'
-import { resetMenuRoutesFlag } from '@core/admin/router'
+import { resetMenuRoutesFlag } from '@/router'
 import logoDark from '@/static/image/logo-dark.png'
 
 const router = useRouter()

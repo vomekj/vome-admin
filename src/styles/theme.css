@@ -5,6 +5,10 @@
 @import "tw-animate-css";
 @import "remixicon/fonts/remixicon.css";
 
+/* UI/CRUD 在 vome-core：必须显式 source，否则 Tailwind 不生成 button/table 等 utility */
+@source "../../node_modules/vome-core/dist/admin";
+@source "../**/*.{vue,ts}";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
