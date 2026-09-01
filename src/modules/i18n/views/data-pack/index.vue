@@ -71,6 +71,7 @@
 <script setup lang="ts">
 import { toast } from 'vue-sonner'
 import { isAiStreamResult } from '@core/admin/api/client'
+import { loadEnabledLangOptions } from '@core/admin/crud'
 
 defineOptions({ name: 'i18n-data-pack' })
 
@@ -157,20 +158,8 @@ async function loadTables() {
 }
 
 async function loadLangs() {
-  try {
-    const rows = (await service.i18n.lang.list({ status: 1 })) as Array<{
-      code?: string
-      name?: string
-    }>
-    langOptions.value = (rows || [])
-      .filter((r) => r.code && r.code !== 'zh-CN')
-      .map((r) => ({
-        label: `${r.name || r.code} (${r.code})`,
-        value: String(r.code),
-      }))
-  } catch {
-    langOptions.value = [{ label: 'en-US', value: 'en-US' }]
-  }
+  const rows = await loadEnabledLangOptions(service)
+  langOptions.value = rows.map((r) => ({ label: r.label, value: r.value }))
 }
 
 function openTranslate() {
@@ -182,8 +171,8 @@ async function runTranslate() {
     toast.error('请选择业务表')
     return
   }
-  if (!translateForm.langCode || translateForm.langCode === 'zh-CN') {
-    toast.error('请选择非中文目标语种')
+  if (!translateForm.langCode) {
+    toast.error('请选择目标语种')
     return
   }
   translating.value = true

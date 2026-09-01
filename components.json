@@ -14,8 +14,7 @@
     "components": "@/components",
     "utils": "@core/admin/lib/cn",
     "ui": "@core/admin/components/ui",
-    "lib": "@core/admin/lib",
-    "composables": "@/composables"
+    "lib": "@core/admin/lib"
   },
   "registries": {}
 }

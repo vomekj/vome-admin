@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import { proxy } from './src/config/proxy'
-import { epsPlugin } from './plugins/eps'
+import { createEpsVitePlugin } from 'vome-core/client/vite-plugin-eps'
+import { coreAlias } from 'vome-core/client/vite-micro-proxy'
 import {
   adminDedupe,
   adminDevProxy,
@@ -22,7 +23,11 @@ export default defineConfig({
     ...createAdminResolvePlugins({ root, hostSrc }),
     vue(),
     tailwindcss(),
-    epsPlugin({ api: proxy['/dev/'].target }),
+    createEpsVitePlugin({
+      side: 'both',
+      dtsSide: 'admin',
+      apiBase: proxy['/dev/'].target,
+    }),
     ...createAdminAutoImportPlugins(root),
   ],
   resolve: {
@@ -30,6 +35,7 @@ export default defineConfig({
       { find: '@', replacement: path.resolve(root, './src') },
       { find: '@config', replacement: path.resolve(root, './src/config') },
       { find: '@typings', replacement: path.resolve(root, './typings') },
+      ...coreAlias(root),
     ],
     dedupe: [...adminDedupe],
   },

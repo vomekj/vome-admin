@@ -1,10 +1,14 @@
 import { Plugins, setCrudConfig } from '@core/admin/crud'
-import { listThemeColorOptions } from '@/lib/theme-color-options'
+import {
+  ADMIN_THEME_COLOR_DEFS,
+  resolveCssThemeColorOptions,
+} from '@core/admin/lib/theme-color-options'
 
 /** 全局 Form / Search / Table 默认插件与样式 */
 export function setupCrudDefaults() {
   setCrudConfig({
-    listThemeColorOptions,
+    listThemeColorOptions: () =>
+      resolveCssThemeColorOptions(ADMIN_THEME_COLOR_DEFS),
     style: {
       form: {
         labelPosition: 'top',

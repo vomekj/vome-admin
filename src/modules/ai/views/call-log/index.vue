@@ -155,7 +155,8 @@ useTable({
     },
     { prop: 'createTime', label: '时间', width: 170 },
   ],
-})</script>
+})
+</script>
 
 <style lang="scss" scoped>
 .vm-ai-call-log__empty {

@@ -27,10 +27,10 @@ export function applyTheme(id: string) {
 
   if (theme.tokens) {
     for (const [key, value] of Object.entries(theme.tokens)) {
-      root.style.setProperty(key, value)
+      root.style.setProperty(key, String(value))
     }
   }
 }
 
-export type { ThemeDefinition, ThemeTokens } from '../../typings/theme'
+export type { ThemeDefinition, ThemeTokens } from '@core/typings/theme'
 export { lightTheme, darkTheme }

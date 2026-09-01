@@ -176,9 +176,12 @@ watch(
   flex: 1;
   min-height: 0;
   overflow: auto;
-  /* 深色侧栏滚动条用 token 覆盖全局色 */
-  --scrollbar-thumb: rgba(255, 255, 255, 0.35);
-  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.55);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .vm-nav {
     height: 100%;

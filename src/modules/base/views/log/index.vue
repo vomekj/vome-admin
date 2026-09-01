@@ -189,7 +189,7 @@ function formatLogType(v: unknown) {
 
 async function openJson(
   title: string,
-  row: { id?: unknown },
+  row: Record<string, unknown>,
   field: 'params' | 'response',
 ) {
   jsonTitle.value = title

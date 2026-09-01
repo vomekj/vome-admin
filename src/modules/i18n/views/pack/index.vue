@@ -114,6 +114,7 @@
 import { computed, reactive, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import { isAiStreamResult } from '@core/admin/api/client'
+import { loadEnabledLangOptions } from '@core/admin/crud'
 defineOptions({ name: 'i18n-pack' })
 
 const { service } = useVome()
@@ -245,62 +246,7 @@ useUpsert({
 })
 
 async function loadLangOptions() {
-  const toOpts = (
-    raw: unknown,
-  ): Array<{ label: string; value: string; id: number }> => {
-    const arr = Array.isArray(raw)
-      ? raw
-      : Array.isArray((raw as { list?: unknown })?.list)
-        ? ((raw as { list: unknown[] }).list ?? [])
-        : []
-    return arr
-      .map((l) => {
-        const row = l as {
-          id?: number
-          name?: string
-          code?: string
-          label?: string
-          value?: string
-        }
-        const value = String(row.code || row.value || '').trim()
-        const label = String(row.name || row.label || value).trim()
-        const id = Number(row.id)
-        return value
-          ? {
-              label: label || value,
-              value,
-              id: Number.isFinite(id) ? id : Number.MAX_SAFE_INTEGER,
-            }
-          : null
-      })
-      .filter(
-        (o): o is { label: string; value: string; id: number } => !!o,
-      )
-      .sort((a, b) => a.id - b.id)
-  }
-
-  let opts: Array<{ label: string; value: string; id: number }> = []
-  try {
-    opts = toOpts(await service.i18n.lang.enabled())
-  } catch {
-    /* ignore */
-  }
-  if (!opts.length) {
-    try {
-      opts = toOpts(await service.i18n.lang.list({ status: 1 }))
-    } catch {
-      /* ignore */
-    }
-  }
-  if (!opts.length) {
-    try {
-      opts = toOpts(
-        await service.i18n.lang.page({ page: 1, size: 200, status: 1 }),
-      )
-    } catch {
-      /* ignore */
-    }
-  }
+  const opts = await loadEnabledLangOptions(service)
   langOptions.value = opts.map(({ label, value }) => ({ label, value }))
   langNameMap.value = Object.fromEntries(
     opts.map(({ label, value }) => [value, label]),

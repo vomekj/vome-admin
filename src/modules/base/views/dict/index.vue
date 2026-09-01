@@ -75,6 +75,10 @@
         <vm-row>
           <vm-table ref="Table" />
         </vm-row>
+        <vm-row>
+          <vm-flex />
+          <vm-pagination />
+        </vm-row>
         <vm-upsert ref="Upsert" :title="upsertTitle" :items="upsertItems">
           <template v-if="upsertScene === 'type'" #default>
             <vm-form-hint style="grid-column: 1 / -1">
@@ -471,11 +475,11 @@ const Crud = useCrud(
         render([])
         return
       }
-      const res = await service.base.dict.info.list({
+      const res = await service.base.dict.info.page({
         ...params,
         typeId: selectedTypeId.value,
       })
-      render(res as unknown as Record<string, unknown>[])
+      render(res as { list: Record<string, unknown>[]; pagination?: unknown })
     },
   },
   (app) => {

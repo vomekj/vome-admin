@@ -93,7 +93,13 @@ $gutter: 10px;
   gap: 4px;
   overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   padding: 8px $gutter 24px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &.is-collapsed {
     align-items: center;

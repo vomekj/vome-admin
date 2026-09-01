@@ -13,10 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import emptyImg from '@/static/scarce/页面不存在.svg'
+import { SCARCE_PAGE_NOT_FOUND } from '@core/admin/lib/scarce-assets'
 
 defineOptions({ name: 'MissingViewPage' })
 defineProps<{ path?: string }>()
+
+const emptyImg = SCARCE_PAGE_NOT_FOUND
 
 const router = useRouter()
 

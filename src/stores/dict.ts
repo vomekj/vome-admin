@@ -74,11 +74,6 @@ export const useDictStore = defineStore('dict', () => {
     return computed(() => getDictOptions(typeKey))
   }
 
-  /** @deprecated 旧名；表单下拉请用 get，彩色 tag 用 options */
-  function stringOptions(typeKey: string) {
-    return get(typeKey)
-  }
-
   /**
    * 默认只读 EPS 本地缓存，不打网络。
    * 仅 force=true（字典管理改完后）才请求 /data。
@@ -108,7 +103,6 @@ export const useDictStore = defineStore('dict', () => {
     get,
     find,
     options,
-    stringOptions,
     refresh,
   }
 })

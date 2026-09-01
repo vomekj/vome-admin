@@ -52,6 +52,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { registerChatModels } from '@core/client'
 
 defineOptions({ name: 'ai-model' })
 
@@ -126,6 +127,19 @@ async function loadProviders() {
   }))
 }
 
+async function syncModelRegistry() {
+  try {
+    const list = (await service.ai.model.list({ status: 1 })) as Array<{
+      code?: string
+      resultModes?: string[]
+      defaults?: Record<string, unknown>
+    }>
+    registerChatModels(list ?? [])
+  } catch {
+    /* 登记失败不阻断列表 */
+  }
+}
+
 function asList(raw: unknown): string[] {
   if (Array.isArray(raw)) return raw.map(String)
   return []
@@ -151,9 +165,9 @@ function hasAsyncMode(form: Record<string, unknown>) {
 const Crud = useCrud(
   { service: service.ai.model },
   (app) => {
-    void Promise.all([
-      loadProviders(),
-      ]).then(() => app.refresh())
+    void Promise.all([loadProviders(), syncModelRegistry()]).then(() =>
+      app.refresh(),
+    )
   },
 )
 

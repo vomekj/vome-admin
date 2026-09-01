@@ -20,6 +20,8 @@
       "@core/*": ["node_modules/vome-core/*"],
       "@core/admin": ["node_modules/vome-core/dist/admin/index.d.ts"],
       "@core/admin/*": ["node_modules/vome-core/dist/admin/*"],
+      "@core/client": ["node_modules/vome-core/dist/client/index.d.ts"],
+      "@core/client/*": ["node_modules/vome-core/dist/client/*"],
       "@core/typings/*": ["node_modules/vome-core/typings/admin/*"],
       "@config": ["src/config/index.ts"],
       "@config/*": ["src/config/*"],

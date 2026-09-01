@@ -108,6 +108,7 @@ declare module 'vue' {
     VmCopyBtn: typeof import('@core/admin/crud/components/vm-copy-btn.vue')['default']
     VmCrud: typeof import('@core/admin/crud/vm-crud.vue')['default']
     VmDataI18nBtn: typeof import('@core/admin/crud/vm-data-i18n-btn.vue')['default']
+    VmDataI18nLang: typeof import('@core/admin/crud/vm-data-i18n-lang.vue')['default']
     VmDateCalendarPanel: typeof import('@core/admin/crud/components/vm-date-calendar-panel.vue')['default']
     VmDatePicker: typeof import('@core/admin/crud/components/vm-date-picker.vue')['default']
     VmDateRange: typeof import('@core/admin/crud/components/vm-date-range.vue')['default']

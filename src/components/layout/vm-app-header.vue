@@ -125,7 +125,6 @@
 
 <script setup lang="ts">
 import { api } from '@core/admin/api/client'
-import { resetMenuRoutesFlag } from '@/router'
 import { useThemeStore } from '@/stores/theme'
 import { useLocaleStore } from '@/stores/locale'
 
@@ -158,10 +157,8 @@ async function logout() {
   try {
     await api.logout()
   } finally {
-    void import('@/lib/socket').then(({ disconnectWs }) => disconnectWs())
     user.logout()
     tags.clear()
-    resetMenuRoutesFlag()
     // 硬跳转：卸掉 Layout 与动态路由残留，避免 URL 已是 /login 仍停在壳层
     location.href = '/login'
   }
