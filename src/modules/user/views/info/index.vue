@@ -39,7 +39,6 @@
 defineOptions({ name: 'user-info' })
 
 const { service } = useVome()
-const { dict } = useDict()
 
 const checkedRoleIds = ref<number[]>([])
 const roleNameMap = ref<Record<string, string>>({})
@@ -49,10 +48,11 @@ function avatarFallback(row: Record<string, unknown>) {
   return name.slice(0, 1).toUpperCase()
 }
 
+/** 角色映射键 = 业务自增 userId */
 function roleNameOf(row: Record<string, unknown>) {
-  const id = row.id
-  if (id == null) return '—'
-  return roleNameMap.value[String(id)] || '—'
+  const uid = row.userId
+  if (uid == null || uid === '') return '—'
+  return roleNameMap.value[String(uid)] || '—'
 }
 
 async function loadRoleNameMap() {
@@ -65,26 +65,37 @@ async function loadRoleNameMap() {
   }
 }
 
-async function loadUserRoles(userId: string) {
-  const ids = (await service.user.info.roles({ userId })) as number[]
+async function loadUserRoles(serialUserId: number) {
+  const ids = (await service.user.info.roles({
+    userId: serialUserId,
+  })) as number[]
   checkedRoleIds.value = (ids || []).map(Number)
 }
 
 useUpsert({
+  ignoreFields: ['userId'],
   items: [
-    { prop: 'name', label: '名称', required: true, span: 12 },
-    { prop: 'email', label: '邮箱', span: 12 },
-    { prop: 'phone', label: '手机号', span: 12 },
+    {
+      prop: 'tenantId',
+      label: '租户',
+      type: 'number',
+      component: {
+        props: {
+          type: 'number',
+          precision: 0,
+          controls: false,
+        },
+      },
+    },
     {
       prop: 'password',
       label: '密码',
+      required: (form) => form.id == null || form.id === '',
       placeholder: '新增必填 / 编辑留空不改',
-      span: 12,
     },
     {
       prop: 'image',
       label: '头像',
-      span: 12,
       component: {
         name: 'vm-upload',
         props: {
@@ -96,44 +107,13 @@ useUpsert({
         },
       },
     },
-    { prop: 'tenantId', label: '租户', span: 12 },
-    {
-      prop: 'remark',
-      label: '备注',
-      span: 12,
-      type: 'textarea',
-    },
-    {
-      prop: 'emailVerified',
-      label: '邮箱已验证',
-      span: 12,
-      type: 'select',
-      options: dict.get('yes_no'),
-      value: false,
-    },
-    {
-      prop: 'phoneVerified',
-      label: '手机已验证',
-      span: 12,
-      type: 'select',
-      options: dict.get('yes_no'),
-      value: false,
-    },
-    {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'select',
-      options: dict.get('user_status'),
-      value: 1,
-    },
   ],
   onOpen() {
     checkedRoleIds.value = []
   },
   async onOpened(form) {
-    const id = form.id != null && form.id !== '' ? String(form.id) : ''
-    if (id) await loadUserRoles(id)
+    const serial = Number(form.userId)
+    if (Number.isFinite(serial) && serial > 0) await loadUserRoles(serial)
   },
   async onSubmit(data, { close }) {
     const name = String(data.name ?? '').trim()
@@ -168,18 +148,27 @@ useUpsert({
       payload.password = String(data.password)
     }
 
-    let userId = data.id != null && data.id !== '' ? String(data.id) : ''
+    let baId = data.id != null && data.id !== '' ? String(data.id) : ''
+    let serialUserId =
+      data.userId != null && data.userId !== '' ? Number(data.userId) : 0
     try {
-      if (userId) {
-        await service.user.info.update({ ...payload, id: userId })
+      if (baId) {
+        await service.user.info.update({ ...payload, id: baId })
       } else {
-        const row = (await service.user.info.add(payload)) as { id?: string }
-        userId = String(row?.id ?? '')
+        const row = (await service.user.info.add(payload)) as {
+          id?: string
+          userId?: number
+        }
+        baId = String(row?.id ?? '')
+        serialUserId = Number(row?.userId ?? 0)
       }
-      if (!userId) throw new Error('未返回用户 id')
+      if (!baId) throw new Error('未返回用户 id')
+      if (!Number.isFinite(serialUserId) || serialUserId <= 0) {
+        throw new Error('未返回业务 userId')
+      }
 
       await service.user.info.setRoles({
-        userId,
+        userId: serialUserId,
         roleIds: checkedRoleIds.value,
       })
 
@@ -198,38 +187,11 @@ useUpsert({
 })
 
 useTable({
+  ignoreFields: ['password', 'unionid', 'id'],
   columns: [
-    { type: 'selection' },
-    { prop: 'id', label: 'ID', width: 160 },
-    { prop: 'userId', label: '用户ID', width: 90 },
-    { prop: 'phone', label: '手机号', width: 120 },
-    { prop: 'name', label: '昵称', width: 160 },
-    { prop: 'image', label: '头像', width: 120 },
-    { prop: 'email', label: '邮箱', width: 120 },
-    { prop: 'roleNames', label: '角色', width: 100 },
-    {
-      prop: 'emailVerified',
-      label: '邮箱验证',
-      width: 90,
-      dict: dict.options('yes_no'),
-    },
-    {
-      prop: 'phoneVerified',
-      label: '手机验证',
-      width: 90,
-      dict: dict.options('yes_no'),
-    },
-    { prop: 'tenantId', label: '租户', width: 80 },
-    { prop: 'remark', label: '备注', minWidth: 120 },
-    { prop: 'createdAt', label: '创建时间', minWidth: 160 },
-    {
-      prop: 'status',
-      label: '状态',
-      width: 100,
-      fixed: 'right',
-      dict: dict.options('user_status'),
-    },
-    { type: 'op', buttons: ['edit', 'delete'] },
+    { prop: 'userId', width: 88 },
+    { prop: 'image', width: 120, slot: 'cell-image' },
+    { prop: 'roleNames', label: '角色', width: 100, slot: 'cell-roleNames' },
   ],
 })
 

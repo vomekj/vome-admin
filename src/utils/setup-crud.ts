@@ -13,8 +13,12 @@ export function setupCrudDefaults() {
       form: {
         labelPosition: 'top',
         labelWidth: '100px',
-        span: 24,
-        plugins: [Plugins.Form.setFocus(), Plugins.Form.setRules()],
+        span: 12,
+        plugins: [
+          Plugins.Form.setFocus(),
+          Plugins.Form.setRules(),
+          Plugins.Form.setAuto(),
+        ],
       },
       search: {
         plugins: [Plugins.Search.setAuto()],
@@ -32,7 +36,7 @@ export function setupCrudDefaults() {
           'order-desc',
         ],
         column: { align: 'left', opWidth: 180 },
-        plugins: [],
+        plugins: [Plugins.Table.setAuto()],
       },
     },
   })

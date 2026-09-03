@@ -369,6 +369,8 @@ function valueToForm(raw: unknown): string {
 }
 
 useUpsert({
+  /** 类型 / 条目双场景，items 全手写 */
+  auto: false,
   onOpen(data) {
     if (data.typeId != null || 'value' in data) {
       upsertScene.value = 'info'
@@ -420,18 +422,15 @@ useUpsert({
 })
 
 useTable({
+  ignoreFields: ['typeId', 'parentId'],
   columns: [
-    { type: 'selection' },
-    { prop: 'name', label: '名称', minWidth: 140 },
+    { prop: 'name', minWidth: 140 },
     {
       prop: 'value',
-      label: '值',
       minWidth: 120,
       formatter: (_r, v) => formatValue(v),
     },
-    { prop: 'remark', label: '备注', minWidth: 120 },
-    { prop: 'orderNum', label: '排序', width: 80 },
-    { prop: 'createTime', label: '创建时间', minWidth: 160 },
+    { prop: 'orderNum', width: 80 },
     {
       type: 'op',
       width: 200,

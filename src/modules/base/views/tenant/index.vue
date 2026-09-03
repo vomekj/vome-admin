@@ -31,7 +31,6 @@
 defineOptions({ name: 'base-tenant' })
 
 const { service } = useVome()
-const { dict } = useDict()
 
 function domainList(raw: unknown): string[] {
   if (Array.isArray(raw)) {
@@ -48,61 +47,17 @@ function domainList(raw: unknown): string[] {
 
 useUpsert({
   items: [
-    { prop: 'name', label: '名称', required: true, span: 12 },
-    {
-      prop: 'code',
-      label: '编码',
-      required: true,
-      span: 12,
-      placeholder: '小写唯一编码，如 acme',
-    },
     {
       prop: 'domains',
-      label: '绑定域名',
+      label: '域名',
       type: 'textarea',
-      span: 12,
       placeholder: '商户访问域名，多个用逗号分隔，如 a.example.com, b.example.com',
     },
-    {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'switch',
-      value: 1,
-      component: {
-        props: dict.get('status'),
-      },
-    },
-    { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
 })
 
 useTable({
-  columns: [
-    { type: 'selection' },
-    { prop: 'id', label: 'ID', width: 70 },
-    { prop: 'name', label: '名称', minWidth: 140 },
-    { prop: 'code', label: '编码', minWidth: 120 },
-    {
-      prop: 'domains',
-      label: '绑定域名',
-      minWidth: 220,
-      slot: 'cell-domains',
-    },
-    { prop: 'remark', label: '备注', minWidth: 140 },
-    { prop: 'createTime', label: '创建时间', width: 170 },
-    {
-      prop: 'status',
-      fixed: 'right',
-      label: '状态',
-      width: 88,
-      component: {
-        name: 'vm-switch',
-        props: dict.get('status'),
-      },
-    },
-    { type: 'op', buttons: ['edit', 'delete'] },
-  ],
+  columns: [{ prop: 'domains', minWidth: 220, slot: 'cell-domains' }],
 })
 
 const Crud = useCrud(

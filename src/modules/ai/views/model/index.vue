@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { registerChatModels } from '@core/client'
+import { registerChatModels } from 'vome-core/client'
 
 defineOptions({ name: 'ai-model' })
 
@@ -177,47 +177,23 @@ useUpsert({
       prop: 'providerId',
       label: '连接',
       required: true,
-      span: 12,
       type: 'select',
       options: computed(() => providerOptions.value),
     },
     {
-      prop: 'code',
-      label: '模型编码',
-      required: true,
-      span: 12,
-      placeholder: '如 gpt-4o / agnes-2.5-flash',
-    },
-    {
-      prop: 'path',
-      label: '请求路径',
-      required: true,
-      span: 12,
-      placeholder: '例:/v1/chat/completions',
-    },
-    {
       prop: 'method',
       label: '请求方法',
-      required: true,
-      span: 12,
-      type: 'select',
-      options: dict.get('base_http_method'),
       value: 'POST',
     },
     {
       prop: 'contentType',
       label: '请求体类型',
-      required: true,
-      span: 12,
-      type: 'select',
-      options: dict.get('base_ai_content_type'),
       value: 'json',
     },
     {
       prop: 'capabilities',
       label: '能力',
       required: true,
-      span: 12,
       type: 'select',
       multiple: true,
       options: dict.get('base_ai_capability'),
@@ -227,76 +203,27 @@ useUpsert({
       prop: 'resultModes',
       label: '结果形态',
       required: true,
-      span: 12,
       type: 'select',
       multiple: true,
       options: dict.get('base_ai_result_mode'),
       value: ['stream'],
     },
     {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'switch',
-      value: 1,
-      component: {
-        props: dict.get('status'),
-      },
-    },
-    {
       prop: 'asyncSpec',
       label: '异步契约',
-      span: 12,
       component: { name: 'vm-json-editor', props: { rows: 10 } },
       placeholder:
         '{"pollPath":"/agnesapi?video_id={id}","idFields":["video_id","task_id","id"],"resultUrlPath":"metadata.url"}',
       hidden: (form) => !hasAsyncMode(form),
     },
-    { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
 })
 
 useTable({
+  ignoreFields: ['providerId', 'asyncSpec', 'remark', 'defaults'],
   columns: [
-    { type: 'selection' },
-    { prop: 'id', label: 'ID', width: 72 },
-    { prop: 'code', label: '编码', minWidth: 120 },
-    { prop: 'path', label: '请求路径', minWidth: 180 },
-    {
-      prop: 'method',
-      label: '方法',
-      width: 88,
-      dict: dict.options('base_http_method'),
-    },
-    {
-      prop: 'contentType',
-      label: '请求体',
-      width: 100,
-      dict: dict.options('base_ai_content_type'),
-    },
-    {
-      prop: 'capabilities',
-      label: '能力',
-      minWidth: 160,
-      slot: 'cell-capabilities',
-    },
-    {
-      prop: 'resultModes',
-      label: '结果形态',
-      minWidth: 140,
-      slot: 'cell-resultModes',
-    },
-    { prop: 'createTime', label: '创建时间', width: 170 },
-    {
-      prop: 'status',
-      fixed: 'right',
-      label: '状态',
-      width: 88,
-      component: {
-        name: 'vm-switch',
-        props: dict.get('status'),
-      },
-    },
+    { prop: 'capabilities', minWidth: 160, slot: 'cell-capabilities' },
+    { prop: 'resultModes', minWidth: 140, slot: 'cell-resultModes' },
     {
       type: 'op',
       width: 200,

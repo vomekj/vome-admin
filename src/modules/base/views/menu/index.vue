@@ -235,6 +235,8 @@ const UpsertItems = computed((): CrudFormItem[] => [
 ])
 
 const Upsert = useUpsert({
+  /** 树形菜单表单控件特殊，整页手写 */
+  auto: false,
   get items() {
     return UpsertItems.value
   },
@@ -397,17 +399,15 @@ function append(row: Record<string, unknown>) {
 
 useTable({
   defaultSort: { prop: 'orderNum', order: 'asc' },
+  ignoreFields: ['parentId'],
   columns: [
-    { type: 'selection' },
-    { prop: 'name', label: '名称', minWidth: 200 },
-    { prop: 'isShow', label: '显示', width: 88, slot: 'cell-isShow' },
-    { prop: 'icon', label: '图标', width: 88, align: 'center', slot: 'cell-icon' },
-    { prop: 'type', label: '类型', width: 88, dict: dict.options('base_menu_type') },
-    { prop: 'router', label: '路由', minWidth: 160 },
-    { prop: 'keepAlive', label: '缓存', width: 88, slot: 'cell-keepAlive' },
-    { prop: 'viewPath', label: '视图', minWidth: 180 },
-    { prop: 'perms', label: '权限', minWidth: 180, slot: 'cell-perms' },
-    { prop: 'orderNum', label: '排序', width: 80, sortable: true },
+    { prop: 'name', minWidth: 200 },
+    { prop: 'isShow', width: 88, slot: 'cell-isShow' },
+    { prop: 'icon', width: 88, align: 'center', slot: 'cell-icon' },
+    { prop: 'type', width: 88, dict: dict.options('base_menu_type') },
+    { prop: 'keepAlive', width: 88, slot: 'cell-keepAlive' },
+    { prop: 'perms', minWidth: 180, slot: 'cell-perms' },
+    { prop: 'orderNum', width: 80, sortable: true },
     {
       type: 'op',
       width: 220,

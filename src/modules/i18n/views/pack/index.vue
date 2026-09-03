@@ -502,10 +502,8 @@ async function runTranslate() {
 }
 
 useTable({
+  ignoreFields: ['selection', 'packJson', 'sourceHash', 'createTime'],
   columns: [
-    { type: 'selection', width: 48 },
-    { prop: 'id', label: 'ID', width: 72 },
-    { prop: 'langCode', label: '语种', width: 100 },
     {
       prop: 'langName',
       label: '语言名称',
@@ -515,10 +513,7 @@ useTable({
         langNameMap.value[String(row.langCode || '')] ||
         String(row.langCode || '—'),
     },
-    { prop: 'scopeKey', label: '标识', width: 160 },
-    { prop: 'version', label: '版本', width: 72 },
     { prop: 'updateTime', label: '更新时间', width: 170 },
-    { type: 'op', width: 140, buttons: ['edit', 'delete'] },
   ],
 })
 </script>

@@ -252,6 +252,7 @@ const HostCrud = useCrud({
 })
 
 useUpsert({
+  auto: false,
   sync: true,
   async onSubmit(data, { close }) {
     if (upsertScene.value !== 'form') return
@@ -308,6 +309,7 @@ const logsStatusOptions = [
 ]
 
 const LogsTable = useTable({
+  auto: false,
   autoHeight: false,
   columns: [
     { type: 'index', label: '#', width: 56 },

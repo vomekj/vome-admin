@@ -163,27 +163,13 @@ async function loadRoleRelations(roleId: number) {
 
 useUpsert({
   items: [
-    { prop: 'name', label: '名称', required: true, span: 12 },
-    { prop: 'label', label: '标识', required: true, span: 12 },
-    {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'switch',
-      value: 1,
-      component: {
-        props: dict.get('status'),
-      },
-    },
     {
       prop: 'dataScope',
-      label: '数据范围',
+      label: '数据权限',
       type: 'radio',
-      span: 12,
       value: '0',
       options: dict.get('base_data_scope'),
     },
-    { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
   onOpen() {
     checkedMenuIds.value = []
@@ -238,30 +224,13 @@ useUpsert({
 })
 
 useTable({
+  ignoreFields: ['relevance'],
   columns: [
-    { type: 'selection' },
-    { prop: 'id', label: 'ID', width: 70 },
-    { prop: 'name', label: '名称', minWidth: 120 },
-    { prop: 'label', label: '标识', minWidth: 120 },
     {
       prop: 'dataScope',
-      label: '数据范围',
       width: 100,
       dict: dict.options('base_data_scope'),
     },
-    { prop: 'remark', label: '备注', minWidth: 160 },
-    { prop: 'createTime', label: '创建时间', minWidth: 160 },
-    {
-      prop: 'status',
-      fixed: 'right',
-      label: '状态',
-      width: 88,
-      component: {
-        name: 'vm-switch',
-        props: dict.get('status'),
-      },
-    },
-    { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })
 

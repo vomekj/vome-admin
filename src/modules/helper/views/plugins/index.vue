@@ -386,6 +386,7 @@ const HostCrud = useCrud({
 })
 
 useUpsert({
+  auto: false,
   sync: true,
   async onSubmit(data, { close }) {
     if (upsertScene.value !== 'config') return

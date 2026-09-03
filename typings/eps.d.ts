@@ -68,7 +68,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -117,7 +117,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -154,7 +154,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -191,7 +191,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -225,7 +225,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -247,7 +247,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -293,7 +293,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -351,7 +351,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -400,7 +400,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -455,7 +455,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -495,7 +495,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -541,7 +541,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -572,7 +572,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -630,7 +630,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -679,7 +679,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -713,7 +713,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -744,7 +744,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -781,7 +781,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -824,13 +824,13 @@ declare namespace Eps {
 		status?: number;
 
 		/** 创建时间 */
-		createdAt?: string;
+		createTime?: string;
 
 		/** 更新时间 */
-		updatedAt?: string;
+		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -861,7 +861,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedAt?: string;
+		deletedTime?: string;
 
 		[key: string]: any;
 	}
@@ -1077,6 +1077,9 @@ declare namespace Eps {
 		/** 恢复 */
 		restore(data?: any): Promise<any>;
 
+		/** dataI18n */
+		dataI18n(data?: any): Promise<any>;
+
 		/** 下载导入模板 */
 		importTemplate(data?: any): Promise<any>;
 
@@ -1084,8 +1087,8 @@ declare namespace Eps {
 		import(data?: any): Promise<any>;
 
 		namespace: string;
-		permission: { types: string; data: string; get: string; find: string; getValues: string; pathValue: string; childValue: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
-		_permission: { types: boolean; data: boolean; get: boolean; find: boolean; getValues: boolean; pathValue: boolean; childValue: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		permission: { types: string; data: string; get: string; find: string; getValues: string; pathValue: string; childValue: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; dataI18n: string; importTemplate: string; import: string };
+		_permission: { types: boolean; data: boolean; get: boolean; find: boolean; getValues: boolean; pathValue: boolean; childValue: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; dataI18n: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1111,6 +1114,9 @@ declare namespace Eps {
 		/** 恢复 */
 		restore(data?: any): Promise<any>;
 
+		/** dataI18n */
+		dataI18n(data?: any): Promise<any>;
+
 		/** 下载导入模板 */
 		importTemplate(data?: any): Promise<any>;
 
@@ -1118,8 +1124,8 @@ declare namespace Eps {
 		import(data?: any): Promise<any>;
 
 		namespace: string;
-		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
-		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; dataI18n: string; importTemplate: string; import: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; dataI18n: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1242,6 +1248,9 @@ declare namespace Eps {
 		/** 恢复 */
 		restore(data?: any): Promise<any>;
 
+		/** dataI18n */
+		dataI18n(data?: any): Promise<any>;
+
 		/** 下载导入模板 */
 		importTemplate(data?: any): Promise<any>;
 
@@ -1249,8 +1258,8 @@ declare namespace Eps {
 		import(data?: any): Promise<any>;
 
 		namespace: string;
-		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
-		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		permission: { add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; dataI18n: string; importTemplate: string; import: string };
+		_permission: { add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; dataI18n: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 

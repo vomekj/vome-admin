@@ -85,7 +85,7 @@
           <vm-json-kv-editor
             v-else-if="Number(form.type) === 3"
             :model-value="jsonNodes"
-            :kind-options="kindOptions"
+            :kind-options="dict.options('base_json_value_kind').value"
             @update:model-value="onJsonNodesChange"
           />
         </div>
@@ -103,11 +103,6 @@ const { service } = useVome()
 const { dict } = useDict()
 
 const jsonNodes = ref<JsonKvNode[]>([createEmptyNode()])
-/** 平铺选项；短列表关索引搜索（组件内 filterable=false） */
-const kindOptions = dict.options('base_json_value_kind')
-const paramTypeOptions = dict.options('base_param_type')
-const yesNoOptions = dict.get('base_yes_no')
-const paramTypeTags = dict.options('base_param_type')
 
 function newUid() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`
@@ -303,48 +298,20 @@ function fileName(raw: unknown) {
 }
 
 useUpsert({
+  ignoreFields: ['data', 'appOpenPaths'],
   items: [
-    {
-      prop: 'name',
-      label: '名称',
-      required: true,
-      span: 12,
-      placeholder: '请输入',
-    },
-    {
-      prop: 'keyName',
-      label: 'keyName',
-      required: true,
-      span: 12,
-      placeholder: '请输入Key',
-    },
     {
       prop: 'type',
       label: '类型',
       required: true,
-      span: 12,
-      type: 'select',
+      type: 'radio',
       value: 0,
-      options: paramTypeOptions,
-      component: { props: { filterable: false } },
-    },
-    {
-      prop: 'openToApp',
-      label: '对App开放',
-      span: 12,
-      type: 'switch',
-      value: 0,
-      component: {
-        props: yesNoOptions,
-      },
+      options: dict.options('base_param_type'),
     },
     {
       prop: 'remark',
       label: '备注',
-      type: 'textarea',
       span: 24,
-      placeholder: '请输入备注',
-      component: { props: { rows: 2, height: 52 } },
     },
   ],
   onOpened(form: Record<string, unknown>) {
@@ -376,32 +343,24 @@ useUpsert({
 })
 
 useTable({
+  ignoreFields: ['appOpenPaths'],
   columns: [
-    { type: 'selection' },
-    { prop: 'id', label: 'ID', width: 72 },
-    { prop: 'name', label: '名称', minWidth: 140 },
-    { prop: 'keyName', label: 'keyName', minWidth: 140 },
     {
       prop: 'type',
-      label: '类型',
       width: 100,
-      dict: paramTypeTags,
+      dict: dict.options('base_param_type'),
       component: { name: 'vm-dict-tag' },
     },
-    { prop: 'data', label: '数据', minWidth: 200 },
-    { prop: 'remark', label: '备注', minWidth: 140 },
-    { prop: 'createTime', label: '创建时间', width: 170 },
+    { prop: 'data', minWidth: 200, slot: 'cell-data' },
     {
       prop: 'openToApp',
-      label: '对App开放',
       width: 110,
       fixed: 'right',
       component: {
         name: 'vm-switch',
-        props: yesNoOptions,
+        props: dict.get('base_yes_no'),
       },
     },
-    { type: 'op', buttons: ['edit', 'delete'] },
   ],
 })
 

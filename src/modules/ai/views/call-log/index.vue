@@ -104,56 +104,31 @@ function openJson(title: string, value: unknown) {
 }
 
 useTable({
+  ignoreFields: [
+    'selection',
+    'op',
+    'inputTokens',
+    'outputTokens',
+    'errorCode',
+    'errorMessage',
+    'upstreamId',
+  ],
   columns: [
-    { prop: 'id', label: 'ID', width: 72 },
-    { prop: 'recordKey', label: '任务号', minWidth: 168 },
-    { prop: 'modelCode', label: '模型', minWidth: 120 },
-    {
-      prop: 'capability',
-      label: '能力',
-      width: 96,
-      dict: dict.options('base_ai_capability'),
-    },
-    {
-      prop: 'mode',
-      label: '形态',
-      width: 88,
-      dict: dict.options('base_ai_result_mode'),
-    },
-    {
-      prop: 'status',
-      fixed: 'right',
-      label: '任务状态',
-      width: 104,
-      dict: dict.options('base_ai_async_status'),
-    },
     {
       prop: 'ok',
-      label: '成功',
       width: 72,
       dict: dict.options('status'),
     },
-    { prop: 'latencyMs', label: '耗时ms', width: 88 },
-    { prop: 'totalTokens', label: 'Token', width: 88 },
-    {
-      prop: 'source',
-      label: '来源',
-      width: 96,
-      dict: dict.options('base_ai_invoke_source'),
-    },
     {
       prop: 'request',
-      label: '请求参数',
       minWidth: 140,
       slot: 'cell-request',
     },
     {
       prop: 'result',
-      label: '响应结果',
       minWidth: 140,
       slot: 'cell-result',
     },
-    { prop: 'createTime', label: '时间', width: 170 },
   ],
 })
 </script>

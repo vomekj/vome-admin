@@ -6,6 +6,6 @@ export type AppUserRow = {
   emailVerified?: boolean
   image?: string | null
   tenantId?: number | null
-  createdAt?: string | null
-  updatedAt?: string | null
+  createTime?: string | null
+  updateTime?: string | null
 }

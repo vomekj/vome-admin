@@ -97,7 +97,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "ai_call_log"
@@ -105,8 +108,10 @@
           {
             "propertyName": "recordKey",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.recordKey",
             "comment": "任务号",
             "table": "ai_call_log"
@@ -114,8 +119,10 @@
           {
             "propertyName": "modelCode",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.modelCode",
             "comment": "模型编码",
             "table": "ai_call_log"
@@ -123,8 +130,10 @@
           {
             "propertyName": "capability",
             "type": "string",
-            "length": "50",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.capability",
             "comment": "能力",
             "table": "ai_call_log",
@@ -133,8 +142,10 @@
           {
             "propertyName": "mode",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.mode",
             "comment": "形态",
             "table": "ai_call_log",
@@ -143,8 +154,10 @@
           {
             "propertyName": "status",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.status",
             "comment": "任务状态",
             "table": "ai_call_log",
@@ -153,7 +166,10 @@
           {
             "propertyName": "ok",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.ok",
             "comment": "成功",
             "table": "ai_call_log"
@@ -161,7 +177,10 @@
           {
             "propertyName": "latencyMs",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.latencyMs",
             "comment": "耗时ms",
             "table": "ai_call_log"
@@ -169,7 +188,10 @@
           {
             "propertyName": "inputTokens",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.inputTokens",
             "comment": "输入token",
             "table": "ai_call_log"
@@ -177,7 +199,10 @@
           {
             "propertyName": "outputTokens",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.outputTokens",
             "comment": "输出token",
             "table": "ai_call_log"
@@ -185,7 +210,10 @@
           {
             "propertyName": "totalTokens",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.totalTokens",
             "comment": "总token",
             "table": "ai_call_log"
@@ -193,8 +221,10 @@
           {
             "propertyName": "errorCode",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.errorCode",
             "comment": "错误码",
             "table": "ai_call_log"
@@ -202,7 +232,10 @@
           {
             "propertyName": "errorMessage",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.errorMessage",
             "comment": "错误信息",
             "table": "ai_call_log"
@@ -210,8 +243,10 @@
           {
             "propertyName": "source",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.source",
             "comment": "来源",
             "table": "ai_call_log",
@@ -220,8 +255,10 @@
           {
             "propertyName": "upstreamId",
             "type": "string",
-            "length": "200",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.upstreamId",
             "comment": "上游任务ID",
             "table": "ai_call_log"
@@ -229,7 +266,10 @@
           {
             "propertyName": "request",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.request",
             "comment": "请求参数",
             "table": "ai_call_log"
@@ -237,7 +277,10 @@
           {
             "propertyName": "result",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.result",
             "comment": "响应结果",
             "table": "ai_call_log"
@@ -245,7 +288,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "ai_call_log"
@@ -253,16 +299,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "ai_call_log"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "ai_call_log"
           }
@@ -299,7 +351,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "ai_call_log"
@@ -307,8 +362,10 @@
           {
             "propertyName": "recordKey",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.recordKey",
             "comment": "任务号",
             "table": "ai_call_log"
@@ -316,8 +373,10 @@
           {
             "propertyName": "modelCode",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.modelCode",
             "comment": "模型编码",
             "table": "ai_call_log"
@@ -325,8 +384,10 @@
           {
             "propertyName": "capability",
             "type": "string",
-            "length": "50",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.capability",
             "comment": "能力",
             "table": "ai_call_log",
@@ -335,8 +396,10 @@
           {
             "propertyName": "mode",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.mode",
             "comment": "形态",
             "table": "ai_call_log",
@@ -345,8 +408,10 @@
           {
             "propertyName": "status",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.status",
             "comment": "任务状态",
             "table": "ai_call_log",
@@ -355,7 +420,10 @@
           {
             "propertyName": "ok",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.ok",
             "comment": "成功",
             "table": "ai_call_log"
@@ -363,7 +431,10 @@
           {
             "propertyName": "latencyMs",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.latencyMs",
             "comment": "耗时ms",
             "table": "ai_call_log"
@@ -371,7 +442,10 @@
           {
             "propertyName": "inputTokens",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.inputTokens",
             "comment": "输入token",
             "table": "ai_call_log"
@@ -379,7 +453,10 @@
           {
             "propertyName": "outputTokens",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.outputTokens",
             "comment": "输出token",
             "table": "ai_call_log"
@@ -387,7 +464,10 @@
           {
             "propertyName": "totalTokens",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.totalTokens",
             "comment": "总token",
             "table": "ai_call_log"
@@ -395,8 +475,10 @@
           {
             "propertyName": "errorCode",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.errorCode",
             "comment": "错误码",
             "table": "ai_call_log"
@@ -404,7 +486,10 @@
           {
             "propertyName": "errorMessage",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.errorMessage",
             "comment": "错误信息",
             "table": "ai_call_log"
@@ -412,8 +497,10 @@
           {
             "propertyName": "source",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.source",
             "comment": "来源",
             "table": "ai_call_log",
@@ -422,8 +509,10 @@
           {
             "propertyName": "upstreamId",
             "type": "string",
-            "length": "200",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.upstreamId",
             "comment": "上游任务ID",
             "table": "ai_call_log"
@@ -431,7 +520,10 @@
           {
             "propertyName": "request",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.request",
             "comment": "请求参数",
             "table": "ai_call_log"
@@ -439,7 +531,10 @@
           {
             "propertyName": "result",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.result",
             "comment": "响应结果",
             "table": "ai_call_log"
@@ -447,7 +542,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "ai_call_log"
@@ -455,23 +553,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "ai_call_log"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "ai_call_log"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "ai",
@@ -633,7 +741,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "ai_model"
@@ -641,7 +752,10 @@
           {
             "propertyName": "providerId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.providerId",
             "comment": "连接",
             "table": "ai_model"
@@ -649,8 +763,10 @@
           {
             "propertyName": "code",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.code",
             "comment": "模型编码",
             "table": "ai_model"
@@ -658,8 +774,10 @@
           {
             "propertyName": "path",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.path",
             "comment": "请求路径",
             "table": "ai_model"
@@ -667,8 +785,10 @@
           {
             "propertyName": "method",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.method",
             "comment": "请求方法",
             "table": "ai_model",
@@ -677,8 +797,10 @@
           {
             "propertyName": "contentType",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.contentType",
             "comment": "请求体类型",
             "table": "ai_model",
@@ -687,7 +809,10 @@
           {
             "propertyName": "capabilities",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.capabilities",
             "comment": "能力",
             "table": "ai_model"
@@ -695,7 +820,10 @@
           {
             "propertyName": "resultModes",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.resultModes",
             "comment": "结果形态",
             "table": "ai_model"
@@ -703,7 +831,10 @@
           {
             "propertyName": "asyncSpec",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.asyncSpec",
             "comment": "异步契约",
             "table": "ai_model"
@@ -711,7 +842,10 @@
           {
             "propertyName": "defaults",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.defaults",
             "comment": "默认参数",
             "table": "ai_model"
@@ -719,7 +853,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "ai_model",
@@ -728,8 +865,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "ai_model"
@@ -737,7 +876,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "ai_model"
@@ -745,16 +887,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "ai_model"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "ai_model"
           }
@@ -788,7 +936,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "ai_model"
@@ -796,7 +947,10 @@
           {
             "propertyName": "providerId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.providerId",
             "comment": "连接",
             "table": "ai_model"
@@ -804,8 +958,10 @@
           {
             "propertyName": "code",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.code",
             "comment": "模型编码",
             "table": "ai_model"
@@ -813,8 +969,10 @@
           {
             "propertyName": "path",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.path",
             "comment": "请求路径",
             "table": "ai_model"
@@ -822,8 +980,10 @@
           {
             "propertyName": "method",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.method",
             "comment": "请求方法",
             "table": "ai_model",
@@ -832,8 +992,10 @@
           {
             "propertyName": "contentType",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.contentType",
             "comment": "请求体类型",
             "table": "ai_model",
@@ -842,7 +1004,10 @@
           {
             "propertyName": "capabilities",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.capabilities",
             "comment": "能力",
             "table": "ai_model"
@@ -850,7 +1015,10 @@
           {
             "propertyName": "resultModes",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.resultModes",
             "comment": "结果形态",
             "table": "ai_model"
@@ -858,7 +1026,10 @@
           {
             "propertyName": "asyncSpec",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.asyncSpec",
             "comment": "异步契约",
             "table": "ai_model"
@@ -866,7 +1037,10 @@
           {
             "propertyName": "defaults",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.defaults",
             "comment": "默认参数",
             "table": "ai_model"
@@ -874,7 +1048,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "ai_model",
@@ -883,8 +1060,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "ai_model"
@@ -892,7 +1071,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "ai_model"
@@ -900,23 +1082,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "ai_model"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "ai_model"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "ai",
@@ -1052,7 +1244,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "ai_provider"
@@ -1060,8 +1255,10 @@
           {
             "propertyName": "vendor",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.vendor",
             "comment": "厂商",
             "table": "ai_provider"
@@ -1069,8 +1266,10 @@
           {
             "propertyName": "protocol",
             "type": "string",
-            "length": "50",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.protocol",
             "comment": "协议",
             "table": "ai_provider",
@@ -1079,8 +1278,10 @@
           {
             "propertyName": "baseUrl",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.baseUrl",
             "comment": "接口地址",
             "table": "ai_provider"
@@ -1088,7 +1289,10 @@
           {
             "propertyName": "apiKey",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.apiKey",
             "comment": "API密钥",
             "table": "ai_provider"
@@ -1096,7 +1300,10 @@
           {
             "propertyName": "extra",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.extra",
             "comment": "扩展配置",
             "table": "ai_provider"
@@ -1104,7 +1311,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "ai_provider",
@@ -1113,8 +1323,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "ai_provider"
@@ -1122,7 +1334,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "ai_provider"
@@ -1130,16 +1345,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "ai_provider"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "ai_provider"
           }
@@ -1168,7 +1389,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "ai_provider"
@@ -1176,8 +1400,10 @@
           {
             "propertyName": "vendor",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.vendor",
             "comment": "厂商",
             "table": "ai_provider"
@@ -1185,8 +1411,10 @@
           {
             "propertyName": "protocol",
             "type": "string",
-            "length": "50",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.protocol",
             "comment": "协议",
             "table": "ai_provider",
@@ -1195,8 +1423,10 @@
           {
             "propertyName": "baseUrl",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.baseUrl",
             "comment": "接口地址",
             "table": "ai_provider"
@@ -1204,7 +1434,10 @@
           {
             "propertyName": "apiKey",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.apiKey",
             "comment": "API密钥",
             "table": "ai_provider"
@@ -1212,7 +1445,10 @@
           {
             "propertyName": "extra",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.extra",
             "comment": "扩展配置",
             "table": "ai_provider"
@@ -1220,7 +1456,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "ai_provider",
@@ -1229,8 +1468,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "ai_provider"
@@ -1238,7 +1479,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "ai_provider"
@@ -1246,23 +1490,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "ai_provider"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "ai_provider"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ],
     "base": [
@@ -1344,7 +1598,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -1380,7 +1638,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -1531,7 +1793,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_department"
@@ -1539,7 +1804,10 @@
           {
             "propertyName": "parentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.parentId",
             "comment": "上级",
             "table": "base_department"
@@ -1547,8 +1815,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_department"
@@ -1556,7 +1826,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "base_department"
@@ -1564,7 +1837,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_department"
@@ -1572,16 +1848,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_department"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_department"
           }
@@ -1608,7 +1890,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_department"
@@ -1616,7 +1901,10 @@
           {
             "propertyName": "parentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.parentId",
             "comment": "上级",
             "table": "base_department"
@@ -1624,8 +1912,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_department"
@@ -1633,7 +1923,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "base_department"
@@ -1641,7 +1934,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_department"
@@ -1649,23 +1945,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_department"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_department"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -1860,6 +2166,19 @@
             ]
           },
           {
+            "method": "post",
+            "path": "/dataI18n",
+            "summary": "dataI18n",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/info",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:info:dataI18n"
+            ]
+          },
+          {
             "method": "get",
             "path": "/importTemplate",
             "summary": "下载导入模板",
@@ -1890,7 +2209,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_dict_info"
@@ -1898,7 +2220,10 @@
           {
             "propertyName": "typeId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.typeId",
             "comment": "字典类型",
             "table": "base_dict_info"
@@ -1906,8 +2231,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_dict_info"
@@ -1915,7 +2242,10 @@
           {
             "propertyName": "value",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.value",
             "comment": "值",
             "table": "base_dict_info"
@@ -1923,7 +2253,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "base_dict_info"
@@ -1931,8 +2264,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_dict_info"
@@ -1940,7 +2275,10 @@
           {
             "propertyName": "parentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.parentId",
             "comment": "上级",
             "table": "base_dict_info"
@@ -1948,7 +2286,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_dict_info"
@@ -1956,16 +2297,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_dict_info"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_dict_info"
           }
@@ -1998,7 +2345,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_dict_info"
@@ -2006,7 +2356,10 @@
           {
             "propertyName": "typeId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.typeId",
             "comment": "字典类型",
             "table": "base_dict_info"
@@ -2014,8 +2367,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_dict_info"
@@ -2023,7 +2378,10 @@
           {
             "propertyName": "value",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.value",
             "comment": "值",
             "table": "base_dict_info"
@@ -2031,7 +2389,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "base_dict_info"
@@ -2039,8 +2400,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_dict_info"
@@ -2048,7 +2411,10 @@
           {
             "propertyName": "parentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.parentId",
             "comment": "上级",
             "table": "base_dict_info"
@@ -2056,7 +2422,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_dict_info"
@@ -2064,23 +2433,35 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_dict_info"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_dict_info"
           }
         ],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18n": true,
+        "dataI18nFields": [
+          "name"
+        ],
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -2186,6 +2567,19 @@
             ]
           },
           {
+            "method": "post",
+            "path": "/dataI18n",
+            "summary": "dataI18n",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/dict/type",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:dict:type:dataI18n"
+            ]
+          },
+          {
             "method": "get",
             "path": "/importTemplate",
             "summary": "下载导入模板",
@@ -2216,7 +2610,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_dict_type"
@@ -2224,8 +2621,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_dict_type"
@@ -2233,8 +2632,10 @@
           {
             "propertyName": "key",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.key",
             "comment": "标识",
             "table": "base_dict_type"
@@ -2242,7 +2643,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_dict_type"
@@ -2250,16 +2654,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_dict_type"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_dict_type"
           }
@@ -2285,7 +2695,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_dict_type"
@@ -2293,8 +2706,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_dict_type"
@@ -2302,8 +2717,10 @@
           {
             "propertyName": "key",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.key",
             "comment": "标识",
             "table": "base_dict_type"
@@ -2311,7 +2728,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_dict_type"
@@ -2319,23 +2739,35 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_dict_type"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_dict_type"
           }
         ],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18n": true,
+        "dataI18nFields": [
+          "name"
+        ],
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -2458,7 +2890,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_log"
@@ -2466,8 +2901,10 @@
           {
             "propertyName": "userId",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.userId",
             "comment": "操作者",
             "table": "base_log"
@@ -2475,8 +2912,10 @@
           {
             "propertyName": "side",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.side",
             "comment": "端",
             "table": "base_log"
@@ -2484,8 +2923,10 @@
           {
             "propertyName": "ip",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.ip",
             "comment": "IP",
             "table": "base_log"
@@ -2493,8 +2934,10 @@
           {
             "propertyName": "method",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.method",
             "comment": "方法",
             "table": "base_log"
@@ -2502,8 +2945,10 @@
           {
             "propertyName": "action",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.action",
             "comment": "路径",
             "table": "base_log"
@@ -2511,8 +2956,10 @@
           {
             "propertyName": "logType",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.logType",
             "comment": "日志类型",
             "table": "base_log"
@@ -2520,7 +2967,10 @@
           {
             "propertyName": "params",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.params",
             "comment": "请求参数",
             "table": "base_log"
@@ -2528,7 +2978,10 @@
           {
             "propertyName": "response",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.response",
             "comment": "响应",
             "table": "base_log"
@@ -2536,7 +2989,10 @@
           {
             "propertyName": "duration",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.duration",
             "comment": "响应时间",
             "table": "base_log"
@@ -2544,7 +3000,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.status",
             "comment": "状态码",
             "table": "base_log"
@@ -2552,7 +3011,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "请求时间",
             "table": "base_log"
@@ -2560,16 +3022,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_log"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_log"
           }
@@ -2607,7 +3075,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_log"
@@ -2615,8 +3086,10 @@
           {
             "propertyName": "userId",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.userId",
             "comment": "操作者",
             "table": "base_log"
@@ -2624,8 +3097,10 @@
           {
             "propertyName": "side",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.side",
             "comment": "端",
             "table": "base_log"
@@ -2633,8 +3108,10 @@
           {
             "propertyName": "ip",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.ip",
             "comment": "IP",
             "table": "base_log"
@@ -2642,8 +3119,10 @@
           {
             "propertyName": "method",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.method",
             "comment": "方法",
             "table": "base_log"
@@ -2651,8 +3130,10 @@
           {
             "propertyName": "action",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.action",
             "comment": "路径",
             "table": "base_log"
@@ -2660,8 +3141,10 @@
           {
             "propertyName": "logType",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.logType",
             "comment": "日志类型",
             "table": "base_log"
@@ -2669,7 +3152,10 @@
           {
             "propertyName": "params",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.params",
             "comment": "请求参数",
             "table": "base_log"
@@ -2677,7 +3163,10 @@
           {
             "propertyName": "response",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.response",
             "comment": "响应",
             "table": "base_log"
@@ -2685,7 +3174,10 @@
           {
             "propertyName": "duration",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.duration",
             "comment": "响应时间",
             "table": "base_log"
@@ -2693,7 +3185,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.status",
             "comment": "状态码",
             "table": "base_log"
@@ -2701,7 +3196,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "请求时间",
             "table": "base_log"
@@ -2709,23 +3207,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_log"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_log"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -2874,7 +3382,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_menu"
@@ -2882,7 +3393,10 @@
           {
             "propertyName": "parentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.parentId",
             "comment": "上级",
             "table": "base_menu"
@@ -2890,8 +3404,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_menu"
@@ -2899,8 +3415,10 @@
           {
             "propertyName": "router",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.router",
             "comment": "路由",
             "table": "base_menu"
@@ -2908,8 +3426,10 @@
           {
             "propertyName": "perms",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.perms",
             "comment": "权限",
             "table": "base_menu"
@@ -2917,7 +3437,10 @@
           {
             "propertyName": "type",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.type",
             "comment": "类型",
             "table": "base_menu"
@@ -2925,8 +3448,10 @@
           {
             "propertyName": "icon",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.icon",
             "comment": "图标",
             "table": "base_menu"
@@ -2934,7 +3459,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "base_menu"
@@ -2942,8 +3470,10 @@
           {
             "propertyName": "viewPath",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.viewPath",
             "comment": "视图",
             "table": "base_menu"
@@ -2951,8 +3481,10 @@
           {
             "propertyName": "remoteName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remoteName",
             "comment": "远程名",
             "table": "base_menu"
@@ -2960,8 +3492,10 @@
           {
             "propertyName": "remoteEntry",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remoteEntry",
             "comment": "远程入口",
             "table": "base_menu"
@@ -2969,8 +3503,10 @@
           {
             "propertyName": "remoteModule",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remoteModule",
             "comment": "远程模块",
             "table": "base_menu"
@@ -2978,8 +3514,10 @@
           {
             "propertyName": "appKey",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.appKey",
             "comment": "微应用",
             "table": "base_menu"
@@ -2987,7 +3525,10 @@
           {
             "propertyName": "keepAlive",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.keepAlive",
             "comment": "路由缓存",
             "table": "base_menu"
@@ -2995,7 +3536,10 @@
           {
             "propertyName": "isShow",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.isShow",
             "comment": "是否显示",
             "table": "base_menu"
@@ -3003,7 +3547,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_menu"
@@ -3011,16 +3558,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_menu"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_menu"
           }
@@ -3057,7 +3610,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_menu"
@@ -3065,7 +3621,10 @@
           {
             "propertyName": "parentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.parentId",
             "comment": "上级",
             "table": "base_menu"
@@ -3073,8 +3632,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_menu"
@@ -3082,8 +3643,10 @@
           {
             "propertyName": "router",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.router",
             "comment": "路由",
             "table": "base_menu"
@@ -3091,8 +3654,10 @@
           {
             "propertyName": "perms",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.perms",
             "comment": "权限",
             "table": "base_menu"
@@ -3100,7 +3665,10 @@
           {
             "propertyName": "type",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.type",
             "comment": "类型",
             "table": "base_menu"
@@ -3108,8 +3676,10 @@
           {
             "propertyName": "icon",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.icon",
             "comment": "图标",
             "table": "base_menu"
@@ -3117,7 +3687,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "base_menu"
@@ -3125,8 +3698,10 @@
           {
             "propertyName": "viewPath",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.viewPath",
             "comment": "视图",
             "table": "base_menu"
@@ -3134,8 +3709,10 @@
           {
             "propertyName": "remoteName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remoteName",
             "comment": "远程名",
             "table": "base_menu"
@@ -3143,8 +3720,10 @@
           {
             "propertyName": "remoteEntry",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remoteEntry",
             "comment": "远程入口",
             "table": "base_menu"
@@ -3152,8 +3731,10 @@
           {
             "propertyName": "remoteModule",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remoteModule",
             "comment": "远程模块",
             "table": "base_menu"
@@ -3161,8 +3742,10 @@
           {
             "propertyName": "appKey",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.appKey",
             "comment": "微应用",
             "table": "base_menu"
@@ -3170,7 +3753,10 @@
           {
             "propertyName": "keepAlive",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.keepAlive",
             "comment": "路由缓存",
             "table": "base_menu"
@@ -3178,7 +3764,10 @@
           {
             "propertyName": "isShow",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.isShow",
             "comment": "是否显示",
             "table": "base_menu"
@@ -3186,7 +3775,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_menu"
@@ -3194,23 +3786,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_menu"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_menu"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -3274,7 +3876,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -3321,7 +3927,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -3427,6 +4037,19 @@
             ]
           },
           {
+            "method": "post",
+            "path": "/dataI18n",
+            "summary": "dataI18n",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/base/param",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "base:param:dataI18n"
+            ]
+          },
+          {
             "method": "get",
             "path": "/importTemplate",
             "summary": "下载导入模板",
@@ -3457,7 +4080,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_param"
@@ -3465,8 +4091,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_param"
@@ -3474,8 +4102,10 @@
           {
             "propertyName": "keyName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.keyName",
             "comment": "keyName",
             "table": "base_param"
@@ -3483,7 +4113,10 @@
           {
             "propertyName": "type",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.type",
             "comment": "类型",
             "table": "base_param",
@@ -3492,7 +4125,10 @@
           {
             "propertyName": "data",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.data",
             "comment": "数据",
             "table": "base_param"
@@ -3500,7 +4136,10 @@
           {
             "propertyName": "openToApp",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.openToApp",
             "comment": "对App开放",
             "table": "base_param",
@@ -3509,7 +4148,10 @@
           {
             "propertyName": "appOpenPaths",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.appOpenPaths",
             "comment": "JSON开放路径",
             "table": "base_param"
@@ -3517,8 +4159,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_param"
@@ -3526,7 +4170,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_param"
@@ -3534,16 +4181,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_param"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_param"
           }
@@ -3580,7 +4233,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_param"
@@ -3588,8 +4244,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_param"
@@ -3597,8 +4255,10 @@
           {
             "propertyName": "keyName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.keyName",
             "comment": "keyName",
             "table": "base_param"
@@ -3606,7 +4266,10 @@
           {
             "propertyName": "type",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.type",
             "comment": "类型",
             "table": "base_param",
@@ -3615,7 +4278,10 @@
           {
             "propertyName": "data",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.data",
             "comment": "数据",
             "table": "base_param"
@@ -3623,7 +4289,10 @@
           {
             "propertyName": "openToApp",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.openToApp",
             "comment": "对App开放",
             "table": "base_param",
@@ -3632,7 +4301,10 @@
           {
             "propertyName": "appOpenPaths",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.appOpenPaths",
             "comment": "JSON开放路径",
             "table": "base_param"
@@ -3640,8 +4312,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_param"
@@ -3649,7 +4323,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_param"
@@ -3657,23 +4334,35 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_param"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_param"
           }
         ],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18n": true,
+        "dataI18nFields": [
+          "data"
+        ],
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -3796,7 +4485,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_plugin_info"
@@ -3804,8 +4496,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_plugin_info"
@@ -3813,8 +4507,10 @@
           {
             "propertyName": "description",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.description",
             "comment": "描述",
             "table": "base_plugin_info"
@@ -3822,8 +4518,10 @@
           {
             "propertyName": "keyName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.keyName",
             "comment": "标识",
             "table": "base_plugin_info"
@@ -3831,8 +4529,10 @@
           {
             "propertyName": "hook",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.hook",
             "comment": "钩子",
             "table": "base_plugin_info"
@@ -3840,7 +4540,10 @@
           {
             "propertyName": "readme",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.readme",
             "comment": "说明",
             "table": "base_plugin_info"
@@ -3848,8 +4551,10 @@
           {
             "propertyName": "version",
             "type": "string",
-            "length": "50",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.version",
             "comment": "版本",
             "table": "base_plugin_info"
@@ -3857,7 +4562,10 @@
           {
             "propertyName": "logo",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.logo",
             "comment": "Logo",
             "table": "base_plugin_info"
@@ -3865,8 +4573,10 @@
           {
             "propertyName": "author",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.author",
             "comment": "作者",
             "table": "base_plugin_info"
@@ -3874,7 +4584,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_plugin_info",
@@ -3883,7 +4596,10 @@
           {
             "propertyName": "content",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.content",
             "comment": "内容",
             "table": "base_plugin_info"
@@ -3891,7 +4607,10 @@
           {
             "propertyName": "tsContent",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.tsContent",
             "comment": "TS内容",
             "table": "base_plugin_info"
@@ -3899,7 +4618,10 @@
           {
             "propertyName": "pluginJson",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.pluginJson",
             "comment": "插件元数据",
             "table": "base_plugin_info"
@@ -3907,7 +4629,10 @@
           {
             "propertyName": "config",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.config",
             "comment": "配置",
             "table": "base_plugin_info"
@@ -3915,7 +4640,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_plugin_info"
@@ -3923,16 +4651,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_plugin_info"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_plugin_info"
           }
@@ -3968,7 +4702,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_plugin_info"
@@ -3976,8 +4713,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_plugin_info"
@@ -3985,8 +4724,10 @@
           {
             "propertyName": "description",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.description",
             "comment": "描述",
             "table": "base_plugin_info"
@@ -3994,8 +4735,10 @@
           {
             "propertyName": "keyName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.keyName",
             "comment": "标识",
             "table": "base_plugin_info"
@@ -4003,8 +4746,10 @@
           {
             "propertyName": "hook",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.hook",
             "comment": "钩子",
             "table": "base_plugin_info"
@@ -4012,7 +4757,10 @@
           {
             "propertyName": "readme",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.readme",
             "comment": "说明",
             "table": "base_plugin_info"
@@ -4020,8 +4768,10 @@
           {
             "propertyName": "version",
             "type": "string",
-            "length": "50",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.version",
             "comment": "版本",
             "table": "base_plugin_info"
@@ -4029,7 +4779,10 @@
           {
             "propertyName": "logo",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.logo",
             "comment": "Logo",
             "table": "base_plugin_info"
@@ -4037,8 +4790,10 @@
           {
             "propertyName": "author",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.author",
             "comment": "作者",
             "table": "base_plugin_info"
@@ -4046,7 +4801,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_plugin_info",
@@ -4055,7 +4813,10 @@
           {
             "propertyName": "content",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.content",
             "comment": "内容",
             "table": "base_plugin_info"
@@ -4063,7 +4824,10 @@
           {
             "propertyName": "tsContent",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.tsContent",
             "comment": "TS内容",
             "table": "base_plugin_info"
@@ -4071,7 +4835,10 @@
           {
             "propertyName": "pluginJson",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.pluginJson",
             "comment": "插件元数据",
             "table": "base_plugin_info"
@@ -4079,7 +4846,10 @@
           {
             "propertyName": "config",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.config",
             "comment": "配置",
             "table": "base_plugin_info"
@@ -4087,7 +4857,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_plugin_info"
@@ -4095,23 +4868,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_plugin_info"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_plugin_info"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -4253,7 +5036,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -4441,7 +5228,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_role"
@@ -4449,8 +5239,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_role"
@@ -4458,8 +5250,10 @@
           {
             "propertyName": "label",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.label",
             "comment": "标识",
             "table": "base_role"
@@ -4467,8 +5261,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_role"
@@ -4476,7 +5272,10 @@
           {
             "propertyName": "dataScope",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.dataScope",
             "comment": "数据权限",
             "table": "base_role"
@@ -4484,7 +5283,10 @@
           {
             "propertyName": "relevance",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.relevance",
             "comment": "关联上下级",
             "table": "base_role"
@@ -4492,7 +5294,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_role",
@@ -4501,7 +5306,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_role"
@@ -4509,16 +5317,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_role"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_role"
           }
@@ -4553,7 +5367,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_role"
@@ -4561,8 +5378,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_role"
@@ -4570,8 +5389,10 @@
           {
             "propertyName": "label",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.label",
             "comment": "标识",
             "table": "base_role"
@@ -4579,8 +5400,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_role"
@@ -4588,7 +5411,10 @@
           {
             "propertyName": "dataScope",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.dataScope",
             "comment": "数据权限",
             "table": "base_role"
@@ -4596,7 +5422,10 @@
           {
             "propertyName": "relevance",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.relevance",
             "comment": "关联上下级",
             "table": "base_role"
@@ -4604,7 +5433,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_role",
@@ -4613,7 +5445,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_role"
@@ -4621,23 +5456,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_role"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_role"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -4825,7 +5670,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_task"
@@ -4833,8 +5681,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_task"
@@ -4842,8 +5692,10 @@
           {
             "propertyName": "service",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.service",
             "comment": "服务类",
             "table": "base_task"
@@ -4851,8 +5703,10 @@
           {
             "propertyName": "method",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.method",
             "comment": "方法",
             "table": "base_task"
@@ -4860,7 +5714,10 @@
           {
             "propertyName": "params",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.params",
             "comment": "参数",
             "table": "base_task"
@@ -4868,8 +5725,10 @@
           {
             "propertyName": "taskType",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.taskType",
             "comment": "任务类型",
             "table": "base_task"
@@ -4877,8 +5736,10 @@
           {
             "propertyName": "cron",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.cron",
             "comment": "Cron",
             "table": "base_task"
@@ -4886,7 +5747,10 @@
           {
             "propertyName": "startDate",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.startDate",
             "comment": "执行时间",
             "table": "base_task"
@@ -4894,7 +5758,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_task",
@@ -4903,8 +5770,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_task"
@@ -4912,7 +5781,10 @@
           {
             "propertyName": "lastRunTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.lastRunTime",
             "comment": "上次执行",
             "table": "base_task"
@@ -4920,7 +5792,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_task"
@@ -4928,16 +5803,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_task"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_task"
           }
@@ -4979,7 +5860,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_task"
@@ -4987,8 +5871,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_task"
@@ -4996,8 +5882,10 @@
           {
             "propertyName": "service",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.service",
             "comment": "服务类",
             "table": "base_task"
@@ -5005,8 +5893,10 @@
           {
             "propertyName": "method",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.method",
             "comment": "方法",
             "table": "base_task"
@@ -5014,7 +5904,10 @@
           {
             "propertyName": "params",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.params",
             "comment": "参数",
             "table": "base_task"
@@ -5022,8 +5915,10 @@
           {
             "propertyName": "taskType",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.taskType",
             "comment": "任务类型",
             "table": "base_task"
@@ -5031,8 +5926,10 @@
           {
             "propertyName": "cron",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.cron",
             "comment": "Cron",
             "table": "base_task"
@@ -5040,7 +5937,10 @@
           {
             "propertyName": "startDate",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.startDate",
             "comment": "执行时间",
             "table": "base_task"
@@ -5048,7 +5948,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_task",
@@ -5057,8 +5960,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_task"
@@ -5066,7 +5971,10 @@
           {
             "propertyName": "lastRunTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.lastRunTime",
             "comment": "上次执行",
             "table": "base_task"
@@ -5074,7 +5982,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_task"
@@ -5082,23 +5993,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_task"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_task"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -5234,7 +6155,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_tenant"
@@ -5242,8 +6166,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_tenant"
@@ -5251,8 +6177,10 @@
           {
             "propertyName": "code",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.code",
             "comment": "编码",
             "table": "base_tenant"
@@ -5260,7 +6188,10 @@
           {
             "propertyName": "domains",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.domains",
             "comment": "域名",
             "table": "base_tenant"
@@ -5268,7 +6199,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_tenant",
@@ -5277,8 +6211,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_tenant"
@@ -5286,7 +6222,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_tenant"
@@ -5294,16 +6233,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_tenant"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_tenant"
           }
@@ -5335,7 +6280,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_tenant"
@@ -5343,8 +6291,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "base_tenant"
@@ -5352,8 +6302,10 @@
           {
             "propertyName": "code",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.code",
             "comment": "编码",
             "table": "base_tenant"
@@ -5361,7 +6313,10 @@
           {
             "propertyName": "domains",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.domains",
             "comment": "域名",
             "table": "base_tenant"
@@ -5369,7 +6324,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_tenant",
@@ -5378,8 +6336,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_tenant"
@@ -5387,7 +6347,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_tenant"
@@ -5395,23 +6358,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_tenant"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_tenant"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -5612,7 +6585,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_user"
@@ -5620,7 +6596,10 @@
           {
             "propertyName": "departmentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.departmentId",
             "comment": "部门",
             "table": "base_user"
@@ -5628,7 +6607,10 @@
           {
             "propertyName": "userId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.userId",
             "comment": "关联用户",
             "table": "base_user"
@@ -5636,8 +6618,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "姓名",
             "table": "base_user"
@@ -5645,8 +6629,10 @@
           {
             "propertyName": "username",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.username",
             "comment": "用户名",
             "table": "base_user"
@@ -5654,8 +6640,10 @@
           {
             "propertyName": "password",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.password",
             "comment": "密码",
             "table": "base_user"
@@ -5663,7 +6651,10 @@
           {
             "propertyName": "passwordV",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.passwordV",
             "comment": "密码版本",
             "table": "base_user"
@@ -5671,8 +6662,10 @@
           {
             "propertyName": "nickName",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.nickName",
             "comment": "昵称",
             "table": "base_user"
@@ -5680,8 +6673,10 @@
           {
             "propertyName": "headImg",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.headImg",
             "comment": "头像",
             "table": "base_user"
@@ -5689,8 +6684,10 @@
           {
             "propertyName": "phone",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.phone",
             "comment": "手机号",
             "table": "base_user"
@@ -5698,8 +6695,10 @@
           {
             "propertyName": "email",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.email",
             "comment": "邮箱",
             "table": "base_user"
@@ -5707,8 +6706,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_user"
@@ -5716,7 +6717,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_user",
@@ -5725,8 +6729,10 @@
           {
             "propertyName": "socketId",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.socketId",
             "comment": "Socket",
             "table": "base_user"
@@ -5734,7 +6740,10 @@
           {
             "propertyName": "isSuper",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.isSuper",
             "comment": "超管",
             "table": "base_user"
@@ -5742,7 +6751,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_user"
@@ -5750,16 +6762,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_user"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_user"
           }
@@ -5797,7 +6815,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "base_user"
@@ -5805,7 +6826,10 @@
           {
             "propertyName": "departmentId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.departmentId",
             "comment": "部门",
             "table": "base_user"
@@ -5813,7 +6837,10 @@
           {
             "propertyName": "userId",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.userId",
             "comment": "关联用户",
             "table": "base_user"
@@ -5821,8 +6848,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "姓名",
             "table": "base_user"
@@ -5830,8 +6859,10 @@
           {
             "propertyName": "username",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.username",
             "comment": "用户名",
             "table": "base_user"
@@ -5839,8 +6870,10 @@
           {
             "propertyName": "password",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.password",
             "comment": "密码",
             "table": "base_user"
@@ -5848,7 +6881,10 @@
           {
             "propertyName": "passwordV",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.passwordV",
             "comment": "密码版本",
             "table": "base_user"
@@ -5856,8 +6892,10 @@
           {
             "propertyName": "nickName",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.nickName",
             "comment": "昵称",
             "table": "base_user"
@@ -5865,8 +6903,10 @@
           {
             "propertyName": "headImg",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.headImg",
             "comment": "头像",
             "table": "base_user"
@@ -5874,8 +6914,10 @@
           {
             "propertyName": "phone",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.phone",
             "comment": "手机号",
             "table": "base_user"
@@ -5883,8 +6925,10 @@
           {
             "propertyName": "email",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.email",
             "comment": "邮箱",
             "table": "base_user"
@@ -5892,8 +6936,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "base_user"
@@ -5901,7 +6947,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "base_user",
@@ -5910,8 +6959,10 @@
           {
             "propertyName": "socketId",
             "type": "string",
-            "length": "255",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.socketId",
             "comment": "Socket",
             "table": "base_user"
@@ -5919,7 +6970,10 @@
           {
             "propertyName": "isSuper",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.isSuper",
             "comment": "超管",
             "table": "base_user"
@@ -5927,7 +6981,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "base_user"
@@ -5935,23 +6992,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "base_user"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "base_user"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ],
     "i18n": [
@@ -6089,7 +7156,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_data_field"
@@ -6097,8 +7167,10 @@
           {
             "propertyName": "tableName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.tableName",
             "comment": "业务表",
             "table": "i18n_data_field"
@@ -6106,8 +7178,10 @@
           {
             "propertyName": "fieldName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.fieldName",
             "comment": "字段名",
             "table": "i18n_data_field"
@@ -6115,8 +7189,10 @@
           {
             "propertyName": "pkField",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.pkField",
             "comment": "主键列",
             "table": "i18n_data_field"
@@ -6124,8 +7200,10 @@
           {
             "propertyName": "mode",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.mode",
             "comment": "映射模式",
             "table": "i18n_data_field"
@@ -6133,8 +7211,10 @@
           {
             "propertyName": "sourceTable",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceTable",
             "comment": "源表",
             "table": "i18n_data_field"
@@ -6142,8 +7222,10 @@
           {
             "propertyName": "sourcePkField",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": true,
             "source": "a.sourcePkField",
             "comment": "源表主键",
             "table": "i18n_data_field"
@@ -6151,8 +7233,10 @@
           {
             "propertyName": "sourceField",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceField",
             "comment": "源表字段",
             "table": "i18n_data_field"
@@ -6160,8 +7244,10 @@
           {
             "propertyName": "joinField",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.joinField",
             "comment": "关联列",
             "table": "i18n_data_field"
@@ -6169,8 +7255,10 @@
           {
             "propertyName": "sourceJoinField",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceJoinField",
             "comment": "源表关联列",
             "table": "i18n_data_field"
@@ -6178,7 +7266,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "i18n_data_field"
@@ -6186,8 +7277,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "i18n_data_field"
@@ -6195,7 +7288,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_data_field"
@@ -6203,16 +7299,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_data_field"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_data_field"
           }
@@ -6237,7 +7339,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_data_field"
@@ -6245,8 +7350,10 @@
           {
             "propertyName": "tableName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.tableName",
             "comment": "业务表",
             "table": "i18n_data_field"
@@ -6254,8 +7361,10 @@
           {
             "propertyName": "fieldName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.fieldName",
             "comment": "字段名",
             "table": "i18n_data_field"
@@ -6263,8 +7372,10 @@
           {
             "propertyName": "pkField",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.pkField",
             "comment": "主键列",
             "table": "i18n_data_field"
@@ -6272,8 +7383,10 @@
           {
             "propertyName": "mode",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.mode",
             "comment": "映射模式",
             "table": "i18n_data_field"
@@ -6281,8 +7394,10 @@
           {
             "propertyName": "sourceTable",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceTable",
             "comment": "源表",
             "table": "i18n_data_field"
@@ -6290,8 +7405,10 @@
           {
             "propertyName": "sourcePkField",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": true,
             "source": "a.sourcePkField",
             "comment": "源表主键",
             "table": "i18n_data_field"
@@ -6299,8 +7416,10 @@
           {
             "propertyName": "sourceField",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceField",
             "comment": "源表字段",
             "table": "i18n_data_field"
@@ -6308,8 +7427,10 @@
           {
             "propertyName": "joinField",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.joinField",
             "comment": "关联列",
             "table": "i18n_data_field"
@@ -6317,8 +7438,10 @@
           {
             "propertyName": "sourceJoinField",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceJoinField",
             "comment": "源表关联列",
             "table": "i18n_data_field"
@@ -6326,7 +7449,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "i18n_data_field"
@@ -6334,8 +7460,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "i18n_data_field"
@@ -6343,7 +7471,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_data_field"
@@ -6351,23 +7482,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_data_field"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_data_field"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "i18n",
@@ -6581,7 +7722,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_data_pack"
@@ -6589,8 +7733,10 @@
           {
             "propertyName": "tableName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.tableName",
             "comment": "业务表",
             "table": "i18n_data_pack"
@@ -6598,8 +7744,10 @@
           {
             "propertyName": "langCode",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.langCode",
             "comment": "语种",
             "table": "i18n_data_pack"
@@ -6607,7 +7755,10 @@
           {
             "propertyName": "packJson",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.packJson",
             "comment": "翻译包",
             "table": "i18n_data_pack"
@@ -6615,7 +7766,10 @@
           {
             "propertyName": "version",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.version",
             "comment": "版本",
             "table": "i18n_data_pack"
@@ -6623,8 +7777,10 @@
           {
             "propertyName": "sourceHash",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceHash",
             "comment": "源文案哈希",
             "table": "i18n_data_pack"
@@ -6632,8 +7788,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "i18n_data_pack"
@@ -6641,7 +7799,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_data_pack"
@@ -6649,16 +7810,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_data_pack"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_data_pack"
           }
@@ -6681,7 +7848,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_data_pack"
@@ -6689,8 +7859,10 @@
           {
             "propertyName": "tableName",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.tableName",
             "comment": "业务表",
             "table": "i18n_data_pack"
@@ -6698,8 +7870,10 @@
           {
             "propertyName": "langCode",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.langCode",
             "comment": "语种",
             "table": "i18n_data_pack"
@@ -6707,7 +7881,10 @@
           {
             "propertyName": "packJson",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.packJson",
             "comment": "翻译包",
             "table": "i18n_data_pack"
@@ -6715,7 +7892,10 @@
           {
             "propertyName": "version",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.version",
             "comment": "版本",
             "table": "i18n_data_pack"
@@ -6723,8 +7903,10 @@
           {
             "propertyName": "sourceHash",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceHash",
             "comment": "源文案哈希",
             "table": "i18n_data_pack"
@@ -6732,8 +7914,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "i18n_data_pack"
@@ -6741,7 +7925,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_data_pack"
@@ -6749,23 +7936,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_data_pack"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_data_pack"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "i18n",
@@ -6914,7 +8111,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_lang"
@@ -6922,8 +8122,10 @@
           {
             "propertyName": "code",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.code",
             "comment": "语种编码",
             "table": "i18n_lang"
@@ -6931,8 +8133,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "语言名称",
             "table": "i18n_lang"
@@ -6940,8 +8144,10 @@
           {
             "propertyName": "flag",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.flag",
             "comment": "国旗",
             "table": "i18n_lang"
@@ -6949,7 +8155,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "i18n_lang",
@@ -6958,7 +8167,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "i18n_lang"
@@ -6966,7 +8178,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_lang"
@@ -6974,16 +8189,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_lang"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_lang"
           }
@@ -7007,7 +8228,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_lang"
@@ -7015,8 +8239,10 @@
           {
             "propertyName": "code",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.code",
             "comment": "语种编码",
             "table": "i18n_lang"
@@ -7024,8 +8250,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "语言名称",
             "table": "i18n_lang"
@@ -7033,8 +8261,10 @@
           {
             "propertyName": "flag",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.flag",
             "comment": "国旗",
             "table": "i18n_lang"
@@ -7042,7 +8272,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "i18n_lang",
@@ -7051,7 +8284,10 @@
           {
             "propertyName": "orderNum",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.orderNum",
             "comment": "排序",
             "table": "i18n_lang"
@@ -7059,7 +8295,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_lang"
@@ -7067,23 +8306,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_lang"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_lang"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "i18n",
@@ -7310,7 +8559,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_pack"
@@ -7318,8 +8570,10 @@
           {
             "propertyName": "langCode",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.langCode",
             "comment": "语种编码",
             "table": "i18n_pack"
@@ -7327,8 +8581,10 @@
           {
             "propertyName": "scopeType",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.scopeType",
             "comment": "来源类型",
             "table": "i18n_pack"
@@ -7336,8 +8592,10 @@
           {
             "propertyName": "scopeKey",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.scopeKey",
             "comment": "标识",
             "table": "i18n_pack"
@@ -7345,7 +8603,10 @@
           {
             "propertyName": "packJson",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.packJson",
             "comment": "语言包JSON",
             "table": "i18n_pack"
@@ -7353,7 +8614,10 @@
           {
             "propertyName": "version",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.version",
             "comment": "版本",
             "table": "i18n_pack"
@@ -7361,8 +8625,10 @@
           {
             "propertyName": "sourceHash",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceHash",
             "comment": "源文案哈希",
             "table": "i18n_pack"
@@ -7370,8 +8636,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "i18n_pack"
@@ -7379,7 +8647,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_pack"
@@ -7387,16 +8658,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_pack"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_pack"
           }
@@ -7419,7 +8696,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "i18n_pack"
@@ -7427,8 +8707,10 @@
           {
             "propertyName": "langCode",
             "type": "string",
-            "length": "32",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.langCode",
             "comment": "语种编码",
             "table": "i18n_pack"
@@ -7436,8 +8718,10 @@
           {
             "propertyName": "scopeType",
             "type": "string",
-            "length": "16",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.scopeType",
             "comment": "来源类型",
             "table": "i18n_pack"
@@ -7445,8 +8729,10 @@
           {
             "propertyName": "scopeKey",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.scopeKey",
             "comment": "标识",
             "table": "i18n_pack"
@@ -7454,7 +8740,10 @@
           {
             "propertyName": "packJson",
             "type": "json",
+            "columnType": "PgJsonb",
+            "sqlType": "jsonb",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.packJson",
             "comment": "语言包JSON",
             "table": "i18n_pack"
@@ -7462,7 +8751,10 @@
           {
             "propertyName": "version",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.version",
             "comment": "版本",
             "table": "i18n_pack"
@@ -7470,8 +8762,10 @@
           {
             "propertyName": "sourceHash",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.sourceHash",
             "comment": "源文案哈希",
             "table": "i18n_pack"
@@ -7479,8 +8773,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "i18n_pack"
@@ -7488,7 +8784,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "i18n_pack"
@@ -7496,23 +8795,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "i18n_pack"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "i18n_pack"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ],
     "user": [
@@ -7689,7 +8998,10 @@
           {
             "propertyName": "id",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.id",
             "comment": "ID",
             "table": "user_info"
@@ -7697,7 +9009,10 @@
           {
             "propertyName": "userId",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.userId",
             "comment": "用户ID",
             "table": "user_info"
@@ -7705,7 +9020,10 @@
           {
             "propertyName": "name",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "user_info"
@@ -7713,7 +9031,10 @@
           {
             "propertyName": "email",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.email",
             "comment": "邮箱",
             "table": "user_info"
@@ -7721,7 +9042,10 @@
           {
             "propertyName": "emailVerified",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.emailVerified",
             "comment": "邮箱已验证",
             "table": "user_info",
@@ -7730,7 +9054,10 @@
           {
             "propertyName": "image",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.image",
             "comment": "头像",
             "table": "user_info"
@@ -7738,8 +9065,10 @@
           {
             "propertyName": "phone",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.phone",
             "comment": "手机号",
             "table": "user_info"
@@ -7747,7 +9076,10 @@
           {
             "propertyName": "phoneVerified",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.phoneVerified",
             "comment": "手机已验证",
             "table": "user_info",
@@ -7756,8 +9088,10 @@
           {
             "propertyName": "unionid",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.unionid",
             "comment": "微信unionid",
             "table": "user_info"
@@ -7765,8 +9099,10 @@
           {
             "propertyName": "password",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.password",
             "comment": "密码",
             "table": "user_info"
@@ -7774,8 +9110,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "user_info"
@@ -7783,33 +9121,45 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "user_info",
             "dict": "user_status"
           },
           {
-            "propertyName": "createdAt",
+            "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
-            "source": "a.createdAt",
+            "hasDefault": true,
+            "source": "a.createTime",
             "comment": "创建时间",
             "table": "user_info"
           },
           {
-            "propertyName": "updatedAt",
+            "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
-            "source": "a.updatedAt",
+            "hasDefault": true,
+            "source": "a.updateTime",
             "comment": "更新时间",
             "table": "user_info"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "user_info"
           }
@@ -7842,7 +9192,7 @@
           "fieldArray": [],
           "fieldRange": [
             {
-              "column": "a.createdAt",
+              "column": "a.createTime",
               "min": "startTime",
               "max": "endTime",
               "type": "day"
@@ -7853,7 +9203,10 @@
           {
             "propertyName": "id",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.id",
             "comment": "ID",
             "table": "user_info"
@@ -7861,7 +9214,10 @@
           {
             "propertyName": "userId",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.userId",
             "comment": "用户ID",
             "table": "user_info"
@@ -7869,7 +9225,10 @@
           {
             "propertyName": "name",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "user_info"
@@ -7877,7 +9236,10 @@
           {
             "propertyName": "email",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.email",
             "comment": "邮箱",
             "table": "user_info"
@@ -7885,7 +9247,10 @@
           {
             "propertyName": "emailVerified",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.emailVerified",
             "comment": "邮箱已验证",
             "table": "user_info",
@@ -7894,7 +9259,10 @@
           {
             "propertyName": "image",
             "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.image",
             "comment": "头像",
             "table": "user_info"
@@ -7902,8 +9270,10 @@
           {
             "propertyName": "phone",
             "type": "string",
-            "length": "20",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.phone",
             "comment": "手机号",
             "table": "user_info"
@@ -7911,7 +9281,10 @@
           {
             "propertyName": "phoneVerified",
             "type": "boolean",
+            "columnType": "PgBoolean",
+            "sqlType": "boolean",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.phoneVerified",
             "comment": "手机已验证",
             "table": "user_info",
@@ -7920,8 +9293,10 @@
           {
             "propertyName": "unionid",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.unionid",
             "comment": "微信unionid",
             "table": "user_info"
@@ -7929,8 +9304,10 @@
           {
             "propertyName": "password",
             "type": "string",
-            "length": "64",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.password",
             "comment": "密码",
             "table": "user_info"
@@ -7938,8 +9315,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "user_info"
@@ -7947,40 +9326,56 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "user_info",
             "dict": "user_status"
           },
           {
-            "propertyName": "createdAt",
+            "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
-            "source": "a.createdAt",
+            "hasDefault": true,
+            "source": "a.createTime",
             "comment": "创建时间",
             "table": "user_info"
           },
           {
-            "propertyName": "updatedAt",
+            "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
-            "source": "a.updatedAt",
+            "hasDefault": true,
+            "source": "a.updateTime",
             "comment": "更新时间",
             "table": "user_info"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "user_info"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "user",
@@ -8116,7 +9511,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "user_role"
@@ -8124,8 +9522,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "user_role"
@@ -8133,8 +9533,10 @@
           {
             "propertyName": "label",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.label",
             "comment": "标识",
             "table": "user_role"
@@ -8142,8 +9544,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "user_role"
@@ -8151,7 +9555,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "user_role",
@@ -8160,7 +9567,10 @@
           {
             "propertyName": "perms",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.perms",
             "comment": "权限",
             "table": "user_role"
@@ -8168,7 +9578,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "user_role"
@@ -8176,16 +9589,22 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "user_role"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "user_role"
           }
@@ -8218,7 +9637,10 @@
           {
             "propertyName": "id",
             "type": "number",
+            "columnType": "PgSerial",
+            "sqlType": "serial",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.id",
             "comment": "ID",
             "table": "user_role"
@@ -8226,8 +9648,10 @@
           {
             "propertyName": "name",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": false,
+            "hasDefault": false,
             "source": "a.name",
             "comment": "名称",
             "table": "user_role"
@@ -8235,8 +9659,10 @@
           {
             "propertyName": "label",
             "type": "string",
-            "length": "100",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.label",
             "comment": "标识",
             "table": "user_role"
@@ -8244,8 +9670,10 @@
           {
             "propertyName": "remark",
             "type": "string",
-            "length": "500",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
             "nullable": true,
+            "hasDefault": false,
             "source": "a.remark",
             "comment": "备注",
             "table": "user_role"
@@ -8253,7 +9681,10 @@
           {
             "propertyName": "status",
             "type": "number",
+            "columnType": "PgInteger",
+            "sqlType": "integer",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.status",
             "comment": "状态",
             "table": "user_role",
@@ -8262,7 +9693,10 @@
           {
             "propertyName": "perms",
             "type": "string",
+            "columnType": "PgText",
+            "sqlType": "text",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.perms",
             "comment": "权限",
             "table": "user_role"
@@ -8270,7 +9704,10 @@
           {
             "propertyName": "createTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.createTime",
             "comment": "创建时间",
             "table": "user_role"
@@ -8278,23 +9715,33 @@
           {
             "propertyName": "updateTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": false,
+            "hasDefault": true,
             "source": "a.updateTime",
             "comment": "更新时间",
             "table": "user_role"
           },
           {
-            "propertyName": "deletedAt",
+            "propertyName": "deletedTime",
             "type": "date",
+            "columnType": "PgTimestamp",
+            "sqlType": "timestamp with time zone",
             "nullable": true,
-            "source": "a.deletedAt",
+            "hasDefault": false,
+            "source": "a.deletedTime",
             "comment": "删除时间",
             "table": "user_role"
           }
         ],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ]
   },
@@ -8334,7 +9781,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -8436,7 +9887,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -8472,7 +9927,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "base",
@@ -8519,7 +9978,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ],
     "i18n": [
@@ -8590,7 +10053,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ],
     "project": [
@@ -8672,7 +10139,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "project",
@@ -8752,7 +10223,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "project",
@@ -8788,7 +10263,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "project",
@@ -8846,7 +10325,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "project",
@@ -8937,7 +10420,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ],
     "user": [
@@ -8975,7 +10462,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "user",
@@ -9088,7 +10579,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "user",
@@ -9300,7 +10795,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       },
       {
         "module": "user",
@@ -9336,7 +10835,11 @@
         "pageColumns": [],
         "dataI18n": false,
         "dataI18nFields": [],
-        "dataI18nTables": []
+        "dataI18nTables": [
+          "base_dict_info",
+          "base_dict_type",
+          "base_param"
+        ]
       }
     ]
   },

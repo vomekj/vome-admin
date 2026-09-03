@@ -196,6 +196,7 @@ async function fetchJobs(): Promise<Record<string, unknown>[]> {
 }
 
 useTable({
+  auto: false,
   rowKey: 'id',
   columns: [
     { prop: 'id', label: 'ID', width: 120 },
@@ -279,6 +280,7 @@ const Crud = useCrud(
 )
 
 useUpsert({
+  auto: false,
   sync: true,
   async onSubmit(data, { close }) {
     if (upsertScene.value !== 'enqueue') return

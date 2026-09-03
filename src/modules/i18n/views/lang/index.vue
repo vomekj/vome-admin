@@ -26,7 +26,6 @@
 defineOptions({ name: 'i18n-lang' })
 
 const { service } = useVome()
-const { dict } = useDict()
 
 const Crud = useCrud(
   { service: service.i18n.lang },
@@ -38,67 +37,15 @@ const Crud = useCrud(
 useUpsert({
   items: [
     {
-      prop: 'code',
-      label: '语种编码',
-      required: true,
-      span: 12,
-      placeholder: '如 zh-CN / en-US',
-    },
-    {
-      prop: 'name',
-      label: '语言名称',
-      required: true,
-      span: 12,
-      placeholder: '如 简体中文',
-    },
-    {
-      prop: 'flag',
-      label: '国旗',
-      required: true,
-      span: 12,
-      placeholder: '如 🇨🇳',
-    },
-    {
       prop: 'orderNum',
       label: '排序',
-      span: 12,
-      type: 'number',
       value: 0,
-    },
-    {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'switch',
-      value: 1,
-      component: {
-        props: dict.get('status'),
-      },
     },
   ],
 })
 
 useTable({
-  columns: [
-    { type: 'selection', width: 48 },
-    { prop: 'id', label: 'ID', width: 72 },
-    { prop: 'flag', label: '国旗', width: 72, slot: 'cell-flag' },
-    { prop: 'code', label: '编码', width: 120 },
-    { prop: 'name', label: '语言名称', width: 140 },
-    { prop: 'orderNum', label: '排序', width: 88 },
-    { prop: 'createTime', label: '创建时间', width: 170 },
-    {
-      prop: 'status',
-      fixed: 'right',
-      label: '状态',
-      width: 88,
-      component: {
-        name: 'vm-switch',
-        props: dict.get('status'),
-      },
-    },
-    { type: 'op', width: 140, buttons: ['edit', 'delete'] },
-  ],
+  columns: [{ prop: 'flag', width: 72, slot: 'cell-flag' }],
 })
 </script>
 

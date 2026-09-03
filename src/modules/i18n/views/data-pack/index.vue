@@ -105,18 +105,6 @@ const Crud = useCrud(
 useUpsert({
   items: [
     {
-      prop: 'tableName',
-      label: '业务表',
-      required: true,
-      span: 12,
-    },
-    {
-      prop: 'langCode',
-      label: '语种',
-      required: true,
-      span: 12,
-    },
-    {
       prop: 'packJson',
       label: '翻译包',
       span: 24,
@@ -126,23 +114,12 @@ useUpsert({
         props: { height: 360 },
       },
     },
-    {
-      prop: 'remark',
-      label: '备注',
-      span: 24,
-      type: 'textarea',
-    },
+    { prop: 'remark', label: '备注', span: 24 },
   ],
 })
 
 useTable({
-  columns: [
-    { prop: 'tableName', label: '业务表', minWidth: 140 },
-    { prop: 'langCode', label: '语种', width: 100 },
-    { prop: 'version', label: '版本', width: 80 },
-    { prop: 'sourceHash', label: '源哈希', minWidth: 120 },
-    { prop: 'remark', label: '备注', minWidth: 160 },
-  ],
+  ignoreFields: ['selection', 'op', 'id', 'packJson', 'createTime'],
 })
 
 async function loadTables() {

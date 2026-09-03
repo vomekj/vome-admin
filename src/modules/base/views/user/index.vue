@@ -101,7 +101,6 @@ defineOptions({ name: 'base-user' })
 
 const { service } = useVome()
 const userStore = useUserStore()
-const { dict } = useDict()
 
 const selectedDeptId = ref<number | null>(null)
 const deptFilterIds = ref<number[]>([])
@@ -258,23 +257,23 @@ async function transferSuper() {
 }
 
 useUpsert({
+  ignoreFields: ['departmentId', 'userId', 'passwordV', 'socketId', 'isSuper'],
   items: [
-    { prop: 'username', label: '用户名', required: true, span: 12, hidden: hideUnlessUserUpsert },
+    { prop: 'username', label: '用户名', hidden: hideUnlessUserUpsert },
     {
       prop: 'password',
       label: '密码',
+      required: (form) => form.id == null || form.id === '',
       placeholder: '新增必填 / 编辑留空不改',
-      span: 12,
       hidden: hideUnlessUserUpsert,
     },
-    { prop: 'name', label: '姓名', span: 12, hidden: hideUnlessUserUpsert },
-    { prop: 'nickName', label: '昵称', span: 12, hidden: hideUnlessUserUpsert },
-    { prop: 'phone', label: '手机', span: 12, hidden: hideUnlessUserUpsert },
-    { prop: 'email', label: '邮箱', span: 12, hidden: hideUnlessUserUpsert },
+    { prop: 'name', label: '姓名', hidden: hideUnlessUserUpsert },
+    { prop: 'nickName', label: '昵称', hidden: hideUnlessUserUpsert },
+    { prop: 'phone', label: '手机', hidden: hideUnlessUserUpsert },
+    { prop: 'email', label: '邮箱', hidden: hideUnlessUserUpsert },
     {
       prop: 'headImg',
       label: '头像',
-      span: 12,
       hidden: hideUnlessUserUpsert,
       component: {
         name: 'vm-upload',
@@ -287,17 +286,7 @@ useUpsert({
         },
       },
     },
-    {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'switch',
-      value: 1,
-      component: {
-        props: dict.get('status'),
-      },
-    },
-    { prop: 'remark', label: '备注', type: 'textarea', span: 12, hidden: hideUnlessUserUpsert },
+    { prop: 'remark', label: '备注', hidden: hideUnlessUserUpsert },
   ],
   onOpen() {
     if (upsertScene.value === 'moveDept') return
@@ -403,27 +392,31 @@ useUpsert({
 })
 
 useTable({
+  ignoreFields: [
+    'email',
+    'remark',
+    'departmentId',
+    'userId',
+    'password',
+    'passwordV',
+    'socketId',
+    'isSuper',
+  ],
   columns: [
-    { type: 'selection' },
-    { prop: 'headImg', label: '头像', width: 64 },
-    { prop: 'username', label: '用户名', minWidth: 110 },
-    { prop: 'name', label: '姓名', minWidth: 100 },
-    { prop: 'nickName', label: '昵称', minWidth: 100 },
-    { prop: 'departmentName', label: '部门名称', minWidth: 120 },
-    { prop: 'roleNames', label: '角色', minWidth: 140 },
+    { prop: 'headImg', width: 64, slot: 'cell-headImg' },
     { prop: 'phone', label: '手机号码', minWidth: 120 },
-    { prop: 'createTime', label: '创建时间', minWidth: 160 },
     {
-      prop: 'status',
-      fixed: 'right',
-      label: '状态',
-      width: 88,
-      component: {
-        name: 'vm-switch',
-        props: dict.get('status'),
-      },
+      prop: 'departmentName',
+      label: '部门名称',
+      minWidth: 120,
+      slot: 'cell-departmentName',
     },
-    { type: 'op', buttons: ['edit', 'delete'] },
+    {
+      prop: 'roleNames',
+      label: '角色',
+      minWidth: 140,
+      slot: 'cell-roleNames',
+    },
   ],
 })
 

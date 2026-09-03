@@ -258,45 +258,38 @@ async function toggleScope(value: string) {
 }
 
 useTable({
+  ignoreFields: ['selection', 'op'],
   columns: [
-    { prop: 'id', label: 'ID', width: 70 },
-    { prop: 'userId', label: '用户ID', width: 100 },
     {
       prop: 'logType',
-      label: '日志类型',
       width: 96,
       align: 'center',
       formatter: (_row, v) => formatLogType(v),
     },
-    { prop: 'action', label: '请求地址', minWidth: 260 },
     {
       prop: 'params',
-      label: '参数',
       width: 88,
       align: 'center',
+      slot: 'cell-params',
     },
     {
       prop: 'response',
-      label: '响应数据',
       width: 88,
       align: 'center',
+      slot: 'cell-response',
     },
     {
       prop: 'status',
       fixed: 'right',
-      label: '响应状态',
       width: 96,
       align: 'center',
       component: { name: 'vm-status-tag', props: { preset: 'http' } },
     },
     {
       prop: 'duration',
-      label: '响应时间',
       width: 100,
       formatter: (_row, v) => formatDuration(v),
     },
-    { prop: 'ip', label: 'IP', width: 140 },
-    { prop: 'createTime', label: '请求时间', width: 170 },
   ],
 })
 

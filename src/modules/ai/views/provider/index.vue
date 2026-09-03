@@ -22,83 +22,25 @@
 defineOptions({ name: 'ai-provider' })
 
 const { service } = useVome()
-const { dict } = useDict()
 
 useUpsert({
   items: [
     {
-      prop: 'vendor',
-      label: '厂商',
-      required: true,
-      span: 12,
-      placeholder: '如 OpenAI / Anthropic / 自定义',
-    },
-    {
       prop: 'protocol',
       label: '协议',
-      required: true,
-      span: 12,
-      type: 'select',
-      options: dict.get('base_ai_protocol'),
       value: 'openai_compatible',
     },
     {
-      prop: 'baseUrl',
-      label: '接口地址',
-      required: true,
-      span: 12,
-      placeholder: '如 https://api.example.com',
-    },
-    {
       prop: 'apiKey',
-      label: 'API 密钥',
+      label: 'API密钥',
       required: true,
-      span: 12,
-      type: 'input',
       component: { props: { type: 'password' } },
       placeholder: '编辑填 ******** 表示不改',
     },
-    {
-      prop: 'status',
-      label: '状态',
-      span: 12,
-      type: 'switch',
-      value: 1,
-      component: {
-        props: dict.get('status'),
-      },
-    },
-    { prop: 'remark', label: '备注', type: 'textarea', span: 12 },
   ],
 })
 
-useTable({
-  columns: [
-    { type: 'selection' },
-    { prop: 'id', label: 'ID', width: 72 },
-    { prop: 'vendor', label: '厂商', minWidth: 140 },
-    {
-      prop: 'protocol',
-      label: '协议',
-      minWidth: 140,
-      dict: dict.options('base_ai_protocol'),
-    },
-    { prop: 'baseUrl', label: '接口地址', minWidth: 180 },
-    { prop: 'remark', label: '备注', minWidth: 120 },
-    { prop: 'createTime', label: '创建时间', width: 170 },
-    {
-      prop: 'status',
-      fixed: 'right',
-      label: '状态',
-      width: 88,
-      component: {
-        name: 'vm-switch',
-        props: dict.get('status'),
-      },
-    },
-    { type: 'op', buttons: ['edit', 'delete'] },
-  ],
-})
+useTable({})
 
 const Crud = useCrud(
   { service: service.ai.provider },
