@@ -308,13 +308,13 @@
             "table": "ai_call_log"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "ai_call_log"
           }
@@ -562,13 +562,13 @@
             "table": "ai_call_log"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "ai_call_log"
           }
@@ -896,13 +896,13 @@
             "table": "ai_model"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "ai_model"
           }
@@ -1091,13 +1091,13 @@
             "table": "ai_model"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "ai_model"
           }
@@ -1354,13 +1354,13 @@
             "table": "ai_provider"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "ai_provider"
           }
@@ -1499,13 +1499,13 @@
             "table": "ai_provider"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "ai_provider"
           }
@@ -1857,13 +1857,13 @@
             "table": "base_department"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_department"
           }
@@ -1954,13 +1954,13 @@
             "table": "base_department"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_department"
           }
@@ -2306,13 +2306,13 @@
             "table": "base_dict_info"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_dict_info"
           }
@@ -2442,13 +2442,13 @@
             "table": "base_dict_info"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_dict_info"
           }
@@ -2663,13 +2663,13 @@
             "table": "base_dict_type"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_dict_type"
           }
@@ -2748,13 +2748,13 @@
             "table": "base_dict_type"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_dict_type"
           }
@@ -3031,13 +3031,13 @@
             "table": "base_log"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_log"
           }
@@ -3216,13 +3216,13 @@
             "table": "base_log"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_log"
           }
@@ -3567,13 +3567,13 @@
             "table": "base_menu"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_menu"
           }
@@ -3795,13 +3795,13 @@
             "table": "base_menu"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_menu"
           }
@@ -4190,13 +4190,13 @@
             "table": "base_param"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_param"
           }
@@ -4343,13 +4343,13 @@
             "table": "base_param"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_param"
           }
@@ -4660,13 +4660,13 @@
             "table": "base_plugin_info"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_plugin_info"
           }
@@ -4877,13 +4877,13 @@
             "table": "base_plugin_info"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_plugin_info"
           }
@@ -5326,13 +5326,13 @@
             "table": "base_role"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_role"
           }
@@ -5465,13 +5465,13 @@
             "table": "base_role"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_role"
           }
@@ -5812,13 +5812,13 @@
             "table": "base_task"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_task"
           }
@@ -6002,13 +6002,13 @@
             "table": "base_task"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_task"
           }
@@ -6242,13 +6242,13 @@
             "table": "base_tenant"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_tenant"
           }
@@ -6367,13 +6367,13 @@
             "table": "base_tenant"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_tenant"
           }
@@ -6771,13 +6771,13 @@
             "table": "base_user"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_user"
           }
@@ -7001,13 +7001,13 @@
             "table": "base_user"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "base_user"
           }
@@ -7308,13 +7308,13 @@
             "table": "i18n_data_field"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_data_field"
           }
@@ -7491,13 +7491,13 @@
             "table": "i18n_data_field"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_data_field"
           }
@@ -7819,13 +7819,13 @@
             "table": "i18n_data_pack"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_data_pack"
           }
@@ -7945,13 +7945,13 @@
             "table": "i18n_data_pack"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_data_pack"
           }
@@ -8198,13 +8198,13 @@
             "table": "i18n_lang"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_lang"
           }
@@ -8315,13 +8315,13 @@
             "table": "i18n_lang"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_lang"
           }
@@ -8667,13 +8667,13 @@
             "table": "i18n_pack"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_pack"
           }
@@ -8804,13 +8804,13 @@
             "table": "i18n_pack"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "i18n_pack"
           }
@@ -9153,13 +9153,13 @@
             "table": "user_info"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "user_info"
           }
@@ -9358,13 +9358,13 @@
             "table": "user_info"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "user_info"
           }
@@ -9598,13 +9598,13 @@
             "table": "user_role"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "user_role"
           }
@@ -9724,13 +9724,13 @@
             "table": "user_role"
           },
           {
-            "propertyName": "deletedTime",
+            "propertyName": "deleteTime",
             "type": "date",
             "columnType": "PgTimestamp",
             "sqlType": "timestamp with time zone",
             "nullable": true,
             "hasDefault": false,
-            "source": "a.deletedTime",
+            "source": "a.deleteTime",
             "comment": "删除时间",
             "table": "user_role"
           }
@@ -10037,373 +10037,6 @@
             "dts": {},
             "tag": "",
             "prefix": "/app/i18n/pack",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          }
-        ],
-        "columns": [],
-        "pageQueryOp": {
-          "keyWordLikeFields": [],
-          "fieldEq": [],
-          "fieldLike": [],
-          "fieldArray": [],
-          "fieldRange": []
-        },
-        "pageColumns": [],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": [
-          "base_dict_info",
-          "base_dict_type",
-          "base_param"
-        ]
-      }
-    ],
-    "project": [
-      {
-        "module": "project",
-        "side": "app",
-        "prefix": "/app/project/ai-chat",
-        "info": {
-          "type": {
-            "name": "ai-chat",
-            "description": "App 项目 AI 会话（用户侧）"
-          }
-        },
-        "api": [
-          {
-            "method": "post",
-            "path": "/session/list",
-            "summary": "会话列表",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-chat",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/session/info",
-            "summary": "会话详情",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-chat",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/session/upsert",
-            "summary": "创建/更新会话",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-chat",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/session/delete",
-            "summary": "删除会话",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-chat",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/history/retrieve",
-            "summary": "历史向量检索",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-chat",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          }
-        ],
-        "columns": [],
-        "pageQueryOp": {
-          "keyWordLikeFields": [],
-          "fieldEq": [],
-          "fieldLike": [],
-          "fieldArray": [],
-          "fieldRange": []
-        },
-        "pageColumns": [],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": [
-          "base_dict_info",
-          "base_dict_type",
-          "base_param"
-        ]
-      },
-      {
-        "module": "project",
-        "side": "app",
-        "prefix": "/app/project/ai-model",
-        "info": {
-          "type": {
-            "name": "ai-model",
-            "description": "App 自接 AI 模型（用户侧，仅开发模式）"
-          }
-        },
-        "api": [
-          {
-            "method": "post",
-            "path": "/list",
-            "summary": "自接模型列表（不含密钥）",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/create",
-            "summary": "添加自接模型",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/update",
-            "summary": "更新自接模型",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/delete",
-            "summary": "删除自接模型",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/resolve",
-            "summary": "解析自接模型（含密钥，仅本机 agent / 开发模式）",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/ai-model",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          }
-        ],
-        "columns": [],
-        "pageQueryOp": {
-          "keyWordLikeFields": [],
-          "fieldEq": [],
-          "fieldLike": [],
-          "fieldArray": [],
-          "fieldRange": []
-        },
-        "pageColumns": [],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": [
-          "base_dict_info",
-          "base_dict_type",
-          "base_param"
-        ]
-      },
-      {
-        "module": "project",
-        "side": "app",
-        "prefix": "/app/project/infra",
-        "info": {
-          "type": {
-            "name": "infra",
-            "description": "App 项目基础设施探测"
-          }
-        },
-        "api": [
-          {
-            "method": "post",
-            "path": "/health",
-            "summary": "DB / Redis / OSS / pgvector 探测",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/infra",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          }
-        ],
-        "columns": [],
-        "pageQueryOp": {
-          "keyWordLikeFields": [],
-          "fieldEq": [],
-          "fieldLike": [],
-          "fieldArray": [],
-          "fieldRange": []
-        },
-        "pageColumns": [],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": [
-          "base_dict_info",
-          "base_dict_type",
-          "base_param"
-        ]
-      },
-      {
-        "module": "project",
-        "side": "app",
-        "prefix": "/app/project/kb",
-        "info": {
-          "type": {
-            "name": "kb",
-            "description": "App 项目知识库（用户侧）"
-          }
-        },
-        "api": [
-          {
-            "method": "post",
-            "path": "/upsert",
-            "summary": "写入知识文档",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/kb",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/search",
-            "summary": "向量检索知识块",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/kb",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/adoptionWriteback",
-            "summary": "采纳写回",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/kb",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          }
-        ],
-        "columns": [],
-        "pageQueryOp": {
-          "keyWordLikeFields": [],
-          "fieldEq": [],
-          "fieldLike": [],
-          "fieldArray": [],
-          "fieldRange": []
-        },
-        "pageColumns": [],
-        "dataI18n": false,
-        "dataI18nFields": [],
-        "dataI18nTables": [
-          "base_dict_info",
-          "base_dict_type",
-          "base_param"
-        ]
-      },
-      {
-        "module": "project",
-        "side": "app",
-        "prefix": "/app/project/skill",
-        "info": {
-          "type": {
-            "name": "skill",
-            "description": "App 项目 Skills（用户侧）"
-          }
-        },
-        "api": [
-          {
-            "method": "post",
-            "path": "/list",
-            "summary": "Skills 列表",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/skill",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/create",
-            "summary": "新建 Skill",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/skill",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/update",
-            "summary": "更新 Skill",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/skill",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/delete",
-            "summary": "删除 Skill",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/skill",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/retrieve",
-            "summary": "向量 Top-K Skills",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/skill",
-            "ignoreToken": false,
-            "ignorePerms": false,
-            "perms": []
-          },
-          {
-            "method": "post",
-            "path": "/seedIfEmpty",
-            "summary": "空库播种",
-            "dts": {},
-            "tag": "",
-            "prefix": "/app/project/skill",
             "ignoreToken": false,
             "ignorePerms": false,
             "perms": []

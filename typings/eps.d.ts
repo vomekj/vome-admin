@@ -68,7 +68,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -117,7 +117,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -154,7 +154,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -191,7 +191,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -225,7 +225,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -247,7 +247,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -293,7 +293,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -351,7 +351,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -400,7 +400,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -455,7 +455,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -495,7 +495,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -541,7 +541,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -572,7 +572,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -630,7 +630,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -679,7 +679,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -713,7 +713,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -744,7 +744,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -781,7 +781,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -830,7 +830,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
@@ -861,7 +861,7 @@ declare namespace Eps {
 		updateTime?: string;
 
 		/** 删除时间 */
-		deletedTime?: string;
+		deleteTime?: string;
 
 		[key: string]: any;
 	}
