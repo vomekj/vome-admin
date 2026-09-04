@@ -73,7 +73,7 @@ async function loadUserRoles(serialUserId: number) {
 }
 
 useUpsert({
-  ignoreFields: ['userId'],
+  ignoreFields: ['userId', 'unionid'],
   items: [
     {
       prop: 'tenantId',

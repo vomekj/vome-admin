@@ -4143,7 +4143,7 @@
             "source": "a.openToApp",
             "comment": "对App开放",
             "table": "base_param",
-            "dict": "base_yes_no"
+            "dict": "yes_no_number"
           },
           {
             "propertyName": "appOpenPaths",
@@ -4213,7 +4213,7 @@
             },
             {
               "column": "a.openToApp",
-              "dict": "base_yes_no"
+              "dict": "yes_no_number"
             }
           ],
           "fieldLike": [
@@ -4296,7 +4296,7 @@
             "source": "a.openToApp",
             "comment": "对App开放",
             "table": "base_param",
-            "dict": "base_yes_no"
+            "dict": "yes_no_number"
           },
           {
             "propertyName": "appOpenPaths",
@@ -9049,7 +9049,7 @@
             "source": "a.emailVerified",
             "comment": "邮箱已验证",
             "table": "user_info",
-            "dict": "yes_no"
+            "dict": "yes_no_boolean"
           },
           {
             "propertyName": "image",
@@ -9083,7 +9083,7 @@
             "source": "a.phoneVerified",
             "comment": "手机已验证",
             "table": "user_info",
-            "dict": "yes_no"
+            "dict": "yes_no_boolean"
           },
           {
             "propertyName": "unionid",
@@ -9178,11 +9178,11 @@
             },
             {
               "column": "a.emailVerified",
-              "dict": "yes_no"
+              "dict": "yes_no_boolean"
             },
             {
               "column": "a.phoneVerified",
-              "dict": "yes_no"
+              "dict": "yes_no_boolean"
             },
             "a.tenantId"
           ],
@@ -9254,7 +9254,7 @@
             "source": "a.emailVerified",
             "comment": "邮箱已验证",
             "table": "user_info",
-            "dict": "yes_no"
+            "dict": "yes_no_boolean"
           },
           {
             "propertyName": "image",
@@ -9288,7 +9288,7 @@
             "source": "a.phoneVerified",
             "comment": "手机已验证",
             "table": "user_info",
-            "dict": "yes_no"
+            "dict": "yes_no_boolean"
           },
           {
             "propertyName": "unionid",
@@ -11129,7 +11129,7 @@
         "value": 1
       }
     ],
-    "yes_no": [
+    "yes_no_boolean": [
       {
         "id": 71,
         "name": "否",
@@ -11167,7 +11167,7 @@
         "value": true
       }
     ],
-    "base_yes_no": [
+    "yes_no_number": [
       {
         "id": 75,
         "name": "否",

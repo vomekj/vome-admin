@@ -24,6 +24,7 @@ defineOptions({ name: 'ai-provider' })
 const { service } = useVome()
 
 useUpsert({
+  ignoreFields: ['extra'],
   items: [
     {
       prop: 'protocol',
@@ -40,7 +41,9 @@ useUpsert({
   ],
 })
 
-useTable({})
+useTable({
+  ignoreFields: ['apiKey', 'extra'],
+})
 
 const Crud = useCrud(
   { service: service.ai.provider },

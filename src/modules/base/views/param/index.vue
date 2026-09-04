@@ -358,7 +358,7 @@ useTable({
       fixed: 'right',
       component: {
         name: 'vm-switch',
-        props: dict.get('base_yes_no'),
+        props: dict.get('yes_no_number'),
       },
     },
   ],
@@ -368,7 +368,7 @@ const Crud = useCrud(
   { service: service.base.param },
   (app) => {
     void dict
-      .refresh(['base_param_type', 'base_json_value_kind', 'base_yes_no'])
+      .refresh(['base_param_type', 'base_json_value_kind', 'yes_no_number'])
       .then(() => app.refresh())
   },
 )

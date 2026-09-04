@@ -169,7 +169,6 @@ declare module 'vue' {
     VmUpload: typeof import('@core/admin/crud/components/vm-upload.vue')['default']
     VmUploadItem: typeof import('@core/admin/crud/components/vm-upload-item.vue')['default']
     VmUpsert: typeof import('@core/admin/crud/vm-upsert.vue')['default']
-    VmUserSelect: typeof import('@core/admin/crud/components/vm-user-select.vue')['default']
     VmViewPathPicker: typeof import('@core/admin/components/vm-view-path-picker.vue')['default']
   }
 }

@@ -82,7 +82,7 @@
         <vm-upsert ref="Upsert" :title="upsertTitle" :items="upsertItems">
           <template v-if="upsertScene === 'type'" #default>
             <vm-form-hint style="grid-column: 1 / -1">
-              base_ 为系统内置使用字典，会在列表中隐藏，但可以使用 dict 函数调用
+              base_ 为系统内置使用字典，会在列表中隐藏，但可以使用 dict 函数调用；yes_no_boolean / yes_no_number 无此前缀，管理页可见
             </vm-form-hint>
           </template>
         </vm-upsert>
@@ -422,7 +422,7 @@ useUpsert({
 })
 
 useTable({
-  ignoreFields: ['typeId', 'parentId'],
+  ignoreFields: ['id', 'typeId', 'parentId'],
   columns: [
     { prop: 'name', minWidth: 140 },
     {

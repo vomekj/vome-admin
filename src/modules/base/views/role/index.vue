@@ -162,6 +162,7 @@ async function loadRoleRelations(roleId: number) {
 }
 
 useUpsert({
+  ignoreFields: ['relevance'],
   items: [
     {
       prop: 'dataScope',

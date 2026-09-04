@@ -172,6 +172,7 @@ const Crud = useCrud(
 )
 
 useUpsert({
+  ignoreFields: ['defaults'],
   items: [
     {
       prop: 'providerId',

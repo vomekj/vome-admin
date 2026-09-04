@@ -103,6 +103,11 @@ function openJson(title: string, value: unknown) {
   Crud.value?.openUpsert({}, 'info')
 }
 
+useUpsert({
+  /** JSON 只读弹窗：:items=[] 仍会走全局 Form.setAuto，必须关 */
+  auto: false,
+})
+
 useTable({
   ignoreFields: [
     'selection',

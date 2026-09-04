@@ -186,7 +186,7 @@ const UpsertItems = computed((): CrudFormItem[] => [
     label: '是否显示',
     span: 12,
     type: 'select',
-    options: dict.get('yes_no'),
+    options: dict.get('yes_no_boolean'),
     value: true,
   },
   {
@@ -194,7 +194,7 @@ const UpsertItems = computed((): CrudFormItem[] => [
     label: '路由缓存',
     span: 12,
     type: 'select',
-    options: dict.get('yes_no'),
+    options: dict.get('yes_no_boolean'),
     value: true,
   },
   {
@@ -399,7 +399,15 @@ function append(row: Record<string, unknown>) {
 
 useTable({
   defaultSort: { prop: 'orderNum', order: 'asc' },
-  ignoreFields: ['parentId'],
+  ignoreFields: [
+    'parentId',
+    'remoteName',
+    'remoteEntry',
+    'remoteModule',
+    'appKey',
+    'id',
+    'createTime',
+  ],
   columns: [
     { prop: 'name', minWidth: 200 },
     { prop: 'isShow', width: 88, slot: 'cell-isShow' },

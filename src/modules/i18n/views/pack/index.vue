@@ -181,6 +181,8 @@ const Crud = useCrud(
 )
 
 useUpsert({
+  /** 整页自定义编辑器；禁止 EPS 自动出栏（:items=[]  alone 不够） */
+  auto: false,
   async onOpen(data) {
     await loadLangOptions()
     await loadChatModels()
@@ -502,7 +504,14 @@ async function runTranslate() {
 }
 
 useTable({
-  ignoreFields: ['selection', 'packJson', 'sourceHash', 'createTime'],
+  ignoreFields: [
+    'selection',
+    'packJson',
+    'sourceHash',
+    'createTime',
+    'scopeType',
+    'remark',
+  ],
   columns: [
     {
       prop: 'langName',

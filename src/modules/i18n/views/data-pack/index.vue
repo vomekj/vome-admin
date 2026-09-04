@@ -103,6 +103,7 @@ const Crud = useCrud(
 )
 
 useUpsert({
+  ignoreFields: ['version', 'sourceHash'],
   items: [
     {
       prop: 'packJson',

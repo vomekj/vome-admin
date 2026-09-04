@@ -5,8 +5,20 @@
         ref="DeptTree"
         v-model="selectedDeptId"
         root-label="全部"
+        :data="deptTree"
+        :loading="deptLoading"
         :only-trashed="userTrashMode"
+        :can-add="canDeptAdd"
+        :can-update="canDeptUpdate"
+        :can-delete="canDeptDelete"
+        :can-restore="canDeptRestore"
         @change="onDeptChange"
+        @refresh="loadDeptTree"
+        @add="onDeptAdd"
+        @update="onDeptUpdate"
+        @delete="onDeptDelete"
+        @restore="onDeptRestore"
+        @force-delete="onDeptForceDelete"
       />
     </template>
 
@@ -110,6 +122,8 @@ const roleNameMap = ref<Record<string, string>>({})
 const transferring = ref(false)
 const upsertScene = ref<'user' | 'moveDept'>('user')
 const deptOptions = ref<TreeSelectOption[]>([])
+const deptTree = ref<DeptNode[]>([])
+const deptLoading = ref(false)
 /** 与右侧 Crud 回收站联动：左侧显示软删部门 */
 const userTrashMode = ref(false)
 
@@ -124,6 +138,11 @@ const canTransfer = computed(
 )
 
 const canMoveDept = computed(() => Boolean(service.base.user?._permission?.update))
+
+const canDeptAdd = computed(() => Boolean(service.base.department?._permission?.add))
+const canDeptUpdate = computed(() => Boolean(service.base.department?._permission?.update))
+const canDeptDelete = computed(() => Boolean(service.base.department?._permission?.delete))
+const canDeptRestore = computed(() => Boolean(service.base.department?._permission?.restore))
 
 /** 转移部门时隐藏用户表单字段 */
 const hideUnlessUserUpsert = () => upsertScene.value !== 'user'
@@ -168,7 +187,13 @@ async function loadRoleNameMap() {
   }
 }
 
-type DeptNode = { id: number; parentId: number | null; name: string; children?: DeptNode[] }
+type DeptNode = {
+  id: number
+  parentId: number | null
+  orderNum: number
+  name: string
+  children?: DeptNode[]
+}
 
 function deptValue(id: unknown) {
   return id == null || id === '' ? '' : String(id)
@@ -186,22 +211,121 @@ function toSelectOptions(nodes: DeptNode[]): TreeSelectOption[] {
   }))
 }
 
+/** API 扁平列表 → 组件要求的树形结构（在业务页完成，不进组件库） */
+function toDeptTree(list: Array<Record<string, unknown>>): DeptNode[] {
+  return deepTree(
+    (Array.isArray(list) ? list : [])
+      .filter((d) => d.id != null)
+      .map((d) => ({
+        id: Number(d.id),
+        parentId: d.parentId == null ? null : Number(d.parentId),
+        orderNum: Number(d.orderNum ?? 0),
+        name: String(d.name ?? ''),
+      })),
+  ) as DeptNode[]
+}
+
+async function loadDeptTree() {
+  deptLoading.value = true
+  try {
+    const list = (await service.base.department.tree({
+      onlyTrashed: userTrashMode.value || undefined,
+    })) as Array<Record<string, unknown>>
+    deptTree.value = toDeptTree(list)
+  } catch (e) {
+    console.error('[user] dept tree failed', e)
+    deptTree.value = []
+    toast.error('加载部门失败')
+  } finally {
+    deptLoading.value = false
+  }
+}
+
 async function syncDeptOptions() {
   try {
     const list = (await service.base.department.tree()) as Array<Record<string, unknown>>
-    const tree = deepTree(
-      (Array.isArray(list) ? list : [])
-        .filter((d) => d.id != null)
-        .map((d) => ({
-          id: Number(d.id),
-          parentId: d.parentId == null ? null : Number(d.parentId),
-          orderNum: Number(d.orderNum ?? 0),
-          name: String(d.name ?? ''),
-        })),
-    ) as DeptNode[]
-    deptOptions.value = toSelectOptions(tree)
+    deptOptions.value = toSelectOptions(toDeptTree(list))
   } catch {
     deptOptions.value = []
+  }
+}
+
+async function onDeptAdd(payload: {
+  name: string
+  orderNum: number
+  parentId: number | null
+  id?: number
+}) {
+  try {
+    await service.base.department.add(payload)
+    toast.success('已新增部门')
+    await loadDeptTree()
+    void syncDeptOptions()
+  } catch (e) {
+    console.error(e)
+    const err = e as Error & { toasted?: boolean }
+    if (!err.toasted) toast.error(e instanceof Error ? e.message : '保存失败')
+  }
+}
+
+async function onDeptUpdate(payload: {
+  id?: number
+  name: string
+  orderNum: number
+  parentId: number | null
+}) {
+  if (payload.id == null) return
+  try {
+    await service.base.department.update({
+      id: payload.id,
+      name: payload.name,
+      orderNum: payload.orderNum,
+      parentId: payload.parentId,
+    })
+    toast.success('已保存部门')
+    await loadDeptTree()
+    void syncDeptOptions()
+  } catch (e) {
+    console.error(e)
+    const err = e as Error & { toasted?: boolean }
+    if (!err.toasted) toast.error(e instanceof Error ? e.message : '保存失败')
+  }
+}
+
+async function onDeptDelete(payload: { id: number }) {
+  try {
+    await service.base.department.delete({ ids: [payload.id] })
+    toast.success('已删除')
+    await loadDeptTree()
+    void syncDeptOptions()
+  } catch (e) {
+    console.error(e)
+    const err = e as Error & { toasted?: boolean }
+    if (!err.toasted) toast.error(e instanceof Error ? e.message : '删除失败')
+  }
+}
+
+async function onDeptRestore(payload: { id: number }) {
+  try {
+    await service.base.department.restore({ ids: [payload.id] })
+    toast.success('已恢复')
+    await loadDeptTree()
+  } catch (e) {
+    console.error(e)
+    const err = e as Error & { toasted?: boolean }
+    if (!err.toasted) toast.error(e instanceof Error ? e.message : '恢复失败')
+  }
+}
+
+async function onDeptForceDelete(payload: { id: number }) {
+  try {
+    await service.base.department.delete({ ids: [payload.id], force: true })
+    toast.success('已彻底删除')
+    await loadDeptTree()
+  } catch (e) {
+    console.error(e)
+    const err = e as Error & { toasted?: boolean }
+    if (!err.toasted) toast.error(e instanceof Error ? e.message : '删除失败')
   }
 }
 
@@ -393,6 +517,7 @@ useUpsert({
 
 useTable({
   ignoreFields: [
+    'id',
     'email',
     'remark',
     'departmentId',
@@ -432,12 +557,14 @@ const Crud = useCrud(
         deptFilterIds.value = []
         delete params.departmentIds
         delete params.departmentId
+        void loadDeptTree()
       }
       await next(params)
     },
   },
   (app) => {
     void loadRoleNameMap()
+    void loadDeptTree()
     void syncDeptOptions()
     app.refresh()
   },
