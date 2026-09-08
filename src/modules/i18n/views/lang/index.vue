@@ -8,11 +8,7 @@
       <vm-toolbar />
     </vm-row>
     <vm-row>
-      <vm-table>
-        <template #cell-flag="{ value }">
-          <span class="vm-i18n-lang__flag">{{ value || '🏳️' }}</span>
-        </template>
-      </vm-table>
+      <vm-table />
     </vm-row>
     <vm-row>
       <vm-flex />
@@ -27,31 +23,42 @@ defineOptions({ name: 'i18n-lang' })
 
 const { service } = useVome()
 
-const Crud = useCrud(
-  { service: service.i18n.lang },
-  (app) => {
-    app.refresh()
-  },
-)
-
 useUpsert({
   items: [
     {
-      prop: 'orderNum',
-      label: '排序',
-      value: 0,
+      prop: 'flag',
+      label: '国旗',
+      span: 12,
+      component: {
+        name: 'vm-upload',
+        props: {
+          type: 'image',
+          text: '上传图片',
+          size: 96,
+          limitSize: 10,
+          prefixPath: 'app/public/i18n/lang-flag',
+        },
+      },
     },
   ],
 })
 
 useTable({
-  columns: [{ prop: 'flag', width: 72, slot: 'cell-flag' }],
+  defaultSort: { prop: 'id', order: 'desc' },
+  columns: [
+    {
+      prop: 'flag',
+      label: '国旗',
+      width: 88,
+      component: {
+        name: 'vm-preview-viewer',
+        props: { size: 28 },
+      },
+    },
+  ],
+})
+
+const Crud = useCrud({ service: service.i18n.lang }, (app) => {
+  app.refresh()
 })
 </script>
-
-<style lang="scss" scoped>
-.vm-i18n-lang__flag {
-  font-size: 20px;
-  line-height: 1;
-}
-</style>

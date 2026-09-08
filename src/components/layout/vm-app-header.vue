@@ -68,7 +68,12 @@
               :disabled="localeSwitching"
             >
               <span class="vm-header__flag" aria-hidden="true">
-                {{ locale.currentLang?.flag || '🏳️' }}
+                <img
+                  v-if="locale.currentLang?.flag"
+                  class="vm-header__flag-img"
+                  :src="String(locale.currentLang.flag)"
+                  alt=""
+                />
               </span>
             </button>
           </DropdownMenuTrigger>
@@ -82,7 +87,12 @@
               @click="switchLocale(lang.code)"
             >
               <span class="vm-header__flag" aria-hidden="true">
-                {{ lang.flag || '🏳️' }}
+                <img
+                  v-if="lang.flag"
+                  class="vm-header__flag-img"
+                  :src="String(lang.flag)"
+                  alt=""
+                />
               </span>
               <span class="vm-header__locale-label">{{ lang.name }}</span>
             </DropdownMenuItem>
@@ -256,8 +266,18 @@ function goHome() {
 }
 
 .vm-header__flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
   line-height: 1;
+}
+
+.vm-header__flag-img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .vm-header__locale-item {

@@ -351,6 +351,7 @@
     "dataI18nEdit": "编辑译文",
     "dataI18nOrigSuffix": "(原)",
     "dataI18nDeleteConfirm": "确定删除 ID {0} 在当前语种下的全部字段译文？",
+    "dataI18nMultiDeleteConfirm": "确定删除选中的 {0} 条在当前语种下的全部字段译文？",
     "dataI18nSwitch": "切换",
     "dataI18nTargetLang": "目标语种：{0}",
     "dataI18nTranslate": "翻译",
