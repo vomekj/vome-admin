@@ -248,7 +248,7 @@ useUpsert({
 })
 
 async function loadLangOptions() {
-  const opts = await loadEnabledLangOptions(service)
+  const opts = await loadEnabledLangOptions(service, { excludeSource: true })
   langOptions.value = opts.map(({ label, value }) => ({ label, value }))
   langNameMap.value = Object.fromEntries(
     opts.map(({ label, value }) => [value, label]),

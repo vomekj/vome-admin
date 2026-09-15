@@ -36,7 +36,7 @@ useUpsert({
           text: '上传图片',
           size: 96,
           limitSize: 10,
-          prefixPath: 'app/public/i18n/lang-flag',
+          prefixPath: 'app/public/i18n/lang',
         },
       },
     },

@@ -103,7 +103,7 @@ useUpsert({
           text: '上传头像',
           size: 96,
           limitSize: 5,
-          prefixPath: 'app/public/user',
+          prefixPath: 'app/public/user/info',
         },
       },
     },
@@ -187,7 +187,7 @@ useUpsert({
 })
 
 useTable({
-  ignoreFields: ['password', 'unionid', 'id'],
+  ignoreFields: ['unionid', 'id'],
   columns: [
     { prop: 'userId', width: 88 },
     { prop: 'image', width: 120, slot: 'cell-image' },

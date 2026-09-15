@@ -136,7 +136,7 @@ async function loadTables() {
 }
 
 async function loadLangs() {
-  const rows = await loadEnabledLangOptions(service)
+  const rows = await loadEnabledLangOptions(service, { excludeSource: true })
   langOptions.value = rows.map((r) => ({ label: r.label, value: r.value }))
 }
 
