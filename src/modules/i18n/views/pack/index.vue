@@ -114,7 +114,6 @@
 import { computed, reactive, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import { isAiStreamResult } from '@core/admin/api/client'
-import { loadEnabledLangOptions } from '@core/admin/crud'
 defineOptions({ name: 'i18n-pack' })
 
 const { service } = useVome()
@@ -128,7 +127,9 @@ const translating = ref(false)
 const reloading = ref(false)
 const loadingLang = ref(false)
 const chatModels = ref<Array<{ code: string }>>([])
-const langOptions = ref<Array<{ label: string; value: string }>>([])
+const langOptions = ref<
+  Array<{ label: string; value: string; native: string }>
+>([])
 const langNameMap = ref<Record<string, string>>({})
 const editorSourceHash = ref('')
 const JsonEditor = ref<{
@@ -211,7 +212,7 @@ useUpsert({
     ) {
       langOptions.value = [
         ...langOptions.value,
-        { label: editorForm.langCode, value: editorForm.langCode },
+        { label: editorForm.langCode, value: editorForm.langCode, native: editorForm.langCode },
       ]
     }
     // 列表编辑已带包内容；新增打开时按语种拉取是否已有包
@@ -248,14 +249,40 @@ useUpsert({
 })
 
 async function loadLangOptions() {
-  const opts = await loadEnabledLangOptions(service, { excludeSource: true })
-  langOptions.value = opts.map(({ label, value }) => ({ label, value }))
+  let raw: unknown = []
+  try {
+    raw = await service.i18n.lang.enabled({ excludeSource: true })
+  } catch {
+    raw = []
+  }
+  const rows = (
+    Array.isArray(raw)
+      ? raw
+      : Array.isArray((raw as { list?: unknown })?.list)
+        ? ((raw as { list: unknown[] }).list ?? [])
+        : []
+  ) as Array<{ code?: string; name?: string; nameZh?: string }>
+  const opts = rows
+    .map((row) => {
+      const value = String(row.code || '').trim()
+      const native = String(row.name || '').trim() || value
+      const zh = String(row.nameZh || '').trim()
+      return { label: zh || native, value, native }
+    })
+    .filter((o) => o.value)
+    .sort((a, b) =>
+      a.value.localeCompare(b.value, undefined, { sensitivity: 'base' }),
+    )
+  langOptions.value = opts
   langNameMap.value = Object.fromEntries(
     opts.map(({ label, value }) => [value, label]),
   )
   const cur = String(editorForm.langCode || '').trim()
   if (cur && !langOptions.value.some((o) => o.value === cur)) {
-    langOptions.value = [...langOptions.value, { label: cur, value: cur }]
+    langOptions.value = [
+      ...langOptions.value,
+      { label: cur, value: cur, native: cur },
+    ]
   }
 }
 
@@ -281,7 +308,12 @@ async function syncHostZh() {
   if (syncingZh.value) return
   syncingZh.value = true
   try {
-    const res = (await service.i18n.pack.ensureHostZh()) as {
+    const res = (await service.i18n.pack.request({
+      url: '/ensureHostZh',
+      method: 'POST',
+      data: {},
+      timeoutMs: 300_000,
+    })) as {
       hosts?: Array<{ scopeKey: string }>
       hostSkipped?: Array<{ scopeKey: string; reason: string }>
     }
@@ -410,9 +442,8 @@ async function runTranslate() {
   JsonEditor.value?.beginStream()
   JsonEditor.value?.setText('')
   try {
-    const langName =
-      langOptions.value.find((o) => o.value === editorForm.langCode)?.label ||
-      editorForm.langCode
+    const picked = langOptions.value.find((o) => o.value === editorForm.langCode)
+    const langName = picked?.native || editorForm.langCode
     const out = await service.i18n.pack.translate({
       langCode: editorForm.langCode,
       langName,
@@ -505,7 +536,6 @@ async function runTranslate() {
 
 useTable({
   ignoreFields: [
-    'selection',
     'packJson',
     'sourceHash',
     'createTime',

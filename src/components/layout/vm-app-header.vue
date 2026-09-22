@@ -74,6 +74,11 @@
                   :src="String(locale.currentLang.flag)"
                   alt=""
                 />
+                <span v-else class="vm-header__flag-code">{{
+                  (locale.currentLang?.code || locale.locale || '?')
+                    .slice(0, 2)
+                    .toUpperCase()
+                }}</span>
               </span>
             </button>
           </DropdownMenuTrigger>
@@ -93,6 +98,9 @@
                   :src="String(lang.flag)"
                   alt=""
                 />
+                <span v-else class="vm-header__flag-code">{{
+                  String(lang.code || '?').slice(0, 2).toUpperCase()
+                }}</span>
               </span>
               <span class="vm-header__locale-label">{{ lang.name }}</span>
             </DropdownMenuItem>
@@ -278,6 +286,13 @@ function goHome() {
   height: 20px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.vm-header__flag-code {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .vm-header__locale-item {

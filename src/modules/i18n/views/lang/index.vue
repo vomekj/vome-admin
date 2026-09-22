@@ -23,24 +23,9 @@ defineOptions({ name: 'i18n-lang' })
 
 const { service } = useVome()
 
+// 国旗由服务端按语种编码自动拉取 Flagcdn 并转存，表单不手传
 useUpsert({
-  items: [
-    {
-      prop: 'flag',
-      label: '国旗',
-      span: 12,
-      component: {
-        name: 'vm-upload',
-        props: {
-          type: 'image',
-          text: '上传图片',
-          size: 96,
-          limitSize: 10,
-          prefixPath: 'app/public/i18n/lang',
-        },
-      },
-    },
-  ],
+  ignoreFields: ['flag'],
 })
 
 useTable({
