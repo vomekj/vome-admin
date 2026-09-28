@@ -67,10 +67,7 @@
         </vm-row>
         <vm-row>
           <vm-refresh-btn />
-          <vm-toolbar
-            :add-data="dictAddData"
-            :add-text="'新增'"
-          />
+          <vm-toolbar :add-data="dictAddData" />
         </vm-row>
         <vm-row>
           <vm-table ref="Table" />
@@ -439,7 +436,7 @@ useTable({
           ? ['delete']
           : [
               {
-                label: '新增',
+                label: crudLabel('add'),
                 variant: 'ghost',
                 onClick: () => {
                   if (selectedTypeId.value == null) return

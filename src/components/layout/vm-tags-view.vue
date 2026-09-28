@@ -54,6 +54,7 @@ function findMenuByPath(
 }
 
 function tagTitle(tag: { path: string; title: string }) {
+  void locale.localeEpoch
   const node = findMenuByPath(user.menus, tag.path)
   return node ? locale.tMenu(node) : tag.title
 }

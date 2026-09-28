@@ -34,7 +34,11 @@
               v-if="canTransfer && !userTrashMode"
               variant="success"
               icon="ri-shuffle-line"
-              :label="transferring ? '转让中…' : '转移'"
+              :label="
+                transferring
+                  ? locale.t('base.user.transferring', '转让中…')
+                  : locale.t('base.user.transfer', '转移')
+              "
               :loading="transferring"
               :disabled="!selectedUsers.length"
               @click="transferSuper"
@@ -43,7 +47,7 @@
               v-if="canMoveDept && !userTrashMode"
               variant="brand"
               icon="ri-organization-chart"
-              label="转移部门"
+              :label="locale.t('base.user.transferDept', '转移部门')"
               :disabled="!selectedUsers.length"
               @click="openMoveDept"
             />
@@ -70,34 +74,45 @@
           <template #default="{ form }">
             <template v-if="upsertScene === 'moveDept'">
               <vm-form-hint style="grid-column: 1 / -1">
-                已选 {{ selectedUsers.length }} 人，请选择目标部门
+                {{
+                  locale.t(
+                    'base.user.transferHint',
+                    '已选 {0} 人，请选择目标部门',
+                    selectedUsers.length,
+                  )
+                }}
               </vm-form-hint>
               <div class="vm-crud-upsert__field" style="grid-column: span 12">
                 <Label class="vm-crud-upsert__label">
-                  部门 <span class="vm-crud-upsert__req">*</span>
+                  {{ locale.t('base.user.dept', '部门') }}
+                  <span class="vm-crud-upsert__req">*</span>
                 </Label>
                 <vm-tree-select
                   class="vm-crud-upsert__control"
                   :model-value="deptValue(form.departmentId)"
                   :options="deptOptions"
-                  placeholder="请选择部门"
+                  :placeholder="locale.t('base.user.pickDept', '请选择部门')"
                   @update:model-value="(v) => patchDept(v)"
                 />
               </div>
             </template>
             <template v-else>
               <div class="vm-crud-upsert__field" style="grid-column: span 12">
-                <Label class="vm-crud-upsert__label">部门</Label>
+                <Label class="vm-crud-upsert__label">{{
+                  locale.t('base.user.dept', '部门')
+                }}</Label>
                 <vm-tree-select
                   class="vm-crud-upsert__control"
                   :model-value="deptValue(form.departmentId)"
                   :options="deptOptions"
-                  placeholder="请选择部门"
+                  :placeholder="locale.t('base.user.pickDept', '请选择部门')"
                   @update:model-value="(v) => patchDept(v)"
                 />
               </div>
               <div class="vm-crud-upsert__field" style="grid-column: span 12">
-                <Label class="vm-crud-upsert__label">角色（多选合并权限）</Label>
+                <Label class="vm-crud-upsert__label">{{
+                  locale.t('base.user.roles', '角色（多选合并权限）')
+                }}</Label>
                 <vm-role-picker v-model="checkedRoleIds" />
               </div>
             </template>
@@ -108,11 +123,13 @@
 </template>
 
 <script setup lang="ts">
+import { useLocaleStore } from '@/stores/locale'
 
 defineOptions({ name: 'base-user' })
 
 const { service } = useVome()
 const userStore = useUserStore()
+const locale = useLocaleStore()
 
 const selectedDeptId = ref<number | null>(null)
 const deptFilterIds = ref<number[]>([])
@@ -127,9 +144,12 @@ const deptLoading = ref(false)
 /** 与右侧 Crud 回收站联动：左侧显示软删部门 */
 const userTrashMode = ref(false)
 
-const upsertDialogTitle = computed(() =>
-  upsertScene.value === 'moveDept' ? '转移部门' : '',
-)
+const upsertDialogTitle = computed(() => {
+  void locale.localeEpoch
+  return upsertScene.value === 'moveDept'
+    ? locale.t('base.user.transferDept', '转移部门')
+    : ''
+})
 
 const DeptTree = ref<{ idNameMap: { value: Map<number, string> } } | null>(null)
 

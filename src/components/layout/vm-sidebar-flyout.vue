@@ -67,6 +67,7 @@ const emit = defineEmits<{
 
 const locale = useLocaleStore()
 function menuLabelOf(node: MenuTreeNode) {
+  void locale.localeEpoch
   return locale.tMenu(node)
 }
 

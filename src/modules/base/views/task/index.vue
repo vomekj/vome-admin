@@ -31,10 +31,12 @@
           <template #footer>
             <div class="vm-task-page__ops">
               <vm-icon-btn
-                icon="ri-play-line"
-                title="立即执行"
+                :icon="
+                  Number(item.status) === 1 ? 'ri-pause-line' : 'ri-play-line'
+                "
+                :title="Number(item.status) === 1 ? '暂停' : '启动'"
                 :disabled="busyId === item.id"
-                @click="runOnce(item)"
+                @click="toggleStatus(item)"
               />
               <vm-icon-btn
                 icon="ri-edit-line"
@@ -44,13 +46,7 @@
               />
             </div>
 
-            <vm-status-tag
-              preset="task"
-              :model-value="item.status"
-              clickable
-              :disabled="busyId === item.id"
-              @click="toggleStatus(item)"
-            />
+            <vm-status-tag preset="task" :model-value="item.status" />
 
             <div class="vm-task-page__ops">
               <vm-icon-btn
@@ -500,7 +496,7 @@ async function toggleStatus(item: TaskRow) {
   try {
     if (Number(item.status) === 1) {
       await taskApi.stop({ id: item.id })
-      toast.success('已停止')
+      toast.success('已暂停')
     } else {
       await taskApi.start({ id: item.id })
       toast.success('已启动')
@@ -510,22 +506,6 @@ async function toggleStatus(item: TaskRow) {
     console.error(e)
     const err = e as Error & { toasted?: boolean }
     if (!err.toasted) toast.error(e instanceof Error ? e.message : '操作失败')
-  } finally {
-    busyId.value = null
-  }
-}
-
-async function runOnce(item: TaskRow) {
-  if (item.id == null || busyId.value === item.id) return
-  busyId.value = item.id
-  try {
-    await taskApi.once({ id: item.id })
-    toast.success('已触发执行')
-    await loadList()
-  } catch (e) {
-    console.error(e)
-    const err = e as Error & { toasted?: boolean }
-    if (!err.toasted) toast.error(e instanceof Error ? e.message : '执行失败')
   } finally {
     busyId.value = null
   }

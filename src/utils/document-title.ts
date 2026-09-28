@@ -54,7 +54,8 @@ export function bindDocumentTitle(router: Router, pinia: Pinia) {
   })
   const localeStore = useLocaleStore(pinia)
   watch(
-    () => [localeStore.locale, localeStore.messages] as const,
+    () =>
+      [localeStore.locale, localeStore.localeEpoch, localeStore.messages] as const,
     () => syncDocumentTitleFromRoute(router),
   )
 }

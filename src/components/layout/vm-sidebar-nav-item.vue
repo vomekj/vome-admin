@@ -127,7 +127,10 @@ const props = defineProps<{
 }>()
 
 const locale = useLocaleStore()
-const menuLabel = computed(() => locale.tMenu(props.item))
+const menuLabel = computed(() => {
+  void locale.localeEpoch
+  return locale.tMenu(props.item)
+})
 
 const route = useRoute()
 

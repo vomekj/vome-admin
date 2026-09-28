@@ -345,7 +345,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -930,7 +931,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -1383,7 +1385,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -1593,7 +1596,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -1633,7 +1637,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -1884,7 +1889,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -2339,7 +2345,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -2689,7 +2696,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -3069,7 +3077,8 @@
               "max": "maxDuration",
               "type": "int"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -3604,7 +3613,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -3871,7 +3881,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -3922,7 +3933,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -4227,7 +4239,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -4696,7 +4709,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -5031,7 +5045,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -5361,7 +5376,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -5854,7 +5870,8 @@
               "max": "startDateMax",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -6274,7 +6291,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -6809,6 +6827,9 @@
               "max": "endTime",
               "type": "day"
             }
+          ],
+          "ignoreFields": [
+            "password"
           ]
         },
         "pageColumns": [
@@ -7333,7 +7354,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -7842,7 +7864,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -7987,6 +8010,19 @@
             "ignorePerms": false,
             "perms": [
               "i18n:lang:enabled"
+            ]
+          },
+          {
+            "method": "get",
+            "path": "/sourceCode",
+            "summary": "源语言编码（system.lang）",
+            "dts": {},
+            "tag": "",
+            "prefix": "/admin/i18n/lang",
+            "ignoreToken": false,
+            "ignorePerms": false,
+            "perms": [
+              "i18n:lang:sourceCode"
             ]
           },
           {
@@ -8142,6 +8178,17 @@
             "table": "i18n_lang"
           },
           {
+            "propertyName": "nameZh",
+            "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
+            "nullable": false,
+            "hasDefault": true,
+            "source": "a.nameZh",
+            "comment": "中文名称",
+            "table": "i18n_lang"
+          },
+          {
             "propertyName": "flag",
             "type": "string",
             "columnType": "PgVarchar",
@@ -8163,17 +8210,6 @@
             "comment": "状态",
             "table": "i18n_lang",
             "dict": "status"
-          },
-          {
-            "propertyName": "orderNum",
-            "type": "number",
-            "columnType": "PgInteger",
-            "sqlType": "integer",
-            "nullable": false,
-            "hasDefault": true,
-            "source": "a.orderNum",
-            "comment": "排序",
-            "table": "i18n_lang"
           },
           {
             "propertyName": "createTime",
@@ -8212,7 +8248,8 @@
         "pageQueryOp": {
           "keyWordLikeFields": [
             "a.code",
-            "a.name"
+            "a.name",
+            "a.nameZh"
           ],
           "fieldEq": [
             {
@@ -8222,7 +8259,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -8259,6 +8297,17 @@
             "table": "i18n_lang"
           },
           {
+            "propertyName": "nameZh",
+            "type": "string",
+            "columnType": "PgVarchar",
+            "sqlType": "varchar",
+            "nullable": false,
+            "hasDefault": true,
+            "source": "a.nameZh",
+            "comment": "中文名称",
+            "table": "i18n_lang"
+          },
+          {
             "propertyName": "flag",
             "type": "string",
             "columnType": "PgVarchar",
@@ -8280,17 +8329,6 @@
             "comment": "状态",
             "table": "i18n_lang",
             "dict": "status"
-          },
-          {
-            "propertyName": "orderNum",
-            "type": "number",
-            "columnType": "PgInteger",
-            "sqlType": "integer",
-            "nullable": false,
-            "hasDefault": true,
-            "source": "a.orderNum",
-            "comment": "排序",
-            "table": "i18n_lang"
           },
           {
             "propertyName": "createTime",
@@ -8388,7 +8426,7 @@
           {
             "method": "post",
             "path": "/ensureHostZh",
-            "summary": "同步语言包（宿主+全部插件原始包）",
+            "summary": "同步语言包（宿主+全部插件源语言包，system.lang）",
             "dts": {},
             "tag": "",
             "prefix": "/admin/i18n/pack",
@@ -8690,7 +8728,8 @@
           ],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -9197,6 +9236,9 @@
               "max": "endTime",
               "type": "day"
             }
+          ],
+          "ignoreFields": [
+            "password"
           ]
         },
         "pageColumns": [
@@ -9631,7 +9673,8 @@
               "max": "endTime",
               "type": "day"
             }
-          ]
+          ],
+          "ignoreFields": []
         },
         "pageColumns": [
           {
@@ -9776,7 +9819,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -9882,7 +9926,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -9922,7 +9967,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -9973,7 +10019,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -10021,6 +10068,17 @@
           },
           {
             "method": "get",
+            "path": "/suggestLocale",
+            "summary": "按 IP 建议初始语种",
+            "dts": {},
+            "tag": "",
+            "prefix": "/app/i18n/pack",
+            "ignoreToken": true,
+            "ignorePerms": false,
+            "perms": []
+          },
+          {
+            "method": "get",
             "path": "/plugin/locales",
             "summary": "插件语言包可切换语种",
             "dts": {},
@@ -10048,7 +10106,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -10090,7 +10149,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -10207,7 +10267,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -10423,7 +10484,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -10463,7 +10525,8 @@
           "fieldEq": [],
           "fieldLike": [],
           "fieldArray": [],
-          "fieldRange": []
+          "fieldRange": [],
+          "ignoreFields": []
         },
         "pageColumns": [],
         "dataI18n": false,
@@ -11129,82 +11192,6 @@
         "value": 1
       }
     ],
-    "yes_no_boolean": [
-      {
-        "id": 71,
-        "name": "否",
-        "label": "否",
-        "typeId": 12,
-        "parentId": null,
-        "orderNum": 0,
-        "value": false
-      },
-      {
-        "id": 72,
-        "name": "color",
-        "label": "color",
-        "typeId": 12,
-        "parentId": 71,
-        "orderNum": 0,
-        "value": "#DC2626"
-      },
-      {
-        "id": 74,
-        "name": "color",
-        "label": "color",
-        "typeId": 12,
-        "parentId": 73,
-        "orderNum": 0,
-        "value": "#4E5DFF"
-      },
-      {
-        "id": 73,
-        "name": "是",
-        "label": "是",
-        "typeId": 12,
-        "parentId": null,
-        "orderNum": 1,
-        "value": true
-      }
-    ],
-    "yes_no_number": [
-      {
-        "id": 75,
-        "name": "否",
-        "label": "否",
-        "typeId": 13,
-        "parentId": null,
-        "orderNum": 0,
-        "value": 0
-      },
-      {
-        "id": 76,
-        "name": "color",
-        "label": "color",
-        "typeId": 13,
-        "parentId": 75,
-        "orderNum": 0,
-        "value": "#DC2626"
-      },
-      {
-        "id": 78,
-        "name": "color",
-        "label": "color",
-        "typeId": 13,
-        "parentId": 77,
-        "orderNum": 0,
-        "value": "#4E5DFF"
-      },
-      {
-        "id": 77,
-        "name": "是",
-        "label": "是",
-        "typeId": 13,
-        "parentId": null,
-        "orderNum": 1,
-        "value": 1
-      }
-    ],
     "base_param_type": [
       {
         "id": 79,
@@ -11371,6 +11358,82 @@
         "parentId": null,
         "orderNum": 2,
         "value": 3
+      }
+    ],
+    "yes_no_boolean": [
+      {
+        "id": 71,
+        "name": "否",
+        "label": "否",
+        "typeId": 12,
+        "parentId": null,
+        "orderNum": 0,
+        "value": false
+      },
+      {
+        "id": 72,
+        "name": "color",
+        "label": "color",
+        "typeId": 12,
+        "parentId": 71,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 74,
+        "name": "color",
+        "label": "color",
+        "typeId": 12,
+        "parentId": 73,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 73,
+        "name": "是",
+        "label": "是",
+        "typeId": 12,
+        "parentId": null,
+        "orderNum": 1,
+        "value": true
+      }
+    ],
+    "yes_no_number": [
+      {
+        "id": 75,
+        "name": "否",
+        "label": "否",
+        "typeId": 13,
+        "parentId": null,
+        "orderNum": 0,
+        "value": 0
+      },
+      {
+        "id": 76,
+        "name": "color",
+        "label": "color",
+        "typeId": 13,
+        "parentId": 75,
+        "orderNum": 0,
+        "value": "#DC2626"
+      },
+      {
+        "id": 78,
+        "name": "color",
+        "label": "color",
+        "typeId": 13,
+        "parentId": 77,
+        "orderNum": 0,
+        "value": "#4E5DFF"
+      },
+      {
+        "id": 77,
+        "name": "是",
+        "label": "是",
+        "typeId": 13,
+        "parentId": null,
+        "orderNum": 1,
+        "value": 1
       }
     ]
   }

@@ -728,14 +728,14 @@ declare namespace Eps {
 		/** 语言名称 */
 		name?: string;
 
+		/** 中文名称 */
+		nameZh?: string;
+
 		/** 国旗 */
 		flag?: string;
 
 		/** 状态 */
 		status?: number;
-
-		/** 排序 */
-		orderNum?: number;
 
 		/** 创建时间 */
 		createTime?: string;
@@ -1593,6 +1593,9 @@ declare namespace Eps {
 		/** 启用语种列表 */
 		enabled(data?: any): Promise<any>;
 
+		/** 源语言编码（system.lang） */
+		sourceCode(data?: any): Promise<any>;
+
 		/** 新增 */
 		add(data?: any): Promise<any>;
 
@@ -1621,8 +1624,8 @@ declare namespace Eps {
 		import(data?: any): Promise<any>;
 
 		namespace: string;
-		permission: { enabled: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
-		_permission: { enabled: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
+		permission: { enabled: string; sourceCode: string; add: string; delete: string; update: string; info: string; list: string; page: string; restore: string; importTemplate: string; import: string };
+		_permission: { enabled: boolean; sourceCode: boolean; add: boolean; delete: boolean; update: boolean; info: boolean; list: boolean; page: boolean; restore: boolean; importTemplate: boolean; import: boolean };
 		request: Eps.Request;
 	}
 
@@ -1636,7 +1639,7 @@ declare namespace Eps {
 		/** 宿主中文源模板 */
 		hostSource(data?: any): Promise<any>;
 
-		/** 同步语言包（宿主+全部插件原始包） */
+		/** 同步语言包（宿主+全部插件源语言包，system.lang） */
 		ensureHostZh(data?: any): Promise<any>;
 
 		/** 读取插件原始语言包 */

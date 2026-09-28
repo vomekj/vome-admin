@@ -428,17 +428,24 @@ onUnmounted(() => {
 }
 
 .vm-login__logo {
+  box-sizing: border-box;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  width: 48px;
+  height: 48px;
   margin-right: 12px;
   padding: 5px;
   border-radius: 9px;
   background: var(--login-brand);
+  overflow: hidden;
 
   img {
+    display: block;
     width: 38px;
     height: 38px;
+    max-width: none;
     object-fit: contain;
   }
 }

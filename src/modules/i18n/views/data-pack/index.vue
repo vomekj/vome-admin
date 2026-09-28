@@ -8,7 +8,7 @@
       <vm-toolbar>
         <vm-action-btn
           icon="ri-translate-2"
-          label="AI 翻译"
+          :label="locale.t('i18n.translate', 'AI 翻译')"
           :loading="translating"
           :disabled="translating"
           @click="openTranslate"
@@ -24,47 +24,72 @@
     </vm-row>
     <vm-upsert ref="Upsert" />
 
-    <vm-dialog v-model="translateOpen" title="业务表 AI 翻译" width="480px">
-      <div class="vm-i18n-data-pack__form">
-        <label class="vm-i18n-data-pack__field">
-          <span>业务表</span>
-          <vm-select
-            v-model="translateForm.tableName"
-            :options="tableOptions"
-            placeholder="选择已配置字段的表"
-            width="100%"
-          />
-        </label>
-        <label class="vm-i18n-data-pack__field">
-          <span>目标语种</span>
-          <vm-select
-            v-model="translateForm.langCode"
-            :options="langOptions"
-            placeholder="选择语种"
-            width="100%"
-          />
-        </label>
-        <label class="vm-i18n-data-pack__field">
-          <span>模式</span>
-          <vm-select
-            v-model="translateForm.mode"
-            :options="modeOptions"
-            width="100%"
-          />
-        </label>
-      </div>
-      <template #footer>
-        <vm-button @click="translateOpen = false">取消</vm-button>
-        <vm-button
-          type="primary"
-          :loading="translating"
-          :disabled="translating"
-          @click="runTranslate"
-        >
-          开始翻译
-        </vm-button>
-      </template>
-    </vm-dialog>
+    <Dialog :open="translateOpen" @update:open="onTranslateOpenChange">
+      <DialogContent
+        shell="crud"
+        :show-close-button="false"
+        class="vm-i18n-data-pack__dialog"
+        @pointer-down-outside="preventDialogOutsideClose"
+        @focus-outside="preventDialogOutsideClose"
+        @interact-outside="preventDialogOutsideClose"
+      >
+        <DialogHeader class="vm-crud-shell__head">
+          <DialogTitle class="vm-crud-shell__title">业务表 AI 翻译</DialogTitle>
+          <DialogClose class="vm-crud-shell__close">
+            <i class="ri-close-line" />
+            <span class="sr-only">Close</span>
+          </DialogClose>
+        </DialogHeader>
+
+        <div class="vm-crud-shell__body vm-i18n-data-pack__form">
+          <div class="vm-i18n-data-pack__field">
+            <Label class="vm-i18n-data-pack__label">业务表</Label>
+            <vm-select
+              v-model="translateForm.tableName"
+              :options="tableOptions"
+              placeholder="选择已配置字段的表"
+              width="100%"
+            />
+          </div>
+          <div class="vm-i18n-data-pack__field">
+            <Label class="vm-i18n-data-pack__label">目标语种</Label>
+            <vm-select
+              v-model="translateForm.langCode"
+              :options="langOptions"
+              placeholder="选择语种"
+              width="100%"
+            />
+          </div>
+          <div class="vm-i18n-data-pack__field">
+            <Label class="vm-i18n-data-pack__label">模式</Label>
+            <vm-select
+              v-model="translateForm.mode"
+              :options="modeOptions"
+              width="100%"
+            />
+          </div>
+        </div>
+
+        <DialogFooter class="vm-crud-shell__foot">
+          <button
+            type="button"
+            class="vm-crud-shell__btn is-ghost"
+            :disabled="translating"
+            @click="translateOpen = false"
+          >
+            取消
+          </button>
+          <button
+            type="button"
+            class="vm-crud-shell__btn is-primary"
+            :disabled="translating"
+            @click="runTranslate"
+          >
+            {{ translating ? '翻译中…' : '开始翻译' }}
+          </button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   </vm-crud>
 </template>
 
@@ -72,10 +97,13 @@
 import { toast } from 'vue-sonner'
 import { isAiStreamResult } from '@core/admin/api/client'
 import { loadEnabledLangOptions } from '@core/admin/crud'
+import { preventDialogOutsideClose } from '@core/admin/lib/dialog-float'
+import { useLocaleStore } from '@/stores/locale'
 
 defineOptions({ name: 'i18n-data-pack' })
 
 const { service } = useVome()
+const locale = useLocaleStore()
 
 const translating = ref(false)
 const translateOpen = ref(false)
@@ -141,7 +169,13 @@ async function loadLangs() {
 }
 
 function openTranslate() {
+  if (translating.value) return
   translateOpen.value = true
+}
+
+function onTranslateOpenChange(v: boolean) {
+  if (translating.value && !v) return
+  translateOpen.value = v
 }
 
 async function runTranslate() {
@@ -204,17 +238,26 @@ async function runTranslate() {
 </script>
 
 <style scoped lang="scss">
+.vm-i18n-data-pack__dialog {
+  max-width: 480px;
+}
+
 .vm-i18n-data-pack__form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 18px 22px 16px;
 }
 
 .vm-i18n-data-pack__field {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 13px;
-  color: var(--vm-text-secondary);
+  min-width: 0;
+}
+
+.vm-i18n-data-pack__label {
+  font-size: 12px;
+  color: var(--muted-foreground);
 }
 </style>

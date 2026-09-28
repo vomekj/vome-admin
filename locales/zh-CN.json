@@ -357,5 +357,21 @@
     "syncPack": "同步语言包",
     "syncing": "同步中…",
     "langName": "语言名称"
+  },
+  "base": {
+    "user": {
+      "transfer": "转移",
+      "transferDept": "转移部门",
+      "transferring": "转让中…",
+      "transferHint": "已选 {0} 人，请选择目标部门",
+      "dept": "部门",
+      "roles": "角色（多选合并权限）",
+      "pickDept": "请选择部门"
+    },
+    "dict": {
+      "typeTitle": "类型",
+      "typeTrash": "类型回收站",
+      "addType": "新增类型"
+    }
   }
 }

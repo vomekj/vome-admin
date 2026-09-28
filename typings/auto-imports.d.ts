@@ -113,6 +113,7 @@ declare global {
   const useDict: typeof import('../src/stores/dict').useDict
   const useDictStore: typeof import('../src/stores/dict').useDictStore
   const useId: typeof import('vue').useId
+  const useImport: typeof import('@core/admin/crud/useCrud').useImport
   const useLink: typeof import('vue-router').useLink
   const useLocaleStore: typeof import('../src/stores/locale').useLocaleStore
   const useModel: typeof import('vue').useModel
@@ -257,6 +258,7 @@ declare module 'vue' {
     readonly useDict: UnwrapRef<typeof import('../src/stores/dict')['useDict']>
     readonly useDictStore: UnwrapRef<typeof import('../src/stores/dict')['useDictStore']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
+    readonly useImport: UnwrapRef<typeof import('@core/admin/crud/useCrud')['useImport']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useLocaleStore: UnwrapRef<typeof import('../src/stores/locale')['useLocaleStore']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
