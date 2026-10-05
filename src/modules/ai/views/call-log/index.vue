@@ -122,7 +122,7 @@ useTable({
     {
       prop: 'ok',
       width: 72,
-      dict: dict.options('status'),
+      dict: dict.options('yes_no_number'),
     },
     {
       prop: 'request',

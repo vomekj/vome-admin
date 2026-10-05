@@ -200,11 +200,7 @@ useUpsert({
     editorForm.model = chatModels.value[0]?.code || ''
     editorForm.mode = 'incremental'
     editorSourceHash.value = ''
-    if (data.packJson && typeof data.packJson === 'object') {
-      editorJson.value = data.packJson as Record<string, unknown>
-    } else {
-      editorJson.value = {}
-    }
+    editorJson.value = {}
     // 保证当前语种在选项中（Select 否则显示占位）
     if (
       editorForm.langCode &&
@@ -215,8 +211,10 @@ useUpsert({
         { label: editorForm.langCode, value: editorForm.langCode, native: editorForm.langCode },
       ]
     }
-    // 列表编辑已带包内容；新增打开时按语种拉取是否已有包
-    if (!editorId.value) {
+    // 列表不含 packJson；编辑按 id / 语种再查
+    if (editorId.value) {
+      void loadPackById(editorId.value)
+    } else {
       void loadPackByLang(editorForm.langCode)
     }
   },
@@ -251,7 +249,8 @@ useUpsert({
 async function loadLangOptions() {
   let raw: unknown = []
   try {
-    raw = await service.i18n.lang.enabled({ excludeSource: true })
+    // 语言包可编辑源语种（如 zh-CN），不可 excludeSource，否则只能回退显示 code
+    raw = await service.i18n.lang.enabled()
   } catch {
     raw = []
   }
@@ -281,7 +280,11 @@ async function loadLangOptions() {
   if (cur && !langOptions.value.some((o) => o.value === cur)) {
     langOptions.value = [
       ...langOptions.value,
-      { label: cur, value: cur, native: cur },
+      {
+        label: langNameMap.value[cur] || cur,
+        value: cur,
+        native: cur,
+      },
     ]
   }
 }
@@ -333,6 +336,30 @@ async function syncHostZh() {
     }
   } finally {
     syncingZh.value = false
+  }
+}
+
+/** 编辑：按 id 拉这一条语言包（含 packJson） */
+async function loadPackById(id: number) {
+  if (loadingLang.value) return
+  loadingLang.value = true
+  try {
+    const row = (await service.i18n.pack.info({ id })) as {
+      id?: number
+      packJson?: Record<string, unknown>
+      version?: number
+      sourceHash?: string
+    } | null
+    editorJson.value = (row?.packJson as Record<string, unknown>) ?? {}
+    editorForm.version = Number(row?.version || 0)
+    editorSourceHash.value = String(row?.sourceHash || '')
+  } catch (e) {
+    editorJson.value = {}
+    if (!(e as { toasted?: boolean }).toasted) {
+      toast.error(e instanceof Error ? e.message : '加载语言包失败')
+    }
+  } finally {
+    loadingLang.value = false
   }
 }
 
